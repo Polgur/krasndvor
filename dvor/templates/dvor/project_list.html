@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load thumbnail %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    {% for prj in project_list %}
+      <div class="col-lg-3">
+        <a href="{{ prj.get_absolute_url }}">
+          {% thumbnail prj.img "300x200" crop="80% top" format="PNG" as im %}
+            <img class="img-responsive" src="{{ im.url }}" alt="{{ im.title }}">
+          {% endthumbnail %}
+          <h4 class="text-center">{{ prj.name|title }}</h4>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
