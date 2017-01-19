@@ -8,8 +8,8 @@
        <div class="container">
          <div class="row vcenter">
            <div class="col-lg-3" style="height: 115px">
-<!--               <a class="navbar-brand" href="{% url 'main_page' %}"><img src="{% static "logo.png" %}" width="128" height="100" alt="Красный двор"></a>  -->
-               <a class="navbar-brand" href="{% url 'main_page' %}"><img src="{% static "logo.png" %}" width="185" height="145" alt="Красный двор"></a>
+<!--               <a class="navbar-brand" href="{% url 'index_page' %}"><img src="{% static "logo.png" %}" width="128" height="100" alt="Красный двор"></a>  -->
+               <a class="navbar-brand" href="{% url 'index_page' %}"><img src="{% static "logo.png" %}" width="185" height="145" alt="Красный двор"></a>
            </div>
 
           <div class="col-lg-3">
@@ -47,7 +47,7 @@
      <!-- Collect the nav links, forms, and other content for toggling -->
      <div class="collapse navbar-collapse" id="navbar-collapse-3">
        <ul class="nav navbar-nav">
-         <li class="active"><a href="{% url 'main_page' %}">Главная</a></li>
+         <li class="active"><a href="{% url 'index_page' %}">Главная</a></li>
          <li class="dropdown">
            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Технологии<span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -68,11 +68,11 @@
            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Информация<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="#">Вопросы и ответы</a></li>
-            <li><a href="#">Статьи</a></li>
+            <li><a href="{% url 'article_list' %}">Статьи</a></li>
           </ul>
          </li>
-         <li><a href="{% url 'main_page' %}">Отзывы</a></li>
-         <li><a href="{% url 'main_page' %}">Контакты</a></li>
+         <li><a href="{% url 'index_page' %}">Отзывы</a></li>
+         <li><a href="{% url 'index_page' %}">Контакты</a></li>
        </ul>
      </div><!-- /.navbar-collapse -->
    </div><!-- /.container -->

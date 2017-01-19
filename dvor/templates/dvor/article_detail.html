@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+  <div class="container">
+    <div class="row">
+        <div class="col-lg-9">
+          <h2>{{ article.name|title }}</h2>
+          {{ article.body }}
+        </div>
+    </div>
+  </div>
+{% endblock %}

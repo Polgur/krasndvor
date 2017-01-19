@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+  <div class="container">
+    <div class="row">
+      {% for art in article_list %}
+        <div class="col-lg-9">
+          <a href="{{ art.get_absolute_url }}">
+            <h4 class="text-left">{{ art.name|title }}</h4>
+          </a>
+          <div class="well"><p>{{ art.description }}</p></div>
+          <div class="margin-8"></div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+
+  {% if is_paginated %}
+    <nav>
+      <ul class="pagination">
+        {% if page_obj.has_previous %}
+          <li><a href="?page={{ page_obj.previous_page_number }}">
+              <span><</span>
+            </a>
+          </li>
+        {% else %}
+          <li class="disabled">
+            <a href="#">
+              <span><</span>
+            </a>
+          </li>
+        {% endif %}
+
+        {% for page in paginator.page_range %}
+          <li {% if page == page_obj.number %}class="active"{% endif %}>
+            <a href="?page={{ page }}">{{ page }}</a>
+          </li>
+        {% endfor %}
+
+        {% if page_obj.has_next %}
+          <li>
+            <a href="?page={{ page_obj.next_page_number }}">
+              <span>></span>
+            </a>
+          </li>
+        {% else %}
+          <li {% if not page_obj.has_next %}class="disabled"{% endif %}>
+            <a href="#">
+              <span>></span>
+            </a>
+          </li>
+        {% endif %}
+      </ul>
+    </nav>
+  {% endif %}
+
+{% endblock %}
