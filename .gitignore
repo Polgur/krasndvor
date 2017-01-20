@@ -1,5 +1,5 @@
-\.idea
-\extra
-\media
-\public_html
+.idea/
+extra/
+media/
+public_html/
 local_settings.py
