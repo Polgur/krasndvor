@@ -2,6 +2,7 @@ from django.db import models
 from django.core.urlresolvers import reverse
 from sorl.thumbnail import ImageField
 from django.utils import timezone
+from ckeditor.fields import RichTextField
 
 class Techno(models.Model):
     mnemo = models.CharField(max_length=16, unique=True)
@@ -18,7 +19,7 @@ class Project(models.Model):
     name = models.CharField(max_length=25, unique=True)
     slug = models.SlugField()
     techs = models.ManyToManyField(Techno)
-    img  = models.ImageField(upload_to='projects')
+    img  = ImageField(upload_to='projects')
     size = models.CharField(max_length=25)
     square = models.PositiveSmallIntegerField
     price = models.IntegerField
@@ -35,14 +36,30 @@ class Project(models.Model):
         return reverse('project_detail',
                        kwargs={'slug': self.slug})
 
+class PrjPhoto(models.Model):
+    prn = models.ForeignKey(Project, related_name='Photos')
+    type_choices = (
+        (1, 'Вид'),
+        (2, 'План 1 этажа'),
+        (3, 'План 2 этажа'),
+    )
+    type = models.SmallIntegerField(choices=type_choices)
+    img = ImageField(upload_to='projects')
+
+    def __str__(self):
+        return self.prn.name.title()
+
+    class Meta:
+        verbose_name = 'Фото проекта'
+        verbose_name_plural = 'Фото проекта'
 
 class Article(models.Model):
     name = models.CharField(max_length=100, unique=True)
     slug = models.SlugField()
     techs = models.ManyToManyField(Techno)
     publish = models.DateTimeField(default=timezone.now)
-    description = models.TextField()
-    body = models.TextField()
+    description = RichTextField()
+    body = RichTextField()
 
     class Meta:
         verbose_name = 'Статья'

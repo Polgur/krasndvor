@@ -9,7 +9,7 @@
           <a href="{{ art.get_absolute_url }}">
             <h4 class="text-left">{{ art.name|title }}</h4>
           </a>
-          <div class="well"><p>{{ art.description }}</p></div>
+          <div class="well"><p>{{ art.description|safe }}</p></div>
           <div class="margin-8"></div>
         </div>
       {% endfor %}

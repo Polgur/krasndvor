@@ -15,7 +15,7 @@ class ProjectList(ListView):
     paginate_by = 18
 
 class ProjectDetail(DetailView):
-    queryset = Project.objects.all()
+    queryset = Project.objects.all().prefetch_related('Photos')
 
 class ArticleList(ListView):
     model = Article
