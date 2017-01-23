@@ -1,8 +1,21 @@
 from django.contrib import admin
 
-from .models import Techno, Project, PrjPhoto, Article
+from .models import Techno, Project, PrjPhoto, PrjKit, Article
+
+class PrjPhotoInline(admin.StackedInline):
+    model = PrjPhoto
+
+class PrjKitInline(admin.StackedInline):
+    model = PrjKit
+
+
+class ProjectAdmin(admin.ModelAdmin):
+    inlines = [
+        PrjPhotoInline,
+        PrjKitInline,
+    ]
 
 admin.site.register(Techno)
-admin.site.register(Project)
+admin.site.register(Project,ProjectAdmin)
 admin.site.register(PrjPhoto)
 admin.site.register(Article)

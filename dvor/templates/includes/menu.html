@@ -54,14 +54,42 @@
             <li><a href="#">Термопанели</a></li>
             <li><a href="#">СИП панели</a></li>
             <li><a href="#">Каркасные</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Реконструкции</a></li>
+            <li><a href="#">Фундаменты</a></li>
+            <li><a href="#">Ремонт и отделка</a></li>
           </ul>
          </li>
          <li class="dropdown">
            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Проекты<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">До 100 КВ.М</a></li>
-            <li><a href="#">От 100 до 150 КВ.М</a></li>
-            <li><a href="#">Свыше 150 КВ.М</a></li>
+            <li class="dropdown-submenu">
+              <a tabindex="-1" href="{% url 'project_list' %}">Термопанели</a>
+              <ul class="dropdown-menu">
+                <li><a href="#">До 100 КВ.М</a></li>
+                <li><a href="#">От 100 до 150 КВ.М</a></li>
+                <li><a href="#">Свыше 150 КВ.М</a></li>
+              </ul>
+            </li>
+            <li class="dropdown-submenu">
+              <a tabindex="-1" href="{% url 'project_list' %}">СИП панели</a>
+              <ul class="dropdown-menu">
+                <li><a href="#">До 100 КВ.М</a></li>
+                <li><a href="#">От 100 до 150 КВ.М</a></li>
+                <li><a href="#">Свыше 150 КВ.М</a></li>
+              </ul>
+            </li>
+            <li class="dropdown-submenu">
+              <a tabindex="-1" href="{% url 'project_list' %}">Каркасные</a>
+              <ul class="dropdown-menu">
+                <li><a href="#">До 100 КВ.М</a></li>
+                <li><a href="#">От 100 до 150 КВ.М</a></li>
+                <li><a href="#">Свыше 150 КВ.М</a></li>
+              </ul>
+            </li>
+            <li class="divider"></li>
+            <li><a href="#">Бани</a></li>
+            <li><a href="#">Дуплексы</a></li>
           </ul>
          </li>
          <li class="dropdown">
