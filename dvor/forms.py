@@ -18,6 +18,6 @@ class ProjectFilterForm (forms.Form):
     pmax = forms.IntegerField(label='до',required=True)
     smin = forms.IntegerField(label='Площадь от',required=True)
     smax = forms.IntegerField(label='до',required=True)
-    tech = forms.ChoiceField(choices = tech_choices, label='Технология', widget=forms.Select(), required=True)
-    vid  = forms.ChoiceField(choices = vid_choices, label='Тип', widget=forms.Select(), required=True)
+    tech = forms.ChoiceField(choices = tech_choices, label='Технология', required=True)
+    vid  = forms.ChoiceField(choices = vid_choices, label='Тип', required=True)
     search = forms.CharField(widget = forms.HiddenInput(), required = False, initial = 1)
