@@ -1,10 +1,7 @@
 from django import forms
+from .models import Techno
 
-tech_choices = (
-    (1, 'Термопанели'),
-    (2, 'СИП панели'),
-    (3, 'Каркасные'),
-)
+
 vid_choices = (
     (0, 'Любые'),
     (1, 'Коттедж'),
@@ -18,6 +15,6 @@ class ProjectFilterForm (forms.Form):
     pmax = forms.IntegerField(label='до',required=True)
     smin = forms.IntegerField(label='Площадь от',required=True)
     smax = forms.IntegerField(label='до',required=True)
-    tech = forms.ChoiceField(choices = tech_choices, label='Технология', required=True)
+    tech = forms.ModelChoiceField(queryset = Techno.objects.filter(main=True),label = 'Технология',empty_label=None,required=False)
     vid  = forms.ChoiceField(choices = vid_choices, label='Тип', required=True)
     search = forms.CharField(widget = forms.HiddenInput(), required = False, initial = 1)

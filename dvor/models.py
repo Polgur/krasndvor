@@ -7,13 +7,14 @@ from ckeditor.fields import RichTextField
 class Techno(models.Model):
     mnemo = models.CharField(max_length=16, unique=True)
     name = models.CharField(max_length=40, unique=True)
+    main = models.BooleanField()
 
     class Meta:
         verbose_name = 'Технология'
         verbose_name_plural = 'Технологии'
 
     def __str__(self):
-        return self.name.title()
+        return self.mnemo.title()
 
 class Project(models.Model):
     name = models.CharField(max_length=25, unique=True)

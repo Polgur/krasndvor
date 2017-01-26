@@ -20,6 +20,13 @@
                 {% endthumbnail %}
                 <h4 class="text-center">{{ prj.name|title }}</h4>
               </a>
+              {% for kit in prj.kits.all %}
+                {% if request.GET.tech and kit.tech.pk == request.GET.tech %}
+                  {{ kit.price1 }}
+                {% elif kit.tech.pk == techfilter.pk%}
+                  {{ kit.price1 }}
+                {% endif %}
+              {% endfor %}
             </div>
           {% endfor %}
         </div>
