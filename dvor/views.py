@@ -2,9 +2,11 @@ from django.shortcuts import render
 from django.views.generic import ListView, DetailView, TemplateView
 from .models import Project, Article, Techno
 from .forms import ProjectFilterForm
+from .utils import MenuMixin
 
 # Create your views here.
-class IndexPage(TemplateView):
+class IndexPage(MenuMixin,TemplateView):
+    menu_slug = 'home'
     template_name = 'dvor/index.html'
 
     def get_context_data(self, **kwargs):
@@ -13,10 +15,11 @@ class IndexPage(TemplateView):
         return ctx
 
 
-class ProjectList(ListView):
+class ProjectList(MenuMixin,ListView):
     model = Project
     techfilter = None
     paginate_by = 18
+    menu_slug = 'projects'
 
     search_form_class = ProjectFilterForm
     search_form = None
@@ -37,7 +40,6 @@ class ProjectList(ListView):
                     self.techfilter = Techno.objects.filter(mnemo='Термопанели')
                     self.queryset = self.queryset.filter(techs=self.techfilter)
         else:
-            self.techfilter = Techno.objects.filter(mnemo='Термопанели')
             self.search_form = self.search_form_class()
         return super().get(request, *args, **kwargs)
 

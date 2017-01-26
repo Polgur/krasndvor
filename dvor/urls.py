@@ -1,5 +1,4 @@
 from django.conf.urls import url
-from . import views
 from .views import IndexPage, ProjectList, ProjectDetail, ArticleList, ArticleDetail
 from django.conf import settings
 from django.views.static import serve
