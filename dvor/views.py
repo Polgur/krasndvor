@@ -1,8 +1,10 @@
+from django.http import Http404
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, TemplateView
 from .models import Project, Article, Techno
 from .forms import ProjectFilterForm
 from .utils import MenuMixin
+
 
 # Create your views here.
 class IndexPage(MenuMixin,TemplateView):
@@ -37,9 +39,10 @@ class ProjectList(MenuMixin,ListView):
                     self.techfilter = self.search_form.cleaned_data.get('tech')
                     self.queryset = self.queryset.filter(techs=self.search_form.cleaned_data.get('tech'))
                 else:
-                    self.techfilter = Techno.objects.filter(mnemo='Термопанели')
+                    self.techfilter = Techno.objects.filter(mnemo='Термопанели').first()
                     self.queryset = self.queryset.filter(techs=self.techfilter)
         else:
+            self.techfilter = Techno.objects.filter(mnemo='Термопанели').first()
             self.search_form = self.search_form_class()
         return super().get(request, *args, **kwargs)
 
@@ -49,9 +52,18 @@ class ProjectList(MenuMixin,ListView):
         ctx['techfilter'] = self.techfilter
         return ctx
 
-
 class ProjectDetail(DetailView):
-    queryset = Project.objects.all().prefetch_related('photos')
+    template_name = 'dvor/project_detail.html'
+
+    def get_object(self, queryset=None):
+        try:
+            project = Project.objects.prefetch_related('photos').get(slug=self.kwargs.get('slug'),
+            techs__pk = self.request.GET.get('tech'))
+            return project
+        except Project.DoesNotExist:
+            raise Http404('Проект не найден')
+
+
 
 class ArticleList(ListView):
     model = Article

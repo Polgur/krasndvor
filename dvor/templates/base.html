@@ -1,4 +1,6 @@
 {% load staticfiles %}
+{% load menu_tags %}
+
 <!DOCTYPE html>
 <html class="no-js" lang="en-US" prefix="og: http://ogp.me/ns#">
 <head>
@@ -40,7 +42,7 @@ screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
 
 <body>
 
-  {% include "includes/menu.html" %}
+  {% menu_render request menu_slug_list %}
 
   <div class="container main__container" style="min-height: 100%">
     <div class="row">

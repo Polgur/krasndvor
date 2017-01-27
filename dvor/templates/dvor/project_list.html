@@ -14,12 +14,19 @@
         <div class="row">
           {% for prj in project_list %}
             <div class="col-lg-4">
-              <a href="{{ prj.get_absolute_url }}">
+              <a href="
+                {% if request.GET.tech %}
+                  {% url 'project_detail' prj.slug %}?tech={{request.GET.tech}}
+                {% else %}
+                  {% url 'project_detail' prj.slug %}?tech={{techfilter.pk}}
+                {% endif %}
+              ">
                 {% thumbnail prj.img "300x200" crop="80% top" format="PNG" as im %}
                   <img class="img-responsive" src="{{ im.url }}" alt="{{ im.title }}">
                 {% endthumbnail %}
                 <h4 class="text-center">{{ prj.name|title }}</h4>
               </a>
+
               {% for kit in prj.kits.all %}
                 {% if request.GET.tech and kit.tech.pk == request.GET.tech %}
                   {{ kit.price1 }}
