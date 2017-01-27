@@ -10,10 +10,10 @@
   </form>
   <div class="container">
     <div class="row">
-      <div class="col-lg-9">
+      <div class="col-sm-9">
         <div class="row">
           {% for prj in project_list %}
-            <div class="col-lg-4">
+            <div class="col-sm-6 col-md-4">
               <a class="domlink" href="
                 {% if request.GET.tech %}
                   {% url 'project_detail' prj.slug %}?tech={{request.GET.tech}}
@@ -21,7 +21,7 @@
                   {% url 'project_detail' prj.slug %}?tech={{techfilter.pk}}
                 {% endif %}
               ">
-                {% thumbnail prj.img "300x200" crop="80% top" format="PNG" as im %}
+                {% thumbnail prj.img "262x175" crop="80% top" format="PNG" as im %}
                   <img class="img-responsive" src="{{ im.url }}" alt="{{ im.title }}">
                 {% endthumbnail %}
                 {{ prj.name|title }}
