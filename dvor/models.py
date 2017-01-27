@@ -8,6 +8,7 @@ class Techno(models.Model):
     mnemo = models.CharField(max_length=16, unique=True)
     name = models.CharField(max_length=40, unique=True)
     main = models.BooleanField()
+    show_in_menu = models.BooleanField()
 
     class Meta:
         verbose_name = 'Технология'

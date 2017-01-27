@@ -14,7 +14,7 @@
         <div class="row">
           {% for prj in project_list %}
             <div class="col-lg-4">
-              <a href="
+              <a class="domlink" href="
                 {% if request.GET.tech %}
                   {% url 'project_detail' prj.slug %}?tech={{request.GET.tech}}
                 {% else %}
@@ -24,16 +24,26 @@
                 {% thumbnail prj.img "300x200" crop="80% top" format="PNG" as im %}
                   <img class="img-responsive" src="{{ im.url }}" alt="{{ im.title }}">
                 {% endthumbnail %}
-                <h4 class="text-center">{{ prj.name|title }}</h4>
+                {{ prj.name|title }}
               </a>
-
-              {% for kit in prj.kits.all %}
-                {% if request.GET.tech and kit.tech.pk == request.GET.tech %}
-                  {{ kit.price1 }}
-                {% elif kit.tech.pk == techfilter.pk%}
-                  {{ kit.price1 }}
-                {% endif %}
-              {% endfor %}
+              <div class="dom_char">
+                <div class="square">
+                  <i class="glyphicon glyphicon-home"></i>
+                  {{ prj.square }}   кв.м.
+                </div>
+                <div class="pricedom">
+                  <span class="label label-info price">
+                    {% for kit in prj.kits.all %}
+                      {% if request.GET.tech and kit.tech.pk == request.GET.tech %}
+                        {{ kit.price1 }} р
+                      {% elif kit.tech.pk == techfilter.pk%}
+                        {{ kit.price1 }} р
+                      {% endif %}
+                    {% endfor %}
+                  </span>
+                </div>
+              </div>
+              <div class="margin-8"></div>
             </div>
           {% endfor %}
         </div>

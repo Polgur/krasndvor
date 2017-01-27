@@ -50,17 +50,35 @@
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="container">
+      <div class="row">
       <div class="collapse navbar-collapse" id="navbar-collapse-3">
         <ul class="nav navbar-nav">
           {% for item in menu %}
             {% if item.submenu %}
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle{% if menu_slug == item.slug %} active{% endif %}"
+              <li class="dropdown {% if menu_slug == item.slug %} active{% endif %}">
+                <a href="#" class="dropdown-toggle"
                    data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ item.name }}<span
                     class="caret"></span></a>
                 <ul class="dropdown-menu">
                   {% for subitem in item.submenu %}
-                    <li><a href="{{ subitem.url }}">{{ subitem.name }}</a></li>
+                    {% if subitem.name == 'divider' %}
+                      <li class="divider"></li>
+                    {% elif subitem.submenu %}
+                      <li class="dropdown-submenu">
+                        <a tabindex="-1" href="{{ subitem.url }}">{{ subitem.name }}</a>
+                          <ul class="dropdown-menu">
+                            {% for subitem_lvl2 in subitem.submenu %}
+                              {% if subitem_lvl2.name == 'divider' %}
+                                <li class="divider"></li>
+                              {% else %}
+                                <li><a href="{{ subitem_lvl2.url }}">{{ subitem_lvl2.name }}</a></li>
+                              {% endif %}
+                            {% endfor %}
+                          </ul>
+                    {% else %}
+                      <li><a href="{{ subitem.url }}">{{ subitem.name }}</a></li>
+                    {% endif %}
                   {% endfor %}
                 </ul>
               </li>
@@ -71,6 +89,8 @@
           {% endfor %}
         </ul>
       </div><!-- /.navbar-collapse -->
+      </div>
+      </div>
     </div><!-- /.container -->
   </nav><!-- /.navbar -->
 </div><!-- /.fluid -->

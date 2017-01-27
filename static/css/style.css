@@ -66,6 +66,11 @@ body {
 .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:focus, .navbar-inverse .navbar-nav > .active > a:hover {
     background-color: #15065a;
 }
+ul.nav{
+    float:none !important;
+    width:570px;
+    margin:0 auto;
+}
 .dropdown-menu {
     background-color: #090332;
 }
@@ -132,4 +137,23 @@ body {
     -webkit-border-radius: 6px 0 6px 6px;
     -moz-border-radius: 6px 0 6px 6px;
     border-radius: 6px 0 6px 6px;
+}
+div.square {
+    float: left;
+    width: 131px;
+    font-size: 20px;
+}
+div.pricedom {
+    float: right;
+    width: 131px;
+    font-size: 20px;
+    text-align: right;
+}
+.domlink {
+    font-size: 22px;
+    text-align: center;
+}
+.margin-8 {
+	margin-top: 8%;
+    height: 20px;
 }

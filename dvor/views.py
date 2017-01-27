@@ -57,17 +57,30 @@ class ProjectDetail(DetailView):
 
     def get_object(self, queryset=None):
         try:
-            project = Project.objects.prefetch_related('photos').get(slug=self.kwargs.get('slug'),
-            techs__pk = self.request.GET.get('tech'))
+            if self.request.GET.get('tech'):
+                project = Project.objects.prefetch_related('photos').get(slug=self.kwargs.get('slug'),
+                techs__pk = self.request.GET.get('tech'))
+            else:
+                techfilter = Techno.objects.filter(mnemo='Термопанели').first()
+                project = Project.objects.prefetch_related('photos').get(slug=self.kwargs.get('slug'),
+                techs__pk=techfilter.pk)
             return project
         except Project.DoesNotExist:
             raise Http404('Проект не найден')
 
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+        if self.request.GET.get('tech'):
+            self.tech = Techno.objects.filter(pk=self.request.GET.get('tech')).first()
+        else:
+            self.tech = Techno.objects.filter(mnemo='Термопанели').first()
+        ctx['kit'] = self.object.kits.filter(tech=self.tech).first()
+        return ctx
 
-
-class ArticleList(ListView):
+class ArticleList(MenuMixin,ListView):
     model = Article
     paginate_by = 10
+    menu_slug = 'info'
 
 class ArticleDetail(DetailView):
     model = Article

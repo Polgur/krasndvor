@@ -592,7 +592,8 @@ CREATE TABLE dvor_techno (
     id integer NOT NULL,
     mnemo character varying(16) NOT NULL,
     name character varying(40) NOT NULL,
-    main boolean NOT NULL
+    main boolean NOT NULL,
+    show_in_menu boolean NOT NULL
 );
 
 
@@ -829,7 +830,7 @@ SELECT pg_catalog.setval('auth_permission_id_seq', 42, true);
 --
 
 COPY auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) FROM stdin;
-1	pbkdf2_sha256$30000$eFoTZv3MQ7CI$70Y8/tju6DQXGh3pcp9nv9zUtLohR8Ki3TgClB00Q8Q=	2017-01-15 08:14:46.38957+00	t	Polgur			polgur@inbox.ru	t	t	2017-01-15 08:13:55.521197+00
+1	pbkdf2_sha256$30000$eFoTZv3MQ7CI$70Y8/tju6DQXGh3pcp9nv9zUtLohR8Ki3TgClB00Q8Q=	2017-01-27 05:29:12.834952+00	t	Polgur			polgur@inbox.ru	t	t	2017-01-15 08:13:55.521197+00
 \.
 
 
@@ -900,6 +901,13 @@ COPY django_admin_log (id, action_time, object_id, object_repr, action_flag, cha
 37	2017-01-25 15:36:35.41391+00	4	Дачи	2	[{"changed": {"fields": ["main"]}}]	12	1
 38	2017-01-25 16:01:49.876058+00	4	Спасское	2	[{"added": {"name": "\\u041a\\u043e\\u043c\\u043f\\u043b\\u0435\\u043a\\u0442\\u0430\\u0446\\u0438\\u044f", "object": "PrjKit object"}}]	7	1
 39	2017-01-25 16:16:45.679542+00	4	Спасское	2	[{"added": {"object": "PrjKit object", "name": "\\u041a\\u043e\\u043c\\u043f\\u043b\\u0435\\u043a\\u0442\\u0430\\u0446\\u0438\\u044f"}}, {"added": {"object": "PrjKit object", "name": "\\u041a\\u043e\\u043c\\u043f\\u043b\\u0435\\u043a\\u0442\\u0430\\u0446\\u0438\\u044f"}}]	7	1
+40	2017-01-27 05:29:30.644218+00	4	Дачи	2	[{"changed": {"fields": ["show_in_menu"]}}]	12	1
+41	2017-01-27 05:29:34.31159+00	5	Бани	2	[{"changed": {"fields": ["show_in_menu"]}}]	12	1
+42	2017-01-27 10:47:56.240956+00	5	Саввино	2	[{"added": {"name": "\\u041a\\u043e\\u043c\\u043f\\u043b\\u0435\\u043a\\u0442\\u0430\\u0446\\u0438\\u044f", "object": "PrjKit object"}}, {"added": {"name": "\\u041a\\u043e\\u043c\\u043f\\u043b\\u0435\\u043a\\u0442\\u0430\\u0446\\u0438\\u044f", "object": "PrjKit object"}}, {"added": {"name": "\\u041a\\u043e\\u043c\\u043f\\u043b\\u0435\\u043a\\u0442\\u0430\\u0446\\u0438\\u044f", "object": "PrjKit object"}}]	7	1
+43	2017-01-27 10:49:20.958873+00	3	Жевнево	2	[{"added": {"name": "\\u041a\\u043e\\u043c\\u043f\\u043b\\u0435\\u043a\\u0442\\u0430\\u0446\\u0438\\u044f", "object": "PrjKit object"}}, {"added": {"name": "\\u041a\\u043e\\u043c\\u043f\\u043b\\u0435\\u043a\\u0442\\u0430\\u0446\\u0438\\u044f", "object": "PrjKit object"}}, {"added": {"name": "\\u041a\\u043e\\u043c\\u043f\\u043b\\u0435\\u043a\\u0442\\u0430\\u0446\\u0438\\u044f", "object": "PrjKit object"}}]	7	1
+44	2017-01-27 10:50:40.41389+00	4	Спасское	2	[{"changed": {"name": "\\u041a\\u043e\\u043c\\u043f\\u043b\\u0435\\u043a\\u0442\\u0430\\u0446\\u0438\\u044f", "object": "PrjKit object", "fields": ["price1", "price2"]}}, {"changed": {"name": "\\u041a\\u043e\\u043c\\u043f\\u043b\\u0435\\u043a\\u0442\\u0430\\u0446\\u0438\\u044f", "object": "PrjKit object", "fields": ["price1", "price2"]}}, {"changed": {"name": "\\u041a\\u043e\\u043c\\u043f\\u043b\\u0435\\u043a\\u0442\\u0430\\u0446\\u0438\\u044f", "object": "PrjKit object", "fields": ["price1", "price2"]}}]	7	1
+45	2017-01-27 10:51:38.343008+00	7	Ивино	2	[{"added": {"name": "\\u041a\\u043e\\u043c\\u043f\\u043b\\u0435\\u043a\\u0442\\u0430\\u0446\\u0438\\u044f", "object": "PrjKit object"}}, {"added": {"name": "\\u041a\\u043e\\u043c\\u043f\\u043b\\u0435\\u043a\\u0442\\u0430\\u0446\\u0438\\u044f", "object": "PrjKit object"}}, {"added": {"name": "\\u041a\\u043e\\u043c\\u043f\\u043b\\u0435\\u043a\\u0442\\u0430\\u0446\\u0438\\u044f", "object": "PrjKit object"}}]	7	1
+46	2017-01-27 10:52:35.962609+00	6	Назарово	2	[{"added": {"name": "\\u041a\\u043e\\u043c\\u043f\\u043b\\u0435\\u043a\\u0442\\u0430\\u0446\\u0438\\u044f", "object": "PrjKit object"}}, {"added": {"name": "\\u041a\\u043e\\u043c\\u043f\\u043b\\u0435\\u043a\\u0442\\u0430\\u0446\\u0438\\u044f", "object": "PrjKit object"}}, {"added": {"name": "\\u041a\\u043e\\u043c\\u043f\\u043b\\u0435\\u043a\\u0442\\u0430\\u0446\\u0438\\u044f", "object": "PrjKit object"}}]	7	1
 \.
 
 
@@ -907,7 +915,7 @@ COPY django_admin_log (id, action_time, object_id, object_repr, action_flag, cha
 -- Name: django_admin_log_id_seq; Type: SEQUENCE SET; Schema: public; Owner: kd_admin
 --
 
-SELECT pg_catalog.setval('django_admin_log_id_seq', 39, true);
+SELECT pg_catalog.setval('django_admin_log_id_seq', 46, true);
 
 
 --
@@ -968,6 +976,7 @@ COPY django_migrations (id, app, name, applied) FROM stdin;
 26	dvor	0010_auto_20170122_1559	2017-01-22 16:00:26.196904+00
 27	dvor	0011_auto_20170123_1438	2017-01-23 14:38:44.920174+00
 28	dvor	0012_techno_main	2017-01-25 15:35:10.880094+00
+29	dvor	0013_techno_show_in_menu	2017-01-27 05:28:36.146731+00
 \.
 
 
@@ -975,7 +984,7 @@ COPY django_migrations (id, app, name, applied) FROM stdin;
 -- Name: django_migrations_id_seq; Type: SEQUENCE SET; Schema: public; Owner: kd_admin
 --
 
-SELECT pg_catalog.setval('django_migrations_id_seq', 28, true);
+SELECT pg_catalog.setval('django_migrations_id_seq', 29, true);
 
 
 --
@@ -984,6 +993,7 @@ SELECT pg_catalog.setval('django_migrations_id_seq', 28, true);
 
 COPY django_session (session_key, session_data, expire_date) FROM stdin;
 cni2gk1afzy752s7tjkoibtifc3jeotv	ZjZjNGY3ZDJmMmFiNjRiYjkzZTBmYzYzMDQzNGE3MWZkNWNiNTgyYTp7Il9hdXRoX3VzZXJfaGFzaCI6ImQ1MWMzNzM1NDNlZWViMWJhMTUyNDVmNTliMThkNjI2MTc3YzYwMDUiLCJfYXV0aF91c2VyX2lkIjoiMSIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIn0=	2017-01-29 08:14:46.392226+00
+x7354hmex924z2xg4us2je5ibo9v6jg6	Yjc1MmIxOTljMWRkYWE1NWM5N2EzM2EyMGI4YmZiODhjMjJkYmE4ZTp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJkNTFjMzczNTQzZWVlYjFiYTE1MjQ1ZjU5YjE4ZDYyNjE3N2M2MDA1In0=	2017-02-10 05:29:12.847546+00
 \.
 
 
@@ -1030,9 +1040,21 @@ SELECT pg_catalog.setval('dvor_article_techs_id_seq', 6, true);
 --
 
 COPY dvor_prjkit (id, price1, price2, kit1, kit2, prn_id, tech_id) FROM stdin;
-1	111	123	<p>ff</p>	<p>ff</p>	4	1
-2	150	160	<p>11</p>	<p>11</p>	4	2
-3	170	190	<p>11</p>	<p>11</p>	4	3
+4	1135000	1140000	<p>11</p>	<p>11</p>	5	1
+5	1147000	1152000	<p>11</p>	<p>11</p>	5	2
+6	1160000	1165000	<p>11</p>	<p>11</p>	5	3
+7	1164000	1169000	<p>11</p>	<p>11</p>	3	1
+8	1175000	1179000	<p>11</p>	<p>11</p>	3	2
+9	1200000	1210000	<p>11</p>	<p>11</p>	3	3
+1	1250000	1260000	<p>ff</p>	<p>ff</p>	4	1
+2	1265000	1270000	<p>11</p>	<p>11</p>	4	2
+3	1273000	1280000	<p>11</p>	<p>11</p>	4	3
+10	1420000	1425000	<p>11</p>	<p>11</p>	7	1
+11	1432000	1438000	<p>11</p>	<p>11</p>	7	2
+12	1440000	1445000	<p>1</p>	<p>1</p>	7	3
+13	1190000	1195000	<p>1</p>	<p>1</p>	6	1
+14	1200000	1210000	<p>1</p>	<p>1</p>	6	2
+15	1215000	1219000	<p>1</p>	<p>1</p>	6	3
 \.
 
 
@@ -1040,7 +1062,7 @@ COPY dvor_prjkit (id, price1, price2, kit1, kit2, prn_id, tech_id) FROM stdin;
 -- Name: dvor_prjkit_id_seq; Type: SEQUENCE SET; Schema: public; Owner: kd_admin
 --
 
-SELECT pg_catalog.setval('dvor_prjkit_id_seq', 3, true);
+SELECT pg_catalog.setval('dvor_prjkit_id_seq', 15, true);
 
 
 --
@@ -1069,11 +1091,11 @@ SELECT pg_catalog.setval('dvor_prjphoto_id_seq', 6, true);
 --
 
 COPY dvor_project (id, name, slug, img, size, description, price, square, tech, vid) FROM stdin;
-3	Жевнево	jevnevo	projects/jevnevo.jpg	7 х 8	Вместительный одноэтажный дом, в котором, несмотря на небольшую площадь, удачно расположились: три полноценные спальни, просторная кухня-гостиная, два с/у и кладовая. Высота потолков 2,8 м добавляет ощущения простора, а чердак с высотой 2 м может выполнять не только технические функции, но, и быть самостоятельным помещением.	1164000	112	1	1
 5	Саввино	savvino	projects/savvino.jpg	8 х 7	Описание 3	1135000	115	1	1
-6	Назарово	nazarovo	projects/navarovo.jpg	7.85 х 8.10	Описание 4	1190000	127	1	1
-7	Ивино	ivino	projects/ivino.jpg	7.5 х 10	тест 5	1420000	150	1	2
+3	Жевнево	jevnevo	projects/jevnevo.jpg	7 х 8	Вместительный одноэтажный дом, в котором, несмотря на небольшую площадь, удачно расположились: три полноценные спальни, просторная кухня-гостиная, два с/у и кладовая. Высота потолков 2,8 м добавляет ощущения простора, а чердак с высотой 2 м может выполнять не только технические функции, но, и быть самостоятельным помещением.	1164000	112	1	1
 4	Спасское	spasskoe	projects/spasskoe.jpg	7,5 х 7,5	Описание 2	1250000	112	1	1
+7	Ивино	ivino	projects/ivino.jpg	7.5 х 10	тест 5	1420000	150	1	2
+6	Назарово	nazarovo	projects/navarovo.jpg	7.85 х 8.10	Описание 4	1190000	127	1	1
 \.
 
 
@@ -1114,12 +1136,12 @@ SELECT pg_catalog.setval('dvor_project_techs_id_seq', 11, true);
 -- Data for Name: dvor_techno; Type: TABLE DATA; Schema: public; Owner: kd_admin
 --
 
-COPY dvor_techno (id, mnemo, name, main) FROM stdin;
-1	Термопанели	Комбинированные термопанели	t
-2	СИП-панели	СИП-панели	t
-3	Каркасные	Каркасные дома	t
-5	Бани	Бани	f
-4	Дачи	Дачи	f
+COPY dvor_techno (id, mnemo, name, main, show_in_menu) FROM stdin;
+1	Термопанели	Комбинированные термопанели	t	t
+2	СИП-панели	СИП-панели	t	t
+3	Каркасные	Каркасные дома	t	t
+4	Дачи	Дачи	f	f
+5	Бани	Бани	f	f
 \.
 
 
