@@ -21,7 +21,9 @@ class ProjectList(MenuMixin,ListView):
     model = Project
     techfilter = None
     paginate_by = 18
-    menu_slug = 'projects'
+    menu_slug = [
+        "projects",
+    ]
 
     search_form_class = ProjectFilterForm
     search_form = None
@@ -48,8 +50,12 @@ class ProjectList(MenuMixin,ListView):
 
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
+        self.menu_slug.clear()
+        self.menu_slug.append("projects")
+        self.menu_slug.append(self.techfilter.mnemo)
         ctx['search_form'] = self.search_form
         ctx['techfilter'] = self.techfilter
+        ctx['menu_slug'] = self.menu_slug
         return ctx
 
 class ProjectDetail(DetailView):
@@ -75,12 +81,20 @@ class ProjectDetail(DetailView):
         else:
             self.tech = Techno.objects.filter(mnemo='Термопанели').first()
         ctx['kit'] = self.object.kits.filter(tech=self.tech).first()
+        ctx['techfilter'] = self.tech
         return ctx
 
 class ArticleList(MenuMixin,ListView):
     model = Article
     paginate_by = 10
-    menu_slug = 'info'
+    menu_slug = [
+        "info",
+        "articles",
+    ]
 
-class ArticleDetail(DetailView):
+class ArticleDetail(MenuMixin,DetailView):
     model = Article
+    menu_slug = [
+        "info",
+        "articles",
+    ]

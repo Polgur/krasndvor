@@ -1,5 +1,5 @@
 class MenuMixin:
-    menu_slug = ""
+    menu_slug = ()
 
     def set_menu_slug(self):
         return self.menu_slug

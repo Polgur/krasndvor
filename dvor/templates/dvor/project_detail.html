@@ -5,6 +5,26 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-9">
+        <ol class="breadcrumb">
+          <li><a href="\">Главная</a></li>
+          <li><a href="{% url 'project_list' %}?tech={{techfilter.pk}}&search=1&vid=0&pmin=0&pmax=5000000&smin=0&smax=500">Проекты</a></li>
+          {% if techfilter.pk == 2 %}
+            <li><a href="{% url 'project_list' %}?tech={{techfilter.pk}}&search=1&vid=0&pmin=0&pmax=5000000&smin=0&smax=500">Проекты из СИП панелей</a></li>
+          {% elif techfilter.pk == 3 %}
+            <li><a href="{% url 'project_list' %}?tech={{techfilter.pk}}&search=1&vid=0&pmin=0&pmax=5000000&smin=0&smax=500">Проекты по каркасной технологии</a></li>
+          {% else %}
+            <li><a href="{% url 'project_list' %}?tech={{techfilter.pk}}&search=1&vid=0&pmin=0&pmax=5000000&smin=0&smax=500">Проекты из Термопанелей</a></li>
+          {% endif %}
+          <li class="active">{{ project.name|title }}</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9">
         <div class="row">
           <div class="col-sm-8">
             <img class="img-responsive" src="{{ project.img.url }}">

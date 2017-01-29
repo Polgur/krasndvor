@@ -11,6 +11,7 @@ def get_tech():
         item = dict()
         item['name'] = tech.mnemo
         item['url'] = "{}?{}&tech={}".format(reverse("project_list"), "search=1&vid=0&pmin=0&pmax=5000000&smin=0&smax=500", tech.pk)
+        item['slug'] = tech.mnemo
         item['submenu'] = [
             {'name': "До 100 КВ.М", 'url': "{}?{}&tech={}".format(reverse("project_list"), "search=1&vid=0&pmin=0&pmax=5000000&smin=0&smax=100", tech.pk)},
             {'name': "От 100 до 150 КВ.М", 'url': "{}?{}&tech={}".format(reverse("project_list"), "search=1&vid=0&pmin=0&pmax=5000000&smin=100&smax=150", tech.pk)},
@@ -36,10 +37,24 @@ menu = [
             {'name': "Ремонт и отделка", 'url': '#', 'slug': 'rem'},
         ]},
     {'name': "Проекты", 'url': '#', 'slug': 'projects', 'submenu': get_tech()},
+    {'name': "Наши объекты", 'url': '#', 'slug': 'techs', 'submenu':
+        [
+            {'name': "Этапы строительства", 'url': '#', 'slug': 'techs_3'},
+            {'name': "divider", 'url': '#', 'slug': ''},
+            {'name': "Термопанели", 'url': '#', 'slug': 'techs_1'},
+            {'name': "СИП панели", 'url': '#', 'slug': 'techs_2'},
+            {'name': "Каркасные", 'url': '#', 'slug': 'techs_3'},
+            {'name': "divider", 'url': '#', 'slug': ''},
+            {'name': "Реконструкции", 'url': '#', 'slug': 'rec'},
+            {'name': "Фундаменты", 'url': '#', 'slug': 'fun'},
+            {'name': "divider", 'url': '#', 'slug': ''},
+            {'name': "Дома на продажу", 'url': '#', 'slug': 'rem'},
+        ]},
     {'name': "Информация", 'url': '#', 'slug': 'info', 'submenu':
         [
             {'name': "Вопросы и ответы", 'url': '#', 'slug': 'questions'},
             {'name': "Статьи", 'url': reverse("article_list"), 'slug': 'articles'},
+            {'name': "Сертификаты", 'url': '#', 'slug': 'certif'},
         ]},
     {'name': "Отзывы", 'url': '#', 'slug': 'feedback'},
     {'name': "Контакты", 'url': '#', 'slug': 'contacts'},

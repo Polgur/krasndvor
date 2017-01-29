@@ -3,11 +3,35 @@
 {% load thumbnail %}
 
 {% block content %}
-  <form
-    action="{% url 'project_list' %}" method="get">
-    {{ search_form.as_table }}
-    <button type="submit">Поиск</button>
-  </form>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9">
+        <ol class="breadcrumb">
+          <li><a href="\">Главная</a></li>
+          <li><a href="{% url 'project_list' %}?tech={{techfilter.pk}}&search=1&vid=0&pmin=0&pmax=5000000&smin=0&smax=500">Проекты</a></li>
+          {% if techfilter.pk == 2 %}
+            <li class="active">Проекты из СИП панелей</li>
+          {% elif techfilter.pk == 3 %}
+            <li class="active">Проекты по каркасной технологии</li>
+          {% else %}
+            <li class="active">Проекты из Термопанелей</li>
+          {% endif %}
+        </ol>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9">
+        <form
+          action="{% url 'project_list' %}" method="get">
+          {{ search_form.as_table }}
+          <button type="submit">Поиск</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
   <div class="container">
     <div class="row">
       <div class="col-sm-9">
