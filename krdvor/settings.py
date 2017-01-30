@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
 import os
-from .local_settings import *
+
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -197,3 +197,4 @@ MEDIA_URL = '/media/'
 
 CKEDITOR_JQUERY_URL = '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'
 CKEDITOR_UPLOAD_PATH = 'uploads/'
+from .local_settings import *

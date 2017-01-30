@@ -435,6 +435,47 @@ ALTER SEQUENCE dvor_article_techs_id_seq OWNED BY dvor_article_techs.id;
 
 
 --
+-- Name: dvor_calculation; Type: TABLE; Schema: public; Owner: kd_admin; Tablespace: 
+--
+
+CREATE TABLE dvor_calculation (
+    id integer NOT NULL,
+    fio character varying(80) NOT NULL,
+    created timestamp with time zone NOT NULL,
+    email character varying(254),
+    phone character varying(20),
+    note character varying(400) NOT NULL,
+    file character varying(100),
+    kit_numb smallint,
+    kit_id integer,
+    CONSTRAINT dvor_calculation_kit_numb_check CHECK ((kit_numb >= 0))
+);
+
+
+ALTER TABLE public.dvor_calculation OWNER TO kd_admin;
+
+--
+-- Name: dvor_calculation_id_seq; Type: SEQUENCE; Schema: public; Owner: kd_admin
+--
+
+CREATE SEQUENCE dvor_calculation_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.dvor_calculation_id_seq OWNER TO kd_admin;
+
+--
+-- Name: dvor_calculation_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: kd_admin
+--
+
+ALTER SEQUENCE dvor_calculation_id_seq OWNED BY dvor_calculation.id;
+
+
+--
 -- Name: dvor_prjkit; Type: TABLE; Schema: public; Owner: kd_admin; Tablespace: 
 --
 
@@ -711,6 +752,13 @@ ALTER TABLE ONLY dvor_article_techs ALTER COLUMN id SET DEFAULT nextval('dvor_ar
 -- Name: id; Type: DEFAULT; Schema: public; Owner: kd_admin
 --
 
+ALTER TABLE ONLY dvor_calculation ALTER COLUMN id SET DEFAULT nextval('dvor_calculation_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: kd_admin
+--
+
 ALTER TABLE ONLY dvor_prjkit ALTER COLUMN id SET DEFAULT nextval('dvor_prjkit_id_seq'::regclass);
 
 
@@ -813,6 +861,9 @@ COPY auth_permission (id, name, content_type_id, codename) FROM stdin;
 40	Can add Комплектация	14	add_prjkit
 41	Can change Комплектация	14	change_prjkit
 42	Can delete Комплектация	14	delete_prjkit
+43	Can add calculation	15	add_calculation
+44	Can change calculation	15	change_calculation
+45	Can delete calculation	15	delete_calculation
 \.
 
 
@@ -820,7 +871,7 @@ COPY auth_permission (id, name, content_type_id, codename) FROM stdin;
 -- Name: auth_permission_id_seq; Type: SEQUENCE SET; Schema: public; Owner: kd_admin
 --
 
-SELECT pg_catalog.setval('auth_permission_id_seq', 42, true);
+SELECT pg_catalog.setval('auth_permission_id_seq', 45, true);
 
 
 --
@@ -828,7 +879,7 @@ SELECT pg_catalog.setval('auth_permission_id_seq', 42, true);
 --
 
 COPY auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) FROM stdin;
-1	pbkdf2_sha256$30000$eFoTZv3MQ7CI$70Y8/tju6DQXGh3pcp9nv9zUtLohR8Ki3TgClB00Q8Q=	2017-01-27 05:29:12.834952+00	t	Polgur			polgur@inbox.ru	t	t	2017-01-15 08:13:55.521197+00
+1	pbkdf2_sha256$30000$eFoTZv3MQ7CI$70Y8/tju6DQXGh3pcp9nv9zUtLohR8Ki3TgClB00Q8Q=	2017-01-29 11:23:33.238075+00	t	Polgur			polgur@inbox.ru	t	t	2017-01-15 08:13:55.521197+00
 \.
 
 
@@ -923,6 +974,7 @@ COPY django_admin_log (id, action_time, object_id, object_repr, action_flag, cha
 61	2017-01-27 17:06:19.586441+00	8	Икарус	2	[{"changed": {"fields": ["kit1"], "object": "PrjKit object", "name": "\\u041a\\u043e\\u043c\\u043f\\u043b\\u0435\\u043a\\u0442\\u0430\\u0446\\u0438\\u044f"}}]	7	1
 62	2017-01-27 17:07:02.590136+00	8	Икарус	2	[{"changed": {"fields": ["kit1"], "object": "PrjKit object", "name": "\\u041a\\u043e\\u043c\\u043f\\u043b\\u0435\\u043a\\u0442\\u0430\\u0446\\u0438\\u044f"}}]	7	1
 63	2017-01-27 17:07:38.256745+00	8	Икарус	2	[{"changed": {"fields": ["kit2"], "object": "PrjKit object", "name": "\\u041a\\u043e\\u043c\\u043f\\u043b\\u0435\\u043a\\u0442\\u0430\\u0446\\u0438\\u044f"}}]	7	1
+64	2017-01-29 15:34:29.86273+00	8	Икарус	2	[{"changed": {"fields": ["img"]}}]	7	1
 \.
 
 
@@ -930,7 +982,7 @@ COPY django_admin_log (id, action_time, object_id, object_repr, action_flag, cha
 -- Name: django_admin_log_id_seq; Type: SEQUENCE SET; Schema: public; Owner: kd_admin
 --
 
-SELECT pg_catalog.setval('django_admin_log_id_seq', 63, true);
+SELECT pg_catalog.setval('django_admin_log_id_seq', 64, true);
 
 
 --
@@ -950,6 +1002,7 @@ COPY django_content_type (id, app_label, model) FROM stdin;
 12	dvor	techno
 13	dvor	prjphoto
 14	dvor	prjkit
+15	dvor	calculation
 \.
 
 
@@ -957,7 +1010,7 @@ COPY django_content_type (id, app_label, model) FROM stdin;
 -- Name: django_content_type_id_seq; Type: SEQUENCE SET; Schema: public; Owner: kd_admin
 --
 
-SELECT pg_catalog.setval('django_content_type_id_seq', 14, true);
+SELECT pg_catalog.setval('django_content_type_id_seq', 15, true);
 
 
 --
@@ -992,6 +1045,7 @@ COPY django_migrations (id, app, name, applied) FROM stdin;
 27	dvor	0011_auto_20170123_1438	2017-01-23 14:38:44.920174+00
 28	dvor	0012_techno_main	2017-01-25 15:35:10.880094+00
 29	dvor	0013_techno_show_in_menu	2017-01-27 05:28:36.146731+00
+30	dvor	0014_calculation	2017-01-29 13:44:44.436989+00
 \.
 
 
@@ -999,7 +1053,7 @@ COPY django_migrations (id, app, name, applied) FROM stdin;
 -- Name: django_migrations_id_seq; Type: SEQUENCE SET; Schema: public; Owner: kd_admin
 --
 
-SELECT pg_catalog.setval('django_migrations_id_seq', 29, true);
+SELECT pg_catalog.setval('django_migrations_id_seq', 30, true);
 
 
 --
@@ -1009,6 +1063,7 @@ SELECT pg_catalog.setval('django_migrations_id_seq', 29, true);
 COPY django_session (session_key, session_data, expire_date) FROM stdin;
 cni2gk1afzy752s7tjkoibtifc3jeotv	ZjZjNGY3ZDJmMmFiNjRiYjkzZTBmYzYzMDQzNGE3MWZkNWNiNTgyYTp7Il9hdXRoX3VzZXJfaGFzaCI6ImQ1MWMzNzM1NDNlZWViMWJhMTUyNDVmNTliMThkNjI2MTc3YzYwMDUiLCJfYXV0aF91c2VyX2lkIjoiMSIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIn0=	2017-01-29 08:14:46.392226+00
 x7354hmex924z2xg4us2je5ibo9v6jg6	Yjc1MmIxOTljMWRkYWE1NWM5N2EzM2EyMGI4YmZiODhjMjJkYmE4ZTp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJkNTFjMzczNTQzZWVlYjFiYTE1MjQ1ZjU5YjE4ZDYyNjE3N2M2MDA1In0=	2017-02-10 05:29:12.847546+00
+hs9y7sj7oomfk1x1ay6s5ue5mvk1cekm	ODFkYTJhMGFkMzc0MmFhYTg2N2RjZDQzNWRlNmM3N2EwOTgwOWMzMzp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9oYXNoIjoiZDUxYzM3MzU0M2VlZWIxYmExNTI0NWY1OWIxOGQ2MjYxNzdjNjAwNSIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIn0=	2017-02-12 11:23:33.239793+00
 \.
 
 
@@ -1048,6 +1103,21 @@ COPY dvor_article_techs (id, article_id, techno_id) FROM stdin;
 --
 
 SELECT pg_catalog.setval('dvor_article_techs_id_seq', 6, true);
+
+
+--
+-- Data for Name: dvor_calculation; Type: TABLE DATA; Schema: public; Owner: kd_admin
+--
+
+COPY dvor_calculation (id, fio, created, email, phone, note, file, kit_numb, kit_id) FROM stdin;
+\.
+
+
+--
+-- Name: dvor_calculation_id_seq; Type: SEQUENCE SET; Schema: public; Owner: kd_admin
+--
+
+SELECT pg_catalog.setval('dvor_calculation_id_seq', 1, false);
 
 
 --
@@ -1120,7 +1190,7 @@ COPY dvor_project (id, name, slug, img, size, description, price, square, vid) F
 4	Спасское	spasskoe	projects/spasskoe.jpg	7,5 х 7,5	Описание 2	1250000	112	1
 7	Ивино	ivino	projects/ivino.jpg	7.5 х 10	тест 5	1420000	150	2
 6	Назарово	nazarovo	projects/navarovo.jpg	7.85 х 8.10	Описание 4	1190000	127	1
-8	Икарус	ikarus	projects/Ikarus_GfLp59s.jpg	8 x 8	Описание	1420000	162	1
+8	Икарус	ikarus	projects/Ikarus.jpg	8 x 8	Описание	1420000	162	1
 \.
 
 
@@ -1380,6 +1450,14 @@ ALTER TABLE ONLY dvor_article_techs
 
 
 --
+-- Name: dvor_calculation_pkey; Type: CONSTRAINT; Schema: public; Owner: kd_admin; Tablespace: 
+--
+
+ALTER TABLE ONLY dvor_calculation
+    ADD CONSTRAINT dvor_calculation_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: dvor_prjkit_pkey; Type: CONSTRAINT; Schema: public; Owner: kd_admin; Tablespace: 
 --
 
@@ -1586,6 +1664,13 @@ CREATE INDEX dvor_article_techs_a00c1b00 ON dvor_article_techs USING btree (arti
 
 
 --
+-- Name: dvor_calculation_d59e59f7; Type: INDEX; Schema: public; Owner: kd_admin; Tablespace: 
+--
+
+CREATE INDEX dvor_calculation_d59e59f7 ON dvor_calculation USING btree (kit_id);
+
+
+--
 -- Name: dvor_prjkit_8e09a606; Type: INDEX; Schema: public; Owner: kd_admin; Tablespace: 
 --
 
@@ -1748,6 +1833,14 @@ ALTER TABLE ONLY dvor_article_techs
 
 ALTER TABLE ONLY dvor_article_techs
     ADD CONSTRAINT dvor_article_techs_techno_id_bdf34ebd_fk_dvor_techno_id FOREIGN KEY (techno_id) REFERENCES dvor_techno(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: dvor_calculation_kit_id_120dfbea_fk_dvor_prjkit_id; Type: FK CONSTRAINT; Schema: public; Owner: kd_admin
+--
+
+ALTER TABLE ONLY dvor_calculation
+    ADD CONSTRAINT dvor_calculation_kit_id_120dfbea_fk_dvor_prjkit_id FOREIGN KEY (kit_id) REFERENCES dvor_prjkit(id) DEFERRABLE INITIALLY DEFERRED;
 
 
 --

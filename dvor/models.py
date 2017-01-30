@@ -91,3 +91,13 @@ class Article(models.Model):
     def get_absolute_url(self):
         return reverse('article_detail',
                        kwargs={'slug': self.slug})
+
+class Calculation(models.Model):
+    fio = models.CharField(max_length=80)
+    created = models.DateTimeField(default=timezone.now)
+    email = models.EmailField(null=True,blank=True)
+    phone = models.CharField(max_length=20,null=True,blank=True)
+    note = models.CharField(max_length=400)
+    file = models.FileField(upload_to='calc_files',null=True,blank=True)
+    kit = models.ForeignKey(PrjKit,null=True,blank=True)
+    kit_numb = models.PositiveSmallIntegerField(null=True,blank=True)

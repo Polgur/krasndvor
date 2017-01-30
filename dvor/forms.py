@@ -1,5 +1,5 @@
 from django import forms
-from .models import Techno
+from .models import Techno, Calculation
 
 
 vid_choices = (
@@ -18,3 +18,29 @@ class ProjectFilterForm (forms.Form):
     tech = forms.ModelChoiceField(queryset = Techno.objects.filter(main=True),label = 'Технология',empty_label=None,required=False)
     vid  = forms.ChoiceField(choices = vid_choices, label='Тип', required=True)
     search = forms.CharField(widget = forms.HiddenInput(), required = False, initial = 1)
+
+class BaseCalcForm(forms.ModelForm):
+    class Meta:
+        model = Calculation
+        fields = '__all__'
+
+    def clean(self):
+        email = self.cleaned_data.get('email')
+        phone = self.cleaned_data.get('phone')
+        if not (email or phone):
+            self.add_error('email','Должна быть заполнена почта или телефон')
+            self.add_error('phone','Должна быть заполнена почта или телефон')
+        return self.cleaned_data
+
+class MainCalc (BaseCalcForm):
+    class Meta:
+        model = Calculation
+        exclude = (
+            'kit',
+            'kit_numb'
+        )
+
+class PrjCalc (BaseCalcForm):
+    class Meta:
+        model = Calculation
+        fields = '__all__'
