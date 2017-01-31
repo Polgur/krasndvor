@@ -1,5 +1,6 @@
 {% load staticfiles %}
 {% load menu_tags %}
+{% load core_tags %}
 
 <!DOCTYPE html>
 <html class="no-js" lang="en-US" prefix="og: http://ogp.me/ns#">
@@ -71,6 +72,54 @@ alt="" border="0" width="88" height="31"/></a><!--/LiveInternet-->
       </div>
     </div>
 
+  </div>
+
+  <div class="modal" id="maincalc">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Заказ расчета проекта</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          {% get_calc_form as calc_form %}
+          <form action="{% url 'thanks' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ calc_form.non_field_errors }}
+            <div class="fieldWrapper form-group">
+              {{ calc_form.fio.errors }}
+              <label for="{{ calc_form.fio.id_for_label }}">{{ calc_form.fio.label }}:</label>
+              {{ calc_form.fio }}
+            </div>
+            {{ calc_form.created }}
+            <div class="fieldWrapper form-group">
+              {{ calc_form.email.errors }}
+              <label for="{{ calc_form.email.id_for_label }}">{{ calc_form.email.label }}:</label>
+              {{ calc_form.email }}
+            </div>
+            <div class="fieldWrapper form-group">
+              {{ calc_form.phone.errors }}
+              <label for="{{ calc_form.phone.id_for_label }}">{{ calc_form.phone.label }}:</label>
+              {{ calc_form.phone }}
+            </div>
+            <div class="fieldWrapper form-group">
+              {{ calc_form.note.errors }}
+              <label for="{{ calc_form.note.id_for_label }}">{{ calc_form.note.label }}:</label>
+              {{ calc_form.note }}
+            </div>
+            <div class="fieldWrapper form-group">
+              {{ calc_form.file.errors }}
+              <label for="{{ calc_form.file.id_for_label }}">{{ calc_form.file.label }}:</label>
+              {{ calc_form.file }}
+            </div>
+
+            <button type="submit" class="btn btn-primary">Заказать</button>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
 
 </body>

@@ -39,8 +39,26 @@ class MainCalc (BaseCalcForm):
             'kit',
             'kit_numb'
         )
+        labels = {
+            'fio': 'Ваше имя',
+            'email': 'Ваш email',
+        }
+        widgets = {
+            'fio' : forms.TextInput(attrs={'placeholder': 'Пожалуйста, введите Ваше имя'}),
+            'created' : forms.HiddenInput(),
+            'email': forms.EmailInput(attrs={'placeholder': 'Пожалуйста, введите Ваш email адрес'}),
+        }
 
 class PrjCalc (BaseCalcForm):
     class Meta:
         model = Calculation
         fields = '__all__'
+        labels = {
+            'fio': 'Ваше имя',
+            'email': 'Ваш email',
+        }
+        widgets = {
+            'fio' : forms.TextInput(attrs={'placeholder': 'Пожалуйста, введите Ваше имя'}),
+            'created' : forms.HiddenInput(),
+            'email': forms.EmailInput(attrs={'placeholder': 'Пожалуйста, введите Ваш email адрес'}),
+        }

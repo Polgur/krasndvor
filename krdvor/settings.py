@@ -188,6 +188,18 @@ CKEDITOR_CONFIGS = {
     }
 }
 
+# Email
+# https://docs.djangoproject.com/en/1.10/topics/email/
+
+EMAIL_HOST = 'smtp.mail.ru'
+EMAIL_PORT = 2525
+EMAIL_HOST_USER = 'lagumor@inbox.ru'
+EMAIL_HOST_PASSWORD = 'hereford'
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+SERVER_EMAIL = EMAIL_HOST_USER
+
+MAILING_SEND_LIST = EMAIL_HOST_USER
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/

@@ -1,9 +1,10 @@
 from django.http import Http404
-from django.shortcuts import render
-from django.views.generic import ListView, DetailView, TemplateView
-from .models import Project, Article, Techno
-from .forms import ProjectFilterForm
+from django.views.generic import ListView, DetailView, TemplateView, CreateView
+from .models import Project, PrjKit, Article, Techno, Calculation
+from .forms import ProjectFilterForm, MainCalc, PrjCalc
 from .utils import MenuMixin
+from django.core.mail import send_mail
+from django.conf import settings
 
 
 # Create your views here.
@@ -98,3 +99,53 @@ class ArticleDetail(MenuMixin,DetailView):
         "info",
         "articles",
     ]
+
+class MainCalcView(CreateView):
+    form_class = MainCalc
+    model = Calculation
+    template_name = 'dvor/thanks.html'
+
+    def form_valid(self, form):
+        message = "Данные отправителя:\nФИО: {}".format(form.cleaned_data.get('fio'))
+        if form.cleaned_data.get('email'):
+            message += "email: {}".format(form.cleaned_data.get('email'))
+        if form.cleaned_data.get('phone'):
+            message += "Телефон: {}".format(form.cleaned_data.get('phone'))
+        if form.cleaned_data.get('file'):
+            message += "к заявке прикреплен файл (его можно посмотреть на сайте)"
+        message += "\n\n Пожелания: \n{}".format(form.cleaned_data.get('note'))
+        send_mail(
+            subject = 'Заявка на расчет ({} {})'.format(form.cleaned_data.get('fio'),form.cleaned_data.get('phone')),
+            message = message,
+            from_email = 'lagumor@inbox.ru',
+            recipient_list = ['lagumor@inbox.ru'],
+        )
+        return super().form_valid(form)
+
+class PrjCalcView(CreateView):
+    form_class = PrjCalc
+    model = Calculation
+    template_name = 'dvor/thanks.html'
+
+    def form_valid(self, form):
+        kit = PrjKit.objects.filter(pk=form.cleaned_data.get('kit').id).first()
+        kit_name = "{} {}".format(kit.prn.name.title(),kit.tech.mnemo.title())
+        if form.cleaned_data.get('kit_numb') == 1:
+            kit_calc = "комфорт"
+        else:
+            kit_calc = "премиум"
+        message = "Данные отправителя:\nФИО: {}".format(form.cleaned_data.get('fio'))
+        if form.cleaned_data.get('email'):
+            message += "email: {}".format(form.cleaned_data.get('email'))
+        if form.cleaned_data.get('phone'):
+            message += "Телефон: {}".format(form.cleaned_data.get('phone'))
+        if form.cleaned_data.get('file'):
+            message += "к заявке прикреплен файл (его можно посмотреть на сайте)"
+        message += "\n\n Пожелания: \n{}".format(form.cleaned_data.get('note'))
+        send_mail(
+            subject = 'Заявка на проект {}, комплектация: {} ({} {})'.format(kit_name, kit_calc, form.cleaned_data.get('fio'),form.cleaned_data.get('phone')),
+            message = message,
+            from_email = 'lagumor@inbox.ru',
+            recipient_list = ['lagumor@inbox.ru'],
+        )
+        return super().form_valid(form)

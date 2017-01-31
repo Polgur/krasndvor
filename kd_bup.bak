@@ -975,6 +975,14 @@ COPY django_admin_log (id, action_time, object_id, object_repr, action_flag, cha
 62	2017-01-27 17:07:02.590136+00	8	Икарус	2	[{"changed": {"fields": ["kit1"], "object": "PrjKit object", "name": "\\u041a\\u043e\\u043c\\u043f\\u043b\\u0435\\u043a\\u0442\\u0430\\u0446\\u0438\\u044f"}}]	7	1
 63	2017-01-27 17:07:38.256745+00	8	Икарус	2	[{"changed": {"fields": ["kit2"], "object": "PrjKit object", "name": "\\u041a\\u043e\\u043c\\u043f\\u043b\\u0435\\u043a\\u0442\\u0430\\u0446\\u0438\\u044f"}}]	7	1
 64	2017-01-29 15:34:29.86273+00	8	Икарус	2	[{"changed": {"fields": ["img"]}}]	7	1
+65	2017-01-31 09:25:00.08302+00	2	Calculation object	3		15	1
+66	2017-01-31 09:25:00.108731+00	1	Calculation object	3		15	1
+67	2017-01-31 09:25:31.907256+00	3	Calculation object	3		15	1
+68	2017-01-31 09:55:19.7329+00	4	Calculation object	3		15	1
+69	2017-01-31 10:05:21.590231+00	5	Calculation object	3		15	1
+70	2017-01-31 10:40:18.263606+00	7	Calculation object	3		15	1
+71	2017-01-31 10:40:18.266439+00	6	Calculation object	3		15	1
+72	2017-01-31 11:49:04.160687+00	8	Calculation object	3		15	1
 \.
 
 
@@ -982,7 +990,7 @@ COPY django_admin_log (id, action_time, object_id, object_repr, action_flag, cha
 -- Name: django_admin_log_id_seq; Type: SEQUENCE SET; Schema: public; Owner: kd_admin
 --
 
-SELECT pg_catalog.setval('django_admin_log_id_seq', 64, true);
+SELECT pg_catalog.setval('django_admin_log_id_seq', 72, true);
 
 
 --
@@ -1110,6 +1118,12 @@ SELECT pg_catalog.setval('dvor_article_techs_id_seq', 6, true);
 --
 
 COPY dvor_calculation (id, fio, created, email, phone, note, file, kit_numb, kit_id) FROM stdin;
+9	Гуслицер Александр Юрьевич	2017-01-31 11:58:37.34132+00	polgur@inbox.ru	89273933646	авава		2	16
+10	Гуслицер Александр Юрьевич	2017-01-31 12:27:42.70387+00	polgur@inbox.ru	89273933646	авава		2	16
+11	Гуслицер Александр Юрьевич	2017-01-31 12:27:42.70387+00	polgur@inbox.ru	89273933646	авава		1	16
+12	Гуслицер Александр Юрьевич	2017-01-31 12:28:30.729887+00	polgur@inbox.ru	89273933646	авава		1	16
+13	Гуслицер Александр Юрьевич	2017-01-31 12:29:30.883092+00	polgur@inbox.ru	89273933646	авава		1	16
+14	Гуслицер Александр Юрьевич	2017-01-31 12:29:48.07948+00	polgur@inbox.ru	89273933646	авава		2	16
 \.
 
 
@@ -1117,7 +1131,7 @@ COPY dvor_calculation (id, fio, created, email, phone, note, file, kit_numb, kit
 -- Name: dvor_calculation_id_seq; Type: SEQUENCE SET; Schema: public; Owner: kd_admin
 --
 
-SELECT pg_catalog.setval('dvor_calculation_id_seq', 1, false);
+SELECT pg_catalog.setval('dvor_calculation_id_seq', 14, true);
 
 
 --
@@ -1278,6 +1292,9 @@ sorl-thumbnail||image||2582621cde445831fffd1c06f3ef6d81	{"storage": "django.core
 sorl-thumbnail||image||4b53b1e6d890a022333bea058717ea2e	{"storage": "django.core.files.storage.FileSystemStorage", "size": [262, 175], "name": "cache/ed/58/ed583186186ee0b572a33db88457b7d8.png"}
 sorl-thumbnail||thumbnails||2582621cde445831fffd1c06f3ef6d81	["4b53b1e6d890a022333bea058717ea2e"]
 sorl-thumbnail||image||03f0c1135793876ad14f88843348d2b8	{"storage": "django.core.files.storage.FileSystemStorage", "size": [262, 175], "name": "cache/0d/28/0d288a3211da4b84181d6c1b061a6342.png"}
+sorl-thumbnail||image||a61a9fa2168eeafaae9d6f5b142d6669	{"size": [1920, 1080], "name": "projects/Ikarus.jpg", "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||906c56190de5ccafb193fd5dbafdc328	{"size": [262, 175], "name": "cache/f3/97/f397a42fb11f59879cb5a729784d3a53.png", "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||a61a9fa2168eeafaae9d6f5b142d6669	["906c56190de5ccafb193fd5dbafdc328"]
 \.
 
 

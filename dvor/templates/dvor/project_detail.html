@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load staticfiles %}
+{% load core_tags %}
 
 {% block content %}
   <div class="container">
@@ -71,6 +72,9 @@
                   <span class="label label-info price">
                     {{ kit.price1 }} р
                   </span>
+                  <button type="button" class="btn btn-warning" style="width: 162px" data-toggle="modal" data-target="#prjcalc" data-calc="1">
+                    <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Заказать
+                  </button>
                 </div>
               </div>
             </div>
@@ -84,6 +88,9 @@
                   <span class="label label-info price">
                     {{ kit.price2 }} р
                   </span>
+                  <button type="button" class="btn btn-warning" style="width: 162px" data-toggle="modal" data-target="#prjcalc" data-calc="2">
+                    <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Заказать
+                  </button>
                 </div>
               </div>
             </div>
@@ -93,5 +100,60 @@
     </div>
   </div>
 
+  <div class="modal" id="prjcalc">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Заказать проект {{ project.name|title }}</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          {% get_prjc_form as calc_form %}
+          <form action="{% url 'thanks_prj' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ calc_form.non_field_errors }}
+            <div class="fieldWrapper form-group">
+              {{ calc_form.fio.errors }}
+              <label for="{{ calc_form.fio.id_for_label }}">{{ calc_form.fio.label }}:</label>
+              {{ calc_form.fio }}
+            </div>
+            {{ calc_form.created }}
+            <div class="fieldWrapper form-group">
+              {{ calc_form.email.errors }}
+              <label for="{{ calc_form.email.id_for_label }}">{{ calc_form.email.label }}:</label>
+              {{ calc_form.email }}
+            </div>
+            <div class="fieldWrapper form-group">
+              {{ calc_form.phone.errors }}
+              <label for="{{ calc_form.phone.id_for_label }}">{{ calc_form.phone.label }}:</label>
+              {{ calc_form.phone }}
+            </div>
+            <div class="fieldWrapper form-group">
+              {{ calc_form.note.errors }}
+              <label for="{{ calc_form.note.id_for_label }}">{{ calc_form.note.label }}:</label>
+              {{ calc_form.note }}
+            </div>
+            <input type="hidden" name="{{ calc_form.kit.name }}" id="{{ calc_form.kit.id_for_label }}" value="{{ kit.pk }}">
+            <input type="hidden" name="{{ calc_form.kit_numb.name }}" id="{{ calc_form.kit_numb.id_for_label }}">
+
+            <button type="submit" class="btn btn-primary">Заказать</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+$('#prjcalc').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget) // Button that triggered the modal
+  var calc_num = button.data('calc') // Extract info from data-* attributes
+  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+  var modal = $(this)
+  modal.find('.modal-body input[name="{{ calc_form.kit_numb.name }}"]').val(calc_num)
+})
+</script>
 {% endblock %}
 

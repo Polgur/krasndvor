@@ -73,6 +73,9 @@ class PrjKit(models.Model):
         verbose_name = 'Комплектация'
         verbose_name_plural = 'Комплектации'
 
+    def __str__(self):
+        return "{} {}".format(self.prn.name.title(),self.tech.mnemo.title())
+
 class Article(models.Model):
     name = models.CharField(max_length=100, unique=True)
     slug = models.SlugField()
@@ -101,3 +104,11 @@ class Calculation(models.Model):
     file = models.FileField(upload_to='calc_files',null=True,blank=True)
     kit = models.ForeignKey(PrjKit,null=True,blank=True)
     kit_numb = models.PositiveSmallIntegerField(null=True,blank=True)
+
+    class Meta:
+        verbose_name = 'Заявка'
+        verbose_name_plural = 'Заявки'
+
+    def get_absolute_url(self):
+        return reverse('thanks')
+

@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from .views import IndexPage, ProjectList, ProjectDetail, ArticleList, ArticleDetail
+from .views import IndexPage, ProjectList, ProjectDetail, ArticleList, ArticleDetail, MainCalcView, PrjCalcView
 from django.conf import settings
 from django.views.static import serve
 
@@ -10,6 +10,8 @@ urlpatterns = [
     url(r'^projects/(?P<slug>[^/]*)$', ProjectDetail.as_view(), name='project_detail'),
     url(r'^articles/$', ArticleList.as_view(), name='article_list'),
     url(r'^articles/(?P<slug>[^/]*)$', ArticleDetail.as_view(), name='article_detail'),
+    url(r'^thanks/$', MainCalcView.as_view(), name='thanks'),
+    url(r'^thanks_p/$', PrjCalcView.as_view(), name='thanks_prj'),
 ]
 
 if settings.DEBUG:
