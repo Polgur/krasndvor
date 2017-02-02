@@ -476,6 +476,43 @@ ALTER SEQUENCE dvor_calculation_id_seq OWNED BY dvor_calculation.id;
 
 
 --
+-- Name: dvor_phonecall; Type: TABLE; Schema: public; Owner: kd_admin; Tablespace: 
+--
+
+CREATE TABLE dvor_phonecall (
+    id integer NOT NULL,
+    fio character varying(80) NOT NULL,
+    created timestamp with time zone,
+    email character varying(254),
+    phone character varying(20) NOT NULL,
+    wtime character varying(20) NOT NULL
+);
+
+
+ALTER TABLE public.dvor_phonecall OWNER TO kd_admin;
+
+--
+-- Name: dvor_phonecall_id_seq; Type: SEQUENCE; Schema: public; Owner: kd_admin
+--
+
+CREATE SEQUENCE dvor_phonecall_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.dvor_phonecall_id_seq OWNER TO kd_admin;
+
+--
+-- Name: dvor_phonecall_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: kd_admin
+--
+
+ALTER SEQUENCE dvor_phonecall_id_seq OWNED BY dvor_phonecall.id;
+
+
+--
 -- Name: dvor_prjkit; Type: TABLE; Schema: public; Owner: kd_admin; Tablespace: 
 --
 
@@ -759,6 +796,13 @@ ALTER TABLE ONLY dvor_calculation ALTER COLUMN id SET DEFAULT nextval('dvor_calc
 -- Name: id; Type: DEFAULT; Schema: public; Owner: kd_admin
 --
 
+ALTER TABLE ONLY dvor_phonecall ALTER COLUMN id SET DEFAULT nextval('dvor_phonecall_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: kd_admin
+--
+
 ALTER TABLE ONLY dvor_prjkit ALTER COLUMN id SET DEFAULT nextval('dvor_prjkit_id_seq'::regclass);
 
 
@@ -864,6 +908,9 @@ COPY auth_permission (id, name, content_type_id, codename) FROM stdin;
 43	Can add calculation	15	add_calculation
 44	Can change calculation	15	change_calculation
 45	Can delete calculation	15	delete_calculation
+46	Can add Обратный звонок	16	add_phonecall
+47	Can change Обратный звонок	16	change_phonecall
+48	Can delete Обратный звонок	16	delete_phonecall
 \.
 
 
@@ -871,7 +918,7 @@ COPY auth_permission (id, name, content_type_id, codename) FROM stdin;
 -- Name: auth_permission_id_seq; Type: SEQUENCE SET; Schema: public; Owner: kd_admin
 --
 
-SELECT pg_catalog.setval('auth_permission_id_seq', 45, true);
+SELECT pg_catalog.setval('auth_permission_id_seq', 48, true);
 
 
 --
@@ -983,6 +1030,19 @@ COPY django_admin_log (id, action_time, object_id, object_repr, action_flag, cha
 70	2017-01-31 10:40:18.263606+00	7	Calculation object	3		15	1
 71	2017-01-31 10:40:18.266439+00	6	Calculation object	3		15	1
 72	2017-01-31 11:49:04.160687+00	8	Calculation object	3		15	1
+73	2017-02-02 09:35:31.50169+00	20	Calculation object	3		15	1
+74	2017-02-02 09:35:31.555513+00	19	Calculation object	3		15	1
+75	2017-02-02 09:35:31.557248+00	18	Calculation object	3		15	1
+76	2017-02-02 09:35:31.559073+00	17	Calculation object	3		15	1
+77	2017-02-02 09:35:31.560472+00	16	Calculation object	3		15	1
+78	2017-02-02 09:35:31.562043+00	15	Calculation object	3		15	1
+79	2017-02-02 09:35:31.563486+00	14	Calculation object	3		15	1
+80	2017-02-02 09:35:31.565413+00	13	Calculation object	3		15	1
+81	2017-02-02 09:35:31.566902+00	12	Calculation object	3		15	1
+82	2017-02-02 09:35:31.568382+00	11	Calculation object	3		15	1
+83	2017-02-02 09:35:31.569895+00	10	Calculation object	3		15	1
+84	2017-02-02 09:35:31.57135+00	9	Calculation object	3		15	1
+85	2017-02-02 10:17:01.655208+00	21	Calculation object	3		15	1
 \.
 
 
@@ -990,7 +1050,7 @@ COPY django_admin_log (id, action_time, object_id, object_repr, action_flag, cha
 -- Name: django_admin_log_id_seq; Type: SEQUENCE SET; Schema: public; Owner: kd_admin
 --
 
-SELECT pg_catalog.setval('django_admin_log_id_seq', 72, true);
+SELECT pg_catalog.setval('django_admin_log_id_seq', 85, true);
 
 
 --
@@ -1011,6 +1071,7 @@ COPY django_content_type (id, app_label, model) FROM stdin;
 13	dvor	prjphoto
 14	dvor	prjkit
 15	dvor	calculation
+16	dvor	phonecall
 \.
 
 
@@ -1018,7 +1079,7 @@ COPY django_content_type (id, app_label, model) FROM stdin;
 -- Name: django_content_type_id_seq; Type: SEQUENCE SET; Schema: public; Owner: kd_admin
 --
 
-SELECT pg_catalog.setval('django_content_type_id_seq', 15, true);
+SELECT pg_catalog.setval('django_content_type_id_seq', 16, true);
 
 
 --
@@ -1054,6 +1115,8 @@ COPY django_migrations (id, app, name, applied) FROM stdin;
 28	dvor	0012_techno_main	2017-01-25 15:35:10.880094+00
 29	dvor	0013_techno_show_in_menu	2017-01-27 05:28:36.146731+00
 30	dvor	0014_calculation	2017-01-29 13:44:44.436989+00
+31	dvor	0015_auto_20170202_1045	2017-02-02 10:45:34.948284+00
+32	dvor	0016_auto_20170202_1154	2017-02-02 11:54:34.690022+00
 \.
 
 
@@ -1061,7 +1124,7 @@ COPY django_migrations (id, app, name, applied) FROM stdin;
 -- Name: django_migrations_id_seq; Type: SEQUENCE SET; Schema: public; Owner: kd_admin
 --
 
-SELECT pg_catalog.setval('django_migrations_id_seq', 30, true);
+SELECT pg_catalog.setval('django_migrations_id_seq', 32, true);
 
 
 --
@@ -1118,12 +1181,15 @@ SELECT pg_catalog.setval('dvor_article_techs_id_seq', 6, true);
 --
 
 COPY dvor_calculation (id, fio, created, email, phone, note, file, kit_numb, kit_id) FROM stdin;
-9	Гуслицер Александр Юрьевич	2017-01-31 11:58:37.34132+00	polgur@inbox.ru	89273933646	авава		2	16
-10	Гуслицер Александр Юрьевич	2017-01-31 12:27:42.70387+00	polgur@inbox.ru	89273933646	авава		2	16
-11	Гуслицер Александр Юрьевич	2017-01-31 12:27:42.70387+00	polgur@inbox.ru	89273933646	авава		1	16
-12	Гуслицер Александр Юрьевич	2017-01-31 12:28:30.729887+00	polgur@inbox.ru	89273933646	авава		1	16
-13	Гуслицер Александр Юрьевич	2017-01-31 12:29:30.883092+00	polgur@inbox.ru	89273933646	авава		1	16
-14	Гуслицер Александр Юрьевич	2017-01-31 12:29:48.07948+00	polgur@inbox.ru	89273933646	авава		2	16
+22	Гуслицер Александр Юрьевич	2017-02-02 10:17:17.601159+00	polgur@inbox.ru	9273933646	fddggd		1	17
+23	Гуслицер Александр Юрьевич	2017-02-02 10:23:01.8984+00	polgur@inbox.ru	9273933646	fdfdfdf		1	16
+24	Гуслицер Александр Юрьевич	2017-02-02 10:29:35.892317+00	polgur@inbox.ru	9273933646	fdfdggd		1	16
+25	Гуслицер Александр Юрьевич	2017-02-02 11:28:46.994382+00	polgur@inbox.ru	9273933646	ава		\N	\N
+26	Гуслицер Александр Юрьевич	2017-02-02 11:33:46.523399+00	polgur@inbox.ru	9273933646	авава		\N	\N
+27	Гуслицер Александр Юрьевич	2017-02-02 11:34:20.204847+00	polgur@inbox.ru	9273933646	вавав		\N	\N
+28	Гуслицер Александр Юрьевич	2017-02-02 11:34:32.073224+00	polgur@inbox.ru	9273933646	кувкук		\N	\N
+29	Гуслицер Александр Юрьевич	2017-02-02 11:35:46.005758+00	polgur@inbox.ru	9273933646	fdfdfd		\N	\N
+30	Гуслицер Александр Юрьевич	2017-02-02 12:21:18.351564+00	polgur@inbox.ru	9273933646	fdfdf		2	16
 \.
 
 
@@ -1131,7 +1197,27 @@ COPY dvor_calculation (id, fio, created, email, phone, note, file, kit_numb, kit
 -- Name: dvor_calculation_id_seq; Type: SEQUENCE SET; Schema: public; Owner: kd_admin
 --
 
-SELECT pg_catalog.setval('dvor_calculation_id_seq', 14, true);
+SELECT pg_catalog.setval('dvor_calculation_id_seq', 30, true);
+
+
+--
+-- Data for Name: dvor_phonecall; Type: TABLE DATA; Schema: public; Owner: kd_admin
+--
+
+COPY dvor_phonecall (id, fio, created, email, phone, wtime) FROM stdin;
+1	Гуслицер Александр Юрьевич	2017-02-02 12:24:54.221485+00	polgur@inbox.ru	9273933646	аваа
+2	Гуслицер Александр Юрьевич	2017-02-02 12:32:09.580248+00	polgur@inbox.ru	9273933646	аваа
+3	Гуслицер Александр Юрьевич	2017-02-02 12:33:15.621258+00	polgur@inbox.ru	9273933646	аваа
+4	Гуслицер Александр Юрьевич	2017-02-02 12:34:10.183817+00	polgur@inbox.ru	9273933646	аваа
+5	Гуслицер Александр Юрьевич	2017-02-02 12:37:39.181303+00	polgur@inbox.ru	9273933646	аваа
+\.
+
+
+--
+-- Name: dvor_phonecall_id_seq; Type: SEQUENCE SET; Schema: public; Owner: kd_admin
+--
+
+SELECT pg_catalog.setval('dvor_phonecall_id_seq', 5, true);
 
 
 --
@@ -1472,6 +1558,14 @@ ALTER TABLE ONLY dvor_article_techs
 
 ALTER TABLE ONLY dvor_calculation
     ADD CONSTRAINT dvor_calculation_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: dvor_phonecall_pkey; Type: CONSTRAINT; Schema: public; Owner: kd_admin; Tablespace: 
+--
+
+ALTER TABLE ONLY dvor_phonecall
+    ADD CONSTRAINT dvor_phonecall_pkey PRIMARY KEY (id);
 
 
 --
