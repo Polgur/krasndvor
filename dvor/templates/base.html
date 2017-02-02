@@ -86,7 +86,7 @@ alt="" border="0" width="88" height="31"/></a><!--/LiveInternet-->
         </div>
         <div class="modal-body">
           {% get_phone_form as phone_form %}
-          <form id="phonecall_form" action="{% url 'thanks' %}" method="post" enctype="multipart/form-data">
+          <form id="phonecall_form" action="{% url 'thanks_call' %}" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             <div id="{{ phone_form.fio.name}}" class="fieldWrapper form-group">
               <label for="{{ phone_form.fio.id_for_label }}">{{ phone_form.fio.label }}:</label>
@@ -156,7 +156,6 @@ alt="" border="0" width="88" height="31"/></a><!--/LiveInternet-->
           $("form#phonecall_form").submit(function () {
               var formData = new FormData($(this)[0]);
               $('.form-err').detach();
-              console.log($(this).attr('action'));
               $.ajax({
                   url: $(this).attr('action'),
                   type: 'POST',
@@ -169,21 +168,18 @@ alt="" border="0" width="88" height="31"/></a><!--/LiveInternet-->
                           $('#phonecall [name="email"]').val('');
                           $('#phonecall [name="phone"]').val('');
                           $('#phonecall [name="wtime"]').val('');
+                          window.location = "/thanks/"
                       }
                       else{
                           $.each(data.errors, function(index, value) {
                               $('#'+index+'').append("<span class='form-err text-danger'>"+value[0]+"</span>");
-                              console.log(index);
-                              console.log(value[0]);
                           });
-                          console.log(formData);
                           $('#phonecall').modal('hide');
                       }
                   },
                   contentType: false,
                   processData: false
               });
-
               return false;
           });
       });
@@ -217,7 +213,6 @@ alt="" border="0" width="88" height="31"/></a><!--/LiveInternet-->
                   contentType: false,
                   processData: false
               });
-
               return false;
           });
       });

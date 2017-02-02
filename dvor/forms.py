@@ -92,10 +92,3 @@ class PhoneForm (forms.ModelForm):
             'phone': forms.TextInput(attrs={'placeholder': 'Пожалуйста, введите Ваш номер телефона', 'class' : 'col-md-12 form-control'}),
             'wtime': forms.TextInput(attrs={'placeholder': 'Пожалуйста, введите желаемое время звонка', 'class' : 'col-md-12 form-control'}),
         }
-
-    def clean(self):
-        note = self.cleaned_data.get('note')
-        if not note:
-            self.add_error('note','Прим. есть!!!')
-            self.add_error('phone','Должна быть заполнена почта или телефон')
-        return self.cleaned_data
