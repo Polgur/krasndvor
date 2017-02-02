@@ -15,10 +15,18 @@ class ProjectAdmin(admin.ModelAdmin):
         PrjKitInline,
     ]
 
+class CalculationAdmin(admin.ModelAdmin):
+    list_display = ('created', 'fio', 'email', 'phone', 'kit')
+    ordering = ('-created',)
+
+class PhoneCallAdmin(admin.ModelAdmin):
+    list_display = ('created','phone','wtime','fio','email')
+    ordering = ('-created',)
+
 admin.site.register(Techno)
 admin.site.register(Project,ProjectAdmin)
 admin.site.register(PrjPhoto)
 admin.site.register(Article)
-admin.site.register(Calculation)
-admin.site.register(PhoneCall)
+admin.site.register(Calculation,CalculationAdmin)
+admin.site.register(PhoneCall,PhoneCallAdmin)
 
