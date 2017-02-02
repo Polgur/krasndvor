@@ -104,34 +104,29 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title">Заказать проект {{ project.name|title }}</h4>
+          <h3 class="modal-title">Заказать проект <b>{{ project.name|title }}</b> <span class="badge" style="background-color: #468847;">{{ techfilter.mnemo }}</span>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
+          </h3>
         </div>
         <div class="modal-body">
           {% get_prjc_form as calc_form %}
-          <form action="{% url 'thanks_prj' %}" method="post" enctype="multipart/form-data">
+          <form id="prjcalc_form" action="{% url 'thanks_prj' %}" method="post" enctype="multipart/form-data">
             {% csrf_token %}
-            {{ calc_form.non_field_errors }}
-            <div class="fieldWrapper form-group">
-              {{ calc_form.fio.errors }}
+            <div id="{{ calc_form.fio.name}}" class="fieldWrapper form-group">
               <label for="{{ calc_form.fio.id_for_label }}">{{ calc_form.fio.label }}:</label>
               {{ calc_form.fio }}
             </div>
-            {{ calc_form.created }}
-            <div class="fieldWrapper form-group">
-              {{ calc_form.email.errors }}
+            <div id="{{ calc_form.email.name}}" class="fieldWrapper form-group">
               <label for="{{ calc_form.email.id_for_label }}">{{ calc_form.email.label }}:</label>
               {{ calc_form.email }}
             </div>
-            <div class="fieldWrapper form-group">
-              {{ calc_form.phone.errors }}
+            <div id="{{ calc_form.phone.name}}" class="fieldWrapper form-group">
               <label for="{{ calc_form.phone.id_for_label }}">{{ calc_form.phone.label }}:</label>
               {{ calc_form.phone }}
             </div>
-            <div class="fieldWrapper form-group">
-              {{ calc_form.note.errors }}
+            <div id="{{ calc_form.note.name}}" class="fieldWrapper form-group">
               <label for="{{ calc_form.note.id_for_label }}">{{ calc_form.note.label }}:</label>
               {{ calc_form.note }}
             </div>
@@ -155,5 +150,38 @@ $('#prjcalc').on('show.bs.modal', function (event) {
   modal.find('.modal-body input[name="{{ calc_form.kit_numb.name }}"]').val(calc_num)
 })
 </script>
+
+  <script>
+      $( document ).ready(function() {
+          $("form#prjcalc_form").submit(function () {
+              var formData = new FormData($(this)[0]);
+              $('.form-err').detach();
+              $.ajax({
+                  url: $(this).attr('action'),
+                  type: 'POST',
+                  data: formData,
+                  async: true,
+                  success: function (data) {
+                      if (data.status === 1){
+                          $('#prjcalc').modal('hide');
+                          $('#prjcalc [name="fio"]').val('');
+                          $('#prjcalc [name="email"]').val('');
+                          $('#prjcalc [name="phone"]').val('');
+                          $('#prjcalc [name="note"]').val('');
+                      }
+                      else{
+                          $.each(data.errors, function(index, value) {
+                              $('#'+index+'').append("<span class='form-err text-danger'>"+value[0]+"</span>");
+                          });
+                      }
+                  },
+                  contentType: false,
+                  processData: false
+              });
+
+              return false;
+          });
+      });
+  </script>
 {% endblock %}
 

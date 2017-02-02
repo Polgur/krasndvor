@@ -74,47 +74,36 @@ alt="" border="0" width="88" height="31"/></a><!--/LiveInternet-->
 
   </div>
 
-  <div class="modal" id="maincalc">
+  <div class="modal" id="phonecall">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title">Заказ расчета проекта</h4>
+          <h3 class="modal-title">Заказ обратного звонка
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
+          </h3>
         </div>
         <div class="modal-body">
-          {% get_calc_form as calc_form %}
-          <form action="{% url 'thanks' %}" method="post" enctype="multipart/form-data">
+          {% get_phone_form as phone_form %}
+          <form id="phonecall_form" action="{% url 'thanks' %}" method="post" enctype="multipart/form-data">
             {% csrf_token %}
-            {{ calc_form.non_field_errors }}
-            <div class="fieldWrapper form-group">
-              {{ calc_form.fio.errors }}
-              <label for="{{ calc_form.fio.id_for_label }}">{{ calc_form.fio.label }}:</label>
-              {{ calc_form.fio }}
+            <div id="{{ phone_form.fio.name}}" class="fieldWrapper form-group">
+              <label for="{{ phone_form.fio.id_for_label }}">{{ phone_form.fio.label }}:</label>
+              {{ phone_form.fio }}
             </div>
-            {{ calc_form.created }}
-            <div class="fieldWrapper form-group">
-              {{ calc_form.email.errors }}
-              <label for="{{ calc_form.email.id_for_label }}">{{ calc_form.email.label }}:</label>
-              {{ calc_form.email }}
+            <div id="{{ phone_form.email.name }}" class="fieldWrapper form-group">
+              <label for="{{ phone_form.email.id_for_label }}">{{ phone_form.email.label }}:</label>
+              {{ phone_form.email }}
             </div>
-            <div class="fieldWrapper form-group">
-              {{ calc_form.phone.errors }}
-              <label for="{{ calc_form.phone.id_for_label }}">{{ calc_form.phone.label }}:</label>
-              {{ calc_form.phone }}
+            <div id="{{ phone_form.phone.name }}" class="fieldWrapper form-group">
+              <label for="{{ phone_form.phone.id_for_label }}">{{ phone_form.phone.label }}:</label>
+              {{ phone_form.phone }}
             </div>
-            <div class="fieldWrapper form-group">
-              {{ calc_form.note.errors }}
-              <label for="{{ calc_form.note.id_for_label }}">{{ calc_form.note.label }}:</label>
-              {{ calc_form.note }}
+            <div id="{{ phone_form.wtime.name }}" class="fieldWrapper form-group">
+              <label for="{{ phone_form.wtime.id_for_label }}">{{ phone_form.wtime.label }}:</label>
+              {{ phone_form.wtime }}
             </div>
-            <div class="fieldWrapper form-group">
-              {{ calc_form.file.errors }}
-              <label for="{{ calc_form.file.id_for_label }}">{{ calc_form.file.label }}:</label>
-              {{ calc_form.file }}
-            </div>
-
             <button type="submit" class="btn btn-primary">Заказать</button>
           </form>
         </div>
@@ -122,5 +111,116 @@ alt="" border="0" width="88" height="31"/></a><!--/LiveInternet-->
     </div>
   </div>
 
+  <div class="modal" id="maincalc">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title">Заказ расчета проекта
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          </h3>
+        </div>
+        <div class="modal-body">
+          {% get_calc_form as calc_form %}
+          <form id="maincalc_form" action="{% url 'thanks' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div id="{{ calc_form.fio.name}}" class="fieldWrapper form-group">
+              <label for="{{ calc_form.fio.id_for_label }}">{{ calc_form.fio.label }}:</label>
+              {{ calc_form.fio }}
+            </div>
+            <div id="{{ calc_form.email.name }}" class="fieldWrapper form-group">
+              <label for="{{ calc_form.email.id_for_label }}">{{ calc_form.email.label }}:</label>
+              {{ calc_form.email }}
+            </div>
+            <div id="{{ calc_form.phone.name }}" class="fieldWrapper form-group">
+              <label for="{{ calc_form.phone.id_for_label }}">{{ calc_form.phone.label }}:</label>
+              {{ calc_form.phone }}
+            </div>
+            <div id="{{ calc_form.note.name }}" class="fieldWrapper form-group">
+              <label for="{{ calc_form.note.id_for_label }}">{{ calc_form.note.label }}:</label>
+              {{ calc_form.note }}
+            </div>
+            <div id="{{ calc_form.file.name }}" class="fieldWrapper form-group">
+              <label for="{{ calc_form.file.id_for_label }}">{{ calc_form.file.label }}:</label>
+              {{ calc_form.file }}
+            </div>
+            <button type="submit" class="btn btn-primary">Заказать</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+      $( document ).ready(function() {
+          $("form#phonecall_form").submit(function () {
+              var formData = new FormData($(this)[0]);
+              $('.form-err').detach();
+              console.log($(this).attr('action'));
+              $.ajax({
+                  url: $(this).attr('action'),
+                  type: 'POST',
+                  data: formData,
+                  async: true,
+                  success: function (data) {
+                      if (data.status === 1){
+                          $('#phonecall').modal('hide');
+                          $('#phonecall [name="fio"]').val('');
+                          $('#phonecall [name="email"]').val('');
+                          $('#phonecall [name="phone"]').val('');
+                          $('#phonecall [name="wtime"]').val('');
+                      }
+                      else{
+                          $.each(data.errors, function(index, value) {
+                              $('#'+index+'').append("<span class='form-err text-danger'>"+value[0]+"</span>");
+                              console.log(index);
+                              console.log(value[0]);
+                          });
+                          console.log(formData);
+                          $('#phonecall').modal('hide');
+                      }
+                  },
+                  contentType: false,
+                  processData: false
+              });
+
+              return false;
+          });
+      });
+  </script>
+  <script>
+      $( document ).ready(function() {
+          $("form#maincalc_form").submit(function () {
+              var formData = new FormData($(this)[0]);
+              $('.form-err').detach();
+              console.log($(this).attr('action'));
+              $.ajax({
+                  url: $(this).attr('action'),
+                  type: 'POST',
+                  data: formData,
+                  async: true,
+                  success: function (data) {
+                      if (data.status === 1){
+                          $('#maincalc').modal('hide');
+                          $('#maincalc [name="fio"]').val('');
+                          $('#maincalc [name="email"]').val('');
+                          $('#maincalc [name="phone"]').val('');
+                          $('#maincalc [name="note"]').val('');
+                          $('#maincalc [name="file"]').val('');
+                      }
+                      else{
+                          $.each(data.errors, function(index, value) {
+                              $('#'+index+'').append("<span class='form-err text-danger'>"+value[0]+"</span>");
+                          });
+                      }
+                  },
+                  contentType: false,
+                  processData: false
+              });
+
+              return false;
+          });
+      });
+  </script>
 </body>
 </html>

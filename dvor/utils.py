@@ -1,3 +1,9 @@
+from django.http import HttpResponse
+import json
+
+def jsonify(data):
+    return HttpResponse(json.dumps(data), content_type='application/json')
+
 class MenuMixin:
     menu_slug = ()
 

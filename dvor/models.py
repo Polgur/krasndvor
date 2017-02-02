@@ -112,3 +112,16 @@ class Calculation(models.Model):
     def get_absolute_url(self):
         return reverse('thanks')
 
+class PhoneCall(models.Model):
+    fio = models.CharField(max_length=80)
+    created = models.DateTimeField(default=timezone.now,null=True,blank=True)
+    email = models.EmailField(null=True,blank=True)
+    phone = models.CharField(max_length=20)
+    wtime = models.CharField(max_length=20)
+
+    class Meta:
+        verbose_name = 'Обратный звонок'
+        verbose_name_plural = 'Звонки'
+
+    def get_absolute_url(self):
+        return reverse('thanks')

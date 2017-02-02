@@ -1,10 +1,9 @@
 from django.http import Http404
 from django.views.generic import ListView, DetailView, TemplateView, CreateView
-from .models import Project, PrjKit, Article, Techno, Calculation
-from .forms import ProjectFilterForm, MainCalc, PrjCalc
-from .utils import MenuMixin
+from .models import Project, PrjKit, Article, Techno, Calculation, PhoneCall
+from .forms import ProjectFilterForm, MainCalc, PrjCalc, PhoneForm
+from .utils import MenuMixin, jsonify
 from django.core.mail import send_mail
-from django.conf import settings
 
 
 # Create your views here.
@@ -106,13 +105,14 @@ class MainCalcView(CreateView):
     template_name = 'dvor/thanks.html'
 
     def form_valid(self, form):
+        form.save()
         message = "Данные отправителя:\nФИО: {}".format(form.cleaned_data.get('fio'))
         if form.cleaned_data.get('email'):
-            message += "email: {}".format(form.cleaned_data.get('email'))
+            message += "\nemail: {}".format(form.cleaned_data.get('email'))
         if form.cleaned_data.get('phone'):
-            message += "Телефон: {}".format(form.cleaned_data.get('phone'))
+            message += "\nТелефон: {}".format(form.cleaned_data.get('phone'))
         if form.cleaned_data.get('file'):
-            message += "к заявке прикреплен файл (его можно посмотреть на сайте)"
+            message += "\nк заявке прикреплен файл (его можно посмотреть на сайте)"
         message += "\n\n Пожелания: \n{}".format(form.cleaned_data.get('note'))
         send_mail(
             subject = 'Заявка на расчет ({} {})'.format(form.cleaned_data.get('fio'),form.cleaned_data.get('phone')),
@@ -120,7 +120,10 @@ class MainCalcView(CreateView):
             from_email = 'lagumor@inbox.ru',
             recipient_list = ['lagumor@inbox.ru'],
         )
-        return super().form_valid(form)
+        return jsonify({'status': 1, 'errors': None})
+
+    def form_invalid(self, form):
+        return jsonify({'status': 0, 'errors': form.errors})
 
 class PrjCalcView(CreateView):
     form_class = PrjCalc
@@ -128,6 +131,7 @@ class PrjCalcView(CreateView):
     template_name = 'dvor/thanks.html'
 
     def form_valid(self, form):
+        form.save()
         kit = PrjKit.objects.filter(pk=form.cleaned_data.get('kit').id).first()
         kit_name = "{} {}".format(kit.prn.name.title(),kit.tech.mnemo.title())
         if form.cleaned_data.get('kit_numb') == 1:
@@ -136,11 +140,11 @@ class PrjCalcView(CreateView):
             kit_calc = "премиум"
         message = "Данные отправителя:\nФИО: {}".format(form.cleaned_data.get('fio'))
         if form.cleaned_data.get('email'):
-            message += "email: {}".format(form.cleaned_data.get('email'))
+            message += "\nemail: {}".format(form.cleaned_data.get('email'))
         if form.cleaned_data.get('phone'):
-            message += "Телефон: {}".format(form.cleaned_data.get('phone'))
+            message += "\nТелефон: {}".format(form.cleaned_data.get('phone'))
         if form.cleaned_data.get('file'):
-            message += "к заявке прикреплен файл (его можно посмотреть на сайте)"
+            message += "\nк заявке прикреплен файл (его можно посмотреть на сайте)"
         message += "\n\n Пожелания: \n{}".format(form.cleaned_data.get('note'))
         send_mail(
             subject = 'Заявка на проект {}, комплектация: {} ({} {})'.format(kit_name, kit_calc, form.cleaned_data.get('fio'),form.cleaned_data.get('phone')),
@@ -148,4 +152,31 @@ class PrjCalcView(CreateView):
             from_email = 'lagumor@inbox.ru',
             recipient_list = ['lagumor@inbox.ru'],
         )
-        return super().form_valid(form)
+        return jsonify({'status': 1, 'errors': None})
+
+    def form_invalid(self, form):
+        return jsonify({'status': 0, 'errors': form.errors})
+
+class PhoneCallView(CreateView):
+    form_class = PhoneForm
+    model = PhoneCall
+    template_name = 'dvor/thanks.html'
+
+    def form_valid(self, form):
+        form.save()
+        message = "Данные отправителя:\nФИО: {}".format(form.cleaned_data.get('fio'))
+        if form.cleaned_data.get('email'):
+            message += "\nemail: {}".format(form.cleaned_data.get('email'))
+        message += "\nТелефон: {}".format(form.cleaned_data.get('phone'))
+        if form.cleaned_data.get('wtime'):
+          message += "\nВремя звонка: {}".format(form.cleaned_data.get('wtime'))
+        send_mail(
+            subject = 'Обратный звонок ({} {})'.format(form.cleaned_data.get('fio'),form.cleaned_data.get('phone')),
+            message = message,
+            from_email = 'lagumor@inbox.ru',
+            recipient_list = ['lagumor@inbox.ru'],
+        )
+        return jsonify({'status': 1, 'errors': None})
+
+    def form_invalid(self, form):
+        return jsonify({'status': 0, 'errors': form.errors})

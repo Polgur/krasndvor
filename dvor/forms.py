@@ -1,5 +1,5 @@
 from django import forms
-from .models import Techno, Calculation
+from .models import Techno, Calculation, PhoneCall
 
 
 vid_choices = (
@@ -37,28 +37,65 @@ class MainCalc (BaseCalcForm):
         model = Calculation
         exclude = (
             'kit',
-            'kit_numb'
+            'kit_numb',
+            'created',
         )
         labels = {
             'fio': 'Ваше имя',
             'email': 'Ваш email',
+            'phone': 'Ваш телефон',
+            'note': 'Пожелания',
+            'file': 'Прикрепить файл',
         }
         widgets = {
-            'fio' : forms.TextInput(attrs={'placeholder': 'Пожалуйста, введите Ваше имя'}),
-            'created' : forms.HiddenInput(),
-            'email': forms.EmailInput(attrs={'placeholder': 'Пожалуйста, введите Ваш email адрес'}),
+            'fio' : forms.TextInput(attrs={'placeholder': 'Пожалуйста, введите Ваше имя', 'class' : 'col-md-12 form-control'}),
+            'email': forms.EmailInput(attrs={'placeholder': 'Пожалуйста, введите Ваш email адрес', 'class' : 'col-md-12 form-control'}),
+            'phone': forms.TextInput(attrs={'placeholder': 'Пожалуйста, введите Ваш номер телефона', 'class' : 'col-md-12 form-control'}),
+            'note': forms.Textarea(attrs={ 'class' : 'col-md-12 form-control'}),
+            'file': forms.FileInput(attrs={'class': 'col-md-12 form-control'}),
         }
 
 class PrjCalc (BaseCalcForm):
     class Meta:
         model = Calculation
-        fields = '__all__'
+        exclude = (
+            'created',
+        )
         labels = {
             'fio': 'Ваше имя',
             'email': 'Ваш email',
+            'phone': 'Ваш телефон',
+            'note': 'Сообщение',
         }
         widgets = {
-            'fio' : forms.TextInput(attrs={'placeholder': 'Пожалуйста, введите Ваше имя'}),
-            'created' : forms.HiddenInput(),
-            'email': forms.EmailInput(attrs={'placeholder': 'Пожалуйста, введите Ваш email адрес'}),
+            'fio' : forms.TextInput(attrs={'placeholder': 'Пожалуйста, введите Ваше имя', 'class' : 'col-md-12 form-control'}),
+            'email': forms.EmailInput(attrs={'placeholder': 'Пожалуйста, введите Ваш email адрес', 'class' : 'col-md-12 form-control'}),
+            'phone': forms.TextInput(attrs={'placeholder': 'Пожалуйста, введите Ваш номер телефона', 'class' : 'col-md-12 form-control'}),
+            'note': forms.Textarea(attrs={ 'class' : 'col-md-12 form-control'}),
         }
+
+class PhoneForm (forms.ModelForm):
+    class Meta:
+        model = PhoneCall
+        exclude = (
+            'created',
+        )
+        labels = {
+            'fio': 'Ваше имя',
+            'email': 'Ваш email',
+            'phone': 'Ваш телефон',
+            'wtime': 'Желаемое время звонка',
+        }
+        widgets = {
+            'fio' : forms.TextInput(attrs={'placeholder': 'Пожалуйста, введите Ваше имя', 'class' : 'col-md-12 form-control'}),
+            'email': forms.EmailInput(attrs={'placeholder': 'Пожалуйста, введите Ваш email адрес', 'class' : 'col-md-12 form-control'}),
+            'phone': forms.TextInput(attrs={'placeholder': 'Пожалуйста, введите Ваш номер телефона', 'class' : 'col-md-12 form-control'}),
+            'wtime': forms.TextInput(attrs={'placeholder': 'Пожалуйста, введите желаемое время звонка', 'class' : 'col-md-12 form-control'}),
+        }
+
+    def clean(self):
+        note = self.cleaned_data.get('note')
+        if not note:
+            self.add_error('note','Прим. есть!!!')
+            self.add_error('phone','Должна быть заполнена почта или телефон')
+        return self.cleaned_data
