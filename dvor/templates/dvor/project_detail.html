@@ -130,6 +130,10 @@
               <label for="{{ calc_form.note.id_for_label }}">{{ calc_form.note.label }}:</label>
               {{ calc_form.note }}
             </div>
+            <div id="{{ calc_form.file.name }}" class="fieldWrapper form-group">
+              <label for="{{ calc_form.file.id_for_label }}">{{ calc_form.file.label }}:</label>
+              {{ calc_form.file }}
+            </div>
             <input type="hidden" name="{{ calc_form.kit.name }}" id="{{ calc_form.kit.id_for_label }}" value="{{ kit.pk }}">
             <input type="hidden" name="{{ calc_form.kit_numb.name }}" id="{{ calc_form.kit_numb.id_for_label }}">
 
@@ -168,6 +172,7 @@ $('#prjcalc').on('show.bs.modal', function (event) {
                           $('#prjcalc [name="email"]').val('');
                           $('#prjcalc [name="phone"]').val('');
                           $('#prjcalc [name="note"]').val('');
+                          window.location = "{% url 'thanks_prj' %}"
                       }
                       else{
                           $.each(data.errors, function(index, value) {

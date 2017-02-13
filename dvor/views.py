@@ -160,6 +160,7 @@ class PrjCalcView(CreateView):
 class PhoneCallView(CreateView):
     form_class = PhoneForm
     model = PhoneCall
+    template_name = 'dvor/thanks.html'
 
     def form_valid(self, form):
         form.save()

@@ -66,12 +66,14 @@ class PrjCalc (BaseCalcForm):
             'email': 'Ваш email',
             'phone': 'Ваш телефон',
             'note': 'Сообщение',
+            'file': 'Прикрепить файл',
         }
         widgets = {
             'fio' : forms.TextInput(attrs={'placeholder': 'Пожалуйста, введите Ваше имя', 'class' : 'col-md-12 form-control'}),
             'email': forms.EmailInput(attrs={'placeholder': 'Пожалуйста, введите Ваш email адрес', 'class' : 'col-md-12 form-control'}),
             'phone': forms.TextInput(attrs={'placeholder': 'Пожалуйста, введите Ваш номер телефона', 'class' : 'col-md-12 form-control'}),
             'note': forms.Textarea(attrs={ 'class' : 'col-md-12 form-control'}),
+            'file': forms.FileInput(attrs={'class': 'col-md-12 form-control'}),
         }
 
 class PhoneForm (forms.ModelForm):

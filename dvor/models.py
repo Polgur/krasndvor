@@ -77,12 +77,15 @@ class PrjKit(models.Model):
         return "{} {}".format(self.prn.name.title(),self.tech.mnemo.title())
 
 class Article(models.Model):
-    name = models.CharField(max_length=100, unique=True)
-    slug = models.SlugField()
+    name = models.CharField(max_length=100, unique=True, verbose_name="Название статьи")
+    slug = models.SlugField(verbose_name="Урл")
+    title = models.CharField(max_length=250, blank=True, verbose_name="Заголовок в браузере")
+    metakey = models.CharField(max_length=250, blank=True, verbose_name="Ключевые слова")
+    metadesc = models.CharField(max_length=250, blank=True, verbose_name="Мета описание")
     techs = models.ManyToManyField(Techno)
-    publish = models.DateTimeField(default=timezone.now)
-    description = RichTextField()
-    body = RichTextField()
+    publish = models.DateTimeField(default=timezone.now, verbose_name="Дата публикации")
+    description = RichTextField(verbose_name="Краткое описание")
+    body = RichTextField(verbose_name="Текст статьи")
 
     class Meta:
         verbose_name = 'Статья'
@@ -92,8 +95,7 @@ class Article(models.Model):
         return self.name.title()
 
     def get_absolute_url(self):
-        return reverse('article_detail',
-                       kwargs={'slug': self.slug})
+        return reverse('article_detail', kwargs={'slug': self.slug})
 
 class Calculation(models.Model):
     fio = models.CharField(max_length=80)

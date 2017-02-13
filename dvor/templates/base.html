@@ -15,9 +15,8 @@
   <link rel="canonical" href="{% block canonical_url %}https://127.0.0.1{% endblock %}">
 
   {% block meta_seo %}
-  <meta name="description" content="Django Blog Python Learning">
-  <meta name="author" content="Summon Agus">
   <meta name="keywords" content="Python Learning, Summon Agus, Django Blog Summon Agus, Django, Blog Python Django"/>
+  <meta name="description" content="Django Blog Python Learning">
   {% endblock %}
 
   <link href="{{STATIC_URL}}css/bootstrap.min.css" rel="stylesheet">
@@ -168,13 +167,14 @@ alt="" border="0" width="88" height="31"/></a><!--/LiveInternet-->
                           $('#phonecall [name="email"]').val('');
                           $('#phonecall [name="phone"]').val('');
                           $('#phonecall [name="wtime"]').val('');
-                          window.location = "/thanks/"
+                          window.location = "{% url 'thanks_call' %}"
                       }
                       else{
                           $.each(data.errors, function(index, value) {
                               $('#'+index+'').append("<span class='form-err text-danger'>"+value[0]+"</span>");
+                              console.log(index);
+                              console.log(value);
                           });
-                          $('#phonecall').modal('hide');
                       }
                   },
                   contentType: false,
@@ -203,6 +203,7 @@ alt="" border="0" width="88" height="31"/></a><!--/LiveInternet-->
                           $('#maincalc [name="phone"]').val('');
                           $('#maincalc [name="note"]').val('');
                           $('#maincalc [name="file"]').val('');
+                          window.location = "{% url 'thanks' %}"
                       }
                       else{
                           $.each(data.errors, function(index, value) {
