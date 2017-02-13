@@ -1,5 +1,149 @@
 {% load staticfiles %}
 
+<header>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+        <div class="header-logo">
+          <a href="{% url 'index_page' %}">
+            <img src="{% static "img/logo.png" %}">
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-7 col-md-6 col-sm-6 hidden-xs">
+        <div class="header-center">
+          <div class="phone"><span>+7 (495) 201-23-09</span><span>+7 (916) 599-94-44</span></div>
+          <h1>Строительство коттеджей из термопанелей. <br>Высочайшее качество по низким ценам.</h1>
+          <a href="mailto:kras-dvor@mail.ru" class="email">kras-dvor@mail.ru</a>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12 headphone">
+        <div class="header-feedback">
+        <button type="button" class="callback" data-toggle="modal" data-target="#phonecall"><span
+            class="glyphicon glyphicon-earphone" aria-hidden="true"></span> Обратный звонок
+        </button>
+        <button type="button" class="calculation" data-toggle="modal" data-target="#maincalc"><span
+            class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Расчет проекта
+        </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav class="navbar main-nav container-fluid" role="navigation">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainnav-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span><!--Полоски на кноке-->
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+  </div>
+  <div class="collapse navbar-collapse" id="mainnav-collapse">
+    <ul class="nav navbar-nav mainnav-list">
+      {% for item in menu %}
+        {% if item.submenu %}
+          <li class="dropdown {{ item.clss }}{% if item.slug in menu_slug %} active{% endif %}">
+            <a href="#" class="dropdown-toggle"
+               data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ item.name }}<span
+                class="caret"></span></a>
+            <ul class="mainnav-dropmenu dropdown-menu">
+              {% for subitem in item.submenu %}
+                {% if subitem.name == 'divider' %}
+                  <li class="divider"></li>
+                {% elif subitem.submenu %}
+                  <li class="dropdown-submenu {% if subitem.slug in menu_slug %} active{% endif %} {% if subitem.clss  %}{{ subitem.clss }}{% endif %} ">
+                    <a tabindex="-1" href="{{ subitem.url }}"><span class="level2">{{ subitem.name }}</span></a>
+                      <ul class="mainnav-lvl3">
+                        {% for subitem_lvl2 in subitem.submenu %}
+                          {% if subitem_lvl2.name == 'divider' %}
+                            <li class="divider"></li>
+                          {% else %}
+                            <li {% if subitem_lvl2.clss %}class="{{ subitem_lvl2.clss }}"{% endif %}><a href="{{ subitem_lvl2.url }}">{{ subitem_lvl2.name }}</a></li>
+                          {% endif %}
+                        {% endfor %}
+                      </ul>
+                {% else %}
+                  <li class="{% if subitem.slug in menu_slug %}active{% endif %}{% if subitem.clss  %}{{ subitem.clss }}{% endif %}"><a href="{{ subitem.url }}">{{ subitem.name }}</a></li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+          </li>
+        {% else %}
+          <li {% if item.slug in menu_slug %}class="active"{% endif %}><a href="{{ item.url }}">{{ item.name }}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+
+
+   {% comment %} <ul class="nav navbar-nav main-nav__list">
+      <li><a href="#">Главная</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span>Технологии</span><b
+            class="caret"></b></a>
+        <ul class="main-nav__drop-menu  dropdown-menu">
+          <li>
+            <span class="level2">Термопанели<b class="caret lvl2"></b></span>
+            <ul class="main-nav__drop-menu-level3">
+              <li><a href="#">фундаменты</a></li>
+              <li class="after-divider"><a href="#">каркасные</a></li>
+              <li class="divider"></li>
+              <li><a href="#">ремонт и отделка</a></li>
+            </ul>
+          </li>
+          <li><a href="#">СИП панели</a></li>
+          <li><a href="#">каркасные</a></li>
+          <li><a href="#">реконструкции</a></li>
+          <li><a href="#">фундаменты</a></li>
+          <li>
+            <span class="level2">ремонт и отделка</span>
+            <ul class="main-nav__drop-menu-level3">
+              <li><a href="#">фундаменты</a></li>
+              <li><a href="#">каркасные</a></li>
+              <li><a href="#">ремонт и отделка</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><a href="#">Проекты</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="level1">Наши проекты</span></a>
+        <ul class="main-nav__drop-menu dropdown-menu">
+          <li>
+            <span class="level2">Термопанели</span>
+            <ul class="main-nav__drop-menu-level3">
+              <li><a href="#">фундаменты</a></li>
+              <li><a href="#">каркасные</a></li>
+              <li><a href="#">ремонт и отделка</a></li>
+            </ul>
+          </li>
+          <li><a href="#">СИП панели</a></li>
+          <li><a href="#">каркасные</a></li>
+          <li><a href="#">реконструкции</a></li>
+          <li><a href="#">фундаменты</a></li>
+          <li>
+            <span class="level2">ремонт и отделка</span>
+            <ul class="main-nav__drop-menu-level3">
+              <li><a href="#">фундаменты</a></li>
+              <li><a href="#">каркасные</a></li>
+              <li><a href="#">ремонт и отделка</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><a href="#">информация</a></li>
+      <li><a href="#">отзывы</a></li>
+      <li><a href="#">контакты</a></li>
+    </ul>{% endcomment %}
+  </div>
+</nav>
+
+
+{% comment %}
+
+
+
 <div class="container-fluid">
   <!-- Second navbar for search -->
   <nav class="navbar navbar-inverse" style="background-color: #090332">
@@ -95,3 +239,4 @@
 </div><!-- /.fluid -->
 
 
+{% endcomment %}
