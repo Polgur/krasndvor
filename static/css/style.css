@@ -255,7 +255,6 @@ header {
     transition: all .4s ease;
     padding: 0 10px;
 }
-
 .main-nav a:focus, .main-nav span:focus {
     text-decoration: none;
 }
@@ -266,7 +265,15 @@ header {
     color: #fff;
     background-color: transparent;
 }
-
+.main-nav li .active a{
+    color: #ffffff;
+}
+.mainnav-list>.active {
+    background: rgba(255,255,255,0.2);
+}
+.mainnav-list>.active>a {
+    color: #ffffff;
+}
 .main-nav span {
     cursor: pointer;
     padding: 0;
@@ -282,7 +289,7 @@ header {
 
 .nav.navbar-nav.mainnav-list {
     margin: auto;
-    width: 1200px;
+    width: 1030px;
     float: none;
 }
 
@@ -294,6 +301,9 @@ header {
     background: none;
     border: none;
     outline: none;
+}
+.dropdown-menu>.active>a{
+    background: none;
 }
 .nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
     background-color: transparent;
@@ -375,6 +385,7 @@ header {
 .mainnav-dropmenu .active {
     background: #be4305;
 }
+
 
 .mainnav-dropmenu li,
 .navbar-nav .open .dropdown-menu > li > a {
@@ -600,7 +611,7 @@ header {
 @media (min-width: 768px) and (max-width: 1200px) {
     .nav.navbar-nav.mainnav-list {
         margin: auto;
-        width: 768px;
+        width: 710px;
         float: none;
     }
 
