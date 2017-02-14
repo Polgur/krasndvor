@@ -3,36 +3,104 @@
 {% load thumbnail %}
 
 {% block content %}
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-9">
-        <ol class="breadcrumb">
-          <li><a href="\">Главная</a></li>
-          <li><a href="{% url 'project_list' %}?tech={{techfilter.pk}}&search=1&vid=0&pmin=0&pmax=5000000&smin=0&smax=500">Проекты</a></li>
-          {% if techfilter.pk == 2 %}
-            <li class="active">Проекты из СИП панелей</li>
-          {% elif techfilter.pk == 3 %}
-            <li class="active">Проекты по каркасной технологии</li>
-          {% else %}
-            <li class="active">Проекты из Термопанелей</li>
-          {% endif %}
-        </ol>
-      </div>
+  <ol class="breadcrumbs">
+    <li><a href="\">Главная</a></li>
+    <li><a href="{% url 'project_list' %}?tech={{ techfilter.pk }}&search=1&vid=0&pmin=0&pmax=5000000&smin=0&smax=500">Проекты</a>
+    </li>
+    {% if techfilter.pk == 2 %}
+      <li class="active">Проекты из СИП панелей</li>
+    {% elif techfilter.pk == 3 %}
+      <li class="active">Проекты по каркасной технологии</li>
+    {% else %}
+      <li class="active">Проекты из Термопанелей</li>
+    {% endif %}
+  </ol>
+
+  <div class="katalog">
+    <div class="kat-title">
+      каталог
     </div>
-  </div>
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-9">
-        <form
-          action="{% url 'project_list' %}" method="get">
-          {{ search_form.as_table }}
-          <button type="submit">Поиск</button>
-        </form>
+
+    <form class="filters" action="{% url 'project_list' %}" method="get">
+      <div class="filter-box-one">
+        <div class="price">
+          <span>Цена от</span>
+          <input id="id_pmin" class="short-input" name="pmin" type="number" value="{{ search_form.pmin.value }}"
+                 required/>
+          <span>до</span>
+          <input id="id_pmax" class="short-input" name="pmax" type="number" value="{{ search_form.pmax.value }}"
+                 required/>
+        </div>
+        <div class="area">
+          <span>Площадь от</span>
+          <input id="id_smin" class="short-input" name="smin" type="number" value="{{ search_form.smin.value }}"
+                 required/>
+          <span>до</span>
+          <input id="id_smax" class="short-input" name="smax" type="number" value="{{ search_form.smax.value }}"
+                 required/>
+        </div>
       </div>
+
+      <div class="filter-box-two">
+        <div class="technology">
+          <span>Технологии</span>
+          {{ search_form.tech }}
+        </div>
+        <div class="type">
+          <span>Тип</span>
+          {{ search_form.vid }}
+        </div>
+      </div>
+      <button type="submit">Поиск</button>
+    </form>
+
+
+    <div class="katalog-list clearfix">
+      {% for prj in project_list %}
+        <div class="col-lg-4 col-md-6 col-xs-12">
+          <div class="katalog-item">
+
+            <a href="
+                {% if request.GET.tech %}
+                  {% url 'project_detail' prj.slug %}?tech={{ request.GET.tech }}
+                {% else %}
+                  {% url 'project_detail' prj.slug %}?tech={{ techfilter.pk }}
+                {% endif %}">
+              <div class="katalog-img">
+                {% thumbnail prj.img "258x187" crop="80% top" format="PNG" as im %}
+                  <img class="img-responsive" src="{{ im.url }}" alt="{{ im.title }}">
+                {% endthumbnail %}
+              </div>
+            </a>
+            <div class="katalog-info clearfix">
+              <a href="
+                {% if request.GET.tech %}
+                  {% url 'project_detail' prj.slug %}?tech={{ request.GET.tech }}
+                {% else %}
+                  {% url 'project_detail' prj.slug %}?tech={{ techfilter.pk }}
+                {% endif %}">
+                <div class="katalog-title">{{ prj.name|title }}</div>
+              </a>
+              <span class="katalog-area"><img class="build-icon"
+                                              src="{% static "img/build-icon.png" %}">{{ prj.square }} кв.м.</span>
+              <span class="katalog-price">
+                {% for kit in prj.kits.all %}
+                  {% if request.GET.tech and kit.tech.pk == request.GET.tech %}
+                    {{ kit.price1 }} ₽
+                  {% elif kit.tech.pk == techfilter.pk %}
+                    {{ kit.price1 }} ₽
+                  {% endif %}
+                {% endfor %}
+              </span>
+            </div>
+
+          </div>
+        </div>
+      {% endfor %}
     </div>
   </div>
 
-  <div class="container">
+    {% comment %}<div class="container">
     <div class="row">
       <div class="col-sm-9">
         <div class="row">
@@ -73,5 +141,5 @@
         </div>
       </div>
     </div>
-  </div>
+  </div>{% endcomment %}
 {% endblock %}

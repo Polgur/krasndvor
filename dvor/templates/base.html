@@ -49,21 +49,46 @@
 
 {% menu_render request menu_slug_list %}
 
-<div class="container main__container" style="min-height: 100%">
-  <div class="row">
-    <div class="col-lg-3 col-sm-3">
-      {% include "includes/sidebar.html" %}
-    </div><!-- /.blog-sidebar -->
-
-    <div class="col-lg-9 col-sm-9">
+<section class="content">
+  <div class="container clearfix">
+    <div class="main-content col-sm-9">
       {% block content %}
-        текст главной
+        Контент!
       {% endblock %}
-    </div><!-- /.blog-main -->
-  </div><!-- /.row -->
-</div><!-- /.main__container -->
-
-<div class="footer vcenter">
+    </div>
+    <div class="main-sidebar col-sm-3">
+      {% include "includes/sidebar.html" %}
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-2 col-xs-6">
+        <div class="footer-logo">
+          <a href="">
+            <img src="{% static "img/logo-footer.png" %}">
+          </a>
+        </div>
+      </div>
+      <div class="col-sm-8 hidden-xs">
+        <div class="footer-center">
+          <div class="phone"><span>+7 (495) 201-23-09</span><span>+7 (916) 599-94-44</span></div>
+          <p>&#169; 2016-{% now "Y" %} - Официальный сайт компании Красный двор</p>
+          <p class="footer-oferta">Вся представленная на сайте информация носит ознакомительный характер и не является публичной офертой</p>
+        </div>
+      </div>
+      <div class="col-sm-2 col-xs-6 footer-right">
+        <!--LiveInternet logo--><a href="//www.liveinternet.ru/click"
+                                   target="_blank"><img src="//counter.yadro.ru/logo?18.7"
+                                                        title="LiveInternet: показано число просмотров за 24 часа, посетителей за 24 часа и за сегодня"
+                                                        alt="" border="0" width="88" height="31"/></a>
+        <!--/LiveInternet-->
+      </div>
+    </div>
+  </div>
+</footer>
+{% comment %}<div class="footer vcenter">
   <div class="container">
     <div class="row">
       <div class="col-lg-9">
@@ -80,7 +105,7 @@
     </div>
   </div>
 
-</div>
+</div>{% endcomment %}
 
 <div class="modal" id="phonecall">
   <div class="modal-dialog" role="document">
