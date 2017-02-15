@@ -854,6 +854,7 @@ header {
 .main-sidebar .side-panel .map {
     margin-left: 5px;
     /*    max-width: 228px;*/
+    min-height: 300px;
     margin-right: 5px;
 }
 
@@ -1279,9 +1280,15 @@ footer {
     background-image: url('../img/order-bg-nohover.png');
     background-size: 100% 100%;
     padding: 5px 20px;
+    border: 0;
     font-size: 18px;
     -webkit-transition: all .5s ease;
     transition: all .5s ease;
+}
+.tovar .price-and-button .button span{
+    color: #fff;
+    top: 2px;
+    left: -4px;
 }
 
 .tovar .price-and-button .button:hover {
@@ -1298,7 +1305,7 @@ footer {
     font-family: ProximaNova-Semibold;
 }
 
-.tovar .price-and-button .price span {
+.tovar .price-and-button .text .price span {
     display: inline-block;
     font-size: 24px;
     color: #1a1919;
@@ -1340,11 +1347,12 @@ footer {
 
 .tovar-compl {
     position: relative;
+    min-height: 880px;
 }
 
 .tovar-compl .item {
     display: inline-block;
-    margin-top: 40px;
+    margin-top: 20px;
 }
 
 .tovar-compl .title {
@@ -1399,7 +1407,7 @@ footer {
     padding-left: 0;
     position: absolute;
     left: 0;
-    /*top: 49px;*/
+    top: 70px;
     padding-top: 30px;
     background-color: #fac496;
     border: 1px solid #bb8757;
@@ -1418,7 +1426,7 @@ footer {
 }
 
 .tovar-compl ul li, .tovar-compl .compl-wrap p, .tovar-compl .compl-wrap .price-and-button {
-    margin-bottom: 20px;
+    margin-bottom: 5px;
     padding-left: 22px;
     padding-right: 22px;
 }
@@ -1432,6 +1440,7 @@ footer {
 .tovar-compl ul li:last-child, .tovar-compl .compl-wrap .price-and-button  {
     margin-top: 0;
     padding-top: 15px;
+    padding-bottom: 10px;
     border-top: 1px solid #bb8757;
 }
 
@@ -1442,18 +1451,18 @@ footer {
 .tovar-compl ul li .name, .tovar-compl .compl-wrap .name {
     display: block;
     margin-left: 50px;
-    font-size: 20px;
+    font-size: 16px;
     color: #960b0b;
     font-family: ProximaNova-Semibold;
-    line-height: 23px;
+    line-height: 18px;
 }
 
 .tovar-compl ul li .info, .tovar-compl .compl-wrap .info{
     display: block;
     margin-left: 50px;
     color: #161413;
-    font-size: 16px;
-    line-height: 18px;
+    font-size: 14px;
+    line-height: 16px;
 }
 
 
