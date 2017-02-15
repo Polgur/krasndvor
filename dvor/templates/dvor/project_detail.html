@@ -10,15 +10,15 @@
     </li>
     {% if techfilter.pk == 2 %}
       <li><a
-          href="{% url 'project_list' %}?tech={{ techfilter.pk }}&search=1&vid=0&pmin=0&pmax=5000000&smin=0&smax=500">Проекты
+              href="{% url 'project_list' %}?tech={{ techfilter.pk }}&search=1&vid=0&pmin=0&pmax=5000000&smin=0&smax=500">Проекты
         из СИП панелей</a></li>
     {% elif techfilter.pk == 3 %}
       <li><a
-          href="{% url 'project_list' %}?tech={{ techfilter.pk }}&search=1&vid=0&pmin=0&pmax=5000000&smin=0&smax=500">Проекты
+              href="{% url 'project_list' %}?tech={{ techfilter.pk }}&search=1&vid=0&pmin=0&pmax=5000000&smin=0&smax=500">Проекты
         по каркасной технологии</a></li>
     {% else %}
       <li><a
-          href="{% url 'project_list' %}?tech={{ techfilter.pk }}&search=1&vid=0&pmin=0&pmax=5000000&smin=0&smax=500">Проекты
+              href="{% url 'project_list' %}?tech={{ techfilter.pk }}&search=1&vid=0&pmin=0&pmax=5000000&smin=0&smax=500">Проекты
         из Термопанелей</a></li>
     {% endif %}
     <li class="active">{{ project.name|title }}</li>
@@ -75,6 +75,84 @@
         {% endif %}
       {% endfor %}
     </div>
+
+    <div class="tovar-compl">
+      <div class="item active">
+        <span class="title">Комплектация "Комфорт"</span>
+        <div class="compl-wrap" style="display: block;">
+          <div>
+            {{ kit.kit1|safe }}
+          </div>
+          <div class="price-and-button clearfix">
+            <div class="text">
+              <span>Цена проекта {{ project.name|title }} (комплектация "Комфорт)"</span>
+              <span class="price">{{ kit.price1 }} <span>&#8381;</span></span>
+            </div>
+            <button type="button" class="button" data-toggle="modal" data-target="#prjcalc" data-calc="1">
+              <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Заказать
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <span class="title">Комплектация 2</span>
+        <ul>
+          <li>
+            <span class="icon"><img src="img/door.png"></span>
+            <span class="name">Двери</span>
+            <span class="info">Свайно-винтовой,(черный металл) диаметром = 108 мм, длиной = 2.5м, закручиваемые спецтехникой с засыпкой песко-бетонной смесью.</span>
+          </li>
+          <li>
+            <span class="icon"><img src="img/window.png"></span>
+            <span class="name">Окна</span>
+            <span class="info">Свайно-винтовой,(черный металл) диаметром = 108 мм, длиной = 2.5м, закручиваемые спецтехникой с засыпкой песко-бетонной смесью.</span>
+          </li>
+          <li>
+            <span class="icon"><img src="img/balkon.png"></span>
+            <span class="name">Балконы</span>
+            <span class="info">Свайно-винтовой,(черный металл) диаметром = 108 мм, длиной = 2.5м, закручиваемые спецтехникой с засыпкой песко-бетонной смесью.</span>
+          </li>
+          <li class="price-and-button clearfix">
+            <div class="text">
+              <span>Стоимость за 1 комплектацию</span>
+              <span class="price">12 000 <span>&#8381;</span></span>
+            </div>
+            <a href="" class="button">заказать</a></li>
+        </ul>
+      </div>
+      <div class="item">
+        <span class="title">Комплектация 3</span>
+        <ul>
+          <li>
+            <span class="icon"><img src="img/door.png"></span>
+            <span class="name">Двери</span>
+            <span class="info">Свайно-винтовой,(черный металл) диаметром = 108 мм, длиной = 2.5м, закручиваемые спецтехникой с засыпкой песко-бетонной смесью.</span>
+          </li>
+          <li>
+            <span class="icon"><img src="img/window.png"></span>
+            <span class="name">Окна</span>
+            <span class="info">Свайно-винтовой,(черный металл) диаметром = 108 мм, длиной = 2.5м, закручиваемые спецтехникой с засыпкой песко-бетонной смесью.</span>
+          </li>
+          <li>
+            <span class="icon"><img src="img/balkon.png"></span>
+            <span class="name">Балконы</span>
+            <span class="info">Свайно-винтовой,(черный металл) диаметром = 108 мм, длиной = 2.5м, закручиваемые спецтехникой с засыпкой песко-бетонной смесью.</span>
+          </li>
+          <li>
+            <span class="icon"><img src="img/fundament.png"></span>
+            <span class="name">Фундамент</span>
+            <span class="info">Свайно-винтовой,(черный металл) диаметром = 108 мм, длиной = 2.5м, закручиваемые спецтехникой с засыпкой песко-бетонной смесью.</span>
+          </li>
+          <li class="price-and-button clearfix">
+            <div class="text">
+              <span>Стоимость за 1 комплектацию</span>
+              <span class="price">12 000 <span>&#8381;</span></span>
+            </div>
+            <a href="" class="button">заказать</a></li>
+        </ul>
+      </div>
+    </div>
+
   </div>
 
   {% comment %}<div class="container">

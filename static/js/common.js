@@ -14,9 +14,9 @@ $(function() {
 		$(this).parents(".main-nav").find(".mainnav-list").slideToggle();
 	})
 
-	$(".tovar__equipment .title").click(function () {
+	$(".tovar-compl .title").click(function () {
 		$(this).parent().toggleClass("active").siblings().removeClass('active');
-		$(this).parent().siblings().children("ul").hide();
+		$(this).parent().siblings().children("div").hide();
 		$(this).next().slideToggle();
 	})
 });

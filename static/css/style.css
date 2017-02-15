@@ -1338,22 +1338,23 @@ footer {
     height: auto;
 }
 
-.tovar__equipment {
+.tovar-compl {
     position: relative;
 }
 
-.tovar__equipment .item {
+.tovar-compl .item {
     display: inline-block;
+    margin-top: 40px;
 }
 
-.tovar__equipment .title {
+.tovar-compl .title {
     color: #fff;
     font-size: 20px;
     line-height: 24px;
     font-family: ProximaNova-Regula;
     cursor: pointer;
     display: inline-block;
-    padding: 12px 60px;
+    padding: 12px 20px;
     border: 1px solid #bb8757;
     -webkit-border-radius: 4px 4px 0 0;
     border-radius: 4px 4px 0 0;
@@ -1363,16 +1364,16 @@ footer {
     transition: all .5s ease;
 }
 
-.tovar__equipment .title:hover {
+.tovar-compl .title:hover {
     color: #723808;
     background-color: #f9b67e;
 }
 
-.tovar__equipment .title:hover::after {
+.tovar-compl .title:hover::after {
     display: none;
 }
 
-.tovar__equipment .title::after {
+.tovar-compl .title::after {
     position: absolute;
     content: '';
     width: 100%;
@@ -1385,20 +1386,20 @@ footer {
     z-index: -1;
 }
 
-.tovar__equipment .active {
+.tovar-compl .active {
     background-color: #fac496;
 }
 
-.tovar__equipment .active .title {
+.tovar-compl .active .title {
     color: #723808;
 }
 
-.tovar__equipment ul {
+.tovar-compl ul, .tovar-compl .compl-wrap {
     list-style: none;
     padding-left: 0;
     position: absolute;
     left: 0;
-    top: 49px;
+    /*top: 49px;*/
     padding-top: 30px;
     background-color: #fac496;
     border: 1px solid #bb8757;
@@ -1408,37 +1409,37 @@ footer {
     border-radius: 0 4px 4px 4px;
 }
 
-.tovar__equipment ul .button {
+.tovar-compl ul .button, .tovar-compl .compl-wrap .button {
     margin-top: 5px;
 }
 
-.tovar__equipment ul .text span {
+.tovar-compl ul .text span, .tovar-compl .compl-wrap .text span {
     display: block;
 }
 
-.tovar__equipment ul li {
+.tovar-compl ul li, .tovar-compl .compl-wrap p, .tovar-compl .compl-wrap .price-and-button {
     margin-bottom: 20px;
     padding-left: 22px;
     padding-right: 22px;
 }
 
-.tovar__equipment ul li::after {
+.tovar-compl ul li::after, .tovar-compl .compl-wrap p:after {
     clear: both;
     content: "";
     display: table;
 }
 
-.tovar__equipment ul li:last-child {
+.tovar-compl ul li:last-child, .tovar-compl .compl-wrap .price-and-button  {
     margin-top: 0;
     padding-top: 15px;
     border-top: 1px solid #bb8757;
 }
 
-.tovar__equipment ul li .icon {
+.tovar-compl ul li .icon, .tovar-compl .compl-wrap .icon {
     position: absolute;
 }
 
-.tovar__equipment ul li .name {
+.tovar-compl ul li .name, .tovar-compl .compl-wrap .name {
     display: block;
     margin-left: 50px;
     font-size: 20px;
@@ -1447,7 +1448,7 @@ footer {
     line-height: 23px;
 }
 
-.tovar__equipment ul li .info {
+.tovar-compl ul li .info, .tovar-compl .compl-wrap .info{
     display: block;
     margin-left: 50px;
     color: #161413;
@@ -1500,6 +1501,35 @@ footer {
     .footer-center .phone {
         margin-top: 0;
     }
+    .tovar .tovar-foto {
+        width: 45%
+    }
+
+    .tovar-charact {
+        width: 53%
+    }
+    .tovar-compl .item {
+        display: block;
+        margin-bottom: 10px;
+        -webkit-border-radius: 4px;
+        border-radius: 4px;
+    }
+
+    .tovar-compl .item .title {
+        width: 290px;
+        text-align: center;
+        border-bottom: 1px solid #bb8757;
+    }
+
+    .tovar-compl ul {
+        position: relative;
+        left: 0;
+        top: auto;
+        border: none;
+        -webkit-border-radius: none;
+        border-radius: none;
+    }
+
 
 }
 
@@ -1553,6 +1583,14 @@ footer {
         -webkit-transform: translate(-50%, 0);
         -ms-transform: translate(-50%, 0);
         transform: translate(-50%, 0);
+    }
+    .tovar .tovar-foto {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .tovar-charact {
+        width: 100%
     }
 
 }
@@ -1623,6 +1661,23 @@ footer {
         -webkit-transform: none;
         -ms-transform: none;
         transform: none;
+    }
+    .tovar .tovar-foto {
+        width: 45%
+    }
+
+    .tovar-charact {
+        width: 53%
+    }
+}
+
+@media only screen and (max-width: 630px) {
+    .tovar .tovar-foto {
+        width: 100%
+    }
+
+    .tovar-charact {
+        width: 100%
     }
 }
 
