@@ -1465,6 +1465,61 @@ footer {
     line-height: 16px;
 }
 
+/* ====================================pagination======================================== */
+.paggination {
+    list-style: none;
+    padding-left: 0;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.paggination .double-arrow a {
+    background-color: #e0b690;
+    border: 1px solid #c2a080;
+    color: #762e06;
+}
+
+.paggination li {
+    display: inline-block;
+    margin: 0 2px;
+}
+
+.paggination li a {
+    display: block;
+    width: 32px;
+    line-height: 32px;
+    color: #e60d04;
+    font-size: 18px;
+    font-family: ProximaNova-Semibold;
+    border: 1px solid #fcf1e1;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-transition: all .5s ease;
+    transition: all .5s ease;
+    background-color: #edd2b4;
+}
+
+.paggination li a:hover {
+    background-color: #2a0f01;
+    text-decoration: none;
+    color: #fff;
+    border: solid 1px #785544;
+}
+
+.pagination > li > a, .pagination > li > span {
+    float: none;
+    padding: 0;
+}
+
+.paggination .active a {
+    background-color: #2a0f01;
+    color: white;
+}
+
+.paggination .active {
+    background-color: #2a0f01;
+}
+
 
 
 

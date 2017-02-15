@@ -2,43 +2,32 @@
 {% load staticfiles %}
 
 {% block content %}
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-9">
-        <ol class="breadcrumb">
-          <li><a href="\">Главная</a></li>
-          <li class="active">Статьи</li>
-        </ol>
-      </div>
-    </div>
-  </div>
-  <div class="container">
-    <div class="row">
-      {% for art in article_list %}
-        <div class="col-sm-9">
-          <a href="{{ art.get_absolute_url }}">
-            <h4 class="text-left">{{ art.name|title }}</h4>
-          </a>
-          <div class="well"><p>{{ art.description|safe }}</p></div>
-          <div class="margin-8"></div>
-        </div>
-      {% endfor %}
-    </div>
-  </div>
+  <ol class="breadcrumbs">
+    <li><a href="\">Главная</a></li>
+    <li class="active">Статьи</li>
+  </ol>
 
+  <div class="content-article clearfix">
+    {% for art in article_list %}
+        <a href="{{ art.get_absolute_url }}">
+          <h3>{{ art.name|title }}</h3>
+        </a>
+        <p class="content-text">{{ art.description|safe }}</p>
+    {% endfor %}
+  </div> <!-- /.content-article -->
 
   {% if is_paginated %}
     <nav>
-      <ul class="pagination">
+      <ul class="paggination">
         {% if page_obj.has_previous %}
-          <li><a href="?page={{ page_obj.previous_page_number }}">
-              <span><</span>
-            </a>
+          <li class="double-arrow"><a href="?page={{ page_obj.previous_page_number }}">
+            <i class="fa fa-angle-double-left" aria-hidden="true"></i>
+          </a>
           </li>
         {% else %}
-          <li class="disabled">
+          <li class="double-arrow ">
             <a href="#">
-              <span><</span>
+              <i class="fa fa-angle-double-left" aria-hidden="true"></i>
             </a>
           </li>
         {% endif %}
@@ -50,15 +39,15 @@
         {% endfor %}
 
         {% if page_obj.has_next %}
-          <li>
+          <li class="double-arrow">
             <a href="?page={{ page_obj.next_page_number }}">
-              <span>></span>
+              <i class="fa fa-angle-double-right" aria-hidden="true"></i>
             </a>
           </li>
         {% else %}
-          <li {% if not page_obj.has_next %}class="disabled"{% endif %}>
+          <li class="double-arrow ">
             <a href="#">
-              <span>></span>
+              <i class="fa fa-angle-double-right" aria-hidden="true"></i>
             </a>
           </li>
         {% endif %}

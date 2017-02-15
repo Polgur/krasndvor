@@ -8,23 +8,15 @@
 {% endblock %}
 
 {% block content %}
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-9">
-        <ol class="breadcrumb">
-          <li><a href="\">Главная</a></li>
-          <li><a href="{% url 'article_list' %}">Статьи</a></li>
-          <li class="active">{{ article.name|title }}</li>
-        </ol>
-      </div>
-    </div>
-  </div>
-  <div class="container">
-    <div class="row">
-        <div class="col-lg-9">
-          <h2>{{ article.name|title }}</h2>
-          {{ article.body }}
-        </div>
-    </div>
-  </div>
+  <ol class="breadcrumbs">
+    <li><a href="\">Главная</a></li>
+    <li><a href="{% url 'article_list' %}">Статьи</a></li>
+    <li class="active">{{ article.name|title }}</li>
+  </ol>
+
+  <div class="content-article clearfix">
+    <h2>{{ article.name|title }}</h2>
+    {{ article.body }}
+  </div> <!-- /.content-article -->
+
 {% endblock %}
