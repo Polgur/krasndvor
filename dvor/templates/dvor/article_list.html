@@ -10,7 +10,7 @@
   <div class="content-article clearfix">
     {% for art in article_list %}
         <a href="{{ art.get_absolute_url }}">
-          <h3>{{ art.name|title }}</h3>
+          <h3>{{ art.name }}</h3>
         </a>
         <p class="content-text">{{ art.description|safe }}</p>
     {% endfor %}

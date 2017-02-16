@@ -29,16 +29,16 @@ menu = [
     {'name': "Главная", 'clss': '', 'url': reverse("index_page"), 'slug': 'home'},
     {'name': "Технологии", 'clss': '', 'url': '#', 'slug': 'techs', 'submenu':
         [
-            {'name': "Термопанели", 'clss': '', 'url': '#', 'slug': 'techs_1'},
-            {'name': "СИП панели", 'clss': '', 'url': '#', 'slug': 'techs_2'},
-            {'name': "Каркасные", 'clss': 'after-divider', 'url': '#', 'slug': 'techs_3'},
+            {'name': "Термопанели", 'clss': '', 'url': reverse("sect_termo"), 'slug': 'sect_termo'},
+            {'name': "СИП панели", 'clss': '', 'url': reverse("sect_sip"), 'slug': 'sect_sip'},
+            {'name': "Каркасные", 'clss': 'after-divider', 'url': reverse("sect_karkas"), 'slug': 'sect_karkas'},
             {'name': "divider", 'clss': '', 'url': '#', 'slug': ''},
-            {'name': "Реконструкции", 'clss': '', 'url': '#', 'slug': 'rec'},
-            {'name': "Фундаменты", 'clss': '', 'url': '#', 'slug': 'fun'},
-            {'name': "Ремонт и отделка", 'clss': '', 'url': '#', 'slug': 'rem'},
+            {'name': "Реконструкции", 'clss': '', 'url': reverse("sect_recon"), 'slug': 'sect_recon'},
+            {'name': "Фундаменты", 'clss': '', 'url': reverse("sect_fund"), 'slug': 'sect_fund'},
+            {'name': "Ремонт и отделка", 'clss': '', 'url': reverse("sect_remont"), 'slug': 'sect_remont'},
         ]},
     {'name': "Проекты", 'clss': '', 'url': '#', 'slug': 'projects', 'submenu': get_tech()},
-    {'name': "Наши объекты", 'clss': '', 'url': '#', 'slug': 'techs', 'submenu':
+    {'name': "Наши объекты", 'clss': '', 'url': '#', 'slug': 'our_obj', 'submenu':
         [
             {'name': "Этапы строительства", 'clss': 'after-divider', 'url': '#', 'slug': 'techs_3'},
             {'name': "divider", 'clss': '', 'url': '#', 'slug': ''},

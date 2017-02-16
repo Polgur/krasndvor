@@ -17,6 +17,48 @@ class IndexPage(MenuMixin,TemplateView):
         return ctx
 
 
+class SectionTermo(MenuMixin,TemplateView):
+    menu_slug = [
+        "techs",
+        "sect_termo",
+    ]
+    template_name = 'dvor/sect_termo.html'
+
+class SectionSip(MenuMixin,TemplateView):
+    menu_slug = [
+        "techs",
+        "sect_sip",
+    ]
+    template_name = 'dvor/sect_sip.html'
+
+class SectionKarkas(MenuMixin,TemplateView):
+    menu_slug = [
+        "techs",
+        "sect_karkas",
+    ]
+    template_name = 'dvor/sect_karkas.html'
+
+class SectionRecon(MenuMixin,TemplateView):
+    menu_slug = [
+        "techs",
+        "sect_recon",
+    ]
+    template_name = 'dvor/sect_recon.html'
+
+class SectionFund(MenuMixin,TemplateView):
+    menu_slug = [
+        "techs",
+        "sect_fund",
+    ]
+    template_name = 'dvor/sect_fund.html'
+
+class SectionRemont(MenuMixin,TemplateView):
+    menu_slug = [
+        "techs",
+        "sect_remont",
+    ]
+    template_name = 'dvor/sect_remont.html'
+
 class ProjectList(MenuMixin,ListView):
     model = Project
     techfilter = None

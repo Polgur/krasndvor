@@ -15,8 +15,8 @@
   </ol>
 
   <div class="content-article clearfix">
-    <h2>{{ article.name|title }}</h2>
-    {{ article.body }}
+    <h2>{{ article.name }}</h2>
+    {{ article.body|safe }}
   </div> <!-- /.content-article -->
 
 {% endblock %}
