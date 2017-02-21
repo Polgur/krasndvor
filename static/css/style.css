@@ -318,7 +318,7 @@ header {
     border-color: transparent;
 }
 
-.dropdown-menu .divider {
+/*.dropdown-menu .divider {
     height: 7px;
     margin: 0;
     overflow: hidden;
@@ -337,9 +337,35 @@ header {
 .dropdown-menu .divider:before {
     display: none;
 }
-
+*/
 .after-divider:before {
     display: none;
+}
+
+.dropdown-menu .divider {
+    height: 3px;
+/*    border-style: solid;*/
+    border-color: black;
+    border-width: 1px 0 0 0;
+    border-radius: 1px;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    padding-right:0;
+    padding-left:0;
+    background-color: transparent;
+}
+.dropdown-menu .divider:before {
+    display: block;
+    content: "";
+    height: 3px;
+    border-style: solid;
+    border-color: black;
+    border-width: 0 0 1px 0;
+    border-radius: 1px;
+}
+.dropdown-menu .divider:hover {
+    background-repeat: no-repeat;
+    background-size: 100%;
 }
 
 .mainnav-dropmenu {
@@ -459,10 +485,6 @@ header {
     position: absolute;
     right: 25px;
     top: 47%;
-}
-
-.after-divider:before {
-    display: none;
 }
 
 /* ==========================================content==================================================*/

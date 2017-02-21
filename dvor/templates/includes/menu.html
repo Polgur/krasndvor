@@ -65,7 +65,7 @@
                         {% endfor %}
                       </ul>
                 {% else %}
-                  <li class="{% if subitem.slug in menu_slug %}active{% endif %}{% if subitem.clss  %}{{ subitem.clss }}{% endif %}"><a href="{{ subitem.url }}">{{ subitem.name }}</a></li>
+                  <li class="{% if subitem.slug in menu_slug %}active{% endif %}{% if subitem.clss  %} {{ subitem.clss }}{% endif %}"><a href="{{ subitem.url }}">{{ subitem.name }}</a></li>
                 {% endif %}
               {% endfor %}
             </ul>

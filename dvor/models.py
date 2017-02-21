@@ -27,6 +27,14 @@ class Project(models.Model):
         (3, 'Баня'),
     )
     vid = models.SmallIntegerField(choices=vid_choices)
+    house_choices = (
+        (1, 'Одноэтажный'),
+        (2, 'С мансардой'),
+        (3, 'Двухэтажный'),
+        (4, 'Баня'),
+        (5, 'Дуплекс'),
+    )
+    house = models.SmallIntegerField(choices=house_choices)
     img  = ImageField(upload_to='projects')
     size = models.CharField(max_length=25)
     square = models.PositiveSmallIntegerField()
