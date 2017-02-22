@@ -82,7 +82,12 @@
                 <div class="katalog-title">{{ prj.name|title }}</div>
               </a>
               <span class="katalog-area"><img class="build-icon"
-                                              src="{% static "img/build-icon.png" %}">{{ prj.square }} кв.м.</span>
+                                              {% if prj.house == 2 %}src="{% static "img/build-icon2.png" %}"
+                                              {% elif prj.house == 3 %}src="{% static "img/build-icon3.png" %}"
+                                              {% elif prj.house == 4 %}src="{% static "img/build-icon4.png" %}"
+                                              {% elif prj.house == 5 %}src="{% static "img/build-icon5.png" %}"
+                                              {% else %}src="{% static "img/build-icon1.png" %}"{% endif %}
+                                          >{{ prj.square }} кв.м.</span>
               <span class="katalog-price">
                 {% for kit in prj.kits.all %}
                   {% if request.GET.tech and kit.tech.pk == request.GET.tech %}
@@ -98,9 +103,49 @@
         </div>
       {% endfor %}
     </div>
+
+    {% if is_paginated %}
+      <nav>
+        <ul class="paggination">
+          {% if page_obj.has_previous %}
+            <li class="double-arrow"><a href="?page={{ page_obj.previous_page_number }}">
+              <span class="glyphicon glyphicon-menu-left"></span>
+            </a>
+            </li>
+          {% else %}
+            <li class="double-arrow ">
+              <a href="#">
+                <span class="glyphicon glyphicon-menu-left"></span>
+              </a>
+            </li>
+          {% endif %}
+
+          {% for page in paginator.page_range %}
+            <li {% if page == page_obj.number %}class="active"{% endif %}>
+              <a href="?page={{ page }}">{{ page }}</a>
+            </li>
+          {% endfor %}
+
+          {% if page_obj.has_next %}
+            <li class="double-arrow">
+              <a href="?page={{ page_obj.next_page_number }}">
+                <span class="glyphicon glyphicon-menu-right"></span>
+              </a>
+            </li>
+          {% else %}
+            <li class="double-arrow ">
+              <a href="#">
+                <span class="glyphicon glyphicon-menu-right"></span>
+              </a>
+            </li>
+          {% endif %}
+        </ul>
+      </nav>
+    {% endif %}
+
   </div>
 
-    {% comment %}<div class="container">
+  {% comment %}<div class="container">
     <div class="row">
       <div class="col-sm-9">
         <div class="row">

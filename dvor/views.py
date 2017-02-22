@@ -62,7 +62,7 @@ class SectionRemont(MenuMixin,TemplateView):
 class ProjectList(MenuMixin,ListView):
     model = Project
     techfilter = None
-    paginate_by = 18
+    paginate_by = 21
     menu_slug = [
         "projects",
     ]
@@ -85,6 +85,7 @@ class ProjectList(MenuMixin,ListView):
                 else:
                     self.techfilter = Techno.objects.filter(mnemo='Термопанели').first()
                     self.queryset = self.queryset.filter(techs=self.techfilter)
+                self.queryset = self.queryset.order_by('square')
         else:
             self.techfilter = Techno.objects.filter(mnemo='Термопанели').first()
             self.search_form = self.search_form_class()
