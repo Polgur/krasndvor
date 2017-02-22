@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+  <ol class="breadcrumbs">
+    <li><a href="\">Главная</a></li>
+    <li class="active">Контакты</li>
+  </ol>
+
+  <div class="content-page clearfix">
+    <h1>Контакты</h1>
+    <div class="row contacts">
+      <div class="col-xs-6 col-lg-3">
+        <h2><i class="glyphicon glyphicon-phone"></i>Телефоны</h2>
+        +7 (8412) 39-90-14 <br>
+        +7 (927) 289-90-14
+      </div>
+      <div class="col-xs-6 col-lg-3">
+        <h2><i class="glyphicon glyphicon-envelope"></i> E-mail</h2>
+        <a href="mailto:kras-dvor@mail.ru" class="email">kras-dvor@mail.ru</a>
+      </div>
+      <div class="clearfix hidden-lg"></div>
+      <div class="content-text col-xs-6 col-lg-3">
+        <h2><i class="glyphicon glyphicon-map-marker"></i>Адрес</h2>
+        <b>ул. Чкалова д.32</b><br>
+        Мы находимся в 5 минутах езды от центра! <br>
+        Добраться можно на маршрутных такси ...
+      </div>
+      <div class="content-text col-xs-6 col-lg-3">
+        <h2><i class="glyphicon glyphicon-time"></i>График работы</h2>
+        Пн-Чт – с 09-00 до 19-00 <br>
+        Пт – с 09-00 до 18-00 <br>
+        Сб – с 10-00 до 18-00 <br>
+        Вск – с 10-00 до 15-00
+      </div>
+    </div>
+    <div class="map">
+      <script type="text/javascript" charset="utf-8" async
+              src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=xnLKTK1otR8Ab0mX8VAnGVymKWksZCYh&amp;width=100%25&amp;height=600&amp;lang=ru_RU&amp;sourceType=constructor&amp;scroll=true">
+      </script>
+    </div>
+  </div> <!-- /.content-article -->
+{% endblock %}

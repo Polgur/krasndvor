@@ -59,6 +59,18 @@ class SectionRemont(MenuMixin,TemplateView):
     ]
     template_name = 'dvor/sect_remont.html'
 
+class OurStages(MenuMixin,TemplateView):
+    menu_slug = [
+        "our_obj",
+        "bstages",
+    ]
+    template_name = 'dvor/our_stages.html'
+
+class ContactsPage(MenuMixin,TemplateView):
+    menu_slug = 'contacts'
+    template_name = 'dvor/contacts.html'
+
+
 class ProjectList(MenuMixin,ListView):
     model = Project
     techfilter = None

@@ -40,7 +40,7 @@ menu = [
     {'name': "Проекты", 'clss': '', 'url': '#', 'slug': 'projects', 'submenu': get_tech()},
     {'name': "Наши объекты", 'clss': '', 'url': '#', 'slug': 'our_obj', 'submenu':
         [
-            {'name': "Этапы строительства", 'clss': 'after-divider', 'url': '#', 'slug': 'techs_3'},
+            {'name': "Этапы строительства", 'clss': 'after-divider', 'url': reverse("bstages"), 'slug': 'bstages'},
             {'name': "divider", 'clss': '', 'url': '#', 'slug': ''},
             {'name': "Термопанели", 'clss': '', 'url': '#', 'slug': 'techs_1'},
             {'name': "СИП панели", 'clss': '', 'url': '#', 'slug': 'techs_2'},
@@ -58,7 +58,7 @@ menu = [
             {'name': "Сертификаты", 'clss': '', 'url': '#', 'slug': 'certif'},
         ]},
     {'name': "Отзывы", 'clss': '', 'url': '#', 'slug': 'feedback'},
-    {'name': "Контакты", 'clss': '', 'url': '#', 'slug': 'contacts'},
+    {'name': "Контакты", 'clss': '', 'url': reverse("contacts"), 'slug': 'contacts'},
 ]
 
 @register.inclusion_tag('includes/menu.html')
