@@ -1,6 +1,6 @@
 from django.conf.urls import url
 from .views import IndexPage, SectionTermo, SectionSip, SectionKarkas, SectionRecon, SectionFund, SectionRemont, \
-    OurStages, OurSip, OurKarkas, ContactsPage, ProjectList, ProjectDetail, ArticleList, ArticleDetail, \
+    OurStages, OurTermo, OurSip, OurKarkas, ContactsPage, ProjectList, ProjectDetail, ArticleList, ArticleDetail, \
     MainCalcView, PrjCalcView, PhoneCallView
 from django.conf import settings
 from django.views.static import serve
@@ -14,6 +14,7 @@ urlpatterns = [
     url(r'^fundament/$', SectionFund.as_view(), name='sect_fund'),
     url(r'^remont-otdelka/$', SectionRemont.as_view(), name='sect_remont'),
     url(r'^build-stages/$', OurStages.as_view(), name='bstages'),
+    url(r'^our-termopanel/$', OurTermo.as_view(), name='our_termo'),
     url(r'^our-sip-panel/$', OurSip.as_view(), name='our_sip'),
     url(r'^our-kaskasnie-doma/$', OurKarkas.as_view(), name='our_karkas'),
     url(r'^contacts/$', ContactsPage.as_view(), name='contacts'),

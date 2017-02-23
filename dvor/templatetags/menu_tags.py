@@ -42,7 +42,7 @@ menu = [
         [
             {'name': "Этапы строительства", 'clss': 'after-divider', 'url': reverse("bstages"), 'slug': 'bstages'},
             {'name': "divider", 'clss': '', 'url': '#', 'slug': ''},
-            {'name': "Термопанели", 'clss': '', 'url': '#', 'slug': 'techs_1'},
+            {'name': "Термопанели", 'clss': '', 'url': reverse("our_termo"), 'slug': 'our_termo'},
             {'name': "СИП панели", 'clss': '', 'url': reverse("our_sip"), 'slug': 'our_sip'},
             {'name': "Каркасные", 'clss': 'after-divider', 'url': reverse("our_karkas"), 'slug': 'our_karkas'},
             {'name': "divider", 'clss': '', 'url': '#', 'slug': ''},
