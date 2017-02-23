@@ -66,6 +66,21 @@ class OurStages(MenuMixin,TemplateView):
     ]
     template_name = 'dvor/our_stages.html'
 
+class OurSip(MenuMixin,TemplateView):
+    menu_slug = [
+        "our_obj",
+        "our_sip",
+    ]
+    template_name = 'dvor/our_sip.html'
+
+class OurKarkas(MenuMixin,TemplateView):
+    menu_slug = [
+        "our_obj",
+        "our_karkas",
+    ]
+    template_name = 'dvor/our_karkas.html'
+
+
 class ContactsPage(MenuMixin,TemplateView):
     menu_slug = 'contacts'
     template_name = 'dvor/contacts.html'
