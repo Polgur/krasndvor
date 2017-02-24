@@ -51,7 +51,7 @@
           <div class="col-md-3 col-xs-6">
             <a class="gallery" href="{{ ph.img.url }}">
               {% thumbnail ph.img "196x110" format="PNG" as im %}
-                <img  src="{{ im.url }}" alt="">
+                <img src="{{ im.url }}" alt="">
               {% endthumbnail %}
             </a>
           </div>
@@ -67,7 +67,7 @@
         {% if ph.type > 1 %}
           <div class="col-md-6 col-xs-12">
             <a class="gallery" href="{{ ph.img.url }}">
-              {% thumbnail ph.img "382x360" crop="top" format="PNG" as im %}
+              {% thumbnail ph.img "393" crop="center" format="PNG" as im %}
                 <img class="img-responsive" src="{{ im.url }}" alt="">
               {% endthumbnail %}
             </a>
@@ -95,15 +95,32 @@
         </div>
       </div>
       <div class="item">
-        <span class="title">Комплектация "Премиум"</span>
+        <span class="title">Комплектация "Престиж"</span>
         <div class="compl-wrap">
           <div>
             {{ kit.kit2|safe }}
           </div>
           <div class="price-and-button clearfix">
             <div class="text">
-              <span>Цена проекта {{ project.name|title }} (комплектация "Премиум)"</span>
+              <span>Цена проекта {{ project.name|title }} (комплектация "Престиж)"</span>
               <span class="price">{{ kit.price2 }} <span>&#8381;</span></span>
+            </div>
+            <button type="button" class="button" data-toggle="modal" data-target="#prjcalc" data-calc="2">
+              <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Заказать
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <span class="title">Комплектация "Премиум"</span>
+        <div class="compl-wrap">
+          <div>
+            {{ kit.kit3|safe }}
+          </div>
+          <div class="price-and-button clearfix">
+            <div class="text">
+              <span>Цена проекта {{ project.name|title }} (комплектация "Премиум)"</span>
+              <span class="price">{{ kit.price3 }} <span>&#8381;</span></span>
             </div>
             <button type="button" class="button" data-toggle="modal" data-target="#prjcalc" data-calc="2">
               <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Заказать

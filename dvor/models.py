@@ -74,8 +74,10 @@ class PrjKit(models.Model):
     tech = models.ForeignKey(Techno)
     price1 = models.IntegerField()
     price2 = models.IntegerField()
+    price3 = models.IntegerField()
     kit1 = RichTextField()
     kit2 = RichTextField()
+    kit3 = RichTextField()
 
     class Meta:
         verbose_name = 'Комплектация'
