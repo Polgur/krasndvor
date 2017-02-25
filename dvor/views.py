@@ -1,6 +1,6 @@
 from django.http import Http404
 from django.views.generic import ListView, DetailView, TemplateView, CreateView
-from .models import Project, PrjKit, Article, Techno, Calculation, PhoneCall
+from .models import Project, PrjKit, Readyobj, ReadyPhoto, Article, Techno, Calculation, PhoneCall
 from .forms import ProjectFilterForm, MainCalc, PrjCalc, PhoneForm
 from .utils import MenuMixin, jsonify
 from django.core.mail import send_mail
@@ -134,6 +134,16 @@ class ProjectList(MenuMixin,ListView):
         ctx['techfilter'] = self.techfilter
         ctx['menu_slug'] = self.menu_slug
         return ctx
+
+class ReadyobjTermo(MenuMixin,ListView):
+    queryset = Readyobj.objects.filter(tech=1).order_by('photos__sort')
+    paginate_by = 3
+    menu_slug = [
+        "our_obj",
+        "our_termo",
+    ]
+    template_name = 'dvor/our_termo.html'
+
 
 class ProjectDetail(DetailView):
     template_name = 'dvor/project_detail.html'

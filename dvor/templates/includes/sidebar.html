@@ -1,12 +1,15 @@
 {% load staticfiles %}
+{% load thumbnail %}
+{% comment %}
 <form role="search" class="side-search">
   <input type="search" class="form-control" placeholder="Ваш запрос" name="search">
   <input type="submit" name="button-search" value="">
 </form>
+{% endcomment %}
 
 <div class="side-panel">
   <div class="side-title">контакты</div>
-  <div class="address">ПЕНЗА <br>
+  <div class="address">г. Пенза <br>
     ул. Рябова 2 офис 10
   </div>
   <div class="phone">
@@ -18,9 +21,26 @@
   </div>
   <div class="map">
     <script type="text/javascript" charset="utf-8" async
-            src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=xnLKTK1otR8Ab0mX8VAnGVymKWksZCYh&amp;width=100%25&amp;height=300&amp;lang=ru_RU&amp;sourceType=constructor&amp;scroll=true">
+            src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=ngamqPx0CtkQjpb3CzV1k8nhSglBdsvb&amp;width=100%25&amp;height=230&amp;lang=ru_RU&amp;sourceType=constructor&amp;scroll=true">
     </script>
   </div>
+</div>
+<div class="side-panel">
+  <div class="side-title vistavka">Выставочный дом</div>
+  <div class="address clearfix" style="text-align: center">
+    Пензенская область<br>
+    п. Мичуриринский
+  </div>
+  <a href="{% url 'our_termo' %}">
+    <div class="katalog-img">
+      {% with url_path=MEDIA_URL|add:"content/OutTMich_00.jpg" %}
+        {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+          <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+        {% endthumbnail %}
+      {% endwith %}
+    </div>
+  </a>
+
 </div>
 <div class="side-panel">
   <div class="side-title">Новости</div>

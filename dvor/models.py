@@ -86,6 +86,34 @@ class PrjKit(models.Model):
     def __str__(self):
         return "{} {}".format(self.prn.name.title(),self.tech.mnemo.title())
 
+class Readyobj(models.Model):
+    mnemo = models.CharField(max_length=20, unique=True)
+    name = models.CharField(max_length=240, unique=True)
+    slug = models.SlugField()
+    description = models.TextField()
+    tech = models.ForeignKey(Techno)
+    img  = ImageField(upload_to='readyobj')
+
+    class Meta:
+        verbose_name = 'Готовый объект'
+        verbose_name_plural = 'Готовые объекты'
+
+    def __str__(self):
+        return self.mnemo.title()
+
+class ReadyPhoto(models.Model):
+    prn = models.ForeignKey(Readyobj, related_name='photos')
+    sort = models.PositiveSmallIntegerField()
+    img = ImageField(upload_to='readyobj')
+
+    def __str__(self):
+        return self.prn.mnemo.title()
+
+    class Meta:
+        verbose_name = 'Фото объекта'
+        verbose_name_plural = 'Фото объекта'
+
+
 class Article(models.Model):
     name = models.CharField(max_length=100, unique=True, verbose_name="Название статьи")
     slug = models.SlugField(verbose_name="Урл")

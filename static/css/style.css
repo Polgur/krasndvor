@@ -172,6 +172,7 @@ header {
 .main-nav {
     background-image: url('../img/menu-bg.png');
     background-position: center center;
+    margin-bottom: 10px;
 }
 .main-nav ul {
     list-style: none;
@@ -424,10 +425,10 @@ header {
 }
 /* ==========================================content==================================================*/
 .content {
-    padding-top: 25px;
+    padding-top: 10px;
 }
 .main-content {
-    float: right;
+    /*float: right;*/
     /*  width: 73%; */
     margin-bottom: 30px;
     padding: 0 5px;
@@ -467,7 +468,7 @@ header {
 .content-page .content-text {
     font-size: 14px;
 }
-.content-page h2 i{
+.content-page h2 i {
     font-size: 20px;
 }
 .content-page .contacts {
@@ -484,7 +485,6 @@ header {
     display: block;
     margin: 0 auto;
 }
-
 .content-article h2 {
     text-align: center;
     color: #e40e22;
@@ -670,7 +670,10 @@ header {
     padding-top: 9px;
     text-transform: uppercase;
     padding-bottom: 9px;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
+}
+.main-sidebar .side-title.vistavka {
+    font-size: 19px;
 }
 .main-sidebar .side-title::after {
     position: absolute;
@@ -765,10 +768,10 @@ header {
 }
 .main-sidebar .side-panel .address {
     color: #651e04;
-    font-size: 24px;
-    line-height: 24px;
+    font-size: 20px;
+    line-height: 20px;
     padding: 0 24px 0 24px;
-    margin-bottom: 18px;
+    margin-bottom: 5px;
 }
 .main-sidebar .side-panel .phone {
     margin-left: 60px;
@@ -776,7 +779,7 @@ header {
     font-size: 19px;
     line-height: 24px;
     position: relative;
-    margin-bottom: 10px;
+    margin-bottom: 3px;
     margin-right: 20px;
 }
 @media (max-width: 1200px) {
@@ -800,7 +803,7 @@ header {
     text-decoration: underline;
     margin-left: 60px;
     position: relative;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 .main-sidebar .side-panel .email::after {
     position: absolute;
@@ -814,14 +817,13 @@ header {
 .main-sidebar .side-panel .map {
     margin-left: 5px;
     /*    max-width: 228px;*/
-    min-height: 300px;
+    min-height: 230px;
     margin-right: 5px;
 }
 /*.main-sidebar .side-panel .map img {
     width: 100%;
     height: auto;
 }*/
-
 /* ==========================================footer============================================== */
 footer {
     padding-top: 5px;
@@ -909,7 +911,6 @@ footer {
     background-image: url(../img/bg-project-calculation.png);
     z-index: -1;
 }*/
-
 /* ==========================================breadcrumbs============================================ */
 .breadcrumbs {
     border: 1px solid #7a3308;
@@ -919,7 +920,7 @@ footer {
     display: inline-block;
     padding-left: 0;
     border-right: none;
-    margin-bottom: 22px;
+    margin-bottom: 10px;
     border-bottom: 0;
 }
 .breadcrumbs li {
@@ -1457,7 +1458,6 @@ footer {
         -webkit-border-radius: none;
         border-radius: none;
     }
-
 }
 /* Medium Devices, Desktops */
 @media only screen and (max-width: 992px) {
@@ -1676,3 +1676,4 @@ footer {
         background-position: 10%;
     }
 }
+
