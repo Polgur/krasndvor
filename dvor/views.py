@@ -1,6 +1,6 @@
 from django.http import Http404
 from django.views.generic import ListView, DetailView, TemplateView, CreateView
-from .models import Project, PrjKit, Readyobj, ReadyPhoto, Article, Techno, Calculation, PhoneCall
+from .models import Project, PrjKit, Readyobj, Reconst, Article, Techno, Calculation, PhoneCall
 from .forms import ProjectFilterForm, MainCalc, PrjCalc, PhoneForm
 from .utils import MenuMixin, jsonify
 from django.core.mail import send_mail
@@ -80,6 +80,13 @@ class OurKarkas(MenuMixin,TemplateView):
     ]
     template_name = 'dvor/our_karkas.html'
 
+class OurFund(MenuMixin,TemplateView):
+    menu_slug = [
+        "our_obj",
+        "our_fund",
+    ]
+    template_name = 'dvor/our_fund.html'
+
 class ContactsPage(MenuMixin,TemplateView):
     menu_slug = 'contacts'
     template_name = 'dvor/contacts.html'
@@ -154,13 +161,23 @@ class ProjectDetail(DetailView):
         return ctx
 
 class ReadyobjTermo(MenuMixin,ListView):
-    queryset = Readyobj.objects.filter(tech=1).order_by('photos__sort')
+    queryset = Readyobj.objects.filter(tech=1).order_by('photos__sort','photos__prn')
     paginate_by = 3
     menu_slug = [
         "our_obj",
         "our_termo",
     ]
     template_name = 'dvor/our_termo.html'
+
+class ReconstList(MenuMixin,ListView):
+    queryset = Reconst.objects.all().order_by('photos__sort', 'sort_re', 'photos__prn')
+    paginate_by = 6
+    menu_slug = [
+        "our_obj",
+        "reconst",
+    ]
+    template_name = 'dvor/reconst.html'
+
 
 class ExpoDom(MenuMixin,TemplateView):
     menu_slug = [

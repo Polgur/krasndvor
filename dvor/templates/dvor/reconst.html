@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load thumbnail %}
+
+{% block content %}
+  <ol class="breadcrumbs">
+    <li><a href="\">Главная</a></li>
+    <li class="active">Галерея реконструкций</li>
+  </ol>
+
+  <div class="content-page clearfix">
+    {% for obj in reconst_list %}
+      <div class="clearfix">
+        <h2>{{ obj.name }}</h2>
+        <p style="text-align: center">{{ obj.description }}</p>
+        <div class="gallery-div col-lg-6 col-xs-12">
+          <div class="gallery-stage">
+            <a class="gallery" href="{{ obj.img.url }}">
+              {% thumbnail obj.img "600x450" crop="center" format="PNG" as im %}
+                <img class="img-responsive content-img" src="{{ im.url }}" alt="">
+              {% endthumbnail %}
+            </a>
+          </div>
+        </div>
+        {% for photo in obj.photos.all %}
+          <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+            <div class="gallery-stage">
+              <a class="gallery" href="{{ photo.img.url }}">
+                {% thumbnail photo.img "300x225" crop="center" format="PNG" as im %}
+                  <img class="img-responsive content-img" src="{{ im.url }}" alt="">
+                {% endthumbnail %}
+              </a>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% endfor %}
+  </div> <!-- /.content-article -->
+
+  {% if is_paginated %}
+    <nav>
+      <ul class="paggination">
+        {% if page_obj.has_previous %}
+          <li class="double-arrow"><a href="?page={{ page_obj.previous_page_number }}">
+            <span class="glyphicon glyphicon-menu-left"></span>
+          </a>
+          </li>
+        {% else %}
+          <li class="double-arrow ">
+            <a href="#">
+              <span class="glyphicon glyphicon-menu-left"></span>
+            </a>
+          </li>
+        {% endif %}
+
+        {% for page in paginator.page_range %}
+          <li {% if page == page_obj.number %}class="active"{% endif %}>
+            <a href="?page={{ page }}">{{ page }}</a>
+          </li>
+        {% endfor %}
+
+        {% if page_obj.has_next %}
+          <li class="double-arrow">
+            <a href="?page={{ page_obj.next_page_number }}">
+              <span class="glyphicon glyphicon-menu-right"></span>
+            </a>
+          </li>
+        {% else %}
+          <li class="double-arrow ">
+            <a href="#">
+              <span class="glyphicon glyphicon-menu-right"></span>
+            </a>
+          </li>
+        {% endif %}
+      </ul>
+    </nav>
+  {% endif %}
+{% endblock %}

@@ -113,6 +113,32 @@ class ReadyPhoto(models.Model):
         verbose_name = 'Фото объекта'
         verbose_name_plural = 'Фото объекта'
 
+class Reconst(models.Model):
+    mnemo = models.CharField(max_length=20, unique=True)
+    name = models.CharField(max_length=240, unique=True)
+    slug = models.SlugField()
+    sort_re = models.PositiveSmallIntegerField()
+    description = models.TextField()
+    img = ImageField(upload_to='reconstr')
+
+    class Meta:
+        verbose_name = 'Реконструкция'
+        verbose_name_plural = 'Реконструкции'
+
+    def __str__(self):
+        return self.mnemo.title()
+
+class ReconstPhoto(models.Model):
+    prn = models.ForeignKey(Reconst, related_name='photos')
+    sort = models.PositiveSmallIntegerField()
+    img = ImageField(upload_to='reconstr')
+
+    def __str__(self):
+        return self.prn.mnemo.title()
+
+    class Meta:
+        verbose_name = 'Фото реконструкции'
+        verbose_name_plural = 'Фото реконструкции'
 
 class Article(models.Model):
     name = models.CharField(max_length=100, unique=True, verbose_name="Название статьи")

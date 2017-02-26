@@ -465,8 +465,29 @@ header {
     line-height: 30px;
     margin: 15px 0;
 }
+.content-page h2 {
+    text-align: center;
+    color: #e40e22;
+    font-family: ProximaNova-Regular;
+    font-size: 24px;
+    line-height: 30px;
+    margin: 15px 0;
+}
+.content-page h3 {
+    color: #651e04;
+    margin: 10px;
+}
+.content-page h4 {
+    color: #651e04;
+    margin: 10px;
+}
+.content-page p {
+    color: #651e04;
+    margin: 10px;
+}
 .content-page .content-text {
     font-size: 14px;
+    color: #651e04;
 }
 .content-page h2 i {
     font-size: 20px;

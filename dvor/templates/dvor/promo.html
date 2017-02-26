@@ -11,7 +11,7 @@
   <div class="content-page clearfix">
     <h2>Благоустройство террасы и крыльца в подарок!</h2>
     <h4>Заключите договор на строительство дома и получите благоустройство террасы и крыльца в подарок!</h4>
-    <h4>Акция действительна с <b>1 марта по 9 мая 2017 года.</b></h4>
+    <h4>Акция действительна с <b>1 марта по 30 апреля 2017 года.</b></h4>
     <div class="clearfix">
       <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
         <div class="gallery-stage">
@@ -28,17 +28,6 @@
         <div class="gallery-stage">
           <a class="gallery" href="{% static "content/01Akciya_02.jpg" %}">
             {% with url_path=MEDIA_URL|add:"content/01Akciya_02.jpg" %}
-              {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
-                <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
-              {% endthumbnail %}
-            {% endwith %}
-          </a>
-        </div>
-      </div>
-      <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
-        <div class="gallery-stage">
-          <a class="gallery" href="{% static "content/01Akciya_03.jpg" %}">
-            {% with url_path=MEDIA_URL|add:"content/01Akciya_03.jpg" %}
               {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
                 <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
               {% endthumbnail %}
@@ -92,7 +81,7 @@
       </div>
     </div>
     <br>
-    <h4 style="text-align: center">Наша компания может построить дом по трем технологиям</h4>
+    <h4 style="text-align: center">Акция действительна по всем технологиям</h4>
     <h2>Проекты по технологии <a class="section-link" href="{% url 'sect_termo' %}">Термопанели</a></h2>
 
     {% for prj in projects_term %}
