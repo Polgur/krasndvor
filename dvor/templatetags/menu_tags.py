@@ -50,10 +50,12 @@ menu = [
             {'name': "Фундаменты", 'clss': 'after-divider', 'url': '#', 'slug': 'fun'},
             {'name': "divider", 'clss': '', 'url': '#', 'slug': ''},
             {'name': "Дома на продажу", 'clss': '', 'url': '#', 'slug': 'rem'},
+            {'name': "Выставочный дом", 'clss': '', 'url': reverse("expo"), 'slug': 'expo'},
         ]},
     {'name': "Информация", 'clss': '', 'url': '#', 'slug': 'info', 'submenu':
         [
             {'name': "Вопросы и ответы", 'clss': '', 'url': '#', 'slug': 'questions'},
+            {'name': "Акции", 'clss': '', 'url': reverse("promo"), 'slug': 'promo'},
             {'name': "Статьи", 'clss': '', 'url': reverse("article_list"), 'slug': 'articles'},
             {'name': "Сертификаты", 'clss': '', 'url': '#', 'slug': 'certif'},
         ]},

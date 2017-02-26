@@ -76,7 +76,8 @@
         <div class="footer-center">
           <div class="phone"><span>+7 (8412) 25-29-58</span><span>+7 (927) 375-29-58</span></div>
           <p>&#169; 2016-{% now "Y" %} - Официальный сайт компании Красный двор</p>
-          <p class="footer-oferta">Вся представленная на сайте информация носит ознакомительный характер и не является публичной офертой</p>
+          <p class="footer-oferta">Вся представленная на сайте информация носит ознакомительный характер и не является
+            публичной офертой</p>
         </div>
       </div>
       <div class="col-sm-2 col-xs-6 footer-right">
@@ -89,6 +90,7 @@
     </div>
   </div>
 </footer>
+<a href="#" class="scrollup">Наверх</a>
 {% comment %}<div class="footer vcenter">
   <div class="container">
     <div class="row">
@@ -247,6 +249,21 @@
                 contentType: false,
                 processData: false
             });
+            return false;
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 350) {
+                $('.scrollup').fadeIn();
+            } else {
+                $('.scrollup').fadeOut();
+            }
+        });
+        $('.scrollup').click(function () {
+            $("html, body").animate({scrollTop: 250}, 500);
             return false;
         });
     });

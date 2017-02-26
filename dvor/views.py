@@ -13,7 +13,7 @@ class IndexPage(MenuMixin,TemplateView):
 
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
-        ctx['projects'] = Project.objects.all()[:3]
+        ctx['projects'] = Project.objects.filter(name__in=['Ольгово','Дубровицы','Никольское']).order_by('square')
         return ctx
 
 
@@ -66,13 +66,6 @@ class OurStages(MenuMixin,TemplateView):
     ]
     template_name = 'dvor/our_stages.html'
 
-class OurTermo(MenuMixin,TemplateView):
-    menu_slug = [
-        "our_obj",
-        "our_termo",
-    ]
-    template_name = 'dvor/our_termo.html'
-
 class OurSip(MenuMixin,TemplateView):
     menu_slug = [
         "our_obj",
@@ -86,7 +79,6 @@ class OurKarkas(MenuMixin,TemplateView):
         "our_karkas",
     ]
     template_name = 'dvor/our_karkas.html'
-
 
 class ContactsPage(MenuMixin,TemplateView):
     menu_slug = 'contacts'
@@ -135,16 +127,6 @@ class ProjectList(MenuMixin,ListView):
         ctx['menu_slug'] = self.menu_slug
         return ctx
 
-class ReadyobjTermo(MenuMixin,ListView):
-    queryset = Readyobj.objects.filter(tech=1).order_by('photos__sort')
-    paginate_by = 3
-    menu_slug = [
-        "our_obj",
-        "our_termo",
-    ]
-    template_name = 'dvor/our_termo.html'
-
-
 class ProjectDetail(DetailView):
     template_name = 'dvor/project_detail.html'
 
@@ -170,6 +152,42 @@ class ProjectDetail(DetailView):
         ctx['kit'] = self.object.kits.filter(tech=self.tech).first()
         ctx['techfilter'] = self.tech
         return ctx
+
+class ReadyobjTermo(MenuMixin,ListView):
+    queryset = Readyobj.objects.filter(tech=1).order_by('photos__sort')
+    paginate_by = 3
+    menu_slug = [
+        "our_obj",
+        "our_termo",
+    ]
+    template_name = 'dvor/our_termo.html'
+
+class ExpoDom(MenuMixin,TemplateView):
+    menu_slug = [
+        "our_obj",
+        "expo",
+    ]
+    template_name = 'dvor/expodom.html'
+
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+        ctx['expo'] = Readyobj.objects.filter(mnemo='Мичурино').order_by('photos__sort').first()
+        return ctx
+
+class Promo(MenuMixin,TemplateView):
+    menu_slug = [
+        "info",
+        "promo",
+    ]
+    template_name = 'dvor/promo.html'
+
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+        ctx['projects_term'] = Project.objects.filter(name__in=['Ольгово','Дубровицы','Никольское']).order_by('square')
+        ctx['projects_sip']  = Project.objects.filter(name__in=['Подушкино','Марфино','Аполье']).order_by('square')
+        ctx['projects_kars'] = Project.objects.filter(name__in=['Киреево','Дарьино','Мелихово']).order_by('square')
+        return ctx
+
 
 class ArticleList(MenuMixin,ListView):
     model = Article

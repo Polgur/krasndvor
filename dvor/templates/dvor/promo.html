@@ -1,0 +1,200 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load thumbnail %}
+
+{% block content %}
+  <ol class="breadcrumbs">
+    <li><a href="\">Главная</a></li>
+    <li class="active">Акции</li>
+  </ol>
+
+  <div class="content-page clearfix">
+    <h2>Благоустройство террасы и крыльца в подарок!</h2>
+    <h4>Заключите договор на строительство дома и получите благоустройство террасы и крыльца в подарок!</h4>
+    <h4>Акция действительна с <b>1 марта по 9 мая 2017 года.</b></h4>
+    <div class="clearfix">
+      <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+        <div class="gallery-stage">
+          <a class="gallery" href="{% static "content/01Akciya_01.jpg" %}">
+            {% with url_path=MEDIA_URL|add:"content/01Akciya_01.jpg" %}
+              {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+                <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+              {% endthumbnail %}
+            {% endwith %}
+          </a>
+        </div>
+      </div>
+      <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+        <div class="gallery-stage">
+          <a class="gallery" href="{% static "content/01Akciya_02.jpg" %}">
+            {% with url_path=MEDIA_URL|add:"content/01Akciya_02.jpg" %}
+              {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+                <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+              {% endthumbnail %}
+            {% endwith %}
+          </a>
+        </div>
+      </div>
+      <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+        <div class="gallery-stage">
+          <a class="gallery" href="{% static "content/01Akciya_03.jpg" %}">
+            {% with url_path=MEDIA_URL|add:"content/01Akciya_03.jpg" %}
+              {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+                <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+              {% endthumbnail %}
+            {% endwith %}
+          </a>
+        </div>
+      </div>
+      <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+        <div class="gallery-stage">
+          <a class="gallery" href="{% static "content/01Akciya_04.jpg" %}">
+            {% with url_path=MEDIA_URL|add:"content/01Akciya_04.jpg" %}
+              {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+                <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+              {% endthumbnail %}
+            {% endwith %}
+          </a>
+        </div>
+      </div>
+      <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+        <div class="gallery-stage">
+          <a class="gallery" href="{% static "content/01Akciya_05.jpg" %}">
+            {% with url_path=MEDIA_URL|add:"content/01Akciya_05.jpg" %}
+              {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+                <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+              {% endthumbnail %}
+            {% endwith %}
+          </a>
+        </div>
+      </div>
+      <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+        <div class="gallery-stage">
+          <a class="gallery" href="{% static "content/01Akciya_06.jpg" %}">
+            {% with url_path=MEDIA_URL|add:"content/01Akciya_06.jpg" %}
+              {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+                <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+              {% endthumbnail %}
+            {% endwith %}
+          </a>
+        </div>
+      </div>
+      <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+        <div class="gallery-stage">
+          <a class="gallery" href="{% static "content/01Akciya_07.jpg" %}">
+            {% with url_path=MEDIA_URL|add:"content/01Akciya_07.jpg" %}
+              {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+                <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+              {% endthumbnail %}
+            {% endwith %}
+          </a>
+        </div>
+      </div>
+    </div>
+    <br>
+    <h4 style="text-align: center">Наша компания может построить дом по трем технологиям</h4>
+    <h2>Проекты по технологии <a class="section-link" href="{% url 'sect_termo' %}">Термопанели</a></h2>
+
+    {% for prj in projects_term %}
+      <div class="promo-cat col-lg-4 col-md-6 col-xs-12">
+        <div class="katalog-item">
+
+          <a href="{% url 'project_detail' prj.slug %}?tech=1">
+            <div class="katalog-img">
+              {% thumbnail prj.img "258x187" crop="80% top" format="PNG" as im %}
+                <img class="img-responsive" src="{{ im.url }}" alt="{{ im.title }}">
+              {% endthumbnail %}
+            </div>
+          </a>
+          <div class="katalog-info clearfix">
+            <a href="{% url 'project_detail' prj.slug %}?tech=1">
+              <div class="katalog-title">{{ prj.name|title }}</div>
+            </a>
+            <span class="katalog-area"><img class="build-icon"
+                                            {% if prj.house == 2 %}src="{% static "img/build-icon2.png" %}"
+                                            {% elif prj.house == 3 %}src="{% static "img/build-icon3.png" %}"
+                                            {% elif prj.house == 4 %}src="{% static "img/build-icon4.png" %}"
+                                            {% elif prj.house == 5 %}src="{% static "img/build-icon5.png" %}"
+                                            {% else %}src="{% static "img/build-icon1.png" %}"{% endif %}
+            >{{ prj.square }} кв.м.</span>
+            <span class="katalog-price">{{ prj.price }} ₽</span>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+    <div class="view-all-promo clearfix">
+      <a href="{% url 'project_list' %}?tech=1&search=1&vid=0&pmin=0&pmax=5000000&smin=0&smax=500" class="view-all"
+         role="button">Полный каталог</a>
+    </div>
+
+    <h2>Проекты по технологии <a class="section-link" href="{% url 'sect_sip' %}">СИП панели</a></h2>
+
+    {% for prj in projects_sip %}
+      <div class="promo-cat col-lg-4 col-md-6 col-xs-12">
+        <div class="katalog-item">
+
+          <a href="{% url 'project_detail' prj.slug %}?tech=2">
+            <div class="katalog-img">
+              {% thumbnail prj.img "258x187" crop="80% top" format="PNG" as im %}
+                <img class="img-responsive" src="{{ im.url }}" alt="{{ im.title }}">
+              {% endthumbnail %}
+            </div>
+          </a>
+          <div class="katalog-info clearfix">
+            <a href="{% url 'project_detail' prj.slug %}?tech=2">
+              <div class="katalog-title">{{ prj.name|title }}</div>
+            </a>
+            <span class="katalog-area"><img class="build-icon"
+                                            {% if prj.house == 2 %}src="{% static "img/build-icon2.png" %}"
+                                            {% elif prj.house == 3 %}src="{% static "img/build-icon3.png" %}"
+                                            {% elif prj.house == 4 %}src="{% static "img/build-icon4.png" %}"
+                                            {% elif prj.house == 5 %}src="{% static "img/build-icon5.png" %}"
+                                            {% else %}src="{% static "img/build-icon1.png" %}"{% endif %}
+            >{{ prj.square }} кв.м.</span>
+            <span class="katalog-price">{{ prj.price }} ₽</span>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+    <div class="view-all-promo clearfix">
+      <a href="{% url 'project_list' %}?tech=2&search=1&vid=0&pmin=0&pmax=5000000&smin=0&smax=500" class="view-all"
+         role="button">Полный каталог</a>
+    </div>
+
+    <h2>Проекты по технологии <a class="section-link" href="{% url 'sect_karkas' %}">КАРКАСНЫЕ ДОМА</a></h2>
+
+    {% for prj in projects_kars %}
+      <div class="promo-cat col-lg-4 col-md-6 col-xs-12">
+        <div class="katalog-item">
+
+          <a href="{% url 'project_detail' prj.slug %}?tech=3">
+            <div class="katalog-img">
+              {% thumbnail prj.img "258x187" crop="80% top" format="PNG" as im %}
+                <img class="img-responsive" src="{{ im.url }}" alt="{{ im.title }}">
+              {% endthumbnail %}
+            </div>
+          </a>
+          <div class="katalog-info clearfix">
+            <a href="{% url 'project_detail' prj.slug %}?tech=3">
+              <div class="katalog-title">{{ prj.name|title }}</div>
+            </a>
+            <span class="katalog-area"><img class="build-icon"
+                                            {% if prj.house == 2 %}src="{% static "img/build-icon2.png" %}"
+                                            {% elif prj.house == 3 %}src="{% static "img/build-icon3.png" %}"
+                                            {% elif prj.house == 4 %}src="{% static "img/build-icon4.png" %}"
+                                            {% elif prj.house == 5 %}src="{% static "img/build-icon5.png" %}"
+                                            {% else %}src="{% static "img/build-icon1.png" %}"{% endif %}
+            >{{ prj.square }} кв.м.</span>
+            <span class="katalog-price">{{ prj.price }} ₽</span>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+    <div class="view-all-promo clearfix">
+      <a href="{% url 'project_list' %}?tech=3&search=1&vid=0&pmin=0&pmax=5000000&smin=0&smax=500" class="view-all"
+         role="button">Полный каталог</a>
+    </div>
+
+
+  </div> <!-- /.content-article -->
+{% endblock %}

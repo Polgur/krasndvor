@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load thumbnail %}
+
+{% block content %}
+  <ol class="breadcrumbs">
+    <li><a href="\">Главная</a></li>
+    <li class="active">Выставочный дом</li>
+  </ol>
+
+  <div class="content-page clearfix">
+    <h2>У нас есть что показать</h2>
+    <p>Специально для вас - мы построили демонстрационный дом</p>
+    <div class="clearfix">
+      <div class="gallery-div col-xs-12">
+        <div class="gallery-stage">
+          <a class="gallery" href="{{ expo.img.url }}">
+            {% thumbnail expo.img "800x600" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="">
+            {% endthumbnail %}
+          </a>
+        </div>
+      </div>
+      <p>Для всех желающих проведем экскурсию. Приезжайте к нам, не пожалеете. Вы воочию увидите, что из себя
+        представляют
+        дома, собранные из комбинированных термопанелей. Пощупаете. Попрыгаете по перекрытиям. Увидите как мы строим.
+        Как
+        комплектуем.</p>
+      <p>Ждем вас по адресу - Пензенская область, поселок Мичуринский, ул. Ломовская 3. Перед выездом к нам –
+        обязательно
+        звоните.</p>
+    </div>
+    <h3>Карта проезда</h3>
+    <div class="map">
+      <script type="text/javascript" charset="utf-8" async
+              src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=5IBtuF-FfhhyURQeDy0HFTrf2Cp8lBOz&amp;width=100%25&amp;height=500&amp;lang=ru_RU&amp;sourceType=constructor&amp;scroll=true">
+      </script>
+    </div>
+    <h3>Этапы строительства</h3>
+    <div class="clearfix">
+      {% for photo in expo.photos.all %}
+        <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+          <div class="gallery-stage">
+            <a class="gallery" href="{{ photo.img.url }}">
+              {% thumbnail photo.img "300x225" crop="center" format="PNG" as im %}
+                <img class="img-responsive content-img" src="{{ im.url }}" alt="">
+              {% endthumbnail %}
+            </a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+  </div> <!-- /.content-article -->
+{% endblock %}

@@ -1,6 +1,6 @@
 from django.conf.urls import url
 from .views import IndexPage, SectionTermo, SectionSip, SectionKarkas, SectionRecon, SectionFund, SectionRemont, \
-    OurStages, OurTermo, OurSip, OurKarkas, ContactsPage, ProjectList, ProjectDetail, ReadyobjTermo, ArticleList, ArticleDetail, \
+    OurStages, OurSip, OurKarkas, ContactsPage, ProjectList, ProjectDetail, ReadyobjTermo, ExpoDom, Promo, ArticleList, ArticleDetail, \
     MainCalcView, PrjCalcView, PhoneCallView
 from django.conf import settings
 from django.views.static import serve
@@ -14,13 +14,14 @@ urlpatterns = [
     url(r'^fundament/$', SectionFund.as_view(), name='sect_fund'),
     url(r'^remont-otdelka/$', SectionRemont.as_view(), name='sect_remont'),
     url(r'^build-stages/$', OurStages.as_view(), name='bstages'),
-    #url(r'^our-termopanel/$', OurTermo.as_view(), name='our_termo'),
     url(r'^our-termopanel/$', ReadyobjTermo.as_view(), name='our_termo'),
     url(r'^our-sip-panel/$', OurSip.as_view(), name='our_sip'),
     url(r'^our-kaskasnie-doma/$', OurKarkas.as_view(), name='our_karkas'),
+    url(r'^vystavochnyj/$', ExpoDom.as_view(), name='expo'),
     url(r'^contacts/$', ContactsPage.as_view(), name='contacts'),
     url(r'^projects/$', ProjectList.as_view(), name='project_list'),
     url(r'^projects/(?P<slug>[^/]*)$', ProjectDetail.as_view(), name='project_detail'),
+    url(r'^promotion/$', Promo.as_view(), name='promo'),
     url(r'^articles/$', ArticleList.as_view(), name='article_list'),
     url(r'^articles/(?P<slug>[^/]*)$', ArticleDetail.as_view(), name='article_detail'),
     url(r'^thanks/$', MainCalcView.as_view(), name='thanks'),

@@ -475,6 +475,22 @@ header {
     text-align: center;
     margin-bottom: 20px;
 }
+.content-page .section-link{
+    color: #e40e22;
+    position: relative;
+    font-size: 24px;
+    line-height: 48px;
+    text-transform: uppercase;
+    font-family: CyrillicOldBold;
+    text-decoration: none;
+}
+.content-page .section-link:hover{
+    text-decoration: underline;
+}
+.content-page .promo-cat{
+    padding: 0 5px;
+}
+
 .gallery-div {
     padding: 0 5px;
 }
@@ -582,7 +598,7 @@ header {
     z-index: -1;
 }
 */
-.main-content .our-project .view-all {
+.view-all {
     text-transform: uppercase;
     font-family: CyrillicOldBold;
     font-size: 18px;
@@ -593,12 +609,13 @@ header {
     transition: all .3s ease;
     float: right;
     margin-right: 33px;
+    z-index: 2;
 }
-.main-content .our-project .view-all:hover {
+.view-all:hover {
     text-decoration: none;
     color: #c94c07;
 }
-.main-content .our-project .view-all::after {
+.view-all::after {
     position: absolute;
     content: '';
     left: -26px;
@@ -607,6 +624,9 @@ header {
     width: 201px;
     height: 49px;
     z-index: -1;
+}
+.view-all-promo .view-all{
+    font-size: 17px;
 }
 /* ==========================================sidebar============================================ */
 .main-sidebar {
@@ -690,9 +710,7 @@ header {
 .main-sidebar .contacts__item, .main-sidebar .news__item, .main-sidebar .reviews__item {
     font-family: ProximaNova-Regular;
     position: relative;
-    margin-bottom: 15px;
-    margin-left: 18px;
-    margin-right: 18px;
+    margin: 0 10px 15px 10px;
     padding-bottom: 15px;
     border-bottom: solid 1px #d9a87f;
 }
@@ -817,7 +835,7 @@ header {
 .main-sidebar .side-panel .map {
     margin-left: 5px;
     /*    max-width: 228px;*/
-    min-height: 230px;
+    min-height: 240px;
     margin-right: 5px;
 }
 /*.main-sidebar .side-panel .map img {
@@ -825,6 +843,17 @@ header {
     height: auto;
 }*/
 /* ==========================================footer============================================== */
+.scrollup {
+    width: 40px;
+    height: 40px;
+    opacity: 0.3;
+    position: fixed;
+    bottom: 70px;
+    right: 50px;
+    display: none;
+    text-indent: -9999px;
+    background: url('../img/icon_top.png') no-repeat;
+}
 footer {
     padding-top: 5px;
     background-image: url('../img/footer-bg.png');

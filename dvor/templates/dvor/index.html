@@ -63,7 +63,7 @@
         <div class="col-lg-4 col-md-6 col-xs-12">
           <div class="katalog-item">
 
-            <a href="{{ prj.get_absolute_url }}">
+            <a href="{% url 'project_detail' prj.slug %}?tech=1">
               <div class="katalog-img">
                 {% thumbnail prj.img "258x187" crop="80% top" format="PNG" as im %}
                   <img class="img-responsive" src="{{ im.url }}" alt="{{ im.title }}">
@@ -71,14 +71,18 @@
               </div>
             </a>
             <div class="katalog-info clearfix">
-              <a href="{{ prj.get_absolute_url }}">
+              <a href="{% url 'project_detail' prj.slug %}?tech=1">
                 <div class="katalog-title">{{ prj.name|title }}</div>
               </a>
               <span class="katalog-area"><img class="build-icon"
-                                              src="{% static "img/build-icon.png" %}">{{ prj.square }} кв.м.</span>
+                                              {% if prj.house == 2 %}src="{% static "img/build-icon2.png" %}"
+                                              {% elif prj.house == 3 %}src="{% static "img/build-icon3.png" %}"
+                                              {% elif prj.house == 4 %}src="{% static "img/build-icon4.png" %}"
+                                              {% elif prj.house == 5 %}src="{% static "img/build-icon5.png" %}"
+                                              {% else %}src="{% static "img/build-icon1.png" %}"{% endif %}
+                                          >{{ prj.square }} кв.м.</span>
               <span class="katalog-price">{{ prj.price }} ₽</span>
             </div>
-
           </div>
         </div>
       {% endfor %}
