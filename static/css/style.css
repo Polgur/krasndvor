@@ -511,6 +511,9 @@ header {
 .content-page .promo-cat{
     padding: 0 5px;
 }
+.content-form input, .content-form textarea{
+    background-color: #fff9f2;
+}
 
 .gallery-div {
     padding: 0 5px;
@@ -541,6 +544,13 @@ header {
     font-size: 24px;
     margin-bottom: 27px;
 }
+.content-article h4 {
+    color: #651e04;
+    font-family: ProximaNova-Regular;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
 .content-article .content-img {
     float: left;
     display: block;
@@ -1259,6 +1269,31 @@ footer {
     -webkit-transition: all .5s ease;
     transition: all .5s ease;
     text-decoration: none;
+}
+.button-calculation {
+    float: right;
+    text-transform: uppercase;
+    font-family: CyrillicOldBold;
+    color: #fff;
+    background-image: url('../img/order-bg-nohover.png');
+    background-size: 100% 100%;
+    padding: 5px 20px;
+    margin-top: 10px;
+    border: 0;
+    font-size: 18px;
+    -webkit-transition: all .5s ease;
+    transition: all .5s ease;
+}
+.button-calculation:hover {
+    background-image: url('../img/order-bg-hover.png');
+    -webkit-transition: all .5s ease;
+    transition: all .5s ease;
+    text-decoration: none;
+}
+.button-calculation span {
+    color: #fff;
+    top: 2px;
+    left: -4px;
 }
 .tovar .price-and-button .price {
     color: #e40e22;

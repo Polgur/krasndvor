@@ -1,7 +1,7 @@
 from django.http import Http404
 from django.views.generic import ListView, DetailView, TemplateView, CreateView
 from .models import Project, PrjKit, Readyobj, Reconst, Article, Techno, Calculation, PhoneCall
-from .forms import ProjectFilterForm, MainCalc, PrjCalc, PhoneForm
+from .forms import ProjectFilterForm, MainCalc, PrjCalc, FundCalc, PhoneForm
 from .utils import MenuMixin, jsonify
 from django.core.mail import send_mail
 
@@ -270,6 +270,32 @@ class PrjCalcView(CreateView):
         message += "\n\n Пожелания: \n{}".format(form.cleaned_data.get('note'))
         send_mail(
             subject = 'Заявка на проект {}, комплектация: {} ({} {})'.format(kit_name, kit_calc, form.cleaned_data.get('fio'),form.cleaned_data.get('phone')),
+            message = message,
+            from_email = 'lagumor@inbox.ru',
+            recipient_list = ['lagumor@inbox.ru'],
+        )
+        return jsonify({'status': 1, 'errors': None})
+
+    def form_invalid(self, form):
+        return jsonify({'status': 0, 'errors': form.errors})
+
+class FundCalcView(CreateView):
+    form_class = FundCalc
+    model = Calculation
+    template_name = 'dvor/thanks.html'
+
+    def form_valid(self, form):
+        form.save()
+        message = "Данные отправителя:\nФИО: {}".format(form.cleaned_data.get('fio'))
+        if form.cleaned_data.get('email'):
+            message += "\nemail: {}".format(form.cleaned_data.get('email'))
+        if form.cleaned_data.get('phone'):
+            message += "\nТелефон: {}".format(form.cleaned_data.get('phone'))
+        if form.cleaned_data.get('file'):
+            message += "\nк заявке прикреплен файл (его можно посмотреть на сайте)"
+        message += "\n\n Пожелания: \n{}".format(form.cleaned_data.get('note'))
+        send_mail(
+            subject = 'Заявка на расчет фундамента ({} {})'.format(form.cleaned_data.get('fio'),form.cleaned_data.get('phone')),
             message = message,
             from_email = 'lagumor@inbox.ru',
             recipient_list = ['lagumor@inbox.ru'],

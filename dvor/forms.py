@@ -76,6 +76,27 @@ class PrjCalc (BaseCalcForm):
             'file': forms.FileInput(attrs={'class': 'col-md-12 form-control'}),
         }
 
+class FundCalc (BaseCalcForm):
+    class Meta:
+        model = Calculation
+        exclude = (
+            'created',
+        )
+        labels = {
+            'fio': 'Ваше имя',
+            'email': 'Ваш email',
+            'phone': 'Ваш телефон',
+            'note': 'Фундамент',
+            'file': 'Прикрепить файл',
+        }
+        widgets = {
+            'fio' : forms.TextInput(attrs={'placeholder': 'Пожалуйста, введите Ваше имя', 'class' : 'col-md-12 form-control'}),
+            'email': forms.EmailInput(attrs={'placeholder': 'Пожалуйста, введите Ваш email адрес', 'class' : 'col-md-12 form-control'}),
+            'phone': forms.TextInput(attrs={'placeholder': 'Пожалуйста, введите Ваш номер телефона', 'class' : 'col-md-12 form-control'}),
+            'note': forms.Textarea(attrs={ 'placeholder': 'Нужен фундамент для дома', 'class' : 'col-md-12 form-control'}),
+            'file': forms.FileInput(attrs={'class': 'col-md-12 form-control'}),
+        }
+
 class PhoneForm (forms.ModelForm):
     class Meta:
         model = PhoneCall
