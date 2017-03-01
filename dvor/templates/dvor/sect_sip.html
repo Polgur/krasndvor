@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load staticfiles %}
+{% load thumbnail %}
 
 {% block content %}
   <ol class="breadcrumbs">
@@ -11,7 +12,7 @@
     <h2>Дома из СИП панелей</h2>
     <p class="content-text">Панельно-каркасная технология, пришедшая к нам с Запада, стремительно набирает популярность,
       тесня на рынке малоэтажного строительства более привычные каменные и деревянные дома. В Канаде и на севере Европы
-      (Финляндия, Швеция, Даня и др.) дома из СИП панелей – очень распространенная технология, а это говорит о многом.
+      (Финляндия, Швеция, Дания и др.) дома из СИП панелей – очень распространенная технология, а это говорит о многом.
       Например, в Финляндии, их выбирают более 40% от всех застройщиков, а в Канаде и того больше - около 80%. Именно
       поэтому в России такие дома часто называют канадскими.</p>
     <p class="content-text">В чем же причина такой популярности? Если сказать коротко, то такие дома недорого стоят,
@@ -19,12 +20,54 @@
       большинство владельцев очень довольны своим выбором. Еще бы! Как только начинают приходить первые счета за
       коммунальные услуги в отопительный сезон, приходит понимание, что платить придется в разы меньше, чем раньше.</p>
     <h3>Что такое СИП панели?</h3>
-    <p class="content-text">СИП панель (сэндвич-панель) – готовый конструктивный элемент, из которого собирается коробка
+    <p class="content-text">
+      <a class="gallery content-img-right" href="{% static "content/sippaneli_01.jpg" %}">
+        {% with url_path=MEDIA_URL|add:"content/sippaneli_01.jpg" %}
+          {% thumbnail url_path "250x187" crop="center" format="PNG" as im %}
+            <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+          {% endthumbnail %}
+        {% endwith %}
+      </a>СИП панель (сэндвич-панель) – готовый конструктивный элемент, из которого собирается коробка
       дома. Представляет собой прочную трехслойную конструкцию, состоящую из 2 плит влагостойкого OSB и утеплителя.
       Построенный из СИП панелей дом обладает прекрасными теплоизоляционными свойствами и не требует дополнительного
       утепления. Вопреки распространенным мифам (большинство из них – продукт недобросовестной конкуренции) СИП панели
       не выделяют вредных веществ (в противном случае, контролирующие органы уже бы давно запретили их использование),
       не поддерживают горение и долговечны. Построенную коробку можно обшить любым отделочным материалом.</p>
+    <div class="clearfix">
+      <div class="gallery-div col-md-4 col-sm-6 col-xs-12">
+        <div class="gallery-stage">
+          <a class="gallery" href="{% static "content/OurSip_90.jpg" %}">
+            {% with url_path=MEDIA_URL|add:"content/OurSip_90.jpg" %}
+              {% thumbnail url_path "400x300" crop="center" format="PNG" as im %}
+                <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+              {% endthumbnail %}
+            {% endwith %}
+          </a>
+        </div>
+      </div>
+      <div class="gallery-div col-md-4 col-sm-6 col-xs-12">
+        <div class="gallery-stage">
+          <a class="gallery" href="{% static "content/OurSip_99.jpg" %}">
+            {% with url_path=MEDIA_URL|add:"content/OurSip_99.jpg" %}
+              {% thumbnail url_path "400x300" crop="center" format="PNG" as im %}
+                <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+              {% endthumbnail %}
+            {% endwith %}
+          </a>
+        </div>
+      </div>
+      <div class="gallery-div col-md-4 col-sm-6 col-xs-12">
+        <div class="gallery-stage">
+          <a class="gallery" href="{% static "content/OutTRyj_00.jpg" %}">
+            {% with url_path=MEDIA_URL|add:"content/OutTRyj_00.jpg" %}
+              {% thumbnail url_path "400x300" crop="center" format="PNG" as im %}
+                <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+              {% endthumbnail %}
+            {% endwith %}
+          </a>
+        </div>
+      </div>
+    </div>
     <h3>Что мы предлагаем?</h3>
     <p class="content-text">В нашей компании можно заказать дом из СИП панелей под ключ. Заказывая услугу в одном месте,
       вы избавляете себя от необходимости искать подрядчиков на разные виды работ, а потом координировать их

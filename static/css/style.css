@@ -551,12 +551,23 @@ header {
     margin-bottom: 15px;
 }
 
-.content-article .content-img {
+.content-article .content-img-left {
     float: left;
     display: block;
     /*max-width: 300px;*/
     height: auto;
-    margin-right: 30px;
+    margin-left: 5px;
+    margin-right: 20px;
+    padding-top: 5px;
+    cursor: pointer;
+}
+.content-article .content-img-right {
+    float: right;
+    display: block;
+    /*max-width: 300px;*/
+    height: auto;
+    margin-left: 20px;
+    margin-right: 5px;
     padding-top: 5px;
     cursor: pointer;
 }
@@ -756,6 +767,9 @@ header {
     line-height: 20px;
     margin-bottom: 12px;
     text-align: center;
+}
+.main-sidebar .news__item__title{
+    color: #e40e22;
 }
 .main-sidebar .contacts__item__title a, .main-sidebar .news__item__title a, .main-sidebar .reviews__item__title a {
     color: #e40e22;
@@ -1669,7 +1683,11 @@ footer {
     }
 }
 @media only screen and (max-width: 550px) {
-    .content-article .content-img {
+    .content-article .content-img-left {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+    .content-article .content-img-right {
         max-width: 100%;
         margin-bottom: 20px;
     }

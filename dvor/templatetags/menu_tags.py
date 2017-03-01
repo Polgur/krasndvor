@@ -17,9 +17,9 @@ def get_tech():
             {'name': "До 100 КВ.М", 'clss': '', 'url': "{}?{}&tech={}".format(reverse("project_list"), "search=1&vid=0&pmin=0&pmax=5000000&smin=0&smax=100", tech.pk)},
             {'name': "От 100 до 150 КВ.М", 'clss': '', 'url': "{}?{}&tech={}".format(reverse("project_list"), "search=1&vid=0&pmin=0&pmax=5000000&smin=100&smax=150", tech.pk)},
             {'name': "Свыше 150 КВ.М", 'clss': 'after-divider', 'url': "{}?{}&tech={}".format(reverse("project_list"), "search=1&vid=0&pmin=0&pmax=5000000&smin=150&smax=500", tech.pk)},
-            {'name': "divider", 'clss': '', 'url': "{}?{}&tech={}".format(reverse("project_list"), "search=1&vid=0&pmin=0&pmax=5000000&smin=0&smax=100", tech.pk)},
-            {'name': "Бани", 'clss': '', 'url': "{}?{}&tech={}".format(reverse("project_list"), "search=1&vid=3&pmin=0&pmax=5000000&smin=0&smax=500", tech.pk)},
-            {'name': "Дуплексы", 'clss': '', 'url': "{}?{}&tech={}".format(reverse("project_list"), "search=1&vid=2&pmin=0&pmax=5000000&smin=0&smax=500", tech.pk)},
+            #{'name': "divider", 'clss': '', 'url': "{}?{}&tech={}".format(reverse("project_list"), "search=1&vid=0&pmin=0&pmax=5000000&smin=0&smax=100", tech.pk)},
+            #{'name': "Бани", 'clss': '', 'url': "{}?{}&tech={}".format(reverse("project_list"), "search=1&vid=3&pmin=0&pmax=5000000&smin=0&smax=500", tech.pk)},
+            #{'name': "Дуплексы", 'clss': '', 'url': "{}?{}&tech={}".format(reverse("project_list"), "search=1&vid=2&pmin=0&pmax=5000000&smin=0&smax=500", tech.pk)},
         ]
         tech_list.append(item)
     return tech_list
@@ -49,12 +49,12 @@ menu = [
             {'name': "Реконструкции", 'clss': '', 'url': reverse("reconst"), 'slug': 'reconst'},
             {'name': "Фундаменты", 'clss': 'after-divider', 'url': reverse("our_fund"), 'slug': 'our_fund'},
             {'name': "divider", 'clss': '', 'url': '#', 'slug': ''},
-            {'name': "Дома на продажу", 'clss': '', 'url': '#', 'slug': 'rem'},
+            #{'name': "Дома на продажу", 'clss': '', 'url': '#', 'slug': 'rem'},
             {'name': "Выставочный дом", 'clss': '', 'url': reverse("expo"), 'slug': 'expo'},
         ]},
     {'name': "Информация", 'clss': '', 'url': '#', 'slug': 'info', 'submenu':
         [
-            {'name': "Вопросы и ответы", 'clss': '', 'url': '#', 'slug': 'questions'},
+            #{'name': "Вопросы и ответы", 'clss': '', 'url': '#', 'slug': 'questions'},
             {'name': "Акции", 'clss': '', 'url': reverse("promo"), 'slug': 'promo'},
             {'name': "Статьи", 'clss': '', 'url': reverse("article_list"), 'slug': 'articles'},
             {'name': "Сертификаты", 'clss': '', 'url': '#', 'slug': 'certif'},

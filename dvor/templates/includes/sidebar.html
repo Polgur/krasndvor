@@ -28,7 +28,7 @@
   <div class="side-title vistavka">Выставочный дом</div>
   <div class="address clearfix" style="text-align: center">
     Пензенская область<br>
-    п. Мичуриринский
+    п. Мичуринский
   </div>
   <a href="{% url 'expo' %}">
     <div class="katalog-img">
@@ -44,24 +44,22 @@
 <div class="side-panel">
   <div class="side-title">Новости</div>
   <div class="news__item clearfix">
+    <div class="news__item__date">1 марта 2017</div>
+    <div class="news__item__title">Мы продолжаем расчет цен на проекты домов</div>
+    <span class="news__item__text">В течении месяца будут доступны цены на 3 комплектации по каждой технологии. <br> Вы сможете сравнить преимущества каждой технологии, стоимость строительства по ней и выбрать вариант подходящий именно Вам!</span>
+  </div>
+  <div class="news__item clearfix">
     <div class="news__item__date">21 февраля 2017</div>
     <div class="news__item__title"><a href="{% url 'promo' %}">Благоустройство террасы и крыльца в подарок!</a></div>
     <div class="news__item__img"><img src="{% static "img/01Akciya_01.png" %}"></div>
     <span class="news__item__text">В период с 1 марта по 30 апреля 2017 г. компания Красный двор проводит АКЦИЮ!</span>
   </div>
   <div class="news__item clearfix">
-    <div class="news__item__date">21 сент 2017</div>
-    <div class="news__item__title"><a href="">Вентиляция в подарок!</a></div>
-    <span class="news__item__text">В период по 31 января 2017 г компания «Красный двор» проводит
-								день открытых дверей</span>
+    <div class="news__item__date">20 февраля 2017</div>
+    <div class="news__item__title"><a href="{% url 'promo' %}">Усиление фундамента профильной трубой!</a></div>
+    <span class="news__item__text">В период с 1 марта по 30 апреля 2017 г. компания Красный двор проводит АКЦИЮ!</span>
   </div>
-  <div class="news__item clearfix">
-    <div class="news__item__date">21 сент 2017</div>
-    <div class="news__item__title"><a href="">Вентиляция в подарок!</a></div>
-    <span class="news__item__text">В период по 31 января 2017 г компания «Красный двор» проводит
-									день открытых дверей</span>
-  </div>
-  <a class="all-news">все новости</a>
+{% comment %}  <a class="all-news">все новости</a>{% endcomment %}
 </div>
 <div class="side-panel">
   <div class="side-title">отзывы</div>

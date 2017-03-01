@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load staticfiles %}
+{% load thumbnail %}
 
 {% block content %}
   <ol class="breadcrumbs">
@@ -11,12 +12,74 @@
     <h2>Каркасные дома</h2>
     <p class="content-text">Дома, построенные по каркасной технологии, в полной мере отвечают требованиям современности.
       Они долговечны, комфортны, прочны, экологичны и относительно недороги. Каркасные дома, которые возводим мы,
-      прекрасно выглядят и обладают всеми достоинствами, предъявляемыми к современному жилищу. Помимо всех описанных
+      прекрасно выглядят</p>
+    <div class="clearfix">
+      <div class="gallery-div col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        <div class="gallery-stage">
+          <a class="gallery" href="{% static "content/OurKarkas_29.jpg" %}">
+            {% with url_path=MEDIA_URL|add:"content/OurKarkas_29.jpg" %}
+              {% thumbnail url_path "400x300" crop="center" format="PNG" as im %}
+                <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+              {% endthumbnail %}
+            {% endwith %}
+          </a>
+        </div>
+      </div>
+      <div class="gallery-div col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        <div class="gallery-stage">
+          <a class="gallery" href="{% static "content/OurKarkas_15.jpg" %}">
+            {% with url_path=MEDIA_URL|add:"content/OurKarkas_15.jpg" %}
+              {% thumbnail url_path "400x300" crop="center" format="PNG" as im %}
+                <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+              {% endthumbnail %}
+            {% endwith %}
+          </a>
+        </div>
+      </div>
+      <div class="gallery-div col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        <div class="gallery-stage">
+          <a class="gallery" href="{% static "content/OurKarkas_12.jpg" %}">
+            {% with url_path=MEDIA_URL|add:"content/OurKarkas_12.jpg" %}
+              {% thumbnail url_path "400x300" crop="center" format="PNG" as im %}
+                <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+              {% endthumbnail %}
+            {% endwith %}
+          </a>
+        </div>
+      </div>
+    </div>
+    <p class="content-text">и обладают всеми достоинствами, предъявляемыми к современному жилищу. Помимо всех описанных
       преимуществ, они несут с собой еще и материальную выгоду благодаря низким эксплуатационным затратам.</p>
     <p class="content-text">Специалисты нашей компании имеют многолетний опыт на строительном рынке. Отдельным
-      направлением нашей деятельности является строительство каркасных домов. Если вы мечтаете о недорогом доме для
-      сезонного или постоянного проживания, и при этом хотите получить его в максимально короткие сроки, мы поможем вам
-      осуществить задуманное.</p>
+      направлением нашей деятельности является строительство каркасных домов.</p>
+    <div class="clearfix">
+      <div class="col-lg-2 hidden-xs"></div>
+      <div class="gallery-div col-md-4 col-sm-6 col-xs-12">
+        <div class="gallery-stage">
+          <a class="gallery" href="{% static "content/karkas_01.jpg" %}">
+            {% with url_path=MEDIA_URL|add:"content/karkas_01.jpg" %}
+              {% thumbnail url_path "400x300" crop="center" format="PNG" as im %}
+                <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+              {% endthumbnail %}
+            {% endwith %}
+          </a>
+        </div>
+      </div>
+      <div class="gallery-div col-md-4 col-sm-6 col-xs-12">
+        <div class="gallery-stage">
+          <a class="gallery" href="{% static "content/karkas_02.jpg" %}">
+            {% with url_path=MEDIA_URL|add:"content/karkas_02.jpg" %}
+              {% thumbnail url_path "400x300" crop="center" format="PNG" as im %}
+                <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+              {% endthumbnail %}
+            {% endwith %}
+          </a>
+        </div>
+      </div>
+      <div class="col-md-2 hidden-xs"></div>
+    </div>
+    <p class="content-text">Если вы мечтаете о недорогом доме для сезонного или постоянного проживания, и при этом
+      хотите получить его в максимально короткие сроки, мы поможем вам осуществить задуманное.</p>
     <h3>Преимущества каркасной технологии</h3>
     <ul class="content-text">
       <li>Можно строить в любое время года.</li>
