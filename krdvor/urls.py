@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from django.http import HttpResponse
 from django.contrib.sitemaps.views import (
     index as site_index_view,
     sitemap as sitemap_view)
@@ -23,9 +24,9 @@ from .sitemaps import sitemaps as sitemaps_dict
 urlpatterns = [
     url(r'^', include('dvor.urls')),
     url(r'^admin/', admin.site.urls),
+    url(r'^googlec3d802055a2219fc\.html$', lambda r: HttpResponse("google-site-verification: googlec3d802055a2219fc.html", mimetype="text/plain")),
     url(r'^sitemap\.xml$',
         sitemap_view,
         {'sitemaps': sitemaps_dict},
         name='sitemap-sections'),
-
 ]
