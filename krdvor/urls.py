@@ -24,7 +24,7 @@ from .sitemaps import sitemaps as sitemaps_dict
 urlpatterns = [
     url(r'^', include('dvor.urls')),
     url(r'^admin/', admin.site.urls),
-    url(r'^googlec3d802055a2219fc\.html$', lambda r: HttpResponse("google-site-verification: googlec3d802055a2219fc.html", mimetype="text/plain")),
+    url(r'^googlec3d802055a2219fc\.html$', lambda r: HttpResponse("google-site-verification: googlec3d802055a2219fc.html", content_type="text/plain")),
     url(r'^sitemap\.xml$',
         sitemap_view,
         {'sitemaps': sitemaps_dict},
