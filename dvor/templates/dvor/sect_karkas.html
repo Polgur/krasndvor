@@ -50,7 +50,7 @@
     </div>
     <p class="content-text">и обладают всеми достоинствами, предъявляемыми к современному жилищу. Помимо всех описанных
       преимуществ, они несут с собой еще и материальную выгоду благодаря низким эксплуатационным затратам.</p>
-    <p class="content-text">Специалисты нашей компании имеют многолетний опыт на строительном рынке. Отдельным
+    <p class="content-text">Специалисты нашей компании имеют многолетний опыт. Отдельным
       направлением нашей деятельности является строительство каркасных домов.</p>
     <div class="clearfix">
       <div class="col-lg-2 hidden-xs"></div>
@@ -102,22 +102,65 @@
       объектов. Если вам не придется по душе ни один из них, наши проектировщики разработают индивидуальный проект с
       учетом всех ваших пожеланий.</p>
     <p class="content-text"><a class="gallery content-img-right" href="{% static "content/karkas_03.jpg" %}">
-        {% with url_path=MEDIA_URL|add:"content/karkas_03.jpg" %}
-          {% thumbnail url_path "187x250" crop="center" format="PNG" as im %}
+      {% with url_path=MEDIA_URL|add:"content/karkas_03.jpg" %}
+        {% thumbnail url_path "187x250" crop="center" format="PNG" as im %}
+          <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+        {% endthumbnail %}
+      {% endwith %}
+    </a>Секрет прочности наших домов заключается в тщательном подборе материалов. Мы используем
+      только качественный пиломатериал и никогда не экономим его в ущерб качеству. Сборка каркасно-щитовых домов
+      производится
+      по типовым технологическим картам, в которых прорисован каждый узел, каждый элемент, указано количество и тип
+      метизов. На всех этапах производства и строительства осуществляется строгий контроль инженерно-техническими
+      работниками.<a class="gallery content-img-left" href="{% static "content/karkas_04.jpg" %}">
+        {% with url_path=MEDIA_URL|add:"content/karkas_04.jpg" %}
+          {% thumbnail url_path "250x187" crop="center" format="PNG" as im %}
             <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
           {% endthumbnail %}
         {% endwith %}
-      </a>Секрет прочности наших домов заключается в тщательном подборе материалов. Мы используем
-      только качественный пиломатериал и никогда не экономим его в ущерб качеству. Сборка каркасно-щитовых домов производится
-      по типовым технологическим картам, в которых прорисован каждый узел, каждый элемент, указано количество и тип
-      метизов. На всех этапах производства и строительства осуществляется строгий контроль инженерно-техническими
-      работниками. Развитая материально-техническая база дает нам возможность строить в любом регионе РФ, а наша
+      </a> Развитая материально-техническая база дает нам возможность строить в любом регионе РФ, а наша
       продукция ориентирована на самый широкий круг потребителей. Мы готовы построить как недорогой домик для дачи, так
       и большой коттедж с эксклюзивной отделкой.
     </p>
     <p class="content-text">Современное каркасное строительство требует простых, недорогих подходов. Если высчитает себя
       практичным человеком, оцените все достоинства этой технологии, закажите каркасный дом под ключ в нашей
       компании.</p>
-
   </div> <!-- /.content-article -->
+
+  <div class="content-page clearfix">
+
+    <h2>Примеры типовых проектов</h2>
+
+    {% for prj in projects_kars %}
+      <div class="promo-cat col-lg-4 col-md-6 col-xs-12">
+        <div class="katalog-item">
+
+          <a href="{% url 'project_detail' prj.slug %}?tech=3">
+            <div class="katalog-img">
+              {% thumbnail prj.img "258x187" crop="80% top" format="PNG" as im %}
+                <img class="img-responsive" src="{{ im.url }}" alt="{{ im.title }}">
+              {% endthumbnail %}
+            </div>
+          </a>
+          <div class="katalog-info clearfix">
+            <a href="{% url 'project_detail' prj.slug %}?tech=3">
+              <div class="katalog-title">{{ prj.name|title }}</div>
+            </a>
+            <span class="katalog-area"><img class="build-icon"
+                                            {% if prj.house == 2 %}src="{% static "img/build-icon2.png" %}"
+                                            {% elif prj.house == 3 %}src="{% static "img/build-icon3.png" %}"
+                                            {% elif prj.house == 4 %}src="{% static "img/build-icon4.png" %}"
+                                            {% elif prj.house == 5 %}src="{% static "img/build-icon5.png" %}"
+                                            {% else %}src="{% static "img/build-icon1.png" %}"{% endif %}
+            >{{ prj.square }} кв.м.</span>
+            <span class="katalog-price">{{ prj.price }} ₽</span>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+    <div class="view-all-promo clearfix">
+      <a href="{% url 'project_list' %}?tech=3&search=1&vid=0&pmin=0&pmax=5000000&smin=0&smax=500" class="view-all"
+         role="button">Полный каталог</a>
+    </div>
+  </div>
 {% endblock %}

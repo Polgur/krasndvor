@@ -47,14 +47,21 @@ header {
     position: relative;
     z-index: 1;
 }
+.header-logo a{
+    margin-left: 36px;
+}
+.header-logo img{
+    margin-top: 9px;
+}
+
 .header-logo::after {
     position: absolute;
     content: '';
-    width: 435px;
+    width: 300px;
     height: 166px;
     background-image: url('../img/bg-logo.png');
-    left: -130px;
-    top: -25px;
+    left: -24px;
+    top: -13px;
     z-index: -1;
 }
 .header-center {
@@ -451,9 +458,10 @@ header {
 }
 .content-page h1 {
     text-align: center;
+    color: #e40e22;
     font-family: ProximaNova-Regular;
-    font-size: 40px;
-    line-height: 40px;
+    font-size: 26px;
+    line-height: 32px;
     margin: 0;
     margin-bottom: 15px;
 }
@@ -508,7 +516,7 @@ header {
 .content-page .section-link:hover{
     text-decoration: underline;
 }
-.content-page .promo-cat{
+.content-page .promo-cat, .content-article .promo-cat{
     padding: 0 5px;
 }
 .content-form input, .content-form textarea{
@@ -525,6 +533,16 @@ header {
     display: block;
     margin: 0 auto;
 }
+.content-article h1 {
+    text-align: center;
+    color: #e40e22;
+    font-family: ProximaNova-Regular;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 32px;
+    margin: 0;
+    margin-bottom: 25px;
+}
 .content-article h2 {
     text-align: center;
     color: #e40e22;
@@ -533,7 +551,7 @@ header {
     font-size: 30px;
     line-height: 30px;
     margin: 0;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
 }
 .content-article h3 {
     margin: 0;

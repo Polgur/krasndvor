@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load staticfiles %}
+{% load thumbnail %}
 
 {% block content %}
   <ol class="breadcrumbs">
@@ -14,6 +15,41 @@
       позволяет вдохнуть в него новую жизнь, сделать более комфортным и презентабельным. Мы готовы взяться за
       восстановление абсолютно любых объектов, будь то жилая недвижимость, баня, гараж, офисное здание и др. Поможем
       снести старый дом, сделать пристройку, оборудовать мансарду, выполнить перепланировку, заменить коммуникации.</p>
+    <div class="clearfix">
+      <div class="gallery-div col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        <div class="gallery-stage">
+          <a class="gallery" href="{% static "content/RecZah_03.jpg" %}">
+            {% with url_path=MEDIA_URL|add:"content/RecZah_03.jpg" %}
+              {% thumbnail url_path "400x300" crop="center" format="PNG" as im %}
+                <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+              {% endthumbnail %}
+            {% endwith %}
+          </a>
+        </div>
+      </div>
+      <div class="gallery-div col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        <div class="gallery-stage">
+          <a class="gallery" href="{% static "content/RecVes_00.jpg" %}">
+            {% with url_path=MEDIA_URL|add:"content/RecVes_00.jpg" %}
+              {% thumbnail url_path "400x300" crop="center" format="PNG" as im %}
+                <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+              {% endthumbnail %}
+            {% endwith %}
+          </a>
+        </div>
+      </div>
+      <div class="gallery-div col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        <div class="gallery-stage">
+          <a class="gallery" href="{% static "content/reconstrukcii_01.jpg" %}">
+            {% with url_path=MEDIA_URL|add:"content/reconstrukcii_01.jpg" %}
+              {% thumbnail url_path "400x300" crop="center" format="PNG" as im %}
+                <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+              {% endthumbnail %}
+            {% endwith %}
+          </a>
+        </div>
+      </div>
+    </div>
     <p class="content-text">Восстановление кирпичных и деревянных строений имеет свою специфику. Это связано с
       конструктивными особенностями, весом зданий, состоянием несущих конструкций и фундамента, состоянием
       теплоизоляционного слоя и многими другими факторами. Капитальная реконструкция дома начинается с обследования и
@@ -26,7 +62,13 @@
       <li>Комплексный ремонт и реконструкция жилого дома, гаража, бани и любого другого строения (кирпичные,
         шлакоблочные, каркасные, каркасно-щитовые и др. типы объектов)
       </li>
-      <li>Восстановление несущих способностей стен</li>
+      <li>Восстановление несущих способностей стен<a class="gallery content-img-right" href="{% static "content/reconstrukcii_02.jpg" %}">
+        {% with url_path=MEDIA_URL|add:"content/reconstrukcii_02.jpg" %}
+          {% thumbnail url_path "250x187" crop="center" format="PNG" as im %}
+            <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+          {% endthumbnail %}
+        {% endwith %}
+      </a></li>
       <li>Восстановление несущих способностей кровли</li>
       <li>Усиление фундаментов</li>
       <li>Пристройка дополнительных этажей</li>
@@ -55,6 +97,6 @@
     </ul>
     <p class="content-text">Если вы ищете надежного подрядчика для реконструкции дома, коттеджа, дачи, или офисного
       помещения, смело обращайтесь к нам. Гарантируем, что в нашем лице найдете надежного партнера. Если вы не получили
-      ответы все на свои опросы, обращайтесь к нам и мы с радостью представим дополнительную информацию.</p>
+      ответы на свои вопросы, обращайтесь к нам и мы с радостью предоставим дополнительную информацию.</p>
   </div> <!-- /.content-article -->
 {% endblock %}

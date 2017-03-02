@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load staticfiles %}
+{% load thumbnail %}
 {% load core_tags %}
 
 {% block content %}
@@ -9,7 +10,7 @@
   </ol>
 
   <div class="content-article clearfix">
-    <h2>Строительство монолитных фундаментов</h2>
+    <h2>Строительство фундаментов</h2>
     <p class="content-text">Фундамент – это основа основ любого строения. Любые ошибки при его возведении обходятся
       слишком дорого, и поэтому данная область не терпит дилетантов. В нашей компании можно заказать надежный фундамент
       для дома, коттеджа, бани, гаража и любого индивидуального строения. Мы понимаем, что строительство даже небольшого
@@ -35,14 +36,119 @@
       глубины заложения ленточный фундамент бывает мелкозаглубленный и глубокозаглубленный. Укладывается на
       подготовленное основание (песчано-гравийную подушка). При возведении легких строений подушкой можно пренебречь,
       достаточно хорошо утрамбовать почву.</p>
+    <div class="clearfix">
+      <div class="gallery-div col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        <div class="gallery-stage">
+          <a class="gallery" href="{% static "content/fundament_01.jpg" %}">
+            {% with url_path=MEDIA_URL|add:"content/fundament_01.jpg" %}
+              {% thumbnail url_path "400x300" crop="center" format="PNG" as im %}
+                <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+              {% endthumbnail %}
+            {% endwith %}
+          </a>
+        </div>
+      </div>
+      <div class="gallery-div col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        <div class="gallery-stage">
+          <a class="gallery" href="{% static "content/fundament_02.jpg" %}">
+            {% with url_path=MEDIA_URL|add:"content/fundament_02.jpg" %}
+              {% thumbnail url_path "400x300" crop="center" format="PNG" as im %}
+                <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+              {% endthumbnail %}
+            {% endwith %}
+          </a>
+        </div>
+      </div>
+      <div class="gallery-div col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        <div class="gallery-stage">
+          <a class="gallery" href="{% static "content/fundament_03.jpg" %}">
+            {% with url_path=MEDIA_URL|add:"content/fundament_03.jpg" %}
+              {% thumbnail url_path "400x300" crop="center" format="PNG" as im %}
+                <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+              {% endthumbnail %}
+            {% endwith %}
+          </a>
+        </div>
+      </div>
+    </div>
     <p class="content-text"><b>Винтовой фундамент</b> используется под строительство легких домов. Представляет собой
       специальную сваю, закручиваемую в грунт ниже уровня промерзания. По верху свай, выступающих над уровнем земли,
       укладывается обвязка будущего дома. Считается очень экономичным видом, требующим минимум подготовки. При его
       устройстве отпадает необходимость в проведении земляных работ.</p>
+    <div class="clearfix">
+      <div class="gallery-div col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        <div class="gallery-stage">
+          <a class="gallery" href="{% static "content/fundament_07.jpg" %}">
+            {% with url_path=MEDIA_URL|add:"content/fundament_07.jpg" %}
+              {% thumbnail url_path "400x300" crop="center" format="PNG" as im %}
+                <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+              {% endthumbnail %}
+            {% endwith %}
+          </a>
+        </div>
+      </div>
+      <div class="gallery-div col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        <div class="gallery-stage">
+          <a class="gallery" href="{% static "content/fundament_08.jpg" %}">
+            {% with url_path=MEDIA_URL|add:"content/fundament_08.jpg" %}
+              {% thumbnail url_path "400x300" crop="center" format="PNG" as im %}
+                <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+              {% endthumbnail %}
+            {% endwith %}
+          </a>
+        </div>
+      </div>
+      <div class="gallery-div col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        <div class="gallery-stage">
+          <a class="gallery" href="{% static "content/FundSv_16.jpg" %}">
+            {% with url_path=MEDIA_URL|add:"content/FundSv_16.jpg" %}
+              {% thumbnail url_path "400x300" crop="center" format="PNG" as im %}
+                <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+              {% endthumbnail %}
+            {% endwith %}
+          </a>
+        </div>
+      </div>
+    </div>
     <p class="content-text"><b>Фундамент ТИСЭ</b> выполняется по особенной технологии, позволяющей снизить затраты на
       строительство. Представляет собой ряд свай, связанных монолитным железобетонным ростверком. Благодаря воздушному
       зазору между землей и нижним поясом ростверка, возникающие при пучении грунта силы не действуют на фундамент, что
       повышает его надежность.</p>
+    <div class="clearfix">
+      <div class="gallery-div col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        <div class="gallery-stage">
+          <a class="gallery" href="{% static "content/fundament_04.jpg" %}">
+            {% with url_path=MEDIA_URL|add:"content/fundament_04.jpg" %}
+              {% thumbnail url_path "400x300" crop="center" format="PNG" as im %}
+                <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+              {% endthumbnail %}
+            {% endwith %}
+          </a>
+        </div>
+      </div>
+      <div class="gallery-div col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        <div class="gallery-stage">
+          <a class="gallery" href="{% static "content/fundament_05.jpg" %}">
+            {% with url_path=MEDIA_URL|add:"content/fundament_05.jpg" %}
+              {% thumbnail url_path "400x300" crop="center" format="PNG" as im %}
+                <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+              {% endthumbnail %}
+            {% endwith %}
+          </a>
+        </div>
+      </div>
+      <div class="gallery-div col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        <div class="gallery-stage">
+          <a class="gallery" href="{% static "content/fundament_06.jpg" %}">
+            {% with url_path=MEDIA_URL|add:"content/fundament_06.jpg" %}
+              {% thumbnail url_path "400x300" crop="center" format="PNG" as im %}
+                <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+              {% endthumbnail %}
+            {% endwith %}
+          </a>
+        </div>
+      </div>
+    </div>
     <h3>Почему стоит обратиться к нам?</h3>
     <p class="content-text">Мы обеспечим:</p>
     <ul class="content-text">

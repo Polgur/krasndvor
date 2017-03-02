@@ -7,92 +7,121 @@ from django.core.mail import send_mail
 
 
 # Create your views here.
-class IndexPage(MenuMixin,TemplateView):
+class IndexPage(MenuMixin, TemplateView):
     menu_slug = 'home'
     template_name = 'dvor/index.html'
 
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
-        ctx['projects'] = Project.objects.filter(name__in=['Ольгово','Дубровицы','Никольское']).order_by('square')
+        ctx['projects'] = Project.objects.filter(name__in=['Ольгово', 'Дубровицы', 'Никольское']).order_by('square')
         return ctx
 
 
-class SectionTermo(MenuMixin,TemplateView):
+class SectionTermo(MenuMixin, TemplateView):
     menu_slug = [
         "techs",
         "sect_termo",
     ]
     template_name = 'dvor/sect_termo.html'
 
-class SectionSip(MenuMixin,TemplateView):
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+        ctx['projects_term'] = Project.objects.filter(
+            name__in=['Подушкино', 'Марфино', 'Аполье', 'Киреево', 'Дарьино', 'Мелихово']).order_by(
+            'square')
+        return ctx
+
+
+class SectionSip(MenuMixin, TemplateView):
     menu_slug = [
         "techs",
         "sect_sip",
     ]
     template_name = 'dvor/sect_sip.html'
 
-class SectionKarkas(MenuMixin,TemplateView):
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+        ctx['projects_sip'] = Project.objects.filter(
+            name__in=['Ольгово', 'Дубровицы', 'Никольское', 'Киреево', 'Дарьино', 'Мелихово']).order_by('square')
+        return ctx
+
+
+class SectionKarkas(MenuMixin, TemplateView):
     menu_slug = [
         "techs",
         "sect_karkas",
     ]
     template_name = 'dvor/sect_karkas.html'
 
-class SectionRecon(MenuMixin,TemplateView):
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+        ctx['projects_kars'] = Project.objects.filter(
+            name__in=['Ольгово', 'Дубровицы', 'Никольское', 'Подушкино', 'Марфино', 'Аполье']).order_by('square')
+        return ctx
+
+
+class SectionRecon(MenuMixin, TemplateView):
     menu_slug = [
         "techs",
         "sect_recon",
     ]
     template_name = 'dvor/sect_recon.html'
 
-class SectionFund(MenuMixin,TemplateView):
+
+class SectionFund(MenuMixin, TemplateView):
     menu_slug = [
         "techs",
         "sect_fund",
     ]
     template_name = 'dvor/sect_fund.html'
 
-class SectionRemont(MenuMixin,TemplateView):
+
+class SectionRemont(MenuMixin, TemplateView):
     menu_slug = [
         "techs",
         "sect_remont",
     ]
     template_name = 'dvor/sect_remont.html'
 
-class OurStages(MenuMixin,TemplateView):
+
+class OurStages(MenuMixin, TemplateView):
     menu_slug = [
         "our_obj",
         "bstages",
     ]
     template_name = 'dvor/our_stages.html'
 
-class OurSip(MenuMixin,TemplateView):
+
+class OurSip(MenuMixin, TemplateView):
     menu_slug = [
         "our_obj",
         "our_sip",
     ]
     template_name = 'dvor/our_sip.html'
 
-class OurKarkas(MenuMixin,TemplateView):
+
+class OurKarkas(MenuMixin, TemplateView):
     menu_slug = [
         "our_obj",
         "our_karkas",
     ]
     template_name = 'dvor/our_karkas.html'
 
-class OurFund(MenuMixin,TemplateView):
+
+class OurFund(MenuMixin, TemplateView):
     menu_slug = [
         "our_obj",
         "our_fund",
     ]
     template_name = 'dvor/our_fund.html'
 
-class ContactsPage(MenuMixin,TemplateView):
+
+class ContactsPage(MenuMixin, TemplateView):
     menu_slug = 'contacts'
     template_name = 'dvor/contacts.html'
 
 
-class ProjectList(MenuMixin,ListView):
+class ProjectList(MenuMixin, ListView):
     model = Project
     techfilter = None
     paginate_by = 21
@@ -108,8 +137,9 @@ class ProjectList(MenuMixin,ListView):
             self.search_form = self.search_form_class(request.GET)
             if self.search_form.is_valid():
                 self.queryset = Project.objects.filter(
-                    square__range=(self.search_form.cleaned_data.get('smin'),self.search_form.cleaned_data.get('smax')),
-                    price__range=(self.search_form.cleaned_data.get('pmin'),self.search_form.cleaned_data.get('pmax')))
+                    square__range=(
+                        self.search_form.cleaned_data.get('smin'), self.search_form.cleaned_data.get('smax')),
+                    price__range=(self.search_form.cleaned_data.get('pmin'), self.search_form.cleaned_data.get('pmax')))
                 if self.search_form.cleaned_data.get('vid') != '0':
                     self.queryset = self.queryset.filter(vid__exact=self.search_form.cleaned_data.get('vid'))
                 if self.search_form.cleaned_data.get('tech'):
@@ -134,6 +164,7 @@ class ProjectList(MenuMixin,ListView):
         ctx['menu_slug'] = self.menu_slug
         return ctx
 
+
 class ProjectDetail(DetailView):
     template_name = 'dvor/project_detail.html'
 
@@ -141,11 +172,11 @@ class ProjectDetail(DetailView):
         try:
             if self.request.GET.get('tech'):
                 project = Project.objects.prefetch_related('photos').get(slug=self.kwargs.get('slug'),
-                techs__pk = self.request.GET.get('tech'))
+                                                                         techs__pk=self.request.GET.get('tech'))
             else:
                 techfilter = Techno.objects.filter(mnemo='Термопанели').first()
                 project = Project.objects.prefetch_related('photos').get(slug=self.kwargs.get('slug'),
-                techs__pk=techfilter.pk)
+                                                                         techs__pk=techfilter.pk)
             return project
         except Project.DoesNotExist:
             raise Http404('Проект не найден')
@@ -160,8 +191,9 @@ class ProjectDetail(DetailView):
         ctx['techfilter'] = self.tech
         return ctx
 
-class ReadyobjTermo(MenuMixin,ListView):
-    queryset = Readyobj.objects.filter(tech=1).order_by('photos__sort','photos__prn')
+
+class ReadyobjTermo(MenuMixin, ListView):
+    queryset = Readyobj.objects.filter(tech=1).order_by('photos__sort', 'photos__prn')
     paginate_by = 3
     menu_slug = [
         "our_obj",
@@ -169,7 +201,8 @@ class ReadyobjTermo(MenuMixin,ListView):
     ]
     template_name = 'dvor/our_termo.html'
 
-class ReconstList(MenuMixin,ListView):
+
+class ReconstList(MenuMixin, ListView):
     queryset = Reconst.objects.all().order_by('photos__sort', 'sort_re', 'photos__prn')
     paginate_by = 6
     menu_slug = [
@@ -179,7 +212,7 @@ class ReconstList(MenuMixin,ListView):
     template_name = 'dvor/reconst.html'
 
 
-class ExpoDom(MenuMixin,TemplateView):
+class ExpoDom(MenuMixin, TemplateView):
     menu_slug = [
         "our_obj",
         "expo",
@@ -191,7 +224,8 @@ class ExpoDom(MenuMixin,TemplateView):
         ctx['expo'] = Readyobj.objects.filter(mnemo='Мичурино').order_by('photos__sort').first()
         return ctx
 
-class Promo(MenuMixin,TemplateView):
+
+class Promo(MenuMixin, TemplateView):
     menu_slug = [
         "info",
         "promo",
@@ -200,13 +234,14 @@ class Promo(MenuMixin,TemplateView):
 
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
-        ctx['projects_term'] = Project.objects.filter(name__in=['Ольгово','Дубровицы','Никольское']).order_by('square')
-        ctx['projects_sip']  = Project.objects.filter(name__in=['Подушкино','Марфино','Аполье']).order_by('square')
-        ctx['projects_kars'] = Project.objects.filter(name__in=['Киреево','Дарьино','Мелихово']).order_by('square')
+        ctx['projects_term'] = Project.objects.filter(name__in=['Ольгово', 'Дубровицы', 'Никольское']).order_by(
+            'square')
+        ctx['projects_sip'] = Project.objects.filter(name__in=['Подушкино', 'Марфино', 'Аполье']).order_by('square')
+        ctx['projects_kars'] = Project.objects.filter(name__in=['Киреево', 'Дарьино', 'Мелихово']).order_by('square')
         return ctx
 
 
-class ArticleList(MenuMixin,ListView):
+class ArticleList(MenuMixin, ListView):
     model = Article
     paginate_by = 10
     menu_slug = [
@@ -214,12 +249,14 @@ class ArticleList(MenuMixin,ListView):
         "articles",
     ]
 
-class ArticleDetail(MenuMixin,DetailView):
+
+class ArticleDetail(MenuMixin, DetailView):
     model = Article
     menu_slug = [
         "info",
         "articles",
     ]
+
 
 class MainCalcView(CreateView):
     form_class = MainCalc
@@ -237,15 +274,16 @@ class MainCalcView(CreateView):
             message += "\nк заявке прикреплен файл (его можно посмотреть на сайте)"
         message += "\n\n Пожелания: \n{}".format(form.cleaned_data.get('note'))
         send_mail(
-            subject = 'Заявка на расчет ({} {})'.format(form.cleaned_data.get('fio'),form.cleaned_data.get('phone')),
-            message = message,
-            from_email = 'lagumor@inbox.ru',
-            recipient_list = ['lagumor@inbox.ru'],
+            subject='Заявка на расчет ({} {})'.format(form.cleaned_data.get('fio'), form.cleaned_data.get('phone')),
+            message=message,
+            from_email='lagumor@inbox.ru',
+            recipient_list=['lagumor@inbox.ru'],
         )
         return jsonify({'status': 1, 'errors': None})
 
     def form_invalid(self, form):
         return jsonify({'status': 0, 'errors': form.errors})
+
 
 class PrjCalcView(CreateView):
     form_class = PrjCalc
@@ -255,7 +293,7 @@ class PrjCalcView(CreateView):
     def form_valid(self, form):
         form.save()
         kit = PrjKit.objects.filter(pk=form.cleaned_data.get('kit').id).first()
-        kit_name = "{} {}".format(kit.prn.name.title(),kit.tech.mnemo.title())
+        kit_name = "{} {}".format(kit.prn.name.title(), kit.tech.mnemo.title())
         if form.cleaned_data.get('kit_numb') == 1:
             kit_calc = "комфорт"
         else:
@@ -269,15 +307,18 @@ class PrjCalcView(CreateView):
             message += "\nк заявке прикреплен файл (его можно посмотреть на сайте)"
         message += "\n\n Пожелания: \n{}".format(form.cleaned_data.get('note'))
         send_mail(
-            subject = 'Заявка на проект {}, комплектация: {} ({} {})'.format(kit_name, kit_calc, form.cleaned_data.get('fio'),form.cleaned_data.get('phone')),
-            message = message,
-            from_email = 'lagumor@inbox.ru',
-            recipient_list = ['lagumor@inbox.ru'],
+            subject='Заявка на проект {}, комплектация: {} ({} {})'.format(kit_name, kit_calc,
+                                                                           form.cleaned_data.get('fio'),
+                                                                           form.cleaned_data.get('phone')),
+            message=message,
+            from_email='lagumor@inbox.ru',
+            recipient_list=['lagumor@inbox.ru'],
         )
         return jsonify({'status': 1, 'errors': None})
 
     def form_invalid(self, form):
         return jsonify({'status': 0, 'errors': form.errors})
+
 
 class FundCalcView(CreateView):
     form_class = FundCalc
@@ -295,15 +336,17 @@ class FundCalcView(CreateView):
             message += "\nк заявке прикреплен файл (его можно посмотреть на сайте)"
         message += "\n\n Пожелания: \n{}".format(form.cleaned_data.get('note'))
         send_mail(
-            subject = 'Заявка на расчет фундамента ({} {})'.format(form.cleaned_data.get('fio'),form.cleaned_data.get('phone')),
-            message = message,
-            from_email = 'lagumor@inbox.ru',
-            recipient_list = ['lagumor@inbox.ru'],
+            subject='Заявка на расчет фундамента ({} {})'.format(form.cleaned_data.get('fio'),
+                                                                 form.cleaned_data.get('phone')),
+            message=message,
+            from_email='lagumor@inbox.ru',
+            recipient_list=['lagumor@inbox.ru'],
         )
         return jsonify({'status': 1, 'errors': None})
 
     def form_invalid(self, form):
         return jsonify({'status': 0, 'errors': form.errors})
+
 
 class PhoneCallView(CreateView):
     form_class = PhoneForm
@@ -317,12 +360,12 @@ class PhoneCallView(CreateView):
             message += "\nemail: {}".format(form.cleaned_data.get('email'))
         message += "\nТелефон: {}".format(form.cleaned_data.get('phone'))
         if form.cleaned_data.get('wtime'):
-          message += "\nВремя звонка: {}".format(form.cleaned_data.get('wtime'))
+            message += "\nВремя звонка: {}".format(form.cleaned_data.get('wtime'))
         send_mail(
-            subject = 'Обратный звонок ({} {})'.format(form.cleaned_data.get('fio'),form.cleaned_data.get('phone')),
-            message = message,
-            from_email = 'lagumor@inbox.ru',
-            recipient_list = ['lagumor@inbox.ru'],
+            subject='Обратный звонок ({} {})'.format(form.cleaned_data.get('fio'), form.cleaned_data.get('phone')),
+            message=message,
+            from_email='lagumor@inbox.ru',
+            recipient_list=['lagumor@inbox.ru'],
         )
         return jsonify({'status': 1, 'errors': None})
 
