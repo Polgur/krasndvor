@@ -57,7 +57,7 @@ menu = [
             #{'name': "Вопросы и ответы", 'clss': '', 'url': '#', 'slug': 'questions'},
             {'name': "Акции", 'clss': '', 'url': reverse("promo"), 'slug': 'promo'},
             {'name': "Статьи", 'clss': '', 'url': reverse("article_list"), 'slug': 'articles'},
-            {'name': "Сертификаты", 'clss': '', 'url': '#', 'slug': 'certif'},
+            {'name': "Сертификаты", 'clss': '', 'url': reverse("certif"), 'slug': 'certif'},
         ]},
     {'name': "Отзывы", 'clss': '', 'url': '#', 'slug': 'feedback'},
     {'name': "Контакты", 'clss': '', 'url': reverse("contacts"), 'slug': 'contacts'},

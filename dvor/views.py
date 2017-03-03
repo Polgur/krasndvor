@@ -261,6 +261,13 @@ class ArticleDetail(MenuMixin, DetailView):
         "articles",
     ]
 
+class Certificates(MenuMixin, TemplateView):
+    menu_slug = [
+        "info",
+        "certif",
+    ]
+    template_name = 'dvor/info_certif.html'
+
 
 class MainCalcView(CreateView):
     form_class = MainCalc

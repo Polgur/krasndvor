@@ -568,6 +568,9 @@ header {
     font-size: 24px;
     margin-bottom: 15px;
 }
+.content-article a{
+    font-family: ARussDecor;
+}
 
 .content-article .content-img-left {
     float: left;

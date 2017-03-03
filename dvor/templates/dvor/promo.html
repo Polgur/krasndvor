@@ -85,6 +85,41 @@
     <h2>Усиление фундамента профильной трубой !</h2>
     <h4>Заключите договор на строительство дома и получите усиление фундамента профильной трубой в подарок!</h4>
     <h4>Акция действительна с <b>1 марта по 30 апреля 2017 года.</b></h4>
+    <div class="clearfix">
+      <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+        <div class="gallery-stage">
+          <a class="gallery" href="{% static "content/02Akciya_01.jpg" %}">
+            {% with url_path=MEDIA_URL|add:"content/02Akciya_01.jpg" %}
+              {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+                <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+              {% endthumbnail %}
+            {% endwith %}
+          </a>
+        </div>
+      </div>
+      <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+        <div class="gallery-stage">
+          <a class="gallery" href="{% static "content/02Akciya_02.jpg" %}">
+            {% with url_path=MEDIA_URL|add:"content/02Akciya_02.jpg" %}
+              {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+                <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+              {% endthumbnail %}
+            {% endwith %}
+          </a>
+        </div>
+      </div>
+      <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+        <div class="gallery-stage">
+          <a class="gallery" href="{% static "content/02Akciya_03.jpg" %}">
+            {% with url_path=MEDIA_URL|add:"content/02Akciya_03.jpg" %}
+              {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+                <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+              {% endthumbnail %}
+            {% endwith %}
+          </a>
+        </div>
+      </div>
+    </div>
     <h4 style="text-align: center">Акция действительна по каркасной технологии строительства домов</h4>
 
     <h2>Проекты по технологии <a class="section-link" href="{% url 'sect_termo' %}">Термопанели</a></h2>

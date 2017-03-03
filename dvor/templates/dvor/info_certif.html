@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load thumbnail %}
+
+{% block title %}Сертификаты{% endblock %}
+{% block content %}
+  <ol class="breadcrumbs">
+    <li><a href="\">Главная</a></li>
+    <li class="active">Сертификаты</li>
+  </ol>
+
+  <div class="content-page clearfix">
+    <div class="certif_gallery-div col-lg-4 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/certif_01.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/certif_01.jpg" %}
+            {% thumbnail url_path "350x500" crop="center" format="PNG" as im %}
+              <img class="img-responsive img-thumbnail content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="certif_gallery-div col-lg-4 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/certif_02.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/certif_02.jpg" %}
+            {% thumbnail url_path "350x500" crop="center" format="PNG" as im %}
+              <img class="img-responsive img-thumbnail content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="certif_gallery-div col-lg-4 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/certif_03.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/certif_03.jpg" %}
+            {% thumbnail url_path "350x500" crop="center" format="PNG" as im %}
+              <img class="img-responsive img-thumbnail content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="certif_gallery-div col-lg-4 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/certif_04.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/certif_04.jpg" %}
+            {% thumbnail url_path "350x500" crop="center" format="PNG" as im %}
+              <img class="img-responsive img-thumbnail content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="certif_gallery-div col-lg-4 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/certif_05.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/certif_05.jpg" %}
+            {% thumbnail url_path "350x500" crop="center" format="PNG" as im %}
+              <img class="img-responsive img-thumbnail content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="certif_gallery-div col-lg-4 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/certif_06.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/certif_06.jpg" %}
+            {% thumbnail url_path "350x500" crop="center" format="PNG" as im %}
+              <img class="img-responsive img-thumbnail content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="certif_gallery-div col-lg-4 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/certif_07.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/certif_07.jpg" %}
+            {% thumbnail url_path "350x500" crop="center" format="PNG" as im %}
+              <img class="img-responsive img-thumbnail content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="certif_gallery-div col-lg-4 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/certif_08.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/certif_08.jpg" %}
+            {% thumbnail url_path "350x500" crop="center" format="PNG" as im %}
+              <img class="img-responsive img-thumbnail content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+  </div> <!-- /.content-article -->
+{% endblock %}
