@@ -7,6 +7,10 @@ from django.core.mail import send_mail
 
 
 # Create your views here.
+class YandexVerificationView(TemplateView):
+    template_name = 'dvor/yandex_4fd6f02cc008408c.html'
+
+
 class IndexPage(MenuMixin, TemplateView):
     menu_slug = 'home'
     template_name = 'dvor/index.html'

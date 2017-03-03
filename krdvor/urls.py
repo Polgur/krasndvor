@@ -16,6 +16,7 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from django.http import HttpResponse
+from dvor.views import YandexVerificationView
 from django.contrib.sitemaps.views import (
     index as site_index_view,
     sitemap as sitemap_view)
@@ -25,6 +26,11 @@ urlpatterns = [
     url(r'^', include('dvor.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^googlec3d802055a2219fc\.html$', lambda r: HttpResponse("google-site-verification: googlec3d802055a2219fc.html", content_type="text/plain")),
+    url(
+        r'^yandex_4fd6f02cc008408c\.html$',
+        YandexVerificationView.as_view(),
+        name='yandex_verify'
+    ),
     url(r'^sitemap\.xml$',
         sitemap_view,
         {'sitemaps': sitemaps_dict},
