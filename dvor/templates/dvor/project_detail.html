@@ -24,7 +24,7 @@
     <li class="active">{{ project.name|title }}</li>
   </ol>
 
-  <div class="katalog tovar claerfix">
+  <div class="katalog tovar clearfix">
     <div class="kat-title">
       {{ project.name|title }}
     </div>
@@ -86,7 +86,7 @@
           <div class="price-and-button clearfix">
             <div class="text">
               <span>Цена проекта {{ project.name|title }} (комплектация "Комфорт)"</span>
-              <span class="price">{{ kit.price1 }} <span>&#8381;</span></span>
+              <span class="price">{{ kit.price1|intspace }} <span>&#8381;</span></span>
             </div>
             <button type="button" class="button" data-toggle="modal" data-target="#prjcalc" data-calc="1">
               <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Заказать
@@ -103,7 +103,7 @@
           <div class="price-and-button clearfix">
             <div class="text">
               <span>Цена проекта {{ project.name|title }} (комплектация "Престиж)"</span>
-              <span class="price">{{ kit.price2 }} <span>&#8381;</span></span>
+              <span class="price">{{ kit.price2|intspace }} <span>&#8381;</span></span>
             </div>
             <button type="button" class="button" data-toggle="modal" data-target="#prjcalc" data-calc="2">
               <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Заказать
@@ -120,7 +120,7 @@
           <div class="price-and-button clearfix">
             <div class="text">
               <span>Цена проекта {{ project.name|title }} (комплектация "Премиум)"</span>
-              <span class="price">{{ kit.price3 }} <span>&#8381;</span></span>
+              <span class="price">{{ kit.price3|intspace }} <span>&#8381;</span></span>
             </div>
             <button type="button" class="button" data-toggle="modal" data-target="#prjcalc" data-calc="2">
               <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Заказать
@@ -128,117 +128,32 @@
           </div>
         </div>
       </div>
-      {% comment %}<div class="item">
-        <span class="title">Комплектация 3</span>
-        <ul>
-          <li>
-            <span class="icon"><img src="img/door.png"></span>
-            <span class="name">Двери</span>
-            <span class="info">Свайно-винтовой,(черный металл) диаметром = 108 мм, длиной = 2.5м, закручиваемые спецтехникой с засыпкой песко-бетонной смесью.</span>
-          </li>
-          <li>
-            <span class="icon"><img src="img/window.png"></span>
-            <span class="name">Окна</span>
-            <span class="info">Свайно-винтовой,(черный металл) диаметром = 108 мм, длиной = 2.5м, закручиваемые спецтехникой с засыпкой песко-бетонной смесью.</span>
-          </li>
-          <li>
-            <span class="icon"><img src="img/balkon.png"></span>
-            <span class="name">Балконы</span>
-            <span class="info">Свайно-винтовой,(черный металл) диаметром = 108 мм, длиной = 2.5м, закручиваемые спецтехникой с засыпкой песко-бетонной смесью.</span>
-          </li>
-          <li>
-            <span class="icon"><img src="img/fundament.png"></span>
-            <span class="name">Фундамент</span>
-            <span class="info">Свайно-винтовой,(черный металл) диаметром = 108 мм, длиной = 2.5м, закручиваемые спецтехникой с засыпкой песко-бетонной смесью.</span>
-          </li>
-          <li class="price-and-button clearfix">
-            <div class="text">
-              <span>Стоимость за 1 комплектацию</span>
-              <span class="price">12 000 <span>&#8381;</span></span>
-            </div>
-            <a href="" class="button">заказать</a></li>
-        </ul>
-      </div>{% endcomment %}
-    </div>
+    </div><!-- /.tovar-compl -->
 
+    <div class="content-page clearfix">
+      <h2>Цены на проект <b>{{ project.name }}</b> по другим технологиям:</h2>
+      <table class="table table-hover comp-kit">
+        <tr>
+          <th>Технология</th>
+          <th>Комфорт</th>
+          <th>Престиж</th>
+          <th>Премиум</th>
+          <th></th>
+        </tr>
+        {% for ckit in compkit %}
+          <tr>
+            <td class="tech-title">{{ ckit.tech.mnemo|upper }}</td>
+            <td class="comp-price"><b>{{ ckit.price1|intspace }}</b> ₽</td>
+            <td class="comp-price"><b>{{ ckit.price2|intspace }}</b> ₽</td>
+            <td class="comp-price"><b>{{ ckit.price3|intspace }}</b> ₽</td>
+            <td class="comp-link"><a href="{% url 'project_detail' project.slug %}?tech={{ ckit.tech.pk }}">
+              Посмотреть
+            </a></td>
+          </tr>
+        {% endfor %}
+      </table>
+    </div>
   </div>
-
-  {% comment %}<div class="container">
-    <div class="row">
-      <div class="col-sm-9">
-        <div class="row">
-          <div class="col-sm-8">
-            <img class="img-responsive" src="{{ project.img.url }}">
-          </div>
-          <div class="col-sm-4">
-            <h3>{{ project.name }}</h3>
-            <h4>характеристики проекта:</h4>
-            <div>Размеры, м: <b>{{ project.size }}</b></div>
-            <div>Площадь, кв.м: <b>{{ project.square }}</b></div>
-          </div>
-        </div>
-        <div class="margin-8"></div>
-        <div class="panel panel-primary">
-          <div class="panel-heading">Фасады</div>
-          <div class="panel-body">
-            {% for ph in project.photos.all %}
-              {% if ph.type == 1 %}
-                <div class="col-sm-3">
-                  <img class="img-responsive" src="{{ ph.img.url }}">
-                </div>
-              {% endif %}
-            {% endfor %}
-          </div>
-        </div>
-        <div class="panel panel-primary">
-          <div class="panel-heading">Планировка</div>
-          <div class="panel-body">
-            {% for ph in project.photos.all %}
-              {% if ph.type > 1 %}
-                <div class="col-sm-6">
-                  <img class="img-responsive" src="{{ ph.img.url }}">
-                </div>
-              {% endif %}
-            {% endfor %}
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-6">
-            <div class="panel panel-primary">
-              <div class="panel-heading">Комплектация 1</div>
-              <div class="panel-body">
-                {{ kit.kit1|safe }}
-                <div class="pricedom">
-                  <span class="label label-info price">
-                    {{ kit.price1 }} р
-                  </span>
-                  <button type="button" class="btn btn-warning" style="width: 162px" data-toggle="modal" data-target="#prjcalc" data-calc="1">
-                    <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Заказать
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="panel panel-primary">
-              <div class="panel-heading">Комплектация 2</div>
-              <div class="panel-body">
-                {{ kit.kit2|safe }}
-                <div class="pricedom">
-                  <span class="label label-info price">
-                    {{ kit.price2 }} р
-                  </span>
-                  <button type="button" class="btn btn-warning" style="width: 162px" data-toggle="modal" data-target="#prjcalc" data-calc="2">
-                    <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Заказать
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>{% endcomment %}
 
   <div class="modal" id="prjcalc">
     <div class="modal-dialog" role="document">
@@ -295,6 +210,21 @@
           var modal = $(this)
           modal.find('.modal-body input[name="{{ calc_form.kit_numb.name }}"]').val(calc_num)
       })
+  </script>
+
+  <script>
+      $(".tovar-compl .title").click(function () {
+          $(this).parent().toggleClass("active").siblings().removeClass('active');
+          $(this).parent().siblings().children("div").hide();
+          $(this).next().slideToggle();
+      });
+      var max_item_height = 0; // максимальная высота, первоначально 0
+      $(".tovar-compl .compl-wrap").each(function () {
+          if ($(this).height() > max_item_height) { // если высота колонки больше значения максимальной высоты,
+              max_item_height = $(this).height(); // то она сама становится новой максимальной высотой
+          }
+      });
+      $(".tovar-compl").height(max_item_height + 100); // устанавливаем высоту каждой колонки равной значению максимальной высоты
   </script>
 
   <script>

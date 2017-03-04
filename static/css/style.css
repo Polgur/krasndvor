@@ -1394,7 +1394,9 @@ footer {
 }
 .tovar-compl {
     position: relative;
-    min-height: 880px;
+    margin-bottom: 20px;
+    /*height: inherit;*/
+    /*min-height: 880px;*/
 }
 .tovar-compl .item {
     display: inline-block;
@@ -1494,6 +1496,35 @@ footer {
     color: #161413;
     font-size: 14px;
     line-height: 16px;
+}
+.comp-kit{
+    padding: 0 15px 20px 15px;
+    border: 2px solid #762e06;
+}
+.comp-kit>tbody>tr>td, .comp-kit>tbody>tr>th, .comp-kit>tfoot>tr>td, .comp-kit>tfoot>tr>th, .comp-kit>thead>tr>td, .comp-kit>thead>tr>th{
+    border: 1px solid #762e06;
+}
+
+
+.comp-kit th {
+    text-align: center;
+    font-family: ProximaNova-Regular;
+    font-size: 20px;
+    color: #960b0b;
+}
+.comp-kit .tech-title {
+    font-family: CyrillicOldBold;
+    font-size: 20px;
+    color: #762e06;
+    padding: 5px 8px;
+}
+.comp-kit .comp-price{
+    text-align: right;
+}
+.comp-kit .comp-link{
+    text-align: center;
+    font-family: CyrillicOldBold;
+    font-size: 18px;
 }
 /* ====================================pagination======================================== */
 .paggination {

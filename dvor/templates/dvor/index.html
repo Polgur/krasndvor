@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load staticfiles %}
+{% load core_tags %}
 {% load thumbnail %}
 
 {% block title %}Красный двор - Главная страница{% endblock %}
@@ -243,7 +244,7 @@
                                             {% elif prj.house == 5 %}src="{% static "img/build-icon5.png" %}"
                                             {% else %}src="{% static "img/build-icon1.png" %}"{% endif %}
             >{{ prj.square }} кв.м.</span>
-            <span class="katalog-price">{{ prj.price }} ₽</span>
+            <span class="katalog-price">{{ prj.price|intspace }} ₽</span>
           </div>
         </div>
       </div>

@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load staticfiles %}
+{% load core_tags %}
 {% load thumbnail %}
 
 {% block content %}
@@ -91,9 +92,9 @@
               <span class="katalog-price">
                 {% for kit in prj.kits.all %}
                   {% if request.GET.tech and kit.tech.pk == request.GET.tech %}
-                    {{ kit.price1 }} ₽
+                    {{ kit.price1|intspace }} ₽
                   {% elif kit.tech.pk == techfilter.pk %}
-                    {{ kit.price1 }} ₽
+                    {{ kit.price1|intspace }} ₽
                   {% endif %}
                 {% endfor %}
               </span>

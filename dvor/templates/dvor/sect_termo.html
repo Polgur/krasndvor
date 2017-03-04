@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load staticfiles %}
+{% load core_tags %}
 {% load thumbnail %}
 
 {% block title %}Технология строительства домов из комбинированных термопанелей{% endblock %}
@@ -31,7 +32,7 @@
         обладают
         оптимальными пропорциями, очень прочны и полностью отвечают всем требованиям, предъявляемым к современному
         жилищу.</p></div>
-    <h2>Из чего состоят термопанели</h2>
+    <h2 style="margin-top: 15px">Из чего состоят термопанели</h2>
     <p class="content-text">Комбинированные термопанели представляют однослойную конструкцию, состоящую из двух плит и
       инновационного базальтового утеплителя. Утеплитель прекрасно сочетается с различными плитными материалами,
       такими как Гринборд, OSB-3 и ЦСП (цементно-стружечная плита). Элементы каркаса расположены таким образом, что
@@ -39,10 +40,44 @@
       этого термопанели лишены главного недостатка, присущего традиционным СИП панелям, – они не способствуют
       возникновению «парникового» эффекта. Именно по этой причине при производстве КТП используется базальтовый
       утеплитель – утеплитель нового поколения, который гораздо лучше подходит для строительства домов. Он обладает
-      высокой
-      плотностью (от 25 до 200 кг/м³), хорошей паропроницаемостью и оптимальными тепло- и звукоизоляционными
+      высокой плотностью (от 25 до 200 кг/м³), хорошей паропроницаемостью и оптимальными тепло- и звукоизоляционными
       характеристиками.</p>
-    <h2>Достоинства домов из термопанелей</h2>
+    <div class="clearfix">
+      <div class="gallery-div col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        <div class="gallery-stage">
+          <a class="gallery" href="{% static "content/termopaneli_05.jpg" %}">
+            {% with url_path=MEDIA_URL|add:"content/termopaneli_05.jpg" %}
+              {% thumbnail url_path "400x300" crop="center" format="PNG" as im %}
+                <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+              {% endthumbnail %}
+            {% endwith %}
+          </a>
+        </div>
+      </div>
+      <div class="gallery-div col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        <div class="gallery-stage">
+          <a class="gallery" href="{% static "content/termopaneli_06.jpg" %}">
+            {% with url_path=MEDIA_URL|add:"content/termopaneli_06.jpg" %}
+              {% thumbnail url_path "400x300" crop="center" format="PNG" as im %}
+                <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+              {% endthumbnail %}
+            {% endwith %}
+          </a>
+        </div>
+      </div>
+      <div class="gallery-div col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        <div class="gallery-stage">
+          <a class="gallery" href="{% static "content/termopaneli_07.jpg" %}">
+            {% with url_path=MEDIA_URL|add:"content/termopaneli_07.jpg" %}
+              {% thumbnail url_path "400x300" crop="center" format="PNG" as im %}
+                <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+              {% endthumbnail %}
+            {% endwith %}
+          </a>
+        </div>
+      </div>
+    </div>
+    <h2 style="margin-top: 15px">Достоинства домов из термопанелей</h2>
     <ul class="content-text">
       <li>При строительстве не требуется задействовать тяжелую и специальную строительную технику</li>
       <li>Возводятся на легких ленточных или свайных фундаментах</li>
@@ -55,7 +90,42 @@
       <li>Возможность возведения в любое время года</li>
       <li>Отлично сочетаются с любыми отделочными материалами</li>
     </ul>
-    <h2>Каркасный дом из термопанелей под ключ</h2>
+    <div class="clearfix">
+      <div class="gallery-div col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        <div class="gallery-stage">
+          <a class="gallery" href="{% static "content/termopaneli_08.jpg" %}">
+            {% with url_path=MEDIA_URL|add:"content/termopaneli_08.jpg" %}
+              {% thumbnail url_path "400x300" crop="center" format="PNG" as im %}
+                <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+              {% endthumbnail %}
+            {% endwith %}
+          </a>
+        </div>
+      </div>
+      <div class="gallery-div col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        <div class="gallery-stage">
+          <a class="gallery" href="{% static "content/termopaneli_09.jpg" %}">
+            {% with url_path=MEDIA_URL|add:"content/termopaneli_09.jpg" %}
+              {% thumbnail url_path "400x300" crop="center" format="PNG" as im %}
+                <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+              {% endthumbnail %}
+            {% endwith %}
+          </a>
+        </div>
+      </div>
+      <div class="gallery-div col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        <div class="gallery-stage">
+          <a class="gallery" href="{% static "content/termopaneli_10.jpg" %}">
+            {% with url_path=MEDIA_URL|add:"content/termopaneli_10.jpg" %}
+              {% thumbnail url_path "400x300" crop="center" format="PNG" as im %}
+                <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+              {% endthumbnail %}
+            {% endwith %}
+          </a>
+        </div>
+      </div>
+    </div>
+    <h2 style="margin-top: 15px">Каркасный дом из термопанелей под ключ</h2>
     <p class="content-text">Если вы рассматриваете возможность строительства дома, мы можем представить множество
       дополнительной информации в пользу этой технологии. Имея богатый опыт по скоростному возведению каркасных домов,
       мы предложим вам самые выгодные условия сотрудничества.</p>
@@ -69,6 +139,41 @@
     <p class="content-text">Мы строим быстро, качественно и в срок, предоставляя долгосрочную гарантию на работы и
       материалы. Каркасный дом – это комфортно, красиво и экономно. Обращайтесь, и мы построим каркасный дом по
       доступной цене.</p>
+    <div class="clearfix">
+      <div class="gallery-div col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        <div class="gallery-stage">
+          <a class="gallery" href="{% static "content/termopaneli_11.jpg" %}">
+            {% with url_path=MEDIA_URL|add:"content/termopaneli_11.jpg" %}
+              {% thumbnail url_path "400x300" crop="center" format="PNG" as im %}
+                <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+              {% endthumbnail %}
+            {% endwith %}
+          </a>
+        </div>
+      </div>
+      <div class="gallery-div col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        <div class="gallery-stage">
+          <a class="gallery" href="{% static "content/termopaneli_12.jpg" %}">
+            {% with url_path=MEDIA_URL|add:"content/termopaneli_12.jpg" %}
+              {% thumbnail url_path "400x300" crop="center" format="PNG" as im %}
+                <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+              {% endthumbnail %}
+            {% endwith %}
+          </a>
+        </div>
+      </div>
+      <div class="gallery-div col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        <div class="gallery-stage">
+          <a class="gallery" href="{% static "content/termopaneli_13.jpg" %}">
+            {% with url_path=MEDIA_URL|add:"content/termopaneli_13.jpg" %}
+              {% thumbnail url_path "400x300" crop="center" format="PNG" as im %}
+                <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+              {% endthumbnail %}
+            {% endwith %}
+          </a>
+        </div>
+      </div>
+    </div>
   </div> <!-- /.content-article -->
 
   <div class="content-page clearfix">
@@ -97,7 +202,7 @@
                                             {% elif prj.house == 5 %}src="{% static "img/build-icon5.png" %}"
                                             {% else %}src="{% static "img/build-icon1.png" %}"{% endif %}
             >{{ prj.square }} кв.м.</span>
-            <span class="katalog-price">{{ prj.price }} ₽</span>
+            <span class="katalog-price">{{ prj.price|intspace }} ₽</span>
           </div>
         </div>
       </div>
