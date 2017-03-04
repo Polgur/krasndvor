@@ -167,7 +167,17 @@
     <p class="content-text">Благодаря наличию собственной базы, на которой происходит изготовление домокомплектов, мы
       готовы предложить самые короткие сроки строительства.</p>
     <div class="clearfix">
-      <div class="col-lg-3 col-md-2 hidden-xs"></div>
+      <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+        <div class="gallery-stage">
+          <a class="gallery" href="{% static "content/Index_11.jpg" %}">
+            {% with url_path=MEDIA_URL|add:"content/Index_11.jpg" %}
+              {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+                <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+              {% endthumbnail %}
+            {% endwith %}
+          </a>
+        </div>
+      </div>
       <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
         <div class="gallery-stage">
           <a class="gallery" href="{% static "content/Index_02.jpg" %}">
@@ -190,7 +200,17 @@
           </a>
         </div>
       </div>
-      <div class="col-lg-3 col-md-2 hidden-xs"></div>
+      <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+        <div class="gallery-stage">
+          <a class="gallery" href="{% static "content/Index_12.jpg" %}">
+            {% with url_path=MEDIA_URL|add:"content/Index_12.jpg" %}
+              {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+                <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+              {% endthumbnail %}
+            {% endwith %}
+          </a>
+        </div>
+      </div>
     </div>
     <p class="content-text">Компания «Красный двор» - это коллектив единомышленников, во главе которого стоят люди,
       которые лично принимали участие в строительстве десятков объектов. За время работы были пройдены и отлажены до

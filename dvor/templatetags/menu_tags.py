@@ -59,7 +59,7 @@ menu = [
             {'name': "Статьи", 'clss': '', 'url': reverse("article_list"), 'slug': 'articles'},
             {'name': "Сертификаты", 'clss': '', 'url': reverse("certif"), 'slug': 'certif'},
         ]},
-    {'name': "Отзывы", 'clss': '', 'url': '#', 'slug': 'feedback'},
+    {'name': "Отзывы", 'clss': '', 'url': reverse("review"), 'slug': 'review'},
     {'name': "Контакты", 'clss': '', 'url': reverse("contacts"), 'slug': 'contacts'},
 ]
 

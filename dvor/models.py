@@ -4,6 +4,7 @@ from sorl.thumbnail import ImageField
 from django.utils import timezone
 from ckeditor.fields import RichTextField
 
+
 class Techno(models.Model):
     mnemo = models.CharField(max_length=16, unique=True)
     name = models.CharField(max_length=40, unique=True)
@@ -16,6 +17,7 @@ class Techno(models.Model):
 
     def __str__(self):
         return self.mnemo.title()
+
 
 class Project(models.Model):
     name = models.CharField(max_length=25, unique=True)
@@ -35,7 +37,7 @@ class Project(models.Model):
         (5, 'Дуплекс'),
     )
     house = models.SmallIntegerField(choices=house_choices)
-    img  = ImageField(upload_to='projects')
+    img = ImageField(upload_to='projects')
     size = models.CharField(max_length=25)
     square = models.PositiveSmallIntegerField()
     price = models.IntegerField()
@@ -52,6 +54,7 @@ class Project(models.Model):
         return reverse('project_detail',
                        kwargs={'slug': self.slug})
 
+
 class PrjPhoto(models.Model):
     prn = models.ForeignKey(Project, related_name='photos')
     type_choices = (
@@ -62,12 +65,13 @@ class PrjPhoto(models.Model):
     type = models.SmallIntegerField(choices=type_choices)
     img = ImageField(upload_to='projects')
 
-    def __str__(self):
-        return self.prn.name.title()
-
     class Meta:
         verbose_name = 'Фото проекта'
         verbose_name_plural = 'Фото проекта'
+
+    def __str__(self):
+        return self.prn.name.title()
+
 
 class PrjKit(models.Model):
     prn = models.ForeignKey(Project, related_name='kits')
@@ -84,7 +88,8 @@ class PrjKit(models.Model):
         verbose_name_plural = 'Комплектации'
 
     def __str__(self):
-        return "{} {}".format(self.prn.name.title(),self.tech.mnemo.title())
+        return "{} {}".format(self.prn.name.title(), self.tech.mnemo.title())
+
 
 class Readyobj(models.Model):
     mnemo = models.CharField(max_length=20, unique=True)
@@ -92,7 +97,7 @@ class Readyobj(models.Model):
     slug = models.SlugField()
     description = models.TextField()
     tech = models.ForeignKey(Techno)
-    img  = ImageField(upload_to='readyobj')
+    img = ImageField(upload_to='readyobj')
 
     class Meta:
         verbose_name = 'Готовый объект'
@@ -101,17 +106,19 @@ class Readyobj(models.Model):
     def __str__(self):
         return self.mnemo.title()
 
+
 class ReadyPhoto(models.Model):
     prn = models.ForeignKey(Readyobj, related_name='photos')
     sort = models.PositiveSmallIntegerField()
     img = ImageField(upload_to='readyobj')
 
-    def __str__(self):
-        return self.prn.mnemo.title()
-
     class Meta:
         verbose_name = 'Фото объекта'
         verbose_name_plural = 'Фото объекта'
+
+    def __str__(self):
+        return self.prn.mnemo.title()
+
 
 class Reconst(models.Model):
     mnemo = models.CharField(max_length=20, unique=True)
@@ -128,17 +135,19 @@ class Reconst(models.Model):
     def __str__(self):
         return self.mnemo.title()
 
+
 class ReconstPhoto(models.Model):
     prn = models.ForeignKey(Reconst, related_name='photos')
     sort = models.PositiveSmallIntegerField()
     img = ImageField(upload_to='reconstr')
 
-    def __str__(self):
-        return self.prn.mnemo.title()
-
     class Meta:
         verbose_name = 'Фото реконструкции'
         verbose_name_plural = 'Фото реконструкции'
+
+    def __str__(self):
+        return self.prn.mnemo.title()
+
 
 class Article(models.Model):
     name = models.CharField(max_length=100, unique=True, verbose_name="Название статьи")
@@ -161,15 +170,51 @@ class Article(models.Model):
     def get_absolute_url(self):
         return reverse('article_detail', kwargs={'slug': self.slug})
 
+
+class Review(models.Model):
+    name = models.CharField(max_length=100, unique=True, verbose_name="Название отзыва")
+    slug = models.SlugField(verbose_name="Урл")
+    tech = models.ForeignKey(Techno)
+    owner = models.CharField(max_length=100, unique=True, verbose_name="Владелец")
+    owner_img = ImageField(upload_to='reviews', null=True, blank=True, verbose_name="Фото владельца")
+    publish = models.DateTimeField(default=timezone.now, verbose_name="Дата публикации")
+    sort_re = models.PositiveSmallIntegerField(verbose_name="Сортировка")
+    review_img = ImageField(upload_to='reviews', verbose_name="Фото (скриншот) отзыва")
+    review_text = models.TextField(verbose_name="Текст отзыва")
+    house_img = ImageField(upload_to='reviews', null=True, blank=True, verbose_name="Фото дома")
+    house_desc = models.TextField(verbose_name="Описание дома")
+    project = models.ForeignKey(Project, null=True, blank=True, verbose_name="По какому проекту")
+
+    class Meta:
+        verbose_name = 'Отзыв'
+        verbose_name_plural = 'Отзывы'
+
+    def __str__(self):
+        return self.name.title()
+
+
+class ReviewPhoto(models.Model):
+    prn = models.ForeignKey(Review, related_name='photos')
+    sort = models.PositiveSmallIntegerField()
+    img = ImageField(upload_to='reviews')
+
+    class Meta:
+        verbose_name = 'Фото дома для отзыва'
+        verbose_name_plural = 'Фото дома для отзыва'
+
+    def __str__(self):
+        return self.prn.name.title()
+
+
 class Calculation(models.Model):
     fio = models.CharField(max_length=80)
     created = models.DateTimeField(default=timezone.now)
-    email = models.EmailField(null=True,blank=True)
-    phone = models.CharField(max_length=20,null=True,blank=True)
+    email = models.EmailField(null=True, blank=True)
+    phone = models.CharField(max_length=20, null=True, blank=True)
     note = models.CharField(max_length=400)
-    file = models.FileField(upload_to='calc_files',null=True,blank=True)
-    kit = models.ForeignKey(PrjKit,null=True,blank=True)
-    kit_numb = models.PositiveSmallIntegerField(null=True,blank=True)
+    file = models.FileField(upload_to='calc_files', null=True, blank=True)
+    kit = models.ForeignKey(PrjKit, null=True, blank=True)
+    kit_numb = models.PositiveSmallIntegerField(null=True, blank=True)
 
     class Meta:
         verbose_name = 'Заявка'
@@ -178,10 +223,11 @@ class Calculation(models.Model):
     def get_absolute_url(self):
         return reverse('thanks')
 
+
 class PhoneCall(models.Model):
     fio = models.CharField(max_length=80)
-    created = models.DateTimeField(default=timezone.now,null=True,blank=True)
-    email = models.EmailField(null=True,blank=True)
+    created = models.DateTimeField(default=timezone.now, null=True, blank=True)
+    email = models.EmailField(null=True, blank=True)
     phone = models.CharField(max_length=20)
     wtime = models.CharField(max_length=20)
 

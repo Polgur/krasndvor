@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load thumbnail %}
+
+{% block title %}Красный двор - отзывы{% endblock %}
+{% block meta_seo %}
+  <meta name="keywords"
+        content="дома из сип панелей отзывы, жильцов, владельцев, живущих, плюсы и минусы, каркасные дома отзывы, реальных владельцев"/>
+  <meta name="description" content="Технологии каркасные, термопанели, сип панели - отзывы владельцев">
+{% endblock %}
+{% block content %}
+  <ol class="breadcrumbs">
+    <li><a href="\">Главная</a></li>
+    <li class="active">Отзывы</li>
+  </ol>
+
+  <div class="content-page clearfix">
+    <h1>Отзывы</h1>
+    <h3>Представлены отзывы реальных владельцев, заказавших постройку дома в нашей компании. Дома построены по всем
+      используемым у нас технологиям: каркасные дома, дома из комбинированных термопанелей и СИП панелей</h3>
+    {% for obj in review_list %}
+      <div class="clearfix" style="margin: 25px 0">
+        <div class="col-sm-7 col-xs-12">
+          <div id="{{ obj.slug }}" class="clearfix"><span class="review-owner">{{ obj.owner }}</span><span class="review-date">{{ obj.publish|date:"d.m.Y" }}</span></div>
+          <p class="review-name">{{ obj.name }}</p>
+          <p class="review-tech">
+          {% if obj.tech.pk == 1 %}
+            Дом построен по технологии «Комбинированные термопанели»
+          {% elif obj.tech.pk == 2 %}
+            Дом построен по СИП технологии
+          {% elif obj.tech.pk == 3 %}
+            Дом построен по каркасной технологии
+          {% endif %}
+          {% if obj.project %}
+            , по проекту:
+          {% else %}
+            , по индивидуальному проекту.
+          {% endif %}
+          </p>
+          <p class="content-text">{{ obj.review_text }}</p>
+        </div>
+        <div class="gallery-div col-sm-5 col-xs-12">
+          <div class="gallery-stage">
+            <a class="gallery" href="{{ obj.review_img.url }}">
+              {% thumbnail obj.review_img "400" crop="center" format="PNG" as im %}
+                <img class="img-responsive content-img" src="{{ im.url }}" alt="">
+              {% endthumbnail %}
+            </a>
+          </div>
+          <div class="gallery-stage">
+            <a class="gallery" href="{{ obj.house_img.url }}">
+              {% thumbnail obj.house_img "400x300" crop="center" format="PNG" as im %}
+                <img class="img-responsive content-img" src="{{ im.url }}" alt="">
+              {% endthumbnail %}
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="clearfix">
+        {% for photo in obj.photos.all %}
+          <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+            <div class="gallery-stage">
+              <a class="gallery" href="{{ photo.img.url }}">
+                {% thumbnail photo.img "300x225" crop="center" format="PNG" as im %}
+                  <img class="img-responsive content-img" src="{{ im.url }}" alt="">
+                {% endthumbnail %}
+              </a>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% endfor %}
+  </div> <!-- /.content-page -->
+
+  {% if is_paginated %}
+    <nav>
+      <ul class="paggination">
+        {% if page_obj.has_previous %}
+          <li class="double-arrow"><a href="?page={{ page_obj.previous_page_number }}">
+            <span class="glyphicon glyphicon-menu-left"></span>
+          </a>
+          </li>
+        {% else %}
+          <li class="double-arrow ">
+            <a href="#">
+              <span class="glyphicon glyphicon-menu-left"></span>
+            </a>
+          </li>
+        {% endif %}
+
+        {% for page in paginator.page_range %}
+          <li {% if page == page_obj.number %}class="active"{% endif %}>
+            <a href="?page={{ page }}">{{ page }}</a>
+          </li>
+        {% endfor %}
+
+        {% if page_obj.has_next %}
+          <li class="double-arrow">
+            <a href="?page={{ page_obj.next_page_number }}">
+              <span class="glyphicon glyphicon-menu-right"></span>
+            </a>
+          </li>
+        {% else %}
+          <li class="double-arrow ">
+            <a href="#">
+              <span class="glyphicon glyphicon-menu-right"></span>
+            </a>
+          </li>
+        {% endif %}
+      </ul>
+    </nav>
+  {% endif %}
+{% endblock %}

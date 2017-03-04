@@ -1,6 +1,6 @@
 from django.http import Http404
 from django.views.generic import ListView, DetailView, TemplateView, CreateView
-from .models import Project, PrjKit, Readyobj, Reconst, Article, Techno, Calculation, PhoneCall
+from .models import Project, PrjKit, Readyobj, Reconst, Article, Review, Techno, Calculation, PhoneCall
 from .forms import ProjectFilterForm, MainCalc, PrjCalc, FundCalc, PhoneForm
 from .utils import MenuMixin, jsonify
 from django.core.mail import send_mail
@@ -261,12 +261,20 @@ class ArticleDetail(MenuMixin, DetailView):
         "articles",
     ]
 
+
 class Certificates(MenuMixin, TemplateView):
     menu_slug = [
         "info",
         "certif",
     ]
     template_name = 'dvor/info_certif.html'
+
+
+class ReviewList(MenuMixin, ListView):
+    queryset = Review.objects.all().order_by('photos__sort', 'sort_re', 'photos__prn')
+    paginate_by = 6
+    menu_slug = 'review'
+    template_name = 'dvor/reviews.html'
 
 
 class MainCalcView(CreateView):

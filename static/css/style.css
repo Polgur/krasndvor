@@ -47,13 +47,12 @@ header {
     position: relative;
     z-index: 1;
 }
-.header-logo a{
+.header-logo a {
     margin-left: 36px;
 }
-.header-logo img{
+.header-logo img {
     margin-top: 9px;
 }
-
 .header-logo::after {
     position: absolute;
     content: '';
@@ -460,7 +459,7 @@ header {
     text-align: center;
     color: #e40e22;
     font-family: ProximaNova-Regular;
-    font-size: 26px;
+    font-size: 28px;
     line-height: 32px;
     margin: 0;
     margin-bottom: 15px;
@@ -473,20 +472,18 @@ header {
     line-height: 30px;
     margin: 15px 0;
 }
-.content-page h2 {
-    text-align: center;
-    color: #e40e22;
-    font-family: ProximaNova-Regular;
-    font-size: 24px;
-    line-height: 30px;
-    margin: 15px 0;
-}
 .content-page h3 {
     color: #651e04;
+    font-family: ProximaNova-Regular;
+    font-size: 20px;
+    line-height: 22px;
     margin: 10px;
 }
 .content-page h4 {
     color: #651e04;
+    font-family: ProximaNova-Regular;
+    font-size: 18px;
+    line-height: 20px;
     margin: 10px;
 }
 .content-page p {
@@ -504,7 +501,7 @@ header {
     text-align: center;
     margin-bottom: 20px;
 }
-.content-page .section-link{
+.content-page .section-link {
     color: #e40e22;
     position: relative;
     font-size: 24px;
@@ -513,16 +510,42 @@ header {
     font-family: CyrillicOldBold;
     text-decoration: none;
 }
-.content-page .section-link:hover{
+.content-page .section-link:hover {
     text-decoration: underline;
 }
-.content-page .promo-cat, .content-article .promo-cat{
+.content-page .promo-cat, .content-article .promo-cat {
     padding: 0 5px;
 }
-.content-form input, .content-form textarea{
+.content-form input, .content-form textarea {
     background-color: #fff9f2;
 }
-
+.content-page .review-owner {
+    float: left;
+    color: #620098;
+    font-family: ProximaNova-Regular;
+    font-size: 24px;
+    line-height: 18px;
+}
+.content-page .review-date {
+    float: right;
+    font-family: ProximaNova-Regular;
+    font-size: 18px;
+    line-height: 18px;
+}
+.content-page .review-name {
+    text-align: center;
+    margin: 5px 5px 0 5px;
+    font-family: CyrillicOldBold;
+    color: #983b29;
+    font-size: 22px;
+}
+.content-page .review-tech {
+    text-align: center;
+    margin: 0 2px;
+    font-family: CyrillicOldBold;
+    color: #c94c07;
+    font-size: 16px;
+}
 .gallery-div {
     padding: 0 5px;
 }
@@ -568,10 +591,9 @@ header {
     font-size: 24px;
     margin-bottom: 15px;
 }
-.content-article a{
+.content-article a, .side-panel a {
     font-family: ARussDecor;
 }
-
 .content-article .content-img-left {
     float: left;
     display: block;
@@ -688,7 +710,7 @@ header {
     height: 49px;
     z-index: -1;
 }
-.view-all-promo .view-all{
+.view-all-promo .view-all {
     font-size: 17px;
 }
 /* ==========================================sidebar============================================ */
@@ -789,7 +811,7 @@ header {
     margin-bottom: 12px;
     text-align: center;
 }
-.main-sidebar .news__item__title{
+.main-sidebar .news__item__title {
     color: #e40e22;
 }
 .main-sidebar .contacts__item__title a, .main-sidebar .news__item__title a, .main-sidebar .reviews__item__title a {
@@ -829,8 +851,8 @@ header {
     display: none;
 }
 .main-sidebar .reviews__item__icon {
-    float: left;
-    margin-right: 15px;
+    float: right;
+    margin: 7px 0 0 10px;
 }
 .main-sidebar .reviews__item__date {
     text-align: left;

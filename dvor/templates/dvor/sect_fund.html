@@ -101,8 +101,8 @@
       </div>
       <div class="gallery-div col-lg-4 col-md-4 col-sm-6 col-xs-12">
         <div class="gallery-stage">
-          <a class="gallery" href="{% static "content/FundSv_16.jpg" %}">
-            {% with url_path=MEDIA_URL|add:"content/FundSv_16.jpg" %}
+          <a class="gallery" href="{% static "content/fundament_09.jpg" %}">
+            {% with url_path=MEDIA_URL|add:"content/fundament_09.jpg" %}
               {% thumbnail url_path "400x300" crop="center" format="PNG" as im %}
                 <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
               {% endthumbnail %}

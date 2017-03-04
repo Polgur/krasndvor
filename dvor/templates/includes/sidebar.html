@@ -60,32 +60,28 @@
     <div class="news__item__img"><img src="{% static "img/02Akciya_03.png" %}"></div>
     <span class="news__item__text">В период с 1 марта по 30 апреля 2017 г. компания Красный двор проводит АКЦИЮ!</span>
   </div>
-{% comment %}  <a class="all-news">все новости</a>{% endcomment %}
+  {% comment %}  <a class="all-news">все новости</a>{% endcomment %}
 </div>
 <div class="side-panel">
   <div class="side-title">отзывы</div>
   <div class="reviews__item clearfix">
-    <span class="reviews__item__text">Инновационный утеплитель HOTROCK, отличающийся высокими экологическими, звуко- и теплоизоляционными </span>
-    <div class="reviews-icon"></div>
-    <div class="reviews__item__icon"><img src="{% static "img/reviews-icon.png" %}"></div>
-    <div class="reviews__item__name">Анна Иванова</div>
-    <div class="reviews__item__date">21 сент 2017</div>
+    <span class="reviews__item__text"><img class="reviews__item__icon" src="{% static "img/RevFst_00.png" %}">Заказал проект дома и собственно сам дом в компании "Красный двор" и ни разу не пожалел об этом. В компании
+      работают настоящие профессионалы. Проект сделали очень быстро, не упустили ни одного моего пожелания; несколько раз проект присылали на
+      согласование, пока в компании не убедились, что меня все устраивает... <a href="{% url 'review' %}#kovilkino">весь отзыв</a>
+    </span>
+
+    <div class="reviews__item__name">Кузнецов Владимир</div>
+    <div class="reviews__item__date">16 февраля 2017</div>
   </div>
   <div class="reviews__item clearfix">
-    <span class="reviews__item__text">Инновационный утеплитель HOTROCK, отличающийся высокими экологическими, звуко- и теплоизоляционными </span>
-    <div class="reviews-icon"></div>
-    <div class="reviews__item__icon"><img src="{% static "img/reviews-icon.png" %}"></div>
-    <div class="reviews__item__name">Анна Иванова</div>
-    <div class="reviews__item__date">21 сент 2017</div>
+    <span class="reviews__item__text"><img class="reviews__item__icon" src="{% static "img/RevCvet_00.png" %}">Хочу выразить слова благодарности Андрею и его бригаде. Я долго искал проект дома, хотел, чтобы в самом доме был туалет, обязательно веранда, комната и кухня на 1-м этаже, две комнаты на 2-м этаже. Долго искал и нашел, но строить собирались каркасный из ОСВ панелей, но в начале сомнивался думали, что будет холодно в таком доме – всетаки бывает и ниже -30). Но потом по рекомендации друзей, дом которых мне очень понравился (качество возведения, внешний вид и т.д.)... <a
+            href="{% url 'review' %}#paygarma">весь отзыв</a>
+    </span>
+
+    <div class="reviews__item__name">Приказчиков Юрий</div>
+    <div class="reviews__item__date">1 марта 2017</div>
   </div>
-  <div class="reviews__item clearfix">
-    <span class="reviews__item__text">Инновационный утеплитель HOTROCK, отличающийся высокими экологическими, звуко- и теплоизоляционными </span>
-    <div class="reviews-icon"></div>
-    <div class="reviews__item__icon"><img src="{% static "img/reviews-icon.png" %}"></div>
-    <div class="reviews__item__name">Анна Иванова</div>
-    <div class="reviews__item__date">21 сент 2017</div>
-  </div>
-  <a class="all-reviews">все отзывы</a>
+  <a href="{% url 'review' %}" class="all-reviews">все отзывы</a>
 </div>
 
 
