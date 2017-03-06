@@ -128,7 +128,13 @@
                                             {% elif prj.house == 5 %}src="{% static "img/build-icon5.png" %}"
                                             {% else %}src="{% static "img/build-icon1.png" %}"{% endif %}
             >{{ prj.square }} кв.м.</span>
-            <span class="katalog-price">{{ prj.price|intspace }} ₽</span>
+            <span class="katalog-price">
+              {% if prj.price == 0 %}
+                от 9000 р/м&sup2;
+              {% else %}
+                {{ prj.price|intspace }} ₽
+              {% endif %}
+            </span>
           </div>
         </div>
       </div>
