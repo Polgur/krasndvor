@@ -3,7 +3,7 @@ from dvor.sitemaps import IndexViewSitemap, SectionViewSitemap, StaticViewSitema
     ProjectListSSitemap, ProjectListKSitemap, ProjectListT0Sitemap, ProjectListS0Sitemap, ProjectListK0Sitemap, \
     ProjectListT100Sitemap, ProjectListS100Sitemap, ProjectListK100Sitemap, ProjectListT150Sitemap, \
     ProjectListS150Sitemap, ProjectListK150Sitemap, ProjectTSitemap, ProjectSSitemap, ProjectKSitemap, \
-    ReadyobjTermoSitemap, ReconstListSitemap, ArticleSitemap, ArticleListSitemap
+    ReadyobjTermoSitemap, ReconstListSitemap, ArticleSitemap, ArticleListSitemap, ReviewListSitemap
 from django.core.urlresolvers import reverse
 
 
@@ -37,4 +37,5 @@ sitemaps = {
     'reconst': ReconstListSitemap,
     'articles': ArticleListSitemap,
     'article': ArticleSitemap,
+    'reviews': ReviewListSitemap,
 }

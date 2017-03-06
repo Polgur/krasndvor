@@ -72,7 +72,8 @@
         </div>
       </div>
     </div>
-    <p id="FundSv" class="content-text"><b>Винтовой фундамент</b> используется под строительство легких домов. Представляет собой
+    <p id="FundSv" class="content-text"><b>Винтовой фундамент</b> используется под строительство легких домов.
+      Представляет собой
       специальную сваю, закручиваемую в грунт ниже уровня промерзания. По верху свай, выступающих над уровнем земли,
       укладывается обвязка будущего дома. Считается очень экономичным видом, требующим минимум подготовки. При его
       устройстве отпадает необходимость в проведении земляных работ.</p>
@@ -175,33 +176,29 @@
       {% get_fundc_form as calc_form %}
       <form id="fundcalc_form" action="{% url 'thanks_fund' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        <div id="{{ calc_form.fio.name }}" class="fieldWrapper form-group">
-          <label for="{{ calc_form.fio.id_for_label }}">{{ calc_form.fio.label }}:</label>
-          {{ calc_form.fio }}
+        <div class="clearfix">
+          <div id="{{ calc_form.fio.name }}" class="fieldWrapper form-group">
+            <label for="{{ calc_form.fio.id_for_label }}">{{ calc_form.fio.label }}:</label>
+            {{ calc_form.fio }}
+          </div>
+          <div id="{{ calc_form.email.name }}" class="fieldWrapper form-group">
+            <label for="{{ calc_form.email.id_for_label }}">{{ calc_form.email.label }}:</label>
+            {{ calc_form.email }}
+          </div>
+          <div id="{{ calc_form.phone.name }}" class="fieldWrapper form-group">
+            <label for="{{ calc_form.phone.id_for_label }}">{{ calc_form.phone.label }}:</label>
+            {{ calc_form.phone }}
+          </div>
+          <div id="{{ calc_form.note.name }}" class="fieldWrapper form-group">
+            <label for="{{ calc_form.note.id_for_label }}">{{ calc_form.note.label }}:</label>
+            {{ calc_form.note }}
+          </div>
+          <div id="{{ calc_form.file.name }}" class="fieldWrapper form-group">
+            <label for="{{ calc_form.file.id_for_label }}">{{ calc_form.file.label }}:</label>
+            {{ calc_form.file }}
+          </div>
         </div>
-        <div id="{{ calc_form.email.name }}" class="fieldWrapper form-group">
-          <label for="{{ calc_form.email.id_for_label }}">{{ calc_form.email.label }}:</label>
-          {{ calc_form.email }}
-        </div>
-        <div id="{{ calc_form.phone.name }}" class="fieldWrapper form-group">
-          <label for="{{ calc_form.phone.id_for_label }}">{{ calc_form.phone.label }}:</label>
-          {{ calc_form.phone }}
-        </div>
-        <div id="{{ calc_form.note.name }}" class="fieldWrapper form-group">
-          <label for="{{ calc_form.note.id_for_label }}">{{ calc_form.note.label }}:</label>
-          {{ calc_form.note }}
-        </div>
-        <div id="{{ calc_form.file.name }}" class="fieldWrapper form-group">
-          <label for="{{ calc_form.file.id_for_label }}">{{ calc_form.file.label }}:</label>
-          {{ calc_form.file }}
-        </div>
-        {% comment %}
-        <input type="hidden" name="{{ calc_form.kit.name }}" id="{{ calc_form.kit.id_for_label }}"
-               value="{{ kit.pk }}">
-        <input type="hidden" name="{{ calc_form.kit_numb.name }}" id="{{ calc_form.kit_numb.id_for_label }}">
-{% endcomment %}
-
-        <button type="submit" class="button-calculation">
+        <button type="submit" class="button-calculation" style="margin-top: 10px">
           <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>Заказать
         </button>
 
@@ -221,14 +218,11 @@
                   async: true,
                   success: function (data) {
                       if (data.status === 1) {
-{% comment %}
-                          $('#fundcalc').modal('hide');
-{% endcomment %}
                           $('#fundcalc [name="fio"]').val('');
                           $('#fundcalc [name="email"]').val('');
                           $('#fundcalc [name="phone"]').val('');
                           $('#fundcalc [name="note"]').val('');
-                          window.location = "{% url 'thanks_prj' %}"
+                          window.location = "{% url 'thanks_fund' %}"
                       }
                       else {
                           $.each(data.errors, function (index, value) {

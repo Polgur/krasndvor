@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load staticfiles %}
+{% load core_tags %}
 {% load thumbnail %}
 
 {% block title %}Реконструкции{% endblock %}
@@ -63,7 +64,8 @@
       <li>Комплексный ремонт и реконструкция жилого дома, гаража, бани и любого другого строения (кирпичные,
         шлакоблочные, каркасные, каркасно-щитовые и др. типы объектов)
       </li>
-      <li>Восстановление несущих способностей стен<a class="gallery content-img-right" href="{% static "content/reconstrukcii_02.jpg" %}">
+      <li>Восстановление несущих способностей стен<a class="gallery content-img-right"
+                                                     href="{% static "content/reconstrukcii_02.jpg" %}">
         {% with url_path=MEDIA_URL|add:"content/reconstrukcii_02.jpg" %}
           {% thumbnail url_path "250x187" crop="center" format="PNG" as im %}
             <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
@@ -99,5 +101,72 @@
     <p class="content-text">Если вы ищете надежного подрядчика для реконструкции дома, коттеджа, дачи, или офисного
       помещения, смело обращайтесь к нам. Гарантируем, что в нашем лице найдете надежного партнера. Если вы не получили
       ответы на свои вопросы, обращайтесь к нам и мы с радостью предоставим дополнительную информацию.</p>
+
+    <h4>Заказать расчет реконструкции</h4>
+
+    <div class="content-form" id="reconcalc">
+      {% get_reconc_form as calc_form %}
+      <form id="reconcalc_form" action="{% url 'thanks_recon' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="clearfix">
+          <div id="{{ calc_form.fio.name }}" class="fieldWrapper form-group">
+            <label for="{{ calc_form.fio.id_for_label }}">{{ calc_form.fio.label }}:</label>
+            {{ calc_form.fio }}
+          </div>
+          <div id="{{ calc_form.email.name }}" class="fieldWrapper form-group">
+            <label for="{{ calc_form.email.id_for_label }}">{{ calc_form.email.label }}:</label>
+            {{ calc_form.email }}
+          </div>
+          <div id="{{ calc_form.phone.name }}" class="fieldWrapper form-group">
+            <label for="{{ calc_form.phone.id_for_label }}">{{ calc_form.phone.label }}:</label>
+            {{ calc_form.phone }}
+          </div>
+          <div id="{{ calc_form.note.name }}" class="fieldWrapper form-group">
+            <label for="{{ calc_form.note.id_for_label }}">{{ calc_form.note.label }}:</label>
+            {{ calc_form.note }}
+          </div>
+          <div id="{{ calc_form.file.name }}" class="fieldWrapper form-group">
+            <label for="{{ calc_form.file.id_for_label }}">{{ calc_form.file.label }}:</label>
+            {{ calc_form.file }}
+          </div>
+        </div>
+        <button type="submit" class="button-calculation" style="margin-top: 10px">
+          <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>Заказать
+        </button>
+
+      </form>
+    </div>
   </div> <!-- /.content-article -->
+
+  <script>
+      $(document).ready(function () {
+          $("form#reconcalc_form").submit(function () {
+              var formData = new FormData($(this)[0]);
+              $('.form-err').detach();
+              $.ajax({
+                  url: $(this).attr('action'),
+                  type: 'POST',
+                  data: formData,
+                  async: true,
+                  success: function (data) {
+                      if (data.status === 1) {
+                          $('#reconcalc [name="fio"]').val('');
+                          $('#reconcalc [name="email"]').val('');
+                          $('#reconcalc [name="phone"]').val('');
+                          $('#reconcalc [name="note"]').val('');
+                          window.location = "{% url 'thanks_recon' %}"
+                      }
+                      else {
+                          $.each(data.errors, function (index, value) {
+                              $('#' + index + '').append("<span class='form-err text-danger'>" + value[0] + "</span>");
+                          });
+                      }
+                  },
+                  contentType: false,
+                  processData: false
+              });
+              return false;
+          });
+      });
+  </script>
 {% endblock %}

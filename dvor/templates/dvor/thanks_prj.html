@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}Красный двор{% endblock %}
+{% block meta_seo %}
+  <meta name="keywords"
+        content="благодарность, заявка, сип дом, каркасный"/>
+  <meta name="description"
+        content="Благодарность за заказ дома">
+{% endblock %}
+
+{% block content %}
+  <ol class="breadcrumbs">
+    <li><a href="\">Главная</a></li>
+    <li class="active">Заказ постройки дома</li>
+  </ol>
+
+  <div class="content-page clearfix">
+    <h2>Спасибо за заявку!</h2>
+    <p class="content-text">Ваш заказ принят.<br>
+    Благодарим за обращение в нашу компанию.<br>
+    Вы сделали правильный выбор!</p>
+    <p class="content-text">После ознакомления с текстом Вашей заявки, мы обязательно Вам ответим.<br>
+    С уважением, команда Красный двор.</p>
+  </div>
+  {% for art in articles %}
+    <div class="content-page clearfix">
+      <a class="article-title" href="{{ art.get_absolute_url }}">
+        <h3>{{ art.name }}</h3>
+      </a>
+      <p class="content-text">{{ art.description|safe }}</p>
+      <a href="{{ art.get_absolute_url }}" class="btn btn-info article-read" role="button">Продолжить чтение</a>
+    </div> <!-- /.content-page -->
+  {% endfor %}
+{% endblock %}

@@ -115,9 +115,9 @@
         <!-- Yandex.Metrika informer -->
         <a href="https://metrika.yandex.ru/stat/?id=43178169&amp;from=informer"
            target="_blank" rel="nofollow"><img
-                src="https://informer.yandex.ru/informer/43178169/3_0_FFFDB2FF_FDDD92FF_0_pageviews"
-                style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика"
-                title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)"/></a>
+            src="https://informer.yandex.ru/informer/43178169/3_0_FFFDB2FF_FDDD92FF_0_pageviews"
+            style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика"
+            title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)"/></a>
         <!-- /Yandex.Metrika informer -->
       </div>
     </div>
@@ -153,10 +153,10 @@
           </button>
         </h3>
       </div>
-      <div class="modal-body">
-        {% get_phone_form as phone_form %}
-        <form id="phonecall_form" action="{% url 'thanks_call' %}" method="post" enctype="multipart/form-data">
-          {% csrf_token %}
+      {% get_phone_form as phone_form %}
+      <form id="phonecall_form" action="{% url 'thanks_call' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="modal-body clearfix">
           <div id="{{ phone_form.fio.name }}" class="fieldWrapper form-group">
             <label for="{{ phone_form.fio.id_for_label }}">{{ phone_form.fio.label }}:</label>
             {{ phone_form.fio }}
@@ -173,9 +173,13 @@
             <label for="{{ phone_form.wtime.id_for_label }}">{{ phone_form.wtime.label }}:</label>
             {{ phone_form.wtime }}
           </div>
-          <button type="submit" class="btn btn-primary">Заказать</button>
-        </form>
-      </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="button-calculation">
+            <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>Заказать
+          </button>
+        </div>
+      </form>
     </div>
   </div>
 </div>
@@ -190,10 +194,10 @@
           </button>
         </h3>
       </div>
-      <div class="modal-body">
-        {% get_calc_form as calc_form %}
-        <form id="maincalc_form" action="{% url 'thanks' %}" method="post" enctype="multipart/form-data">
-          {% csrf_token %}
+      {% get_calc_form as calc_form %}
+      <form id="maincalc_form" action="{% url 'thanks_calc' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="modal-body clearfix">
           <div id="{{ calc_form.fio.name }}" class="fieldWrapper form-group">
             <label for="{{ calc_form.fio.id_for_label }}">{{ calc_form.fio.label }}:</label>
             {{ calc_form.fio }}
@@ -214,9 +218,13 @@
             <label for="{{ calc_form.file.id_for_label }}">{{ calc_form.file.label }}:</label>
             {{ calc_form.file }}
           </div>
-          <button type="submit" class="btn btn-primary">Заказать</button>
-        </form>
-      </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="button-calculation">
+            <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>Заказать
+          </button>
+        </div>
+      </form>
     </div>
   </div>
 </div>
@@ -271,7 +279,7 @@
                         $('#maincalc [name="phone"]').val('');
                         $('#maincalc [name="note"]').val('');
                         $('#maincalc [name="file"]').val('');
-                        window.location = "{% url 'thanks' %}"
+                        window.location = "{% url 'thanks_calc' %}"
                     }
                     else {
                         $.each(data.errors, function (index, value) {

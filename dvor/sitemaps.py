@@ -3,8 +3,8 @@ from datetime import date
 from django.contrib.sitemaps import Sitemap
 from django.core.paginator import Paginator
 from django.core.urlresolvers import reverse
-from .models import Project, Readyobj, Reconst, Article
-from .views import ProjectList, ReadyobjTermo, ReconstList, ArticleList
+from .models import Project, Readyobj, Reconst, Article, Review
+from .views import ProjectList, ReadyobjTermo, ReconstList, ArticleList, ReviewList
 
 
 class IndexViewSitemap(Sitemap):
@@ -35,7 +35,7 @@ class StaticViewSitemap(Sitemap):
 
     def items(self):
         return ['sect_recon', 'sect_fund', 'sect_remont', 'bstages', 'our_sip', 'our_karkas', 'our_fund', 'expo',
-                'contacts']
+                'certif', 'contacts']
 
     def location(self, item):
         return reverse(item)
@@ -327,3 +327,18 @@ class ArticleSitemap(Sitemap):
 
     def location(self, item):
         return reverse("article_detail", kwargs={"slug": item.slug})
+
+class ReviewListSitemap(Sitemap):
+    changefreq = "weekly"
+    priority = 0.6
+
+    def items(self):
+        objects = Review.objects.all()
+        paginator = Paginator(objects, ReviewList.paginate_by)
+        return paginator.page_range
+
+    def location(self, page):
+        if page > 1:
+            return "{}?page={}".format(reverse("review"), page)
+        else:
+            return reverse("review")

@@ -92,9 +92,17 @@
               <span class="katalog-price">
                 {% for kit in prj.kits.all %}
                   {% if request.GET.tech and kit.tech.pk == request.GET.tech %}
-                    {{ kit.price1|intspace }} ₽
+                    {% if kit.price1 == 0 %}
+                      от 9000 р/м&sup2;
+                    {% else %}
+                      {{ kit.price1|intspace }} ₽
+                    {% endif %}
                   {% elif kit.tech.pk == techfilter.pk %}
-                    {{ kit.price1|intspace }} ₽
+                    {% if kit.price1 == 0 %}
+                      от 9000 р/м&sup2;
+                    {% else %}
+                      {{ kit.price1|intspace }} ₽
+                    {% endif %}
                   {% endif %}
                 {% endfor %}
               </span>

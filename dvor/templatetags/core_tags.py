@@ -1,6 +1,6 @@
 import re
 from django import template
-from..forms import MainCalc, PrjCalc, FundCalc, PhoneForm
+from..forms import MainCalc, PrjCalc, ReconCalc, FundCalc, RemontCalc, PhoneForm
 from django.utils.encoding import force_text
 
 register = template.Library()
@@ -14,8 +14,16 @@ def get_prjc_form():
     return PrjCalc()
 
 @register.assignment_tag
+def get_reconc_form():
+    return ReconCalc()
+
+@register.assignment_tag
 def get_fundc_form():
     return FundCalc()
+
+@register.assignment_tag
+def get_remontc_form():
+    return RemontCalc()
 
 @register.assignment_tag
 def get_phone_form():

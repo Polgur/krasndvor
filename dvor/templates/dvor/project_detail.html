@@ -10,15 +10,15 @@
     </li>
     {% if techfilter.pk == 2 %}
       <li><a
-              href="{% url 'project_list' %}?tech={{ techfilter.pk }}&search=1&vid=0&pmin=0&pmax=5000000&smin=0&smax=500">Проекты
+          href="{% url 'project_list' %}?tech={{ techfilter.pk }}&search=1&vid=0&pmin=0&pmax=5000000&smin=0&smax=500">Проекты
         из СИП панелей</a></li>
     {% elif techfilter.pk == 3 %}
       <li><a
-              href="{% url 'project_list' %}?tech={{ techfilter.pk }}&search=1&vid=0&pmin=0&pmax=5000000&smin=0&smax=500">Проекты
+          href="{% url 'project_list' %}?tech={{ techfilter.pk }}&search=1&vid=0&pmin=0&pmax=5000000&smin=0&smax=500">Проекты
         по каркасной технологии</a></li>
     {% else %}
       <li><a
-              href="{% url 'project_list' %}?tech={{ techfilter.pk }}&search=1&vid=0&pmin=0&pmax=5000000&smin=0&smax=500">Проекты
+          href="{% url 'project_list' %}?tech={{ techfilter.pk }}&search=1&vid=0&pmin=0&pmax=5000000&smin=0&smax=500">Проекты
         из Термопанелей</a></li>
     {% endif %}
     <li class="active">{{ project.name|title }}</li>
@@ -131,6 +131,8 @@
     </div><!-- /.tovar-compl -->
 
     <div class="content-page clearfix">
+      <p style="text-align: center"><b>Любую из представленных выше комплектаций мы можем изменить по Вашему
+        желанию.</b></p>
       <h2>Цены на проект <b>{{ project.name }}</b> по другим технологиям:</h2>
       <table class="table table-hover comp-kit">
         <tr>
@@ -166,10 +168,11 @@
             </button>
           </h3>
         </div>
-        <div class="modal-body">
-          {% get_prjc_form as calc_form %}
-          <form id="prjcalc_form" action="{% url 'thanks_prj' %}" method="post" enctype="multipart/form-data">
-            {% csrf_token %}
+        {% get_prjc_form as calc_form %}
+        <form id="prjcalc_form" action="{% url 'thanks_prj' %}" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+
+          <div class="modal-body clearfix">
             <div id="{{ calc_form.fio.name }}" class="fieldWrapper form-group">
               <label for="{{ calc_form.fio.id_for_label }}">{{ calc_form.fio.label }}:</label>
               {{ calc_form.fio }}
@@ -193,10 +196,13 @@
             <input type="hidden" name="{{ calc_form.kit.name }}" id="{{ calc_form.kit.id_for_label }}"
                    value="{{ kit.pk }}">
             <input type="hidden" name="{{ calc_form.kit_numb.name }}" id="{{ calc_form.kit_numb.id_for_label }}">
-
-            <button type="submit" class="btn btn-primary">Заказать</button>
-          </form>
-        </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="button-calculation">
+              <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>Заказать
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   </div>

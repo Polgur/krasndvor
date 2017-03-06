@@ -1,7 +1,7 @@
 from django.http import Http404
 from django.views.generic import ListView, DetailView, TemplateView, CreateView
 from .models import Project, PrjKit, Readyobj, Reconst, Article, Review, Techno, Calculation, PhoneCall
-from .forms import ProjectFilterForm, MainCalc, PrjCalc, FundCalc, PhoneForm
+from .forms import ProjectFilterForm, MainCalc, PrjCalc, ReconCalc, FundCalc, RemontCalc, PhoneForm
 from .utils import MenuMixin, jsonify
 from django.core.mail import send_mail
 
@@ -281,7 +281,7 @@ class ReviewList(MenuMixin, ListView):
 class MainCalcView(CreateView):
     form_class = MainCalc
     model = Calculation
-    template_name = 'dvor/thanks.html'
+    template_name = 'dvor/thanks_calc.html'
 
     def form_valid(self, form):
         form.save()
@@ -304,11 +304,16 @@ class MainCalcView(CreateView):
     def form_invalid(self, form):
         return jsonify({'status': 0, 'errors': form.errors})
 
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+        ctx['articles'] = Article.objects.filter(slug__in=['vremya-stroitelstva', 'ecodom'])
+        return ctx
+
 
 class PrjCalcView(CreateView):
     form_class = PrjCalc
     model = Calculation
-    template_name = 'dvor/thanks.html'
+    template_name = 'dvor/thanks_prj.html'
 
     def form_valid(self, form):
         form.save()
@@ -339,11 +344,49 @@ class PrjCalcView(CreateView):
     def form_invalid(self, form):
         return jsonify({'status': 0, 'errors': form.errors})
 
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+        ctx['articles'] = Article.objects.filter(slug__in=['vodyanoe-otoplenie', 'teplyi-pol'])
+        return ctx
+
+
+class ReconCalcView(CreateView):
+    form_class = ReconCalc
+    model = Calculation
+    template_name = 'dvor/thanks_recon.html'
+
+    def form_valid(self, form):
+        form.save()
+        message = "Данные отправителя:\nФИО: {}".format(form.cleaned_data.get('fio'))
+        if form.cleaned_data.get('email'):
+            message += "\nemail: {}".format(form.cleaned_data.get('email'))
+        if form.cleaned_data.get('phone'):
+            message += "\nТелефон: {}".format(form.cleaned_data.get('phone'))
+        if form.cleaned_data.get('file'):
+            message += "\nк заявке прикреплен файл (его можно посмотреть на сайте)"
+        message += "\n\n Пожелания: \n{}".format(form.cleaned_data.get('note'))
+        send_mail(
+            subject='Заявка на расчет реконструкции ({} {})'.format(form.cleaned_data.get('fio'),
+                                                                 form.cleaned_data.get('phone')),
+            message=message,
+            from_email='lagumor@inbox.ru',
+            recipient_list=['lagumor@inbox.ru'],
+        )
+        return jsonify({'status': 1, 'errors': None})
+
+    def form_invalid(self, form):
+        return jsonify({'status': 0, 'errors': form.errors})
+
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+        ctx['articles'] = Article.objects.filter(slug__in=['vodyanoe-otoplenie', 'teplyi-pol'])
+        return ctx
+
 
 class FundCalcView(CreateView):
     form_class = FundCalc
     model = Calculation
-    template_name = 'dvor/thanks.html'
+    template_name = 'dvor/thanks_fund.html'
 
     def form_valid(self, form):
         form.save()
@@ -367,11 +410,47 @@ class FundCalcView(CreateView):
     def form_invalid(self, form):
         return jsonify({'status': 0, 'errors': form.errors})
 
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+        ctx['articles'] = Article.objects.filter(slug__in=['vodyanoe-otoplenie', 'teplyi-pol'])
+        return ctx
+
+class RemontCalcView(CreateView):
+    form_class = ReconCalc
+    model = Calculation
+    template_name = 'dvor/thanks_remont.html'
+
+    def form_valid(self, form):
+        form.save()
+        message = "Данные отправителя:\nФИО: {}".format(form.cleaned_data.get('fio'))
+        if form.cleaned_data.get('email'):
+            message += "\nemail: {}".format(form.cleaned_data.get('email'))
+        if form.cleaned_data.get('phone'):
+            message += "\nТелефон: {}".format(form.cleaned_data.get('phone'))
+        if form.cleaned_data.get('file'):
+            message += "\nк заявке прикреплен файл (его можно посмотреть на сайте)"
+        message += "\n\n Пожелания: \n{}".format(form.cleaned_data.get('note'))
+        send_mail(
+            subject='Заявка на расчет ремонта ({} {})'.format(form.cleaned_data.get('fio'),
+                                                                 form.cleaned_data.get('phone')),
+            message=message,
+            from_email='lagumor@inbox.ru',
+            recipient_list=['lagumor@inbox.ru'],
+        )
+        return jsonify({'status': 1, 'errors': None})
+
+    def form_invalid(self, form):
+        return jsonify({'status': 0, 'errors': form.errors})
+
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+        ctx['articles'] = Article.objects.filter(slug__in=['vodyanoe-otoplenie', 'teplyi-pol'])
+        return ctx
 
 class PhoneCallView(CreateView):
     form_class = PhoneForm
     model = PhoneCall
-    template_name = 'dvor/thanks.html'
+    template_name = 'dvor/thanks_call.html'
 
     def form_valid(self, form):
         form.save()
@@ -391,3 +470,8 @@ class PhoneCallView(CreateView):
 
     def form_invalid(self, form):
         return jsonify({'status': 0, 'errors': form.errors})
+
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+        ctx['articles'] = Article.objects.filter(slug__in=['vremya-stroitelstva', 'ecodom'])
+        return ctx

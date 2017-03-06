@@ -221,7 +221,7 @@ class Calculation(models.Model):
         verbose_name_plural = 'Заявки'
 
     def get_absolute_url(self):
-        return reverse('thanks')
+        return reverse('thanks_prj')
 
 
 class PhoneCall(models.Model):
@@ -236,4 +236,4 @@ class PhoneCall(models.Model):
         verbose_name_plural = 'Звонки'
 
     def get_absolute_url(self):
-        return reverse('thanks')
+        return reverse('thanks_call')

@@ -2,20 +2,28 @@
 {% load staticfiles %}
 
 {% block title %}Статьи{% endblock %}
+{% block meta_seo %}
+  <meta name="keywords"
+        content="сборник, статьи, строительство, каркасные дома, сборник статей, дом из сип панелей"/>
+  <meta name="description"
+        content="Сборник статей по строительству каркасных домов и домов из сип-панелей">
+{% endblock %}
+
 {% block content %}
   <ol class="breadcrumbs">
     <li><a href="\">Главная</a></li>
     <li class="active">Статьи</li>
   </ol>
 
-  <div class="content-article clearfix">
-    {% for art in article_list %}
-        <a href="{{ art.get_absolute_url }}">
-          <h3>{{ art.name }}</h3>
-        </a>
-        <p class="content-text">{{ art.description|safe }}</p>
-    {% endfor %}
-  </div> <!-- /.content-article -->
+  {% for art in article_list %}
+    <div class="content-page clearfix">
+      <a class="article-title" href="{{ art.get_absolute_url }}">
+        <h3>{{ art.name }}</h3>
+      </a>
+      <p class="content-text">{{ art.description|safe }}</p>
+      <a href="{{ art.get_absolute_url }}" class="btn btn-info article-read" role="button">Продолжить чтение</a>
+    </div> <!-- /.content-page -->
+  {% endfor %}
 
   {% if is_paginated %}
     <nav>
