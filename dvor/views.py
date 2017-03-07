@@ -296,8 +296,8 @@ class MainCalcView(CreateView):
         send_mail(
             subject='Заявка на расчет ({} {})'.format(form.cleaned_data.get('fio'), form.cleaned_data.get('phone')),
             message=message,
-            from_email='lagumor@inbox.ru',
-            recipient_list=['lagumor@inbox.ru'],
+            from_email='kras-dvor@mail.ru',
+            recipient_list=['kras-dvor@mail.ru'],
         )
         return jsonify({'status': 1, 'errors': None})
 
@@ -336,8 +336,8 @@ class PrjCalcView(CreateView):
                                                                            form.cleaned_data.get('fio'),
                                                                            form.cleaned_data.get('phone')),
             message=message,
-            from_email='lagumor@inbox.ru',
-            recipient_list=['lagumor@inbox.ru'],
+            from_email='kras-dvor@mail.ru',
+            recipient_list=['kras-dvor@mail.ru'],
         )
         return jsonify({'status': 1, 'errors': None})
 
@@ -369,8 +369,8 @@ class ReconCalcView(CreateView):
             subject='Заявка на расчет реконструкции ({} {})'.format(form.cleaned_data.get('fio'),
                                                                  form.cleaned_data.get('phone')),
             message=message,
-            from_email='lagumor@inbox.ru',
-            recipient_list=['lagumor@inbox.ru'],
+            from_email='kras-dvor@mail.ru',
+            recipient_list=['kras-dvor@mail.ru'],
         )
         return jsonify({'status': 1, 'errors': None})
 
@@ -402,8 +402,8 @@ class FundCalcView(CreateView):
             subject='Заявка на расчет фундамента ({} {})'.format(form.cleaned_data.get('fio'),
                                                                  form.cleaned_data.get('phone')),
             message=message,
-            from_email='lagumor@inbox.ru',
-            recipient_list=['lagumor@inbox.ru'],
+            from_email='kras-dvor@mail.ru',
+            recipient_list=['kras-dvor@mail.ru'],
         )
         return jsonify({'status': 1, 'errors': None})
 
@@ -434,8 +434,8 @@ class RemontCalcView(CreateView):
             subject='Заявка на расчет ремонта ({} {})'.format(form.cleaned_data.get('fio'),
                                                                  form.cleaned_data.get('phone')),
             message=message,
-            from_email='lagumor@inbox.ru',
-            recipient_list=['lagumor@inbox.ru'],
+            from_email='kras-dvor@mail.ru',
+            recipient_list=['kras-dvor@mail.ru'],
         )
         return jsonify({'status': 1, 'errors': None})
 
@@ -463,8 +463,8 @@ class PhoneCallView(CreateView):
         send_mail(
             subject='Обратный звонок ({} {})'.format(form.cleaned_data.get('fio'), form.cleaned_data.get('phone')),
             message=message,
-            from_email='lagumor@inbox.ru',
-            recipient_list=['lagumor@inbox.ru'],
+            from_email='kras-dvor@mail.ru',
+            recipient_list=['kras-dvor@mail.ru'],
         )
         return jsonify({'status': 1, 'errors': None})
 
