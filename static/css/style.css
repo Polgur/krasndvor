@@ -941,8 +941,6 @@ header {
 }
 .main-sidebar .side-panel .map {
     margin-left: 5px;
-    /*    max-width: 228px;*/
-    min-height: 240px;
     margin-right: 5px;
 }
 /*.main-sidebar .side-panel .map img {
