@@ -19,19 +19,39 @@
       задачи можно подходить двумя путями: кардинально изменить интерьер или внести несколько свежих штрихов. Решение,
       конечно же, за вами.</p>
     <div class="clearfix">
-      <div class="col-lg-3 hidden-xs"></div>
-      <div class="gallery-div col-md-6 col-xs-12">
+      <div class="gallery-div col-lg-4 col-md-4 col-sm-6 col-xs-12">
         <div class="gallery-stage">
-          <a class="gallery" href="{% static "content/Remont_01.jpg" %}">
-            {% with url_path=MEDIA_URL|add:"content/Remont_01.jpg" %}
-              {% thumbnail url_path "560x420" crop="center" format="PNG" as im %}
+          <a class="gallery" href="{% static "content/Remont_04.jpg" %}">
+            {% with url_path=MEDIA_URL|add:"content/Remont_04.jpg" %}
+              {% thumbnail url_path "400x300" crop="center" format="PNG" as im %}
                 <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
               {% endthumbnail %}
             {% endwith %}
           </a>
         </div>
       </div>
-      <div class="col-md-3 hidden-xs"></div>
+      <div class="gallery-div col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        <div class="gallery-stage">
+          <a class="gallery" href="{% static "content/Remont_01.jpg" %}">
+            {% with url_path=MEDIA_URL|add:"content/Remont_01.jpg" %}
+              {% thumbnail url_path "400x300" crop="center" format="PNG" as im %}
+                <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+              {% endthumbnail %}
+            {% endwith %}
+          </a>
+        </div>
+      </div>
+      <div class="gallery-div col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        <div class="gallery-stage">
+          <a class="gallery" href="{% static "content/Remont_05.jpg" %}">
+            {% with url_path=MEDIA_URL|add:"content/Remont_05.jpg" %}
+              {% thumbnail url_path "400x300" crop="center" format="PNG" as im %}
+                <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+              {% endthumbnail %}
+            {% endwith %}
+          </a>
+        </div>
+      </div>
     </div>
     <p class="content-text">Ремонт в частном доме с применением современных отделочных материалов – достаточно сложный
       процесс, требующий знания и опыт. Учитывая высокую стоимость материалов, эксперименты без досконального знания
@@ -71,14 +91,7 @@
       или профессионального дизайнера. Именно это должно быть отправной точкой ремонта. В зависимости от дизайна
       подбираются материалы, задается последовательность операций. Как правило, работы выполняется сверху вниз, хотя
       бывают и исключения.</p>
-    <p class="content-text">Комплексный ремонт и отделка включают:<a class="gallery content-img-right"
-                                                                     href="{% static "content/Remont_03.jpg" %}">
-      {% with url_path=MEDIA_URL|add:"content/Remont_03.jpg" %}
-        {% thumbnail url_path "250x187" crop="center" format="PNG" as im %}
-          <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
-        {% endthumbnail %}
-      {% endwith %}
-    </a></p>
+    <p class="content-text">Комплексный ремонт и отделка включают:</p>
     <ul class="content-text">
       <li>Ремонт/монтаж потолка (одноуровневый, многоуровневый, подвесной, натяжной)</li>
       <li>Ремонт стен (покраска, обои, обои под покраску, гипсокартон, керамическая плитка, декоративный камень,
@@ -88,6 +101,41 @@
       <li>Окраска дверей, окон</li>
       <li>Ремонт/монтаж напольного покрытия (керамическая плитка, линолеум, ламинат, доска)</li>
     </ul>
+    <div class="clearfix">
+      <div class="gallery-div col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        <div class="gallery-stage">
+          <a class="gallery" href="{% static "content/Remont_03.jpg" %}">
+            {% with url_path=MEDIA_URL|add:"content/Remont_03.jpg" %}
+              {% thumbnail url_path "400x300" crop="center" format="PNG" as im %}
+                <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+              {% endthumbnail %}
+            {% endwith %}
+          </a>
+        </div>
+      </div>
+      <div class="gallery-div col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        <div class="gallery-stage">
+          <a class="gallery" href="{% static "content/Remont_06.jpg" %}">
+            {% with url_path=MEDIA_URL|add:"content/Remont_06.jpg" %}
+              {% thumbnail url_path "400x300" crop="center" format="PNG" as im %}
+                <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+              {% endthumbnail %}
+            {% endwith %}
+          </a>
+        </div>
+      </div>
+      <div class="gallery-div col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        <div class="gallery-stage">
+          <a class="gallery" href="{% static "content/Remont_07.jpg" %}">
+            {% with url_path=MEDIA_URL|add:"content/Remont_07.jpg" %}
+              {% thumbnail url_path "400x300" crop="center" format="PNG" as im %}
+                <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+              {% endthumbnail %}
+            {% endwith %}
+          </a>
+        </div>
+      </div>
+    </div>
     <p class="content-text">Если вы ищете подрядчика на отделочные работы, смело обращайтесь в нашу компанию. Используя
       богатый опыт, мы реализуем любое ваше желание, оперативно выполним работы любой сложности, подскажем нюансы,
       которые несет в себе ремонт каркасного дома, порекомендуем качественные материалы, поможем купить внутреннюю

@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 {% load staticfiles %}
+{% load core_tags %}
+{% load thumbnail %}
 
 {% block title %}{{ article.title }}{% endblock %}
 {% block meta_seo %}
@@ -15,8 +17,86 @@
   </ol>
 
   <div class="content-article clearfix">
+{% comment %}    <div class="clearfix">
+      <div class="gallery-div col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        <div class="gallery-stage">
+          <a class="gallery" href="{% static "content/art/art_vod_01.jpg" %}">
+            {% with url_path=MEDIA_URL|add:"content/art_vod_01.jpg" %}
+              {% thumbnail url_path "400x300" crop="center" format="JPEG" as im %}
+                <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+              {% endthumbnail %}
+            {% endwith %}
+          </a>
+        </div>
+      </div>
+      <div class="gallery-div col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        <div class="gallery-stage">
+          <a class="gallery" href="{% static "content/art/art_vod_02.jpg" %}">
+            {% with url_path=MEDIA_URL|add:"content/art_vod_02.jpg" %}
+              {% thumbnail url_path "400x300" crop="center" format="JPEG" as im %}
+                <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+              {% endthumbnail %}
+            {% endwith %}
+          </a>
+        </div>
+      </div>
+      <div class="gallery-div col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        <div class="gallery-stage">
+          <a class="gallery" href="{% static "content/art/art_vod_01.jpg" %}">
+            {% with url_path=MEDIA_URL|add:"content/art_vod_01.jpg" %}
+              {% thumbnail url_path "400x300" crop="center" format="JPEG" as im %}
+                <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+              {% endthumbnail %}
+            {% endwith %}
+          </a>
+        </div>
+      </div>
+    </div>{% endcomment %}
     <h2>{{ article.name }}</h2>
     {{ article.body|safe }}
   </div> <!-- /.content-article -->
+
+  <div class="our-project">
+    <div class="our-project-title">наши проекты</div>
+  </div>
+  <div class="content-page clearfix">
+    {% for prj in projects %}
+      <div class="promo-cat col-lg-4 col-md-6 col-xs-12">
+        <div class="katalog-item">
+
+          <a href="{% url 'project_detail' prj.slug %}?tech={{ tech_rand }}">
+            <div class="katalog-img">
+              {% thumbnail prj.img "258x187" crop="80% top" format="PNG" as im %}
+                <img class="img-responsive" src="{{ im.url }}" alt="{{ im.title }}">
+              {% endthumbnail %}
+            </div>
+          </a>
+          <div class="katalog-info clearfix">
+            <a href="{% url 'project_detail' prj.slug %}?tech={{ tech_rand }}">
+              <div class="katalog-title">{{ prj.name|title }}</div>
+            </a>
+            <span class="katalog-area"><img class="build-icon"
+                                            {% if prj.house == 2 %}src="{% static "img/build-icon2.png" %}"
+                                            {% elif prj.house == 3 %}src="{% static "img/build-icon3.png" %}"
+                                            {% elif prj.house == 4 %}src="{% static "img/build-icon4.png" %}"
+                                            {% elif prj.house == 5 %}src="{% static "img/build-icon5.png" %}"
+                                            {% else %}src="{% static "img/build-icon1.png" %}"{% endif %}
+            >{{ prj.square }} кв.м.</span>
+            <span class="katalog-price">
+              {% if prj.price == 0 %}
+                от 9000 р/м&sup2;
+              {% else %}
+                {{ prj.price|intspace }} ₽
+              {% endif %}
+            </span>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+    <div class="view-all-wrapper">
+      <a href="{% url 'project_list' %}?tech={{ tech_rand }}&search=1&vid=0&pmin=0&pmax=5000000&smin=0&smax=500" class="view-all">смотреть
+        все</a>
+    </div>
+  </div>
 
 {% endblock %}

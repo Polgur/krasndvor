@@ -4,6 +4,7 @@ from .models import Project, PrjKit, Readyobj, Reconst, Article, Review, Techno,
 from .forms import ProjectFilterForm, MainCalc, PrjCalc, ReconCalc, FundCalc, RemontCalc, PhoneForm
 from .utils import MenuMixin, jsonify
 from django.core.mail import send_mail
+from random import randint
 
 
 # Create your views here.
@@ -261,6 +262,13 @@ class ArticleDetail(MenuMixin, DetailView):
         "info",
         "articles",
     ]
+
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+        tech_rand = randint(1,3)
+        ctx['projects'] = Project.objects.filter(techs=tech_rand).order_by('?')[:3]
+        ctx['tech_rand'] = tech_rand
+        return ctx
 
 
 class Certificates(MenuMixin, TemplateView):

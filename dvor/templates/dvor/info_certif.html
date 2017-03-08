@@ -12,6 +12,28 @@
   <div class="content-page clearfix">
     <div class="gallery-div col-lg-4 col-md-4 col-sm-6 col-xs-12">
       <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/Certif_12.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/Certif_12.jpg" %}
+            {% thumbnail url_path "350x500" crop="center" format="PNG" as im %}
+              <img class="img-responsive img-thumbnail content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-4 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/Certif_11.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/Certif_11.jpg" %}
+            {% thumbnail url_path "350x500" crop="center" format="PNG" as im %}
+              <img class="img-responsive img-thumbnail content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-4 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
         <a class="gallery" href="{% static "content/Certif_01.jpg" %}">
           {% with url_path=MEDIA_URL|add:"content/Certif_01.jpg" %}
             {% thumbnail url_path "350x500" crop="center" format="PNG" as im %}
