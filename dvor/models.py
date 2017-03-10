@@ -165,7 +165,7 @@ class Article(models.Model):
         verbose_name_plural = 'Статьи'
 
     def __str__(self):
-        return self.name.title()
+        return self.name
 
     def get_absolute_url(self):
         return reverse('article_detail', kwargs={'slug': self.slug})
