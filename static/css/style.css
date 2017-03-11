@@ -825,6 +825,7 @@ header {
     text-align: center;
 }
 .main-sidebar .contacts__item__title, .main-sidebar .news__item__title, .main-sidebar .reviews__item__title {
+    font-family: ARussDecor;
     font-size: 19px;
     line-height: 20px;
     margin-bottom: 12px;
@@ -890,6 +891,15 @@ header {
 }
 .main-sidebar .side-panel::before {
     display: none;
+}
+.main-sidebar .side-panel .our-title {
+    font-family: ProximaNova-Semibold;
+    text-align: center;
+    color: #651e04;
+    font-size: 20px;
+    line-height: 20px;
+    padding: 0 24px 0 24px;
+    margin-bottom: 5px;
 }
 .main-sidebar .side-panel .address {
     color: #651e04;
@@ -1227,7 +1237,7 @@ footer {
 }
 .katalog-area {
     font-size: 18px;
-    font-family: ProximaNova-Regula;
+    font-family: ProximaNova-Regular;
     float: left;
     margin-left: 10px;
     position: relative;
@@ -1238,7 +1248,7 @@ footer {
 .katalog-price {
     float: right;
     font-size: 18px;
-    font-family: ProximaNova-Regula;
+    font-family: ProximaNova-Regular;
     margin-right: 10px;
     position: relative;
     border: 1px solid #903702;
@@ -1252,7 +1262,7 @@ footer {
     text-align: center;
     color: #fff;
     font-size: 24px;
-    font-family: ProximaNova-Regula;
+    font-family: ProximaNova-Regular;
     position: relative;
     line-height: 29px;
 }
@@ -1286,7 +1296,7 @@ footer {
     background-color: #fbeed8;
     -webkit-border-radius: 4px;
     border-radius: 4px;
-    font-family: ProximaNova-Regula;
+    font-family: ProximaNova-Regular;
     padding: 20px;
     float: right;
     width: 41%
@@ -1425,7 +1435,7 @@ footer {
     color: #fff;
     font-size: 20px;
     line-height: 24px;
-    font-family: ProximaNova-Regula;
+    font-family: ProximaNova-Regular;
     cursor: pointer;
     display: inline-block;
     padding: 12px 20px;
