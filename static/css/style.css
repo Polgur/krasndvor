@@ -1199,6 +1199,17 @@ footer {
     margin-right: 10px;
     margin-left: 10px;
 }
+.katalog .filters label {
+    margin: 0;
+    display: inline;
+    color: #4f1f02;
+    font-size: 19px;
+    font-family: ProximaNova-Regular;
+    line-height: 36px;
+    margin-right: 10px;
+    margin-left: 10px;
+    font-weight: normal;
+}
 .katalog .filters .filter-box-one {
     width: 390px;
     display: inline-block;

@@ -3,6 +3,67 @@
 {% load core_tags %}
 {% load thumbnail %}
 
+{% block title %}
+  {% if request.GET.tech == '1' %}
+    Проекты домов из Термопанелей
+    {% if request.GET.smin == '0' and request.GET.smax == '500' %}
+      под ключ
+    {% elif request.GET.smin == '0' and request.GET.smax == '100' %}
+      до 100 кв.м
+    {% elif request.GET.smin == '100' and request.GET.smax == '150' %}
+      до 150 кв.м
+    {% elif request.GET.smin == '150' and request.GET.smax == '500' %}
+      от 150 кв.м
+    {% else %}
+      с ценами
+    {% endif %}
+  {% elif request.GET.tech == '2' %}
+    Проекты домов из СИП-панелей
+    {% if request.GET.smin == '0' and request.GET.smax == '500' %}
+      под ключ
+    {% elif request.GET.smin == '0' and request.GET.smax == '100' %}
+      до 100 кв.м
+    {% elif request.GET.smin == '100' and request.GET.smax == '150' %}
+      до 150 кв.м
+    {% elif request.GET.smin == '150' and request.GET.smax == '500' %}
+      от 150 кв.м
+    {% else %}
+      с ценами
+    {% endif %}
+  {% elif request.GET.tech == '3' %}
+    Проекты каркасных домов
+    {% if request.GET.smin == '0' and request.GET.smax == '500' %}
+      под ключ
+    {% elif request.GET.smin == '0' and request.GET.smax == '100' %}
+      до 100 кв.м
+    {% elif request.GET.smin == '100' and request.GET.smax == '150' %}
+      до 150 кв.м
+    {% elif request.GET.smin == '150' and request.GET.smax == '500' %}
+      от 150 кв.м
+    {% else %}
+      с ценами
+    {% endif %}
+  {% else %}
+    Проекты быстровозводимых домов
+    {% if request.GET.smin == '0' and request.GET.smax == '500' %}
+      под ключ
+    {% elif request.GET.smin == '0' and request.GET.smax == '100' %}
+      до 100 кв.м
+    {% elif request.GET.smin == '100' and request.GET.smax == '150' %}
+      до 150 кв.м
+    {% elif request.GET.smin == '150' and request.GET.smax == '500' %}
+      от 150 кв.м
+    {% else %}
+      с ценами
+    {% endif %}
+  {% endif %}
+{% endblock %}
+{% block meta_seo %}
+  <meta name="keywords"
+        content="проекты домов, коттеджей, одноэтажных, двухэтажных, под ключ, цены,{% if request.GET.tech == '1' %}проекты из термопанелей{% elif request.GET.tech == '2' %}проекты из СИП панелей{% elif request.GET.tech == '3' %}проекты каркасного, каркасных{% endif %},{% if request.GET.smin == '0' and request.GET.smax == '100' %}до 100 кв.м{% elif request.GET.smin == '100' and request.GET.smax == '150' %}до 150 кв.м{% elif request.GET.smin == '150' and request.GET.smax == '500' %}от 150 кв.м{% endif %}"/>
+  <meta name="description"
+        content="Каталог типовых проектов {% if request.GET.tech == '1' %}домов из Комбинированных Термопанелей{% elif request.GET.tech == '2' %}домов из СИП панелей{% elif request.GET.tech == '3' %}каркасных домов{% endif %} {% if request.GET.smin == '0' and request.GET.smax == '100' %}до 100 кв.м{% elif request.GET.smin == '100' and request.GET.smax == '150' %}до 150 кв.м{% elif request.GET.smin == '150' and request.GET.smax == '500' %}от 150 кв.м{% endif %}. Под ключ, цены указаны для трех технологий.">
+{% endblock %}
 {% block content %}
   <ol class="breadcrumbs">
     <li><a href="\">Главная</a></li>
@@ -23,20 +84,21 @@
     </div>
 
     <form class="filters" action="{% url 'project_list' %}" method="get">
+      <input id="id_search" name="search" type="hidden" value="1"/>
       <div class="filter-box-one">
         <div class="price">
-          <span>Цена от</span>
+          <label for="id_pmin">Цена от</label>
           <input id="id_pmin" class="short-input" name="pmin" type="number" value="{{ search_form.pmin.value }}"
                  required/>
-          <span>до</span>
+          <label for="id_pmax">до</label>
           <input id="id_pmax" class="short-input" name="pmax" type="number" value="{{ search_form.pmax.value }}"
                  required/>
         </div>
         <div class="area">
-          <span>Площадь от</span>
+          <label for="id_smin">Площадь от</label>
           <input id="id_smin" class="short-input" name="smin" type="number" value="{{ search_form.smin.value }}"
                  required/>
-          <span>до</span>
+          <label for="id_smax">до</label>
           <input id="id_smax" class="short-input" name="smax" type="number" value="{{ search_form.smax.value }}"
                  required/>
         </div>
@@ -44,17 +106,16 @@
 
       <div class="filter-box-two">
         <div class="technology">
-          <span>Технологии</span>
+          <label for="id_tech">Технологии</label>
           {{ search_form.tech }}
         </div>
         <div class="type">
-          <span>Тип</span>
+          <label for="id_vid">Тип</label>
           {{ search_form.vid }}
         </div>
       </div>
       <button type="submit">Поиск</button>
     </form>
-
 
     <div class="katalog-list clearfix">
       {% for prj in project_list %}
@@ -88,7 +149,7 @@
                                               {% elif prj.house == 4 %}src="{% static "img/build-icon4.png" %}"
                                               {% elif prj.house == 5 %}src="{% static "img/build-icon5.png" %}"
                                               {% else %}src="{% static "img/build-icon1.png" %}"{% endif %}
-                                          >{{ prj.square }} кв.м.</span>
+              >{{ prj.square }} кв.м.</span>
               <span class="katalog-price">
                 {% for kit in prj.kits.all %}
                   {% if request.GET.tech and kit.tech.pk == request.GET.tech %}
@@ -111,6 +172,22 @@
         </div>
       {% endfor %}
     </div>
+
+    {% if request.GET.vid == '2' %}
+      <div class="content-page clearfix">
+        <p class="content-text">Типовые проекты домов на две семьи (дуплексы) будут добавлены в каталог в ближайшее время.</p>
+        <p class="content-text">Вы можете оставить заявку на расчет своего индивидуального проекта. Мы бесплатно рассчитаем стоимость и свяжемся с Вами.</p>
+      </div>
+    {% elif request.GET.vid == '3' %}
+      <div class="content-page clearfix">
+        <p class="content-text">Типовые проекты бань будут добавлены в каталог в ближайшее время.</p>
+        <p class="content-text">Вы можете оставить заявку на расчет своего индивидуального проекта бани. Мы бесплатно рассчитаем стоимость и свяжемся с Вами.</p>
+      </div>
+    {% endif %}
+
+
+
+
 
     {% if is_paginated %}
       <nav>
@@ -152,47 +229,4 @@
     {% endif %}
 
   </div>
-
-  {% comment %}<div class="container">
-    <div class="row">
-      <div class="col-sm-9">
-        <div class="row">
-          {% for prj in project_list %}
-            <div class="col-sm-6 col-md-4">
-              <a class="domlink" href="
-                {% if request.GET.tech %}
-                  {% url 'project_detail' prj.slug %}?tech={{request.GET.tech}}
-                {% else %}
-                  {% url 'project_detail' prj.slug %}?tech={{techfilter.pk}}
-                {% endif %}
-              ">
-                {% thumbnail prj.img "262x175" crop="80% top" format="PNG" as im %}
-                  <img class="img-responsive" src="{{ im.url }}" alt="{{ im.title }}">
-                {% endthumbnail %}
-                {{ prj.name|title }}
-              </a>
-              <div class="dom_char">
-                <div class="square">
-                  <i class="glyphicon glyphicon-home"></i>
-                  {{ prj.square }}   кв.м.
-                </div>
-                <div class="pricedom">
-                  <span class="label label-info price">
-                    {% for kit in prj.kits.all %}
-                      {% if request.GET.tech and kit.tech.pk == request.GET.tech %}
-                        {{ kit.price1 }} р
-                      {% elif kit.tech.pk == techfilter.pk%}
-                        {{ kit.price1 }} р
-                      {% endif %}
-                    {% endfor %}
-                  </span>
-                </div>
-              </div>
-              <div class="margin-8"></div>
-            </div>
-          {% endfor %}
-        </div>
-      </div>
-    </div>
-  </div>{% endcomment %}
 {% endblock %}
