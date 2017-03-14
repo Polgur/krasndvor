@@ -192,6 +192,8 @@ class ProjectDetail(DetailView):
             self.tech = Techno.objects.filter(pk=self.request.GET.get('tech')).first()
         else:
             self.tech = Techno.objects.filter(mnemo='Термопанели').first()
+        project = self.get_object()
+        ctx['size_na'] = project.size.replace('x','на')
         ctx['kit'] = self.object.kits.filter(tech=self.tech).first()
         ctx['compkit'] = self.object.kits.exclude(tech=self.tech).order_by('tech')
         ctx['techfilter'] = self.tech

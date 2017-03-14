@@ -3,6 +3,31 @@
 {% load core_tags %}
 {% load thumbnail %}
 
+
+{% block title %}
+  {{ project.name|title }} - Проект
+  {% if project.house == 1 %}
+    одноэтажного дома
+  {% elif project.house == 2 %}
+    дома с мансардой
+  {% elif project.house == 3 %}
+    двухэтажного дома
+  {% endif %}
+  {{ size_na }}
+  {% if request.GET.tech == '1' %}
+    по технологии Термопанели
+  {% elif request.GET.tech == '2' %}
+    по СИП панельной технологии
+  {% elif request.GET.tech == '3' %}
+    по каркасной технологии
+  {% endif %}
+{% endblock %}
+{% block meta_seo %}
+  <meta name="keywords"
+        content="проект дома, коттеджа, под ключ, цены, {% if project.house == 1 %}одноэтажного{% elif project.house == 2 %}с мансардой{% elif project.house == 3 %}двухэтажного, 2 этажа{% endif %}, {% if request.GET.tech == '1' %}из термопанелей{% elif request.GET.tech == '2' %}из СИП панелей{% elif request.GET.tech == '3' %}каркасного, каркасных{% endif %}, {{ size_na }}, {{ project.name }}"/>
+  <meta name="description"
+        content="Типовой проект {% if project.house == 1 %}одноэтажного коттеджа{% elif project.house == 2 %}дома с мансардой{% elif project.house == 3 %}двухэтажного коттеджа{% endif %} {{ project.name }} {% if request.GET.tech == '1' %}из Комбинированных Термопанелей{% elif request.GET.tech == '2' %}из СИП панелей{% elif request.GET.tech == '3' %}по каркасной технологии{% endif %}. Размер {{ size_na }} м. Под ключ, цены указаны для трех комплектаций.">
+{% endblock %}
 {% block content %}
   <ol class="breadcrumbs">
     <li><a href="\">Главная</a></li>
@@ -36,7 +61,7 @@
         {% endthumbnail %}
       </a>
       <div class="tovar-charact clearfix">
-        <div class="name">{{ project.name|title }}</div>
+        <div class="name">{{ project.name|title }} <span>{{ project.size }}</span></div>
         <span class="title">Характеристики проекта:</span>
         <span>{{ project.description|linebreaks }}</span>
       </div>
@@ -132,7 +157,7 @@
 
     <div class="content-page clearfix">
       <p style="text-align: center"><b>Любую из представленных выше комплектаций мы можем изменить по Вашему
-        желанию.</b></p>
+        желанию. А также изменить планировку дома и увеличить или уменьшить площадь.</b></p>
       <h2>Цены на проект <b>{{ project.name }}</b> по другим технологиям:</h2>
       <table class="table table-hover comp-kit">
         <tr>
