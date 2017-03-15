@@ -60,7 +60,7 @@
 {% endblock %}
 {% block meta_seo %}
   <meta name="keywords"
-        content="проекты домов, коттеджей, одноэтажных, двухэтажных, под ключ, цены,{% if request.GET.tech == '1' %}проекты из термопанелей{% elif request.GET.tech == '2' %}проекты из СИП панелей{% elif request.GET.tech == '3' %}проекты каркасного, каркасных{% endif %},{% if request.GET.smin == '0' and request.GET.smax == '100' %}до 100 кв.м{% elif request.GET.smin == '100' and request.GET.smax == '150' %}до 150 кв.м{% elif request.GET.smin == '150' and request.GET.smax == '500' %}от 150 кв.м{% endif %}"/>
+        content="проекты домов, коттеджей, одноэтажных, двухэтажных, 10 на 10, 8 на 8, под ключ, цены,{% if request.GET.tech == '1' %}проекты из термопанелей{% elif request.GET.tech == '2' %}проекты из СИП панелей{% elif request.GET.tech == '3' %}проекты каркасного, каркасных{% endif %},{% if request.GET.smin == '0' and request.GET.smax == '100' %}до 100 кв.м{% elif request.GET.smin == '100' and request.GET.smax == '150' %}до 150 кв.м{% elif request.GET.smin == '150' and request.GET.smax == '500' %}от 150 кв.м{% endif %}"/>
   <meta name="description"
         content="Каталог типовых проектов {% if request.GET.tech == '1' %}домов из Комбинированных Термопанелей{% elif request.GET.tech == '2' %}домов из СИП панелей{% elif request.GET.tech == '3' %}каркасных домов{% endif %} {% if request.GET.smin == '0' and request.GET.smax == '100' %}до 100 кв.м{% elif request.GET.smin == '100' and request.GET.smax == '150' %}до 150 кв.м{% elif request.GET.smin == '150' and request.GET.smax == '500' %}от 150 кв.м{% endif %}. Под ключ, цены указаны для трех технологий.">
 {% endblock %}
