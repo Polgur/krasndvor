@@ -30,13 +30,13 @@
       <ul class="paggination">
         {% if page_obj.has_previous %}
           <li class="double-arrow"><a href="?page={{ page_obj.previous_page_number }}">
-            <i class="fa fa-angle-double-left" aria-hidden="true"></i>
+            <span class="glyphicon glyphicon-menu-left"></span>
           </a>
           </li>
         {% else %}
           <li class="double-arrow ">
             <a href="#">
-              <i class="fa fa-angle-double-left" aria-hidden="true"></i>
+              <span class="glyphicon glyphicon-menu-left"></span>
             </a>
           </li>
         {% endif %}
@@ -50,18 +50,17 @@
         {% if page_obj.has_next %}
           <li class="double-arrow">
             <a href="?page={{ page_obj.next_page_number }}">
-              <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+              <span class="glyphicon glyphicon-menu-right"></span>
             </a>
           </li>
         {% else %}
           <li class="double-arrow ">
             <a href="#">
-              <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+              <span class="glyphicon glyphicon-menu-right"></span>
             </a>
           </li>
         {% endif %}
       </ul>
     </nav>
   {% endif %}
-
 {% endblock %}

@@ -33,6 +33,9 @@ class ReconstAdmin(admin.ModelAdmin):
         ReconstPhotoInline,
     ]
 
+class ArticleAdmin(admin.ModelAdmin):
+    list_display = ('slug', 'name', 'publish')
+
 class ReviewAdmin(admin.ModelAdmin):
     inlines = [
         ReviewPhotoInline,
@@ -51,7 +54,7 @@ admin.site.register(Project,ProjectAdmin)
 admin.site.register(PrjPhoto)
 admin.site.register(Readyobj,ReadyobjAdmin)
 admin.site.register(Reconst,ReconstAdmin)
-admin.site.register(Article)
+admin.site.register(Article,ArticleAdmin)
 admin.site.register(Review,ReviewAdmin)
 admin.site.register(Calculation,CalculationAdmin)
 admin.site.register(PhoneCall,PhoneCallAdmin)

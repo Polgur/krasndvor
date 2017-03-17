@@ -250,8 +250,8 @@ class Promo(MenuMixin, TemplateView):
 
 
 class ArticleList(MenuMixin, ListView):
-    model = Article
-    paginate_by = 10
+    queryset = Article.objects.all().order_by('publish')
+    paginate_by = 8
     menu_slug = [
         "info",
         "articles",
@@ -283,7 +283,7 @@ class Certificates(MenuMixin, TemplateView):
 
 class ReviewList(MenuMixin, ListView):
     queryset = Review.objects.all().order_by('photos__sort', 'sort_re', 'photos__prn')
-    paginate_by = 6
+    paginate_by = 3
     menu_slug = 'review'
     template_name = 'dvor/reviews.html'
 
