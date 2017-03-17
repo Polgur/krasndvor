@@ -17,10 +17,10 @@
   <div class="content-page clearfix">
     <h2>Спасибо за заявку!</h2>
     <p class="content-text">Ваша заявка принята.<br>
-    Благодарим за обращение в нашу компанию.<br>
-    Вы сделали правильный выбор!</p>
+      Благодарим за обращение в нашу компанию.<br>
+      Вы сделали правильный выбор!</p>
     <p class="content-text">После ознакомления с текстом Вашей заявки, мы обязательно Вам ответим.<br>
-    С уважением, команда Красный двор.</p>
+      С уважением, команда Красный двор.</p>
   </div>
   {% for art in articles %}
     <div class="content-page clearfix">
@@ -31,4 +31,10 @@
       <a href="{{ art.get_absolute_url }}" class="btn btn-info article-read" role="button">Продолжить чтение</a>
     </div> <!-- /.content-page -->
   {% endfor %}
+  <script type="text/javascript">
+      $(window).load(function () {
+          var yaParams = {order_price: 400, currency: "RUB"};
+          yaCounter43178169.reachGoal('thanks_calc', yaParams)
+      });
+  </script>
 {% endblock %}

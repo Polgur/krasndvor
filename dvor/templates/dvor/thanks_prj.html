@@ -31,4 +31,10 @@
       <a href="{{ art.get_absolute_url }}" class="btn btn-info article-read" role="button">Продолжить чтение</a>
     </div> <!-- /.content-page -->
   {% endfor %}
+  <script type="text/javascript">
+      $(window).load(function () {
+          var yaParams = {order_price: 500, currency: "RUB"};
+          yaCounter43178169.reachGoal('thanks_project', yaParams)
+      });
+  </script>
 {% endblock %}
