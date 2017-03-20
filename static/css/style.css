@@ -793,6 +793,9 @@ header {
     margin-top: 5px;
     margin-bottom: 12px;
     text-align: center;
+    color: #651e04;
+}
+.main-sidebar .promodom span{
     color: #e40e22;
 }
 .main-sidebar .promodom-text{
@@ -826,6 +829,11 @@ header {
 }
 .main-sidebar .side-title.vistavka {
     font-size: 19px;
+}
+.main-sidebar .side-title.promodom-title {
+    font-size: 19px;
+    color: #e40e22;
+    font-weight: 700;
 }
 .main-sidebar .side-title::after {
     position: absolute;

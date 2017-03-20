@@ -8,12 +8,12 @@
 {% endcomment %}
 
 <div class="side-panel">
-  <div class="side-title vistavka">Акционный дом</div>
+  <div class="side-title promodom-title">Акционный дом</div>
 
   <div class="clearfix" style="text-align: center"><img class="promodom-img" src="{% static "img/PromoDom_00.png" %}" alt="Акционный дом">
-    <p class="promodom">Дом со скидкой!</p>
-    <p class="promodom-text">Отлично подойдет для дачи.</p>
-    <p class="promodom-text" style="margin-bottom: 5px">Проект 100 м&sup2; с фундаментом и монтажем за 900000 &#8381;</p>
+    <p class="promodom">Дом со скидкой за <span>900000&#8381;!</span></p>
+    {% comment %}<p class="promodom-text">Отлично подойдет для дачи.</p>{% endcomment %}
+    {% comment %}<p class="promodom-text" style="margin-bottom: 5px">Проект 100 м&sup2; с фундаментом и монтажем за 900000 &#8381;</p>{% endcomment %}
     <a href="{% url 'promodom' %}" class="btn btn-info article-read" role="button">Подробнее...</a>
   </div>
 </div>
