@@ -1,0 +1,490 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load core_tags %}
+{% load thumbnail %}
+
+
+{% block title %}
+  Акционный дом
+{% endblock %}
+{% block meta_seo %}
+  <meta name="keywords"
+        content="акционный дом, скидки, акции на дома, проект дома, коттеджа, под ключ, цены, {{ size_na }}"/>
+  <meta name="description"
+        content="Мы предлагаем дом со скидкой (акционный дом). Типовой проект {% if project.house == 1 %}одноэтажного коттеджа{% elif project.house == 2 %}дома с мансардой{% elif project.house == 3 %}двухэтажного коттеджа{% endif %} {{ project.name }}. Размер {{ size_na }} м. Под ключ, цены указаны для всех технологий.">
+{% endblock %}
+{% block content %}
+  <ol class="breadcrumbs">
+    <li><a href="\">Главная</a></li>
+    <li class="active">Акционный дом</li>
+  </ol>
+
+  <div class="katalog tovar clearfix">
+    <div class="kat-title">
+      Акционный дом
+    </div>
+
+    <div class="tovar-header clearfix">
+      <a class="gallery tovar-foto" href="{{ project.img.url }}">
+        {% thumbnail project.img "508x382" format="PNG" as im %}
+          <img class="img-responsive" src="{{ im.url }}" alt="{{ project.name|title }}">
+        {% endthumbnail %}
+      </a>
+      <div class="tovar-charact clearfix">
+        <div class="name">Акционный дом <span>{{ project.size }}</span></div>
+        <span class="title">Характеристики:</span>
+        <span><p>Площадь дома – 100 м2<br/>Этажность дома – 2 этажа<br/>Количество комнат – свободная планировка<br/>Количество подсобных помещений – свободная планировка<br/>Высота потолков 1-го этажа – 2,50 м<br/>Высота потолков 2-го этажа – 2,50 м</p></span>
+      </div>
+    </div>
+
+    <div class="kat-title">
+      фасады
+    </div>
+    <div class="tovar-fasad clearfix">
+      {% for ph in project.photos.all %}
+        {% if ph.type == 1 %}
+          <div class="col-md-3 col-xs-6">
+            <a class="gallery" href="{{ ph.img.url }}">
+              {% thumbnail ph.img "196x110" format="PNG" as im %}
+                <img src="{{ im.url }}" alt="">
+              {% endthumbnail %}
+            </a>
+          </div>
+        {% endif %}
+      {% endfor %}
+
+    </div>
+    <div class="kat-title">
+      Планировка
+    </div>
+    <div class="plan clearfix">
+      {% for ph in project.photos.all %}
+        {% if ph.type > 1 %}
+          <div class="col-md-6 col-xs-12">
+            <a class="gallery" href="{{ ph.img.url }}">
+              {% thumbnail ph.img "393" crop="center" format="PNG" as im %}
+                <img class="img-responsive" src="{{ im.url }}" alt="">
+              {% endthumbnail %}
+            </a>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <div class="tovar-compl">
+      <div class="item active">
+        <span class="title" style="font-size: 18px;">Комплектация «Термопанели»</span>
+        <div class="compl-wrap" style="display: block;">
+          <div>
+            <p><span class="icon"><img src="/static/img/icon_fund.png"/></span> <span class="name">Фундамент</span>
+              <span class="info">Свайно-винтовой, (черный металл) диаметром = 89 мм, длиной = 2.5м, закручиваемые спецтехникой с засыпкой песко-бетонной смесью.</span>
+            </p>
+
+            <p><span class="name">Обвязочный брус</span> <span class="info">150 x 150 мм. Обработанный битумным праймером.</span>
+            </p>
+
+            <p><span class="name">Цокольное перекрытие</span> <span class="info">СИП панели 168 мм, уложенные с шагом 625 мм. Состав панели: OSB 9 мм + ПСБ 25Ф 150 мм +OSB 9 мм. В замке: брус 100 х 150 мм. (еств. влажности.)</span>
+            </p>
+
+            <p><span class="icon"><img src="/static/img/icon_termo.png"/></span> <span class="name">Наружные стены 1 этажа</span>
+              <span class="info">Термопанель 159 мм, высотой 2.5 м. Состав панели: OSB 9 мм  + Мин.плита 150 мм, плотность 50 кг\м3. В замке: доска 40 х 150 мм. (еств. влажности). Шаг панелей 625 мм.</span>
+            </p>
+
+            <p><span class="name">Междуэтажное перекрытие</span> <span class="info">Доска 40 х 200 мм (еств. влажности) с настилом OSB 22 мм. Утепление 200 мм (по контуру). Шаг лаг 400 – 600 мм.</span>
+            </p>
+
+            <p><span class="icon"><img src="/static/img/icon_termo.png"/></span> <span class="name">Наружные стены 2 этажа</span>
+              <span class="info">Термопанель 159 мм, высотой 2.5 м. Состав панели:  OSB 9 мм + Мин.плита 150 мм , плотность 50 кг/м3. В замке: доска 40 х 150 мм (еств. влажности). Шаг панелей 625 мм.</span>
+            </p>
+
+            <p><span class="name">Чердачное перекрытие</span> <span class="info">Доска 40 х 150 мм ( еств. влажности. ) Шаг лаг 400 – 600 мм. Утепление 150 мм.</span>
+            </p>
+
+            <p><span class="name">Кровля</span> <span class="info">Металлочерепица – полиэстэр , толщина стали 0.45 мм. Комплектующие (гидроизоляция, конек, карнизные и ветровые планки, саморезы и др.)</span>
+            </p>
+
+            <p><span class="icon"><img src="/static/img/icon_window.png"/></span> <span class="name">Окна</span> <span
+                class="info">ПВХ «Штерн» 58-коробка.  Однокамерный  стеклопакет, поворотно-откидные. Фурнитура- Roto.</span>
+            </p>
+
+            <p><span class="icon"><img src="/static/img/icon_door.png"/></span> <span class="name">Дверь входная</span>
+              <span class="info">Металлическая. Производство-Россия. Утепленная, наружная отделка - молотковая эмаль, внутренняя - ламинация. Два замка, глазок, резиновый уплотнитель.</span>
+            </p>
+
+            <p><span class="icon"><img src="/static/img/icon_balkon.png"/></span> <span class="name">Балкон, крыльцо, терраса.</span>
+              <span class="info">Входит в стоимость</span></p>
+
+            <p><span class="name">Монтаж, проект, бытовка для строителей</span> <span
+                class="info">Входит в стоимость</span></p>
+          </div>
+          <div class="price-and-button clearfix">
+            <div class="text">
+              <span>Цена акционного дома (по технологии Комбинированные Термопанели)</span>
+              <span class="price">900000 <span>&#8381;</span></span>
+            </div>
+            <button type="button" class="button" data-toggle="modal" data-target="#prjcalc" data-calc="1">
+              <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Заказать
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <span class="title" style="font-size: 18px;">Комплектация «СИП панели»</span>
+        <div class="compl-wrap">
+          <div>
+            <p><span class="icon"><img src="/static/img/icon_fund.png"/></span> <span class="name">Фундамент</span>
+              <span class="info">Свайно-винтовой, (черный металл) диаметром = 89 мм, длиной = 2.5м, закручиваемые спецтехникой с засыпкой песко-бетонной смесью.</span>
+            </p>
+
+            <p><span class="name">Обвязочный брус</span> <span class="info">150 x 150 мм. Обработанный битумным праймером.</span>
+            </p>
+
+            <p><span class="name">Цокольное перекрытие</span> <span class="info">СИП панели 168 мм, уложенные с шагом 625 мм. Состав панели: OSB 9 мм + ПСБ 25Ф 150 мм +OSB 9 мм. В замке: брус 100 х 150 мм. (еств. влажности.)</span>
+            </p>
+
+            <p><span class="icon"><img src="/static/img/icon_sip.png"/></span> <span
+                class="name">Наружные стены 1 этажа</span>
+              <span class="info">СИП панели 168 мм, высотой 2.5 м. Состав панели: OSB  9 мм  + ПСБ 25Ф 150 мм +OSB 9 мм. В замке: брус 100 х 150 мм. (еств. влажности.)</span>
+            </p>
+
+            <p><span class="name">Междуэтажное перекрытие</span> <span class="info">Доска 40 х 150 мм (  еств. влажности ) с настилом OSB 22 мм. Утепление 200 мм (по контуру). Шаг лаг 400 – 600 мм.</span>
+            </p>
+
+            <p><span class="icon"><img src="/static/img/icon_sip.png"/></span> <span
+                class="name">Наружные стены 2 этажа</span>
+              <span class="info">СИП панели 168 мм, высотой 2.5 м. Состав панели: OSB 9 мм +ПСБ 25Ф 150 мм + OSB 9 мм. В замке: брус 100 х 150 мм. (еств. влажности)</span>
+            </p>
+
+            <p><span class="name">Чердачное перекрытие</span> <span class="info">Доска 40 х 150 мм ( еств. влажности. ) Шаг лаг 400 – 600 мм. Утепление 150 мм.</span>
+            </p>
+
+            <p><span class="name">Кровля</span> <span class="info">Металлочерепица – полиэстэр , толщина стали 0.45 мм. Комплектующие (гидроизоляция, конек, карнизные и ветровые планки, саморезы и др.)</span>
+            </p>
+
+            <p><span class="icon"><img src="/static/img/icon_window.png"/></span> <span class="name">Окна</span> <span
+                class="info">ПВХ «Штерн» 58-коробка.  Однокамерный  стеклопакет, поворотно-откидные. Фурнитура- Roto.</span>
+            </p>
+
+            <p><span class="icon"><img src="/static/img/icon_door.png"/></span> <span class="name">Дверь входная</span>
+              <span class="info">Металлическая. Производство-Россия. Утепленная, наружная отделка - молотковая эмаль, внутренняя - ламинация. Два замка, глазок, резиновый уплотнитель.</span>
+            </p>
+
+            <p><span class="icon"><img src="/static/img/icon_balkon.png"/></span> <span class="name">Балкон, крыльцо, терраса.</span>
+              <span class="info">Входит в стоимость</span></p>
+
+            <p><span class="name">Монтаж, проект, бытовка для строителей</span> <span
+                class="info">Входит в стоимость</span></p>
+          </div>
+          <div class="price-and-button clearfix">
+            <div class="text">
+              <span>Цена акционного дома (по технологии СИП панели)</span>
+              <span class="price">1000000 <span>&#8381;</span></span>
+            </div>
+            <button type="button" class="button" data-toggle="modal" data-target="#prjcalc" data-calc="2">
+              <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Заказать
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <span class="title" style="font-size: 18px;">Комплектация «Каркас»</span>
+        <div class="compl-wrap">
+          <div>
+            <p><span class="icon"><img src="/static/img/icon_fund.png"/></span> <span class="name">Фундамент</span>
+              <span class="info">Свайно-винтовой, (черный металл) диаметром = 89 мм, длиной = 2.5м, закручиваемые спецтехникой с засыпкой песко-бетонной смесью.</span>
+            </p>
+
+            <p><span class="name">Обвязочный брус</span> <span class="info">150 x 150 мм. Обработанный битумным праймером.</span>
+            </p>
+
+            <p><span class="name">Цокольное перекрытие</span> <span class="info">Лаги пола: Доска 40 х 150 мм (не строганная, естественной влажности, шаг лаг 590 мм). Черновой пол: Доска 0,25 х 100 мм (второй сорт, не строганная, естественной влажности.) Утепление: Мин.плита 150 мм, плотность 25-35 кг/м3. Доска пола: Шпунтованная 27 мм.</span>
+            </p>
+
+            <p><span class="icon"><img src="/static/img/icon_karkas.png"/></span> <span class="name">Наружные стены 1 этажа</span>
+              <span class="info">Доска 40 х 150 мм (не строганная, естественной влажности, шаг стоек 590 мм). Утепление: Мин.плита 150 мм, плотность 25-35 кг/м3. Отделка: Вагонка (В). Высота 2.4 м</span>
+            </p>
+
+            <p><span class="name">Междуэтажное перекрытие</span> <span class="info">Доска 40 х 200 мм (не строганная, естественной влажности, шаг лаг 590 мм) с настилом шпунтованной доски 27 мм. Подшивка потолка: Вагонка (В). Утепление: Мин.плита 200 мм, плотность 25-35 кг/м3.</span>
+            </p>
+
+            <p><span class="icon"><img src="/static/img/icon_karkas.png"/></span> <span class="name">Наружные стены 2 этажа</span>
+              <span class="info">Доска 40 х 150 мм (не строганная, естественной влажности, шаг стоек 590 мм). Утепление: Мин.плита 150 мм, плотность 25-35 кг/м3. Отделка: Вагонка (В). Высота 2.4 м</span>
+            </p>
+
+            <p><span class="name">Чердачное перекрытие</span> <span class="info">Доска 40 х 150 мм (не строганная, естественной влажности, шаг лаг 590 мм). Подшивка потолка: Вагонка (В). Утепление: Мин.плита 150 мм, плотность 25-35 кг/м3.</span>
+            </p>
+
+            <p><span class="name">Кровля</span> <span class="info">Металлочерепица – полиэстэр , толщина стали 0.45 мм. Комплектующие (гидроизоляция, конек, карнизные и ветровые планки, саморезы и др.)</span>
+            </p>
+
+            <p><span class="icon"><img src="/static/img/icon_window.png"/></span> <span class="name">Окна</span> <span
+                class="info">ПВХ «Штерн» 58-коробка.  Однокамерный  стеклопакет, поворотно-откидные. Фурнитура- Roto.</span>
+            </p>
+
+            <p><span class="icon"><img src="/static/img/icon_door.png"/></span> <span class="name">Дверь входная</span>
+              <span class="info">Металлическая. Производство-Россия. Утепленная, наружная отделка - молотковая эмаль, внутренняя - ламинация. Два замка, глазок, резиновый уплотнитель.</span>
+            </p>
+
+            <p><span class="icon"><img src="/static/img/icon_balkon.png"/></span> <span class="name">Балкон, крыльцо, терраса.</span>
+              <span class="info">Входит в стоимость</span></p>
+
+            <p><span class="name">Монтаж, проект, бытовка для строителей</span> <span
+                class="info">Входит в стоимость</span></p>
+          </div>
+          <div class="price-and-button clearfix">
+            <div class="text">
+              <span>Цена акционного дома (по технологии Каркасного строительства)</span>
+              <span class="price">1050000 <span>&#8381;</span></span>
+            </div>
+            <button type="button" class="button" data-toggle="modal" data-target="#prjcalc" data-calc="2">
+              <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Заказать
+            </button>
+          </div>
+        </div>
+      </div>
+    </div><!-- /.tovar-compl -->
+
+    <div class="content-page clearfix">
+      <p style="text-align: center"><b>Акция и подарки на этот дом не распространяются</b></p>
+    </div>
+    <div class="content-page clearfix">
+      <h2>Проекты по технологии <a class="section-link" href="{% url 'sect_termo' %}">Термопанели</a></h2>
+
+      {% for prj in projects_term %}
+        <div class="promo-cat col-lg-4 col-md-6 col-xs-12">
+          <div class="katalog-item">
+
+            <a href="{% url 'project_detail' prj.slug %}?tech=1">
+              <div class="katalog-img">
+                {% thumbnail prj.img "258x187" crop="80% top" format="PNG" as im %}
+                  <img class="img-responsive" src="{{ im.url }}" alt="{{ im.title }}">
+                {% endthumbnail %}
+              </div>
+            </a>
+            <div class="katalog-info clearfix">
+              <a href="{% url 'project_detail' prj.slug %}?tech=1">
+                <div class="katalog-title">{{ prj.name|title }}</div>
+              </a>
+              <span class="katalog-area"><img class="build-icon"
+                                              {% if prj.house == 2 %}src="{% static "img/build-icon2.png" %}"
+                                              {% elif prj.house == 3 %}src="{% static "img/build-icon3.png" %}"
+                                              {% elif prj.house == 4 %}src="{% static "img/build-icon4.png" %}"
+                                              {% elif prj.house == 5 %}src="{% static "img/build-icon5.png" %}"
+                                              {% else %}src="{% static "img/build-icon1.png" %}"{% endif %}
+              >{{ prj.square }} кв.м.</span>
+              <span class="katalog-price">
+              {% if prj.price == 0 %}
+                от 9000 р/м&sup2;
+              {% else %}
+                {{ prj.price|intspace }} ₽
+              {% endif %}
+            </span>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+      <div class="view-all-promo clearfix">
+        <a href="{% url 'project_list' %}?tech=1&search=1&vid=0&pmin=0&pmax=5000000&smin=0&smax=500" class="view-all"
+           role="button">Полный каталог</a>
+      </div>
+
+      <h2>Проекты по технологии <a class="section-link" href="{% url 'sect_sip' %}">СИП панели</a></h2>
+
+      {% for prj in projects_sip %}
+        <div class="promo-cat col-lg-4 col-md-6 col-xs-12">
+          <div class="katalog-item">
+
+            <a href="{% url 'project_detail' prj.slug %}?tech=2">
+              <div class="katalog-img">
+                {% thumbnail prj.img "258x187" crop="80% top" format="PNG" as im %}
+                  <img class="img-responsive" src="{{ im.url }}" alt="{{ im.title }}">
+                {% endthumbnail %}
+              </div>
+            </a>
+            <div class="katalog-info clearfix">
+              <a href="{% url 'project_detail' prj.slug %}?tech=2">
+                <div class="katalog-title">{{ prj.name|title }}</div>
+              </a>
+              <span class="katalog-area"><img class="build-icon"
+                                              {% if prj.house == 2 %}src="{% static "img/build-icon2.png" %}"
+                                              {% elif prj.house == 3 %}src="{% static "img/build-icon3.png" %}"
+                                              {% elif prj.house == 4 %}src="{% static "img/build-icon4.png" %}"
+                                              {% elif prj.house == 5 %}src="{% static "img/build-icon5.png" %}"
+                                              {% else %}src="{% static "img/build-icon1.png" %}"{% endif %}
+              >{{ prj.square }} кв.м.</span>
+              <span class="katalog-price">
+              {% if prj.price == 0 %}
+                от 9000 р/м&sup2;
+              {% else %}
+                {{ prj.price|intspace }} ₽
+              {% endif %}
+            </span>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+      <div class="view-all-promo clearfix">
+        <a href="{% url 'project_list' %}?tech=2&search=1&vid=0&pmin=0&pmax=5000000&smin=0&smax=500" class="view-all"
+           role="button">Полный каталог</a>
+      </div>
+
+      <h2>Проекты по технологии <a class="section-link" href="{% url 'sect_karkas' %}">КАРКАСНЫЕ ДОМА</a></h2>
+
+      {% for prj in projects_kars %}
+        <div class="promo-cat col-lg-4 col-md-6 col-xs-12">
+          <div class="katalog-item">
+
+            <a href="{% url 'project_detail' prj.slug %}?tech=3">
+              <div class="katalog-img">
+                {% thumbnail prj.img "258x187" crop="80% top" format="PNG" as im %}
+                  <img class="img-responsive" src="{{ im.url }}" alt="{{ im.title }}">
+                {% endthumbnail %}
+              </div>
+            </a>
+            <div class="katalog-info clearfix">
+              <a href="{% url 'project_detail' prj.slug %}?tech=3">
+                <div class="katalog-title">{{ prj.name|title }}</div>
+              </a>
+              <span class="katalog-area"><img class="build-icon"
+                                              {% if prj.house == 2 %}src="{% static "img/build-icon2.png" %}"
+                                              {% elif prj.house == 3 %}src="{% static "img/build-icon3.png" %}"
+                                              {% elif prj.house == 4 %}src="{% static "img/build-icon4.png" %}"
+                                              {% elif prj.house == 5 %}src="{% static "img/build-icon5.png" %}"
+                                              {% else %}src="{% static "img/build-icon1.png" %}"{% endif %}
+              >{{ prj.square }} кв.м.</span>
+              <span class="katalog-price">
+              {% if prj.price == 0 %}
+                от 9000 р/м&sup2;
+              {% else %}
+                {{ prj.price|intspace }} ₽
+              {% endif %}
+            </span>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+      <div class="view-all-promo clearfix">
+        <a href="{% url 'project_list' %}?tech=3&search=1&vid=0&pmin=0&pmax=5000000&smin=0&smax=500" class="view-all"
+           role="button">Полный каталог</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="prjcalc">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title">Заказать проект <b>{{ project.name|title }}</b> <span class="badge"
+                                                                                        style="background-color: #468847;">{{ techfilter.mnemo }}</span>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </h3>
+        </div>
+        {% get_prjc_form as calc_form %}
+        <form id="prjcalc_form" action="{% url 'thanks_prj' %}" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+
+          <div class="modal-body clearfix">
+            <div id="{{ calc_form.fio.name }}" class="fieldWrapper form-group">
+              <label for="{{ calc_form.fio.id_for_label }}">{{ calc_form.fio.label }}:</label>
+              {{ calc_form.fio }}
+            </div>
+            <div id="{{ calc_form.email.name }}" class="fieldWrapper form-group">
+              <label for="{{ calc_form.email.id_for_label }}">{{ calc_form.email.label }}:</label>
+              {{ calc_form.email }}
+            </div>
+            <div id="{{ calc_form.phone.name }}" class="fieldWrapper form-group">
+              <label for="{{ calc_form.phone.id_for_label }}">{{ calc_form.phone.label }}:</label>
+              {{ calc_form.phone }}
+            </div>
+            <div id="{{ calc_form.note.name }}" class="fieldWrapper form-group">
+              <label for="{{ calc_form.note.id_for_label }}">{{ calc_form.note.label }}:</label>
+              {{ calc_form.note }}
+            </div>
+            <div id="{{ calc_form.file.name }}" class="fieldWrapper form-group">
+              <label for="{{ calc_form.file.id_for_label }}">{{ calc_form.file.label }}:</label>
+              {{ calc_form.file }}
+            </div>
+            <input type="hidden" name="{{ calc_form.kit.name }}" id="{{ calc_form.kit.id_for_label }}"
+                   value="{{ kit.pk }}">
+            <input type="hidden" name="{{ calc_form.kit_numb.name }}" id="{{ calc_form.kit_numb.id_for_label }}">
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="button-calculation">
+              <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>Заказать
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+      $(window).load(function () {
+          var yaParams = {order_price: 1.2, currency: "RUB"};
+          yaCounter43178169.reachGoal('promodom', yaParams)
+      });
+  </script>
+
+  <script>
+      $('#prjcalc').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget) // Button that triggered the modal
+          var calc_num = button.data('calc') // Extract info from data-* attributes
+          // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+          // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+          var modal = $(this)
+          modal.find('.modal-body input[name="{{ calc_form.kit_numb.name }}"]').val(calc_num)
+      })
+  </script>
+
+  <script>
+      $(".tovar-compl .title").click(function () {
+          $(this).parent().toggleClass("active").siblings().removeClass('active');
+          $(this).parent().siblings().children("div").hide();
+          $(this).next().slideToggle();
+      });
+      var max_item_height = 0; // максимальная высота, первоначально 0
+      $(".tovar-compl .compl-wrap").each(function () {
+          if ($(this).height() > max_item_height) { // если высота колонки больше значения максимальной высоты,
+              max_item_height = $(this).height(); // то она сама становится новой максимальной высотой
+          }
+      });
+      $(".tovar-compl").height(max_item_height + 100); // устанавливаем высоту каждой колонки равной значению максимальной высоты
+  </script>
+
+  <script>
+      $(document).ready(function () {
+          $("form#prjcalc_form").submit(function () {
+              var formData = new FormData($(this)[0]);
+              $('.form-err').detach();
+              $.ajax({
+                  url: $(this).attr('action'),
+                  type: 'POST',
+                  data: formData,
+                  async: true,
+                  success: function (data) {
+                      if (data.status === 1) {
+                          $('#prjcalc').modal('hide');
+                          $('#prjcalc [name="fio"]').val('');
+                          $('#prjcalc [name="email"]').val('');
+                          $('#prjcalc [name="phone"]').val('');
+                          $('#prjcalc [name="note"]').val('');
+                          window.location = "{% url 'thanks_prj' %}"
+                      }
+                      else {
+                          $.each(data.errors, function (index, value) {
+                              $('#' + index + '').append("<span class='form-err text-danger'>" + value[0] + "</span>");
+                          });
+                      }
+                  },
+                  contentType: false,
+                  processData: false
+              });
+
+              return false;
+          });
+      });
+  </script>
+{% endblock %}
+

@@ -23,7 +23,7 @@ class SectionViewSitemap(Sitemap):
     changefreq = 'weekly'
 
     def items(self):
-        return ['sect_termo', 'sect_sip', 'sect_karkas', 'promo']
+        return ['sect_termo', 'sect_sip', 'sect_karkas', 'promo', 'promodom']
 
     def location(self, item):
         return reverse(item)

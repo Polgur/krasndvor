@@ -553,7 +553,7 @@ header {
     line-height: 40px;
     margin-top: 0;
 }
-.content-page .article-read {
+.content-page .article-read, .main-sidebar .article-read {
     background-color: #983b29;
     border-color: #980006;
     float: right;
@@ -561,7 +561,7 @@ header {
     font-size: 14px;
     font-family: ARussDecor;
 }
-.content-page .article-read:hover {
+.content-page .article-read:hover, .main-sidebar .article-read:hover {
     text-decoration: none;
     color: #fddd92;
 }
@@ -785,6 +785,34 @@ header {
     left: 0;
     z-index: -2;
 }
+.main-sidebar .promodom{
+    font-family: ARussDecor;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 20px;
+    margin-top: 5px;
+    margin-bottom: 12px;
+    text-align: center;
+    color: #e40e22;
+}
+.main-sidebar .promodom-text{
+    font-family: ProximaNova-Semibold;
+    font-size: 17px;
+    line-height: 18px;
+    margin-bottom: 12px;
+    text-align: center;
+    color: #651e04;
+}
+.main-sidebar .promodom-img{
+    float: left;
+    display: block;
+    /*max-width: 300px;*/
+    margin-left: 5px;
+    margin-right: 10px;
+    padding-top: 5px;
+    cursor: pointer;
+}
+
 .main-sidebar .side-title {
     color: #983905;
     font-size: 22px;

@@ -1,7 +1,7 @@
 from django.conf.urls import url
 from .views import IndexPage, SectionTermo, SectionSip, SectionKarkas, SectionRecon, SectionFund, SectionRemont, \
     OurStages, OurSip, OurKarkas, OurFund, ContactsPage, ProjectList, ProjectDetail, ReadyobjTermo, ReconstList, \
-    ExpoDom, Promo, ArticleList, ArticleDetail, Certificates, ReviewList, MainCalcView, PrjCalcView, ReconCalcView, \
+    ExpoDom, Promo, PromoDom, ArticleList, ArticleDetail, Certificates, ReviewList, MainCalcView, PrjCalcView, ReconCalcView, \
     FundCalcView, RemontCalcView, PhoneCallView
 from django.conf import settings
 from django.views.static import serve
@@ -25,6 +25,7 @@ urlpatterns = [
     url(r'^projects/$', ProjectList.as_view(), name='project_list'),
     url(r'^projects/(?P<slug>[^/]*)$', ProjectDetail.as_view(), name='project_detail'),
     url(r'^promotion/$', Promo.as_view(), name='promo'),
+    url(r'^promodom/$', PromoDom.as_view(), name='promodom'),
     url(r'^articles/$', ArticleList.as_view(), name='article_list'),
     url(r'^articles/(?P<slug>[^/]*)$', ArticleDetail.as_view(), name='article_detail'),
     url(r'^certificates/$', Certificates.as_view(), name='certif'),
