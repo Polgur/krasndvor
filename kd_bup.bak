@@ -481,7 +481,7 @@ CREATE TABLE dvor_calculation (
     created timestamp with time zone NOT NULL,
     email character varying(254),
     phone character varying(20),
-    note character varying(400) NOT NULL,
+    note character varying(800) NOT NULL,
     file character varying(100),
     kit_numb smallint,
     kit_id integer,
@@ -1659,6 +1659,7 @@ COPY django_migrations (id, app, name, applied) FROM stdin;
 41	dvor	0023_review_reviewphoto	2017-03-03 16:33:03.871116+00
 42	dvor	0024_auto_20170303_1638	2017-03-03 16:38:19.485828+00
 43	dvor	0025_auto_20170303_1640	2017-03-03 16:40:05.614818+00
+44	dvor	0026_auto_20170321_1452	2017-03-21 14:55:02.172692+00
 \.
 
 
@@ -1666,7 +1667,7 @@ COPY django_migrations (id, app, name, applied) FROM stdin;
 -- Name: django_migrations_id_seq; Type: SEQUENCE SET; Schema: public; Owner: kd_admin
 --
 
-SELECT pg_catalog.setval('django_migrations_id_seq', 43, true);
+SELECT pg_catalog.setval('django_migrations_id_seq', 44, true);
 
 
 --
