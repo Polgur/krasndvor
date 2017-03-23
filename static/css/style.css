@@ -831,9 +831,8 @@ header {
     font-size: 19px;
 }
 .main-sidebar .side-title.promodom-title {
-    font-size: 19px;
-    color: #e40e22;
-    font-weight: 700;
+    font-size: 20px;
+    font-weight: 900;
 }
 .main-sidebar .side-title::after {
     position: absolute;
