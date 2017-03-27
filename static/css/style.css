@@ -66,7 +66,7 @@ header {
 .header-center {
     text-align: center;
 }
-.header-center h1 {
+.header-center .header-text {
     color: #651e04;
     font-family: ProximaNova-Regular;
     line-height: 20px;
@@ -1756,7 +1756,7 @@ footer {
     .header-center {
         text-align: right;
     }
-    .header-center h1 {
+    .header-center .header-text {
         display: none;
     }
     .header-center .email {
