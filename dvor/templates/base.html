@@ -12,7 +12,7 @@
   <link rel="shortcut icon" href="{% static "icons/favicon.ico" %}">
 
   <title>{% block title %}Красный двор{% endblock %}</title>
-  <link rel="canonical" href="{% block canonical_url %}https://127.0.0.1{% endblock %}">
+  {% comment %}<link rel="canonical" href="{% block canonical_url %}https://127.0.0.1{% endblock %}">{% endcomment %}
 
   {% block meta_seo %}
     <meta name="keywords"
