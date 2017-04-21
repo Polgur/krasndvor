@@ -81,7 +81,8 @@ header {
     position: relative;
 }
 .header-center .phone span:first-child {
-    margin-right: 60px;
+    margin-right: 65px;
+    margin-left: 30px;
 }
 .header-center .phone::after {
     position: absolute;

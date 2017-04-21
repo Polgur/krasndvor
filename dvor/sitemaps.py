@@ -202,7 +202,7 @@ class ProjectListT150Sitemap(Sitemap):
             return "{}?search=1&vid=0&pmin=0&pmax=5000000&smin=150&smax=500&tech={}&page={}".format(
                 reverse("project_list"), 1, page)
         else:
-            return "{}?search=1&vid=0&pmin=0&pmax=5000000&smin=150&smax=5000&tech={}".format(reverse("project_list"), 1)
+            return "{}?search=1&vid=0&pmin=0&pmax=5000000&smin=150&smax=500&tech={}".format(reverse("project_list"), 1)
 
 class ProjectListS150Sitemap(Sitemap):
     changefreq = "weekly"
