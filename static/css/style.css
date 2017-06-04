@@ -502,6 +502,10 @@ header {
     text-align: center;
     margin-bottom: 20px;
 }
+.content-page .contacts span {
+    font-size: 12px;
+    font-weight: 700;
+}
 .content-page .section-link {
     color: #e40e22;
     position: relative;
@@ -786,7 +790,7 @@ header {
     left: 0;
     z-index: -2;
 }
-.main-sidebar .promodom{
+.main-sidebar .promodom {
     font-family: ARussDecor;
     font-size: 20px;
     font-weight: 700;
@@ -796,10 +800,10 @@ header {
     text-align: center;
     color: #651e04;
 }
-.main-sidebar .promodom span{
+.main-sidebar .promodom span {
     color: #e40e22;
 }
-.main-sidebar .promodom-text{
+.main-sidebar .promodom-text {
     font-family: ProximaNova-Semibold;
     font-size: 17px;
     line-height: 18px;
@@ -807,7 +811,7 @@ header {
     text-align: center;
     color: #651e04;
 }
-.main-sidebar .promodom-img{
+.main-sidebar .promodom-img {
     float: left;
     display: block;
     /*max-width: 300px;*/
@@ -816,7 +820,6 @@ header {
     padding-top: 5px;
     cursor: pointer;
 }
-
 .main-sidebar .side-title {
     color: #983905;
     font-size: 22px;
@@ -948,14 +951,22 @@ header {
     margin-left: 60px;
     color: #e40e22;
     font-size: 19px;
-    line-height: 24px;
+    line-height: 21px;
     position: relative;
     margin-bottom: 3px;
     margin-right: 20px;
 }
+.main-sidebar .side-panel .phone span {
+    color: #651e04;
+    font-weight: 700;
+    font-size: 13px;
+}
 @media (max-width: 1200px) {
     .main-sidebar .side-panel .phone {
         font-size: 15px;
+    }
+    .main-sidebar .side-panel .phone span {
+        font-size: 10px;
     }
 }
 .main-sidebar .side-panel .phone::after {
@@ -1054,7 +1065,7 @@ footer {
     margin-bottom: 0;
 }
 .footer-center .phone span:first-child {
-    margin-right: 60px;
+    margin-right: 70px;
 }
 .footer-center .phone::after {
     position: absolute;

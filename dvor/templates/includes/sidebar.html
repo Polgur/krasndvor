@@ -10,7 +10,7 @@
 <div class="side-panel">
   <div class="side-title promodom-title">Акционный дом</div>
 
-  <div class="clearfix" style="text-align: center"><img class="promodom-img" src="{% static "img/PromoDom_00.png" %}"
+  <div class="clearfix" style="text-align: center"><img class="promodom-img" src="{% static "img/PromoDom_01.png" %}"
                                                         alt="Акционный дом">
     <p class="promodom">Дом со скидкой за <span>900000&#8381;!</span></p>
     {% comment %}<p class="promodom-text">Отлично подойдет для дачи.</p>{% endcomment %}
@@ -29,6 +29,7 @@
   </div>
   <div class="phone">
     <b>8 800 700-31-58</b><br>
+    <span>бесплатный звонок по России</span><br>
     +7 (8412) 25-29-58 <br>
     +7 (927) 375-29-58
   </div>
@@ -61,6 +62,12 @@
 <div class="side-panel">
   <div class="side-title">Новости</div>
   <div class="news__item clearfix">
+    <div class="news__item__date">2 июня 2017</div>
+    <div class="news__item__title"><a href="{% url 'promo' %}">Усиление фундамента профильной трубой!</a></div>
+    <div class="news__item__img"><img src="{% static "img/03Akciya_01.png" %}"></div>
+    <span class="news__item__text">В период с 1 июня по 30 июня 2017 г. компания Красный двор проводит АКЦИЮ!</span>
+  </div>
+  <div class="news__item clearfix">
     <div class="news__item__date">03 апреля 2017</div>
     <div class="news__item__title">Новый офис</div>
     <span class="news__item__text">Мы переехали в новый офис по адресу ул. Кирова 53</span>
@@ -69,18 +76,6 @@
     <div class="news__item__date">1 марта 2017</div>
     <div class="news__item__title">Мы продолжаем добавлять цены на наши типовые проекты домов</div>
     <span class="news__item__text">В течении месяца будут доступны цены на 3 комплектации по каждой технологии. <br> Вы сможете сравнить преимущества каждой технологии, стоимость строительства по ней и выбрать вариант подходящий именно Вам!</span>
-  </div>
-  <div class="news__item clearfix">
-    <div class="news__item__date">21 февраля 2017</div>
-    <div class="news__item__title"><a href="{% url 'promo' %}">Благоустройство террасы и крыльца в подарок!</a></div>
-    <div class="news__item__img"><img src="{% static "img/01Akciya_01.png" %}"></div>
-    <span class="news__item__text">В период с 1 марта по 31 мая 2017 г. компания Красный двор проводит АКЦИЮ!</span>
-  </div>
-  <div class="news__item clearfix">
-    <div class="news__item__date">20 февраля 2017</div>
-    <div class="news__item__title"><a href="{% url 'promo' %}">Усиление фундамента профильной трубой!</a></div>
-    <div class="news__item__img"><img src="{% static "img/02Akciya_03.png" %}"></div>
-    <span class="news__item__text">В период с 1 марта по 31 мая 2017 г. компания Красный двор проводит АКЦИЮ!</span>
   </div>
   {% comment %}  <a class="all-news">все новости</a>{% endcomment %}
 </div>
