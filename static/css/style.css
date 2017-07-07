@@ -961,6 +961,17 @@ header {
     font-weight: 700;
     font-size: 13px;
 }
+.main-sidebar .side-panel .our-title span {
+    color: #651e04;
+    font-weight: 700;
+    font-size: 14px;
+}
+.main-sidebar .side-panel .address span {
+    color: #651e04;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 10px;
+}
 @media (max-width: 1200px) {
     .main-sidebar .side-panel .phone {
         font-size: 15px;
