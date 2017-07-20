@@ -42,8 +42,9 @@
     <p class="content-text">Комбинированные термопанели представляют однослойную конструкцию, состоящую из двух плит и
       инновационного базальтового утеплителя. Утеплитель прекрасно сочетается с различными плитными материалами,
       такими как Гринборд, OSB-3 и ЦСП (цементно-стружечная плита). Элементы каркаса расположены таким образом, что
-      исключается появление мостиков холода, поэтому они показывают высокую эффективность в энергосбережении. <a class="gallery content-img-right"
-                                                             href="{% static "content/termopaneli_15.png" %}">
+      исключается появление мостиков холода, поэтому они показывают высокую эффективность в энергосбережении. <a
+          class="gallery content-img-right"
+          href="{% static "content/termopaneli_15.png" %}">
         {% with url_path=MEDIA_URL|add:"content/termopaneli_15.png" %}
           {% thumbnail url_path "151x320" crop="center" format="PNG" as im %}
             <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
@@ -55,9 +56,12 @@
       утеплитель – утеплитель нового поколения, который гораздо лучше подходит для строительства домов. Он обладает
       высокой плотностью (от 25 до 200 кг/м³), хорошей паропроницаемостью и оптимальными тепло- и звукоизоляционными
       характеристиками.</p>
-    <p class="content-text clearfix">За счет преимуществ технологии, вы можете дополнительно съэкономить <b>50000 - 70000</b> руб.
-      <b>Термопанель доступна для прокладки электропроводки и даже труб водоснабжения вплоть до того, как она будет зашита
-      с открытой стороны.</b> Скрытая проводка в панелях даст дополнительную экономию на монтажных материалах, а также позволит
+    <p class="content-text clearfix">За счет преимуществ технологии, вы можете дополнительно съэкономить <b>50000 -
+      70000</b> руб.
+      <b>Термопанель доступна для прокладки электропроводки и даже труб водоснабжения вплоть до того, как она будет
+        зашита
+        с открытой стороны.</b> Скрытая проводка в панелях даст дополнительную экономию на монтажных материалах, а также
+      позволит
       экономить внутреннее пространство комнаты, по сравнению с традиционной проводкой по наружному покрытию СИП-панели
       и последующей обшивкой отделочным материалом.</p>
     <div class="clearfix">
@@ -194,6 +198,49 @@
       </div>
     </div>
   </div> <!-- /.content-article -->
+
+  <div class="content-page clearfix">
+
+    <h2>Примеры домов построенных нами</h2>
+
+    <div class="gallery-div col-lg-4 col-md-4 col-sm-6 col-xs-12">
+      <a href="{% url 'our_termo' %}?page=1">
+        <div class="gallery-stage">
+          {% with url_path=MEDIA_URL|add:"readyobj/OurTermPah_00.jpg" %}
+            {% thumbnail url_path "400x300" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </div>
+      </a>
+    </div>
+    <div class="gallery-div col-lg-4 col-md-4 col-sm-6 col-xs-12">
+      <a href="{% url 'our_termo' %}?page=3">
+        <div class="gallery-stage">
+          {% with url_path=MEDIA_URL|add:"readyobj/OutTRyj_00.jpg" %}
+            {% thumbnail url_path "400x300" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </div>
+      </a>
+    </div>
+    <div class="gallery-div col-lg-4 col-md-4 col-sm-6 col-xs-12">
+      <a href="{% url 'our_termo' %}?page=3">
+        <div class="gallery-stage">
+          {% with url_path=MEDIA_URL|add:"readyobj/OurTGjel_00.jpg" %}
+            {% thumbnail url_path "400x300" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </div>
+      </a>
+    </div>
+
+    <div class="view-all-promo clearfix">
+      <a href="{% url 'our_termo' %}" class="view-all" role="button">Полная галерея</a>
+    </div>
+  </div>
 
   <div class="content-page clearfix">
 
