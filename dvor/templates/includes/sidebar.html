@@ -12,7 +12,7 @@
 
   <div class="clearfix" style="text-align: center"><img class="promodom-img" src="{% static "img/PromoDom_00.png" %}"
                                                         alt="Акционный дом">
-    <p class="promodom">Дом со скидкой за <span>900000&#8381;!</span></p>
+    <p class="promodom">Не упусти свой шанс построить дом выгодно! Дом-студия за 9000 р/м&sup2;</p>
     {% comment %}<p class="promodom-text">Отлично подойдет для дачи.</p>{% endcomment %}
     {% comment %}<p class="promodom-text" style="margin-bottom: 5px">Проект 100 м&sup2; с фундаментом и монтажем за 900000 &#8381;</p>{% endcomment %}
     <a href="{% url 'promodom' %}" class="btn btn-info article-read" role="button">Подробнее...</a>
@@ -77,7 +77,7 @@
     <div class="news__item__date">2 июня 2017</div>
     <div class="news__item__title"><a href="{% url 'promo' %}">Бетонные сваи ТИСЭ в подарок!</a></div>
     <div class="news__item__img"><img src="{% static "img/03Akciya_01.png" %}"></div>
-    <span class="news__item__text">В период с 1 июня по 31 июля 2017 г. компания Красный двор проводит АКЦИЮ!</span>
+    <span class="news__item__text">В период с 1 июня по 31 августа 2017 г. компания Красный двор проводит АКЦИЮ!</span>
   </div>
   <div class="news__item clearfix">
     <div class="news__item__date">03 апреля 2017</div>
@@ -88,7 +88,7 @@
 </div>
 <div class="side-panel">
   <div class="side-title">отзывы</div>
-  <div class="reviews__item clearfix">
+  {% comment %}<div class="reviews__item clearfix">
     <span class="reviews__item__text"><img class="reviews__item__icon" src="{% static "img/RevFst_00.png" %}">Заказал проект дома и собственно сам дом в компании "Красный двор" и ни разу не пожалел об этом. В компании
       работают настоящие профессионалы. Проект сделали очень быстро, не упустили ни одного моего пожелания; несколько раз проект присылали на
       согласование, пока в компании не убедились, что меня все устраивает... <a href="{% url 'review' %}#kovilkino">весь отзыв</a>
@@ -96,6 +96,14 @@
 
     <div class="reviews__item__name">Кузнецов Владимир</div>
     <div class="reviews__item__date">16 февраля 2017</div>
+  </div>{% endcomment %}
+  <div class="reviews__item clearfix">
+    <span class="reviews__item__text"><img class="reviews__item__icon" src="{% static "img/RevMich_00.png" %}">Приношу слова благодарности строителям моего дачного домика. Все понравилось, ребята работали дружно и слаженно. Все выявленные недостатки сразу же устранялись без лишних вопросов. Был составлен договор на один объем работы, но после возведения домика решила продолжить работу с этими же ребятами по благоустройству близлежащей территории... <a
+            href="{% url 'review' %}#michurinec">весь отзыв</a>
+    </span>
+
+    <div class="reviews__item__name">Глоталина Надежда</div>
+    <div class="reviews__item__date">21 июля 2017</div>
   </div>
   <div class="reviews__item clearfix">
     <span class="reviews__item__text"><img class="reviews__item__icon" src="{% static "img/RevCvet_00.png" %}">Хочу выразить слова благодарности Андрею и его бригаде. Я долго искал проект дома, хотел, чтобы в самом доме был туалет, обязательно веранда, комната и кухня на 1-м этаже, две комнаты на 2-м этаже. Долго искал и нашел, но строить собирались каркасный из ОСВ панелей, но в начале сомнивался думали, что будет холодно в таком доме – всетаки бывает и ниже -30). Но потом по рекомендации друзей, дом которых мне очень понравился (качество возведения, внешний вид и т.д.)... <a

@@ -275,6 +275,32 @@ class PromoDom(MenuMixin, DetailView):
         ctx['projects_kars'] = Project.objects.filter(name__in=['Киреево', 'Дарьино', 'Мелихово']).order_by('square')
         return ctx
 
+class PromoDom2(MenuMixin, DetailView):
+    menu_slug = [
+        "info",
+        "promodom2",
+    ]
+    template_name = 'dvor/promodom2.html'
+
+    def get_object(self, queryset=None):
+        try:
+            project = Project.objects.prefetch_related('photos').get(slug='podushkino')
+            return project
+        except Project.DoesNotExist:
+            raise Http404('Проект не найден')
+
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+        self.tech = Techno.objects.filter(mnemo='Термопанели').first()
+        project = self.get_object()
+        ctx['size_na'] = project.size.replace('x','на')
+        ctx['kit'] = self.object.kits.filter(tech=self.tech).first()
+        ctx['compkit'] = self.object.kits.exclude(tech=self.tech).order_by('tech')
+        ctx['projects_term'] = Project.objects.filter(name__in=['Петровское', 'Дубровицы', 'Никольское']).order_by(
+            'square')
+        ctx['projects_sip'] = Project.objects.filter(name__in=['Ольгово', 'Марфино', 'Аполье']).order_by('square')
+        ctx['projects_kars'] = Project.objects.filter(name__in=['Киреево', 'Дарьино', 'Мелихово']).order_by('square')
+        return ctx
 
 
 class ArticleList(MenuMixin, ListView):

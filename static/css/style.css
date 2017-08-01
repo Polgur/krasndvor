@@ -792,9 +792,9 @@ header {
 }
 .main-sidebar .promodom {
     font-family: ARussDecor;
-    font-size: 20px;
+    font-size: 17px;
     font-weight: 700;
-    line-height: 20px;
+    line-height: 18px;
     margin-top: 5px;
     margin-bottom: 12px;
     text-align: center;
@@ -1316,6 +1316,20 @@ footer {
 }
 .katalog-price {
     float: right;
+    font-size: 18px;
+    font-family: ProximaNova-Regular;
+    margin-right: 10px;
+    position: relative;
+    border: 1px solid #903702;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    padding-left: 6px;
+    padding-right: 6px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.katalog-price-center {
+    float: right;
+    left: -30%;
     font-size: 18px;
     font-family: ProximaNova-Regular;
     margin-right: 10px;
