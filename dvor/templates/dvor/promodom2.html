@@ -27,8 +27,8 @@
 
         <a href="{% url 'promodom' %}">
           <div class="katalog-img">
-            {% with url_path=MEDIA_URL|add:"projects/Olgovo.jpg" %}
-              {% thumbnail url_path "427x240" crop="center" format="PNG" as im %}
+            {% with url_path=MEDIA_URL|add:"content/ActOlgovo_00.jpg" %}
+              {% thumbnail url_path "427x320" crop="center" format="PNG" as im %}
                 <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
               {% endthumbnail %}
             {% endwith %}
@@ -49,8 +49,8 @@
 
         <a href="{% url 'promodom2' %}">
           <div class="katalog-img">
-            {% with url_path=MEDIA_URL|add:"projects/Podushkino.jpg" %}
-              {% thumbnail url_path "427x240" crop="center" format="PNG" as im %}
+            {% with url_path=MEDIA_URL|add:"content/ActPodush_00.jpg" %}
+              {% thumbnail url_path "427x320" crop="center" format="PNG" as im %}
                 <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
               {% endthumbnail %}
             {% endwith %}
