@@ -80,7 +80,7 @@
 
   <div class="katalog">
     <div class="kat-title">
-      каталог
+      каталог готовых проектов
     </div>
 
     <form class="filters" action="{% url 'project_list' %}" method="get">
@@ -189,6 +189,9 @@
     {% else %}
       <div class="content-page clearfix">
         <p style="text-align: center"><b>По Вашему желанию мы можем увеличить или уменьшить площадь типового проекта, изменить планировку.</b></p>
+      </div>
+      <div class="content-page clearfix">
+        <p style="text-align: center"><b>До 31 августа у нас действует акция : <a href="{% url 'promo' %}">Бетонные сваи ТИСЭ в подарок!</a></b></p>
       </div>
     {% endif %}
 

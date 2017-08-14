@@ -615,9 +615,7 @@ header {
     font-size: 24px;
     margin-bottom: 15px;
 }
-.content-article a, .side-panel a {
-    font-family: ARussDecor;
-}
+
 .content-article .content-img-left, .content-page .content-img-left {
     float: left;
     display: block;
@@ -791,7 +789,6 @@ header {
     z-index: -2;
 }
 .main-sidebar .promodom {
-    font-family: ARussDecor;
     font-size: 17px;
     font-weight: 700;
     line-height: 18px;
@@ -1642,6 +1639,35 @@ footer {
     font-family: CyrillicOldBold;
     font-size: 18px;
 }
+
+
+.comp-promo {
+    padding: 0 10px 15px 10px;
+    border: 2px solid #762e06;
+}
+.comp-promo > tbody > tr > td, .comp-promo > tbody > tr > th, .comp-promo > tfoot > tr > td, .comp-promo > tfoot > tr > th, .comp-promo > thead > tr > td, .comp-promo > thead > tr > th {
+    border: 1px solid #762e06;
+}
+.comp-promo th {
+    text-align: center;
+    font-family: ProximaNova-Regular;
+    font-size: 18px;
+    color: #960b0b;
+}
+.comp-promo .tech-title {
+    font-family: CyrillicOldBold;
+    font-size: 18px;
+    color: #762e06;
+    padding: 5px 8px;
+}
+.comp-promo .comp-price {
+    text-align: right;
+}
+.comp-promo .comp-benf {
+    text-align: right;
+    font-weight: 700;
+}
+
 /* ====================================pagination======================================== */
 .paggination {
     list-style: none;
