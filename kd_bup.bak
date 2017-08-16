@@ -1270,7 +1270,7 @@ SELECT pg_catalog.setval('auth_permission_id_seq', 69, true);
 
 COPY auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) FROM stdin;
 2	pbkdf2_sha256$30000$UDsUGJDbPGbo$GkQvgkDjqR4RJshdPAIOJKODTKUW9oVw+1mxOMtYVhc=	2017-03-07 05:14:05.931387+00	f	Denis	Денис	Серяков		t	t	2017-03-07 05:10:25+00
-1	pbkdf2_sha256$30000$eFoTZv3MQ7CI$70Y8/tju6DQXGh3pcp9nv9zUtLohR8Ki3TgClB00Q8Q=	2017-07-31 06:58:55.89425+00	t	Polgur	Александр	Гуслицер	polgur@inbox.ru	t	t	2017-01-15 08:13:55+00
+1	pbkdf2_sha256$30000$eFoTZv3MQ7CI$70Y8/tju6DQXGh3pcp9nv9zUtLohR8Ki3TgClB00Q8Q=	2017-08-16 09:27:12.413213+00	t	Polgur	Александр	Гуслицер	polgur@inbox.ru	t	t	2017-01-15 08:13:55+00
 \.
 
 
@@ -1589,6 +1589,7 @@ COPY django_admin_log (id, action_time, object_id, object_repr, action_flag, cha
 284	2017-07-31 07:14:32.734867+00	4	Р. Мордовия, С. Пайгарма	2	[{"changed": {"fields": ["sort_re"]}}]	22	1
 285	2017-07-31 07:14:39.574282+00	3	Р. Мордовия, С. Ковылкино	2	[{"changed": {"fields": ["sort_re"]}}]	22	1
 286	2017-07-31 07:25:44.191787+00	7	Пензенская Обл, Пензенский Р-Н, Снт "Мичуринец"	1	[{"added": {}}, {"added": {"name": "\\u0424\\u043e\\u0442\\u043e \\u0434\\u043e\\u043c\\u0430 \\u0434\\u043b\\u044f \\u043e\\u0442\\u0437\\u044b\\u0432\\u0430", "object": "\\u041f\\u0435\\u043d\\u0437\\u0435\\u043d\\u0441\\u043a\\u0430\\u044f \\u041e\\u0431\\u043b, \\u041f\\u0435\\u043d\\u0437\\u0435\\u043d\\u0441\\u043a\\u0438\\u0439 \\u0420-\\u041d, \\u0421\\u043d\\u0442 \\"\\u041c\\u0438\\u0447\\u0443\\u0440\\u0438\\u043d\\u0435\\u0446\\""}}, {"added": {"name": "\\u0424\\u043e\\u0442\\u043e \\u0434\\u043e\\u043c\\u0430 \\u0434\\u043b\\u044f \\u043e\\u0442\\u0437\\u044b\\u0432\\u0430", "object": "\\u041f\\u0435\\u043d\\u0437\\u0435\\u043d\\u0441\\u043a\\u0430\\u044f \\u041e\\u0431\\u043b, \\u041f\\u0435\\u043d\\u0437\\u0435\\u043d\\u0441\\u043a\\u0438\\u0439 \\u0420-\\u041d, \\u0421\\u043d\\u0442 \\"\\u041c\\u0438\\u0447\\u0443\\u0440\\u0438\\u043d\\u0435\\u0446\\""}}, {"added": {"name": "\\u0424\\u043e\\u0442\\u043e \\u0434\\u043e\\u043c\\u0430 \\u0434\\u043b\\u044f \\u043e\\u0442\\u0437\\u044b\\u0432\\u0430", "object": "\\u041f\\u0435\\u043d\\u0437\\u0435\\u043d\\u0441\\u043a\\u0430\\u044f \\u041e\\u0431\\u043b, \\u041f\\u0435\\u043d\\u0437\\u0435\\u043d\\u0441\\u043a\\u0438\\u0439 \\u0420-\\u041d, \\u0421\\u043d\\u0442 \\"\\u041c\\u0438\\u0447\\u0443\\u0440\\u0438\\u043d\\u0435\\u0446\\""}}, {"added": {"name": "\\u0424\\u043e\\u0442\\u043e \\u0434\\u043e\\u043c\\u0430 \\u0434\\u043b\\u044f \\u043e\\u0442\\u0437\\u044b\\u0432\\u0430", "object": "\\u041f\\u0435\\u043d\\u0437\\u0435\\u043d\\u0441\\u043a\\u0430\\u044f \\u041e\\u0431\\u043b, \\u041f\\u0435\\u043d\\u0437\\u0435\\u043d\\u0441\\u043a\\u0438\\u0439 \\u0420-\\u041d, \\u0421\\u043d\\u0442 \\"\\u041c\\u0438\\u0447\\u0443\\u0440\\u0438\\u043d\\u0435\\u0446\\""}}, {"added": {"name": "\\u0424\\u043e\\u0442\\u043e \\u0434\\u043e\\u043c\\u0430 \\u0434\\u043b\\u044f \\u043e\\u0442\\u0437\\u044b\\u0432\\u0430", "object": "\\u041f\\u0435\\u043d\\u0437\\u0435\\u043d\\u0441\\u043a\\u0430\\u044f \\u041e\\u0431\\u043b, \\u041f\\u0435\\u043d\\u0437\\u0435\\u043d\\u0441\\u043a\\u0438\\u0439 \\u0420-\\u041d, \\u0421\\u043d\\u0442 \\"\\u041c\\u0438\\u0447\\u0443\\u0440\\u0438\\u043d\\u0435\\u0446\\""}}]	22	1
+287	2017-08-16 09:31:33.812256+00	13	Тамала	1	[{"added": {}}, {"added": {"name": "\\u0424\\u043e\\u0442\\u043e \\u043e\\u0431\\u044a\\u0435\\u043a\\u0442\\u0430", "object": "\\u0422\\u0430\\u043c\\u0430\\u043b\\u0430"}}, {"added": {"name": "\\u0424\\u043e\\u0442\\u043e \\u043e\\u0431\\u044a\\u0435\\u043a\\u0442\\u0430", "object": "\\u0422\\u0430\\u043c\\u0430\\u043b\\u0430"}}, {"added": {"name": "\\u0424\\u043e\\u0442\\u043e \\u043e\\u0431\\u044a\\u0435\\u043a\\u0442\\u0430", "object": "\\u0422\\u0430\\u043c\\u0430\\u043b\\u0430"}}, {"added": {"name": "\\u0424\\u043e\\u0442\\u043e \\u043e\\u0431\\u044a\\u0435\\u043a\\u0442\\u0430", "object": "\\u0422\\u0430\\u043c\\u0430\\u043b\\u0430"}}, {"added": {"name": "\\u0424\\u043e\\u0442\\u043e \\u043e\\u0431\\u044a\\u0435\\u043a\\u0442\\u0430", "object": "\\u0422\\u0430\\u043c\\u0430\\u043b\\u0430"}}]	17	1
 \.
 
 
@@ -1596,7 +1597,7 @@ COPY django_admin_log (id, action_time, object_id, object_repr, action_flag, cha
 -- Name: django_admin_log_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('django_admin_log_id_seq', 286, true);
+SELECT pg_catalog.setval('django_admin_log_id_seq', 287, true);
 
 
 --
@@ -1712,6 +1713,7 @@ elphp7vhidp3vsy8k07x85w003jmdbkf	M2E4MDlhYmJiNmFkMDhmYzVjYjRlYWMxNzJmZDllNTAxMjU
 io6h49ejke3wt326roycipftuzacz90f	ZmNjMmQ4NDFhNmY2YzZiZGY5MzM2N2UzOWJiYmU4NDNkYTY0OGNjZjp7Il9hdXRoX3VzZXJfaGFzaCI6IjQzODdhYzRiNjM2NDE3MjNiMjllMGQ5ZjRiMGRmZDc4OWM0Njc3MzYiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=	2017-07-22 06:13:57.349195+00
 m31f0ebpl53r1lszbvth0zvp5p074i7z	NTA3M2E5NDdiMjY5MDQzMmY2MGE3NzBlMDRkODMyNDU1YWRmMDUwMDp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiZDUxYzM3MzU0M2VlZWIxYmExNTI0NWY1OWIxOGQ2MjYxNzdjNjAwNSIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=	2017-07-22 07:31:26.394385+00
 5vnhjptc0oamza2ur17z48sfowrpvmym	OWM5OTE2ZWJkZmM4NzY4NjBiMDYzMjI1NGVmMGI0ZDZkZWQxMThiODp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6IjEiLCJfYXV0aF91c2VyX2hhc2giOiJkNTFjMzczNTQzZWVlYjFiYTE1MjQ1ZjU5YjE4ZDYyNjE3N2M2MDA1In0=	2017-08-14 06:58:55.896802+00
+2rf3sag2hhylkqsho8hobw2dm3p8qh23	NTA3M2E5NDdiMjY5MDQzMmY2MGE3NzBlMDRkODMyNDU1YWRmMDUwMDp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiZDUxYzM3MzU0M2VlZWIxYmExNTI0NWY1OWIxOGQ2MjYxNzdjNjAwNSIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=	2017-08-30 09:27:12.416788+00
 \.
 
 
@@ -2192,6 +2194,7 @@ COPY dvor_readyobj (id, mnemo, name, slug, description, img, tech_id) FROM stdin
 10	Ботагово	Московская область. Орехово - Зуевский район, деревня Ботагово	botagovo	Дом построен по индивидуальному проекту	readyobj/OurTBota_00.jpg	1
 11	Можайские сады	Московская область, Можайский район, коттеджный поселок Можайские сады	mozhajskie_sady	Дом построен по индивидуальному проекту	readyobj/OurTMoj_00.jpg	1
 12	Тихий берег	Московская область.Раменский район, коттеджный поселок Тихий берег	tihij_bereg	Дом построен по индивидуальному проекту	readyobj/OurTTihb_00.jpg	1
+13	Тамала	Пензенская область, Тамалинский район, пгт Тамала	tamala	Дом находится в стадии строительства. Индивидуальный проект.	readyobj/OurTTam_01.jpg	1
 \.
 
 
@@ -2199,7 +2202,7 @@ COPY dvor_readyobj (id, mnemo, name, slug, description, img, tech_id) FROM stdin
 -- Name: dvor_readyobj_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('dvor_readyobj_id_seq', 12, true);
+SELECT pg_catalog.setval('dvor_readyobj_id_seq', 13, true);
 
 
 --
@@ -2353,6 +2356,11 @@ COPY dvor_readyphoto (id, sort, img, prn_id) FROM stdin;
 144	10	readyobj/OurTTihb_10.jpg	12
 145	11	readyobj/OurTTihb_11.jpg	12
 146	12	readyobj/OurTTihb_12.jpg	12
+147	1	readyobj/OurTTam_02.jpg	13
+148	2	readyobj/OurTTam_03.jpg	13
+149	3	readyobj/OurTTam_04.jpg	13
+150	4	readyobj/OurTTam_05.jpg	13
+151	5	readyobj/OurTTam_06.jpg	13
 \.
 
 
@@ -2360,7 +2368,7 @@ COPY dvor_readyphoto (id, sort, img, prn_id) FROM stdin;
 -- Name: dvor_readyphoto_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('dvor_readyphoto_id_seq', 146, true);
+SELECT pg_catalog.setval('dvor_readyphoto_id_seq', 151, true);
 
 
 --
@@ -2944,6 +2952,516 @@ sorl-thumbnail||thumbnails||00efb36b729bcd988224b8c2394902eb	["b9f0e572046afde87
 sorl-thumbnail||image||5756af2afadcf6072e23b6a5963c1a47	{"name": "content/fundament_06.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
 sorl-thumbnail||image||bb86ddce3f086e2585a8a6e426e856b7	{"name": "cache/66/17/6617485c409633df0d96ebe6cd7ec1d8.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
 sorl-thumbnail||thumbnails||5756af2afadcf6072e23b6a5963c1a47	["bb86ddce3f086e2585a8a6e426e856b7"]
+sorl-thumbnail||image||efb6a56f6328e8d4e17d0dba295e0eab	{"name": "content/ActOlgovo_00.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||b4c176c3d7a33dd9327df548b779399b	{"name": "cache/a5/94/a59488fd9e68f955425d322b36bfb6d1.png", "size": [427, 240], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||efb6a56f6328e8d4e17d0dba295e0eab	["b4c176c3d7a33dd9327df548b779399b"]
+sorl-thumbnail||image||48150431129497405b1b6848d5981c9c	{"name": "content/ActPodush_00.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||24dfcdde2cbc982cf48191f75e97c613	{"name": "cache/47/b7/47b75f81c5be581590d0dcb2ce7165ef.png", "size": [427, 240], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||48150431129497405b1b6848d5981c9c	["24dfcdde2cbc982cf48191f75e97c613"]
+sorl-thumbnail||image||92036bcdf46e0238c2922670c3910b86	{"name": "cache/bb/18/bb18965e45120fdec7064571ec727d0f.png", "size": [427, 320], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||5a363d69539973893240bce7aa409f02	{"name": "cache/f9/55/f95556d1e157210efd1931fc846b47e2.png", "size": [427, 320], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||2ba03140158e849e670314cfb8d91ebe	{"name": "cache/5e/51/5e516ef9da30944bccddda75445eecb4.png", "size": [600, 450], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||957915271f56604a376eac5c95f7046f	{"name": "readyobj/OurTermPah_01.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||c762a68f3c920aedca13516e67948898	{"name": "cache/20/9f/209f7c641bcf79e0955056cb70027231.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||957915271f56604a376eac5c95f7046f	["c762a68f3c920aedca13516e67948898"]
+sorl-thumbnail||image||ed82743d7f87829c5f27e55dfa44fcec	{"name": "readyobj/OurTermPah_02.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||054143ed77a36ae0b4df7bdd208a35c3	{"name": "cache/37/82/3782b407a60eae7fb6fc5a1703e8cafa.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||ed82743d7f87829c5f27e55dfa44fcec	["054143ed77a36ae0b4df7bdd208a35c3"]
+sorl-thumbnail||image||a9bc0645f271cba3df0e07224323a6a1	{"name": "readyobj/OurTermPah_03.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||64faff6bf760d8fdae23989dd41b41fd	{"name": "cache/50/c2/50c2ad4ed91a7354d794373668ec950f.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||a9bc0645f271cba3df0e07224323a6a1	["64faff6bf760d8fdae23989dd41b41fd"]
+sorl-thumbnail||image||27c32634247cc481106b812e5f0e17f3	{"name": "readyobj/OurTermPah_04.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||147fa6fa4a04a1def2cf3eacdb917df4	{"name": "cache/38/2c/382c53de1c693f97023d2d49b4ca46ce.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||27c32634247cc481106b812e5f0e17f3	["147fa6fa4a04a1def2cf3eacdb917df4"]
+sorl-thumbnail||image||1d9053360e72851f526ff3eee4d657a4	{"name": "readyobj/OurTermPah_05.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||daa10ecb67ed9803f4e518c6c71c1ae1	{"name": "cache/f3/32/f33204b5d7f3730da606cd330cedf75b.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||1d9053360e72851f526ff3eee4d657a4	["daa10ecb67ed9803f4e518c6c71c1ae1"]
+sorl-thumbnail||image||ed358f660a80f4ef791ceb720e7945e5	{"name": "readyobj/OurTermPah_06.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||f88d4efba75848acd665425db435b099	{"name": "cache/a7/f1/a7f1dddfc329744bc710a10917382d2e.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||ed358f660a80f4ef791ceb720e7945e5	["f88d4efba75848acd665425db435b099"]
+sorl-thumbnail||image||aa08842473115c9c23f3aa2cace6df40	{"name": "readyobj/OurTermPah_07.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||96b51ac7a8b5a12fb0885e217a04944d	{"name": "cache/11/a9/11a925c3eb42b555f044b4a225460c88.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||aa08842473115c9c23f3aa2cace6df40	["96b51ac7a8b5a12fb0885e217a04944d"]
+sorl-thumbnail||image||17fc166fcbfee6911f4d0d866635fc8f	{"name": "readyobj/OurTermPah_08.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||c0bd94190093a2e9096f26db25f6e9a2	{"name": "cache/eb/54/eb548b33d041e185d1744f48a10127a4.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||17fc166fcbfee6911f4d0d866635fc8f	["c0bd94190093a2e9096f26db25f6e9a2"]
+sorl-thumbnail||image||62c40eb57b8f97d0bcf07d1f3b8dd023	{"name": "readyobj/OurTermPah_09.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||622b795f1141a1da1cee871a70428396	{"name": "cache/15/17/151765e0e5c8961af0a896c959bf07f5.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||62c40eb57b8f97d0bcf07d1f3b8dd023	["622b795f1141a1da1cee871a70428396"]
+sorl-thumbnail||image||06b6aedffd9bfb9a7dd61e907d7463bf	{"name": "readyobj/OurTermPah_10.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||22e3a3bcd0a455f47cf2cf38bba86dff	{"name": "cache/c6/02/c6022d5b544d069a4b4e166caff951e9.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||06b6aedffd9bfb9a7dd61e907d7463bf	["22e3a3bcd0a455f47cf2cf38bba86dff"]
+sorl-thumbnail||image||ace792fb0cc7521192cf081464c55ed1	{"name": "readyobj/OurTermPah_11.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||1a45e427bf51bd5e7f757422bb12da5b	{"name": "cache/cf/db/cfdb695a818348312b7dd773fe9188a6.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||ace792fb0cc7521192cf081464c55ed1	["1a45e427bf51bd5e7f757422bb12da5b"]
+sorl-thumbnail||image||0873e09ccc15a99fd51ad83fdc0b0655	{"name": "readyobj/OurTermPah_12.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||84cd84e3fdf7ce04928e76c9b0601e55	{"name": "cache/0c/f9/0cf900587439a9f7d13b4f8a7ef13b07.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||0873e09ccc15a99fd51ad83fdc0b0655	["84cd84e3fdf7ce04928e76c9b0601e55"]
+sorl-thumbnail||image||c88ca933f2ce1f04a1b6597b50a951c3	{"name": "readyobj/OurTOvch_00.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||d5b8df51448ce19a776b624c3c6a650e	{"name": "cache/cd/13/cd13cfc158d7f2f82750d0ad5ceb6d9b.png", "size": [600, 450], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||c88ca933f2ce1f04a1b6597b50a951c3	["d5b8df51448ce19a776b624c3c6a650e"]
+sorl-thumbnail||image||8aedfa5621259baec121382f62b9ed23	{"name": "readyobj/OurTOvch_01.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||fdfc9cb1f7be324f1b74d1dd67948d26	["2595b956eb15b28b5c1f1027f9f749d8"]
+sorl-thumbnail||image||3875160625171fbd2e12881b065aa15b	{"name": "cache/00/3b/003bf7babf34a87db23f1d22cc5b8b86.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||8aedfa5621259baec121382f62b9ed23	["3875160625171fbd2e12881b065aa15b"]
+sorl-thumbnail||image||18844554ac8eb962e0f56761eb0e9ef7	{"name": "readyobj/OurTOvch_02.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||12da13c8f937d5f39ca304aa9c13d022	{"name": "cache/60/81/6081fe323236b378a95aaf31555cbcc9.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||18844554ac8eb962e0f56761eb0e9ef7	["12da13c8f937d5f39ca304aa9c13d022"]
+sorl-thumbnail||image||1a0b7e33fe6e1a855ceb486d7dd8d6dc	{"name": "readyobj/OurTOvch_03.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||1cbbdca082a4e5f38fa6c7e45413c3bb	{"name": "cache/15/b3/15b3db51e9bb419c382134e99605d1ad.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||1a0b7e33fe6e1a855ceb486d7dd8d6dc	["1cbbdca082a4e5f38fa6c7e45413c3bb"]
+sorl-thumbnail||image||b2578f9e1b1e84fca744bd6e8394e199	{"name": "readyobj/OurTOvch_04.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||9199a9d711ffafd74ef3839605931917	{"name": "cache/42/fd/42fd771f4a3a62c7b68f5bbc2c3b9e10.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||b2578f9e1b1e84fca744bd6e8394e199	["9199a9d711ffafd74ef3839605931917"]
+sorl-thumbnail||image||6e177c1a437453ee78349033d62ddddf	{"name": "readyobj/OurTOvch_05.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||d49e147e9573ec68bc8331c25af4ab6a	{"name": "cache/ea/9c/ea9ce9fe81f70f53defa5f3154a4a6f6.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||6e177c1a437453ee78349033d62ddddf	["d49e147e9573ec68bc8331c25af4ab6a"]
+sorl-thumbnail||image||4dcfd929e9387c4eea841fb42148d7cb	{"name": "readyobj/OurTOvch_06.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||4e18c7ac1fdf45b72fd902000563d19f	{"name": "cache/7c/6c/7c6c474ad28ef8d4ab8c4bc1de528161.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||4dcfd929e9387c4eea841fb42148d7cb	["4e18c7ac1fdf45b72fd902000563d19f"]
+sorl-thumbnail||image||5d4ae1f9b092a537176e8c622dce5017	{"name": "readyobj/OurTOvch_07.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||44b814eeec17e1f7d918968e53a7f71e	{"name": "cache/e8/a8/e8a85d8c1e18b3fd5cf031317bfc95e2.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||5d4ae1f9b092a537176e8c622dce5017	["44b814eeec17e1f7d918968e53a7f71e"]
+sorl-thumbnail||image||fe5d26905d69f9eccd31b45eca81f954	{"name": "readyobj/OurTOvch_08.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||1dcfee68d6eed5bc32cc601b2fa3455f	{"name": "cache/04/54/0454bf6c4800864b7f388546ee333825.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||fe5d26905d69f9eccd31b45eca81f954	["1dcfee68d6eed5bc32cc601b2fa3455f"]
+sorl-thumbnail||image||0859dd9e2b6b8a9b5e44ec21f3945f90	{"name": "readyobj/OurTOvch_09.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||c3888db1dcd1fe0bbf64f8e3f0dad5fc	{"name": "cache/4c/21/4c21bdd6ca3a0770819b939962f99284.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||0859dd9e2b6b8a9b5e44ec21f3945f90	["c3888db1dcd1fe0bbf64f8e3f0dad5fc"]
+sorl-thumbnail||image||7a850d08db61cee28a539a7a25983ee7	{"name": "readyobj/OurTOvch_10.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||8bc7acb36536ad39e40748b53a545118	{"name": "cache/0c/27/0c2747318d1f1282c13d17326cf0168f.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||7a850d08db61cee28a539a7a25983ee7	["8bc7acb36536ad39e40748b53a545118"]
+sorl-thumbnail||image||d4a87d1301c7d5aedf68e221a3934a09	{"name": "readyobj/OurTOvch_11.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||f4d3306b76de011348d4a23a184312e6	{"name": "cache/b8/92/b892c6db56678236e73669422decd568.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||d4a87d1301c7d5aedf68e221a3934a09	["f4d3306b76de011348d4a23a184312e6"]
+sorl-thumbnail||image||137a394243d00dfcb94b5e2f2208d024	{"name": "readyobj/OurTOvch_12.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||a7bf5ff5dad92cb917bb0d5d8ade8614	{"name": "cache/27/c7/27c7f92c58272c539d8f6f6d339b5b91.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||137a394243d00dfcb94b5e2f2208d024	["a7bf5ff5dad92cb917bb0d5d8ade8614"]
+sorl-thumbnail||image||71705046accbef2ebd0d6445b6e0e0f1	{"name": "readyobj/OutTMich_00.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||f4595ac66746f0097ca20ed94bb3fc53	{"name": "cache/5a/e0/5ae09a52a2f04c26aee85be9d737bf90.png", "size": [600, 450], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||71705046accbef2ebd0d6445b6e0e0f1	["f4595ac66746f0097ca20ed94bb3fc53"]
+sorl-thumbnail||image||3114dcac0a40f3f0e2656502f0db9f0e	{"name": "readyobj/OutTMich_01.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||6b7ae4ee22b1e212ca238ff1fbfbdb77	{"name": "cache/10/55/105591b5d1449157aae0237c3867eb28.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||3114dcac0a40f3f0e2656502f0db9f0e	["6b7ae4ee22b1e212ca238ff1fbfbdb77"]
+sorl-thumbnail||image||fdfc9cb1f7be324f1b74d1dd67948d26	{"name": "readyobj/OutTMich_02.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||2595b956eb15b28b5c1f1027f9f749d8	{"name": "cache/7c/74/7c7443a142bd16b8674574c2ea392dfe.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||4e8a7899fc34456cf21cf22fe5afa7c7	{"name": "readyobj/OutTMich_03.jpg", "size": [960, 1280], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||1fdb8f6f3aa47c10b27f0c86f558dc0a	{"name": "cache/c8/fa/c8fa4e345d03ac918e20579e55c12701.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||4e8a7899fc34456cf21cf22fe5afa7c7	["1fdb8f6f3aa47c10b27f0c86f558dc0a"]
+sorl-thumbnail||image||022686f678414737b950d687df4ff4bf	{"name": "readyobj/OutTMich_04.jpg", "size": [1600, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||5193e5165371d4b416df10ba18713559	{"name": "cache/43/9f/439ffab31899de957e62353971501f50.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||022686f678414737b950d687df4ff4bf	["5193e5165371d4b416df10ba18713559"]
+sorl-thumbnail||image||e539128bd4646dd05f39d7cb447b74d7	{"name": "readyobj/OutTMich_05.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||5941b612c4796353ccf0dd7fc24e31e4	{"name": "cache/01/15/0115f21bde0e12da7c4af23dab948335.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||e539128bd4646dd05f39d7cb447b74d7	["5941b612c4796353ccf0dd7fc24e31e4"]
+sorl-thumbnail||image||e6ee2c4fc327e42bf0677fd531ccfea2	{"name": "readyobj/OutTMich_06.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||f88d75fc03231cf265e3161d4488b0b5	{"name": "cache/18/78/18782057623955c61f71db38b2fc6cdf.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||e6ee2c4fc327e42bf0677fd531ccfea2	["f88d75fc03231cf265e3161d4488b0b5"]
+sorl-thumbnail||image||b11291e458bce66788b28cc05be9861f	{"name": "readyobj/OutTMich_07.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||1a82e5b628fac5fd5d1c924a557542b2	{"name": "cache/d1/6d/d16db0aa520ee008b9d57a7844a92a37.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||b11291e458bce66788b28cc05be9861f	["1a82e5b628fac5fd5d1c924a557542b2"]
+sorl-thumbnail||image||25af53e29b9dd030dd003b939a60981b	{"name": "readyobj/OutTMich_08.jpg", "size": [1600, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||5432ab1e559f5fa3f73d1f7f2637a9d8	{"name": "cache/07/2c/072c618a57ff157e0d874da016ca6349.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||25af53e29b9dd030dd003b939a60981b	["5432ab1e559f5fa3f73d1f7f2637a9d8"]
+sorl-thumbnail||image||73ce9262bbe23a189744f25fff2568c1	{"name": "readyobj/OutTMich_09.jpg", "size": [1600, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||d25e1118e90adb6737f59814220139a1	{"name": "cache/0e/84/0e84987b91bcbc5f3133943c85f5732f.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||73ce9262bbe23a189744f25fff2568c1	["d25e1118e90adb6737f59814220139a1"]
+sorl-thumbnail||image||64730aee3d7785f338fe7498122b3b12	{"name": "readyobj/OutTMich_10.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||a53881969395d6824cd789c0b7643b1d	{"name": "cache/79/2e/792e970f80c83bbdc487803ef0aadbb7.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||64730aee3d7785f338fe7498122b3b12	["a53881969395d6824cd789c0b7643b1d"]
+sorl-thumbnail||image||be7f3ba18bb188731675d2a4769b4ebe	{"name": "readyobj/OutTMich_11.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||c5083dd59d509f118385d9ab8f391362	{"name": "cache/cd/82/cd8223b2cf92441857b56908d2eed6aa.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||be7f3ba18bb188731675d2a4769b4ebe	["c5083dd59d509f118385d9ab8f391362"]
+sorl-thumbnail||image||a1acf37edfc7ae403c87b2193e290f42	{"name": "readyobj/OutTMich_12.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||87d763a45ef1ea919dbdfe1a6f598a34	{"name": "cache/c9/a7/c9a7352f107165f951389a87c05161de.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||a1acf37edfc7ae403c87b2193e290f42	["87d763a45ef1ea919dbdfe1a6f598a34"]
+sorl-thumbnail||image||5484b10a3c2d3bd43a5be756762ccc6f	{"name": "readyobj/OutTMich_13.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||9292056c9e17b1a140e990b2fdb97cfb	{"name": "cache/ac/fe/acfebaeca70967a8bd7658a5b5e536f1.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||5484b10a3c2d3bd43a5be756762ccc6f	["9292056c9e17b1a140e990b2fdb97cfb"]
+sorl-thumbnail||image||520d101975d42798627e52ed50be0362	{"name": "readyobj/OutTMich_14.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||6103522c79039669f4d660a43dfb1eef	{"name": "cache/5f/7e/5f7e193ca26f85b29dfbe24005e0c2f3.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||520d101975d42798627e52ed50be0362	["6103522c79039669f4d660a43dfb1eef"]
+sorl-thumbnail||image||41be496a072cfe1aa1cf77f8b8b41455	{"name": "readyobj/OurTSoln_00.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||b768399e5643f175469a194d106c1f0b	{"name": "cache/29/9f/299f82deed5adf76567820848f09ff18.png", "size": [600, 450], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||41be496a072cfe1aa1cf77f8b8b41455	["b768399e5643f175469a194d106c1f0b"]
+sorl-thumbnail||image||490025460e2112a09e421dabab997f65	{"name": "readyobj/OurTSoln_01.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||bdfdd724b07ce6b4f434fe1e3684356d	{"name": "cache/bc/33/bc3358f5304e41d5a4c3ca613a5732b2.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||490025460e2112a09e421dabab997f65	["bdfdd724b07ce6b4f434fe1e3684356d"]
+sorl-thumbnail||image||17b1328c2bc6ac0f1dd4134d4074612e	{"name": "readyobj/OurTSoln_02.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||f24017b10de1f8c11ff5767371f96c8c	{"name": "cache/d5/9e/d59e3e179cefb43af2dd620668f3bbd1.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||17b1328c2bc6ac0f1dd4134d4074612e	["f24017b10de1f8c11ff5767371f96c8c"]
+sorl-thumbnail||image||15e68bfb54df8134d5d48192d7f1e0a0	{"name": "readyobj/OurTSoln_03.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||bf01a459a9a7b00c363a756c83bde8af	{"name": "cache/10/34/1034d37885c3c904c4198d3dc1e2aad1.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||15e68bfb54df8134d5d48192d7f1e0a0	["bf01a459a9a7b00c363a756c83bde8af"]
+sorl-thumbnail||image||4edef0c8972aaa04d043437f9a681e26	{"name": "readyobj/OurTSoln_04.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||cf29720de11899f2b52ef805bead8403	{"name": "cache/7f/e7/7fe70e9a2a511ce8df31c84cd1fc5513.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||4edef0c8972aaa04d043437f9a681e26	["cf29720de11899f2b52ef805bead8403"]
+sorl-thumbnail||image||f2e78cdaf05b5fdfb54ba93bf0328eaa	{"name": "readyobj/OurTSoln_05.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||f9785fe65624efb9bb6a01d84b7bce0b	{"name": "cache/f3/48/f3485122bbe70fd2c0c835edb2f9f35f.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||f2e78cdaf05b5fdfb54ba93bf0328eaa	["f9785fe65624efb9bb6a01d84b7bce0b"]
+sorl-thumbnail||image||b6842530a38ae967ebe77e0e2368ca1a	{"name": "readyobj/OurTSoln_06.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||a04b133e369fbffcc46587a89f3087b0	{"name": "cache/22/87/228747e11116801015308905bbb83e20.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||b6842530a38ae967ebe77e0e2368ca1a	["a04b133e369fbffcc46587a89f3087b0"]
+sorl-thumbnail||image||b115d8346e2d01c6cba669ff8a8fbc63	{"name": "readyobj/OurTSoln_07.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||efdda5e5edf0c7a4f847f346f8a5fe77	{"name": "cache/fa/68/fa682654fcf950a4c9178908542b37fc.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||b115d8346e2d01c6cba669ff8a8fbc63	["efdda5e5edf0c7a4f847f346f8a5fe77"]
+sorl-thumbnail||image||9e5b9161bbfc20dc60ca92626a78beca	{"name": "readyobj/OurTSoln_08.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||9de04e8b21e6320f759f7e3809b63f38	{"name": "cache/e2/8f/e28f213f60c2f57fde74890313766bd7.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||9e5b9161bbfc20dc60ca92626a78beca	["9de04e8b21e6320f759f7e3809b63f38"]
+sorl-thumbnail||image||4ad00694083171ff2c593af236094228	{"name": "readyobj/OurTSoln_09.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||2dd98a50281941210c7e0e67c7c6b17c	{"name": "cache/2d/9e/2d9eec0e5e72a60f87aff350ca6906cf.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||4ad00694083171ff2c593af236094228	["2dd98a50281941210c7e0e67c7c6b17c"]
+sorl-thumbnail||image||1ae989b3d9d32113ff941cc26fa9277b	{"name": "readyobj/OurTSoln_10.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||babdfbeb593613098db45271292e01cb	{"name": "cache/9d/81/9d8169a4092e5a99874e61348ce0f7b5.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||1ae989b3d9d32113ff941cc26fa9277b	["babdfbeb593613098db45271292e01cb"]
+sorl-thumbnail||image||941e26e6817710d9765da6073b1ca081	{"name": "readyobj/OurTSoln_11.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||d3e123d4291c63ea9766a345544d1fd9	{"name": "cache/86/7e/867e739bdc33c7215e38b8ebafbfcb30.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||941e26e6817710d9765da6073b1ca081	["d3e123d4291c63ea9766a345544d1fd9"]
+sorl-thumbnail||image||f7c255ac6e6f9eefcf8d0f6eecacdd42	{"name": "readyobj/OurTSoln_12.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||ff8f06d095bb00104e2ef52178e173f7	{"name": "cache/8a/c9/8ac9337e5f901c629d9886768b4eb07b.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||f7c255ac6e6f9eefcf8d0f6eecacdd42	["ff8f06d095bb00104e2ef52178e173f7"]
+sorl-thumbnail||image||377f5cb0a907c16e923e17c3202eb664	{"name": "readyobj/OutTPavl_00.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||94afb95a43132b732e6c85cf315b1d24	{"name": "cache/2d/e2/2de246fdf771d7b7e07effe2097b4801.png", "size": [600, 450], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||377f5cb0a907c16e923e17c3202eb664	["94afb95a43132b732e6c85cf315b1d24"]
+sorl-thumbnail||image||56fefa12ec863aeb3ad11fcc61459d00	{"name": "readyobj/OutTPavl_01.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||46ca24aaf03b0ca41e95735697293c67	{"name": "cache/0b/69/0b690e357459404e790f9a2aecbd77b4.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||56fefa12ec863aeb3ad11fcc61459d00	["46ca24aaf03b0ca41e95735697293c67"]
+sorl-thumbnail||image||b6d86ac5493251146bb8aff92dc4cafa	{"name": "readyobj/OutTPavl_02.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||efa8526bc187b34ff6f8ce35759a2f1e	{"name": "cache/7e/65/7e6520882015de2c85592026ab7fe784.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||b6d86ac5493251146bb8aff92dc4cafa	["efa8526bc187b34ff6f8ce35759a2f1e"]
+sorl-thumbnail||image||35f5819e8ed873587348b7404765249b	{"name": "readyobj/OutTPavl_03.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||962ebefea3e3e49c69f319487755fd5e	{"name": "cache/30/85/3085a95ed38f65af43a0a3d51487e27d.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||35f5819e8ed873587348b7404765249b	["962ebefea3e3e49c69f319487755fd5e"]
+sorl-thumbnail||image||9ef9cebdf4799bd3709484467be8d792	{"name": "readyobj/OutTPavl_04.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||0445bb4e7ab342195ba8a7d212967c20	{"name": "cache/a2/4e/a24ef522bf38b44c52d38ff06c6e4dc6.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||9ef9cebdf4799bd3709484467be8d792	["0445bb4e7ab342195ba8a7d212967c20"]
+sorl-thumbnail||image||9b8af483fcf7b395c7cce117d1ae14e2	{"name": "readyobj/OutTPavl_05.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||0e166f7a564af0e26cc92c939e1408c8	{"name": "cache/ab/92/ab929359b6560c54144b66d4a41f53a8.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||9b8af483fcf7b395c7cce117d1ae14e2	["0e166f7a564af0e26cc92c939e1408c8"]
+sorl-thumbnail||image||bfb0d5d2561dda620158af89266fa6de	{"name": "readyobj/OutTPavl_06.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||94c2e59c8fedc37c52d47be7785339d9	{"name": "cache/da/0d/da0d31e4bf6063185b32b3f4d7528a06.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||bfb0d5d2561dda620158af89266fa6de	["94c2e59c8fedc37c52d47be7785339d9"]
+sorl-thumbnail||image||829e9aa63c232895c78baa4e5e424da2	{"name": "readyobj/OutTPavl_07.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||1deda6e87b9781c65e37aa220747e7bd	{"name": "cache/fc/29/fc29de8223c1a9b8a99c12a94a292e92.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||829e9aa63c232895c78baa4e5e424da2	["1deda6e87b9781c65e37aa220747e7bd"]
+sorl-thumbnail||image||ab4fc64b4d09b7af18c0ed60ee432ac8	{"name": "readyobj/OutTPavl_08.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||1ef20fa0a4ee92451da2401b16a96202	{"name": "cache/18/a2/18a2ba4602d79f0efc890c59028e4a5c.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||ab4fc64b4d09b7af18c0ed60ee432ac8	["1ef20fa0a4ee92451da2401b16a96202"]
+sorl-thumbnail||image||fa8fac1c394c3fd366660391c11ae873	{"name": "readyobj/OutTPavl_09.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||5d55d7f459fd528f47f289ebd707ac57	{"name": "cache/2d/d6/2dd6d4b3216879b5f0e9f3618b181e19.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||fa8fac1c394c3fd366660391c11ae873	["5d55d7f459fd528f47f289ebd707ac57"]
+sorl-thumbnail||image||0fd34e59f4564014589069507c8179d8	{"name": "readyobj/OutTPavl_10.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||6b4f5af7fd2ab7c37e59b2910692b239	{"name": "cache/94/c9/94c9872f1576738a1c8fc0533f359986.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||0fd34e59f4564014589069507c8179d8	["6b4f5af7fd2ab7c37e59b2910692b239"]
+sorl-thumbnail||image||7f9c1e904c6d2d06fca7a4d2f7b680cc	{"name": "readyobj/OutTPavl_11.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||70f573dc1551115296f339aa83f38ccd	{"name": "cache/db/df/dbdf99acf646b0a312ad74e8541955ef.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||7f9c1e904c6d2d06fca7a4d2f7b680cc	["70f573dc1551115296f339aa83f38ccd"]
+sorl-thumbnail||image||c86437333700d843e2032942827f8533	{"name": "readyobj/OutTPavl_12.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||d5b59d2dce9ab3b64db0814302aa0ceb	{"name": "cache/af/6c/af6c29830c64512d5f5fb4c76ca21112.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||c86437333700d843e2032942827f8533	["d5b59d2dce9ab3b64db0814302aa0ceb"]
+sorl-thumbnail||image||e51cdbfb011056eeda380b938cb0dc9d	{"name": "readyobj/OutTRuch_00.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||5941ae84cfac414e84b52dd9dec9104c	{"name": "cache/32/27/3227a54064cdb0b2bbcb98384723957b.png", "size": [600, 450], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||e51cdbfb011056eeda380b938cb0dc9d	["5941ae84cfac414e84b52dd9dec9104c"]
+sorl-thumbnail||image||10d8fa9b6561cabee80ab2738661e206	{"name": "readyobj/OutTRuch_01.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||842e6d00bb8403d08876216098dd765e	{"name": "cache/ae/e8/aee8377fd29180d6fc74c474242c9b32.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||10d8fa9b6561cabee80ab2738661e206	["842e6d00bb8403d08876216098dd765e"]
+sorl-thumbnail||image||a4bda8f1cb55efc6d1066de1740c564c	{"name": "readyobj/OutTRuch_02.jpg", "size": [900, 1200], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||64f83b6a1a443105bfa5cf82f396100e	{"name": "cache/dc/7c/dc7c994056b872e6cdf22f6babd70010.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||a4bda8f1cb55efc6d1066de1740c564c	["64f83b6a1a443105bfa5cf82f396100e"]
+sorl-thumbnail||image||9293cc6d76e6255fd61812b7ef483d7e	{"name": "readyobj/OutTRuch_03.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||03df0338ed10816d81dd19621d48aad8	{"name": "cache/0f/36/0f361357d510ef7b08d0003a88e43bb5.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||9293cc6d76e6255fd61812b7ef483d7e	["03df0338ed10816d81dd19621d48aad8"]
+sorl-thumbnail||image||c5f746df208ee6f69e10c9e193054565	{"name": "readyobj/OutTRuch_04.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||aff52e0a98523e95e0d426e49666304d	{"name": "cache/3a/4e/3a4e4ab2db0e5dcd65021aa1daed1607.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||c5f746df208ee6f69e10c9e193054565	["aff52e0a98523e95e0d426e49666304d"]
+sorl-thumbnail||thumbnails||3d8d1ff650f8d6ff652a4f981a62b1d2	["11a60e8ccbcb9a0adfd8bc20f3525a9c"]
+sorl-thumbnail||image||83e0d31a50f5042639b96a732810ac06	{"name": "readyobj/OutTRuch_05.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||9e5b73656ddd5223fc224aafc07eca89	{"name": "cache/f9/44/f9444c4cd33f1444c5b33b79f1dd2613.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||83e0d31a50f5042639b96a732810ac06	["9e5b73656ddd5223fc224aafc07eca89"]
+sorl-thumbnail||image||bc0176e2fc93c4f14f16d33e897d521b	{"name": "readyobj/OutTRuch_06.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||9f21b2f722298a72dffbb497400f1b22	{"name": "cache/48/e1/48e1ce94fbe0d3722ba8afe88033d147.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||bc0176e2fc93c4f14f16d33e897d521b	["9f21b2f722298a72dffbb497400f1b22"]
+sorl-thumbnail||image||e4c9eae431bb0454e09adcca33b0ec55	{"name": "readyobj/OutTRuch_07.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||1b43e167b7291a0bf8c8e79a91dd08bf	{"name": "cache/53/81/53810575cecb10d8baf78d1ceec8c48f.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||e4c9eae431bb0454e09adcca33b0ec55	["1b43e167b7291a0bf8c8e79a91dd08bf"]
+sorl-thumbnail||image||fb37434b5efb1f0d6da2d2d5decaaf99	{"name": "readyobj/OutTRuch_08.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||866c1575ef57fa58064cb63a0b7dd66d	{"name": "cache/6a/8f/6a8fc3d56dac83ec0b4fd38f4579f476.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||fb37434b5efb1f0d6da2d2d5decaaf99	["866c1575ef57fa58064cb63a0b7dd66d"]
+sorl-thumbnail||image||1cee3fb812218b03dbba48f41d63b4ae	{"name": "readyobj/OutTRuch_09.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||15591075585b51d7365fb210d2d90d3b	{"name": "cache/5a/8f/5a8fdc0f202939620576dda1cc5e5cde.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||1cee3fb812218b03dbba48f41d63b4ae	["15591075585b51d7365fb210d2d90d3b"]
+sorl-thumbnail||image||242b5d78d4e6785d0a015364c89c77ce	{"name": "readyobj/OutTRuch_10.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||0962113d1f695a46b3001203ed4bb0c6	{"name": "cache/f2/84/f2844705320bcaca912da4e210e02243.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||242b5d78d4e6785d0a015364c89c77ce	["0962113d1f695a46b3001203ed4bb0c6"]
+sorl-thumbnail||image||6a0bded1e8bfe17f6349803b8aa6c7c8	{"name": "readyobj/OutTRuch_11.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||9286fe9ce48345e922a667a9201405ff	{"name": "cache/75/3e/753ef40f137ec02a7be76c9327dcae08.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||6a0bded1e8bfe17f6349803b8aa6c7c8	["9286fe9ce48345e922a667a9201405ff"]
+sorl-thumbnail||image||37cf17beccb9585579932a7d795e6653	{"name": "readyobj/OutTRuch_12.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||d5f786f896eb6b4fcb2bd4e6636d49e5	{"name": "cache/31/cb/31cb2f8a137deb2779ca92e6ede8bc1f.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||37cf17beccb9585579932a7d795e6653	["d5f786f896eb6b4fcb2bd4e6636d49e5"]
+sorl-thumbnail||image||d5b0fa0621fd1c551b4bc74278111ba9	{"name": "cache/9d/39/9d39895c1c78ed5e5ec92a51cec1f10d.png", "size": [600, 450], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||0adb20b4c2301cc71c860e035a702993	{"name": "readyobj/OutTRyj_01.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||efed10fa70dfb5ad991634fe40019a09	{"name": "cache/01/dc/01dc891368dfe915969fa81b539404d0.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||0adb20b4c2301cc71c860e035a702993	["efed10fa70dfb5ad991634fe40019a09"]
+sorl-thumbnail||image||4e01510e3145d68c4d32899b9e6f4688	{"name": "readyobj/OutTRyj_02.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||c70089ef2685dcd2d7bac908c0bd1e27	{"name": "cache/e4/8c/e48c84e17204a1186b042a81aeafcd32.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||4e01510e3145d68c4d32899b9e6f4688	["c70089ef2685dcd2d7bac908c0bd1e27"]
+sorl-thumbnail||image||2f9a48b4c213a21355d0b8f58079e033	{"name": "readyobj/OutTRyj_03.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||4389f4e6b27651877bb1c93c83d375ed	{"name": "cache/97/3b/973bdafe02d4a3e1a01739953dc43b30.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||2f9a48b4c213a21355d0b8f58079e033	["4389f4e6b27651877bb1c93c83d375ed"]
+sorl-thumbnail||image||3fc24dd9b474e04c6a09911bde91cbdf	{"name": "readyobj/OutTRyj_04.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||432499c0ae2bd656f035b343f91eed48	{"name": "cache/a2/e7/a2e743340c8b2e0eb9e2b4b400e31a25.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||3fc24dd9b474e04c6a09911bde91cbdf	["432499c0ae2bd656f035b343f91eed48"]
+sorl-thumbnail||image||25b8ecb2f0d6e8f06a78293cc28894e1	{"name": "readyobj/OutTRyj_05.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||a5a675087f0880105225cd3b5a1eb211	{"name": "cache/96/a0/96a0ba9cb2ddbaa7ca733c3827116226.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||25b8ecb2f0d6e8f06a78293cc28894e1	["a5a675087f0880105225cd3b5a1eb211"]
+sorl-thumbnail||image||647579682de9b50e714c1ea8568df243	{"name": "readyobj/OutTRyj_06.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||a120421d3a44793a8782c1c67ece86a7	{"name": "cache/e7/fe/e7fea2da25c0dbc74e649380e17aa50f.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||647579682de9b50e714c1ea8568df243	["a120421d3a44793a8782c1c67ece86a7"]
+sorl-thumbnail||image||5714c60a4807754d170cad4d54040c9b	{"name": "readyobj/OutTRyj_07.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||a0633ac2fe775268421db2e2ee3e4c6d	{"name": "cache/19/5a/195a56cad80864a2448361e313602056.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||5714c60a4807754d170cad4d54040c9b	["a0633ac2fe775268421db2e2ee3e4c6d"]
+sorl-thumbnail||image||a4025c4b9115447984b7259642c7b264	{"name": "readyobj/OutTRyj_08.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||2ae746f0b1093d419938a0d3989dbb4d	{"name": "cache/aa/ac/aaac0f9db641ebfd8b7d8988aadc2584.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||a4025c4b9115447984b7259642c7b264	["2ae746f0b1093d419938a0d3989dbb4d"]
+sorl-thumbnail||image||4f736eb2c10aa8665fce73d2d6fffa91	{"name": "readyobj/OutTRyj_09.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||6ad3537d627e89ceb2be4110d9897c2c	{"name": "cache/0b/c2/0bc2a1877c0af9400809ac2f395b7523.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||4f736eb2c10aa8665fce73d2d6fffa91	["6ad3537d627e89ceb2be4110d9897c2c"]
+sorl-thumbnail||image||3991a4417f88dce777286b7ed9305fc5	{"name": "readyobj/OutTRyj_10.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||7bd04c83b0cc6215ae65e180797b1d64	{"name": "cache/52/b2/52b234e9429376886e20894cc55ed3ac.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||3991a4417f88dce777286b7ed9305fc5	["7bd04c83b0cc6215ae65e180797b1d64"]
+sorl-thumbnail||image||c98c2331e7351c931d7716e16622aed1	{"name": "readyobj/OutTRyj_11.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||15a4e77150475e91887a7c67e55a1838	{"name": "cache/87/e2/87e24f4e306689a4ad8fd2f3fc05a861.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||c98c2331e7351c931d7716e16622aed1	["15a4e77150475e91887a7c67e55a1838"]
+sorl-thumbnail||image||c536fd094199ffafcd2feb6e53412288	{"name": "readyobj/OutTRyj_12.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||7a5e55ba33136b6627d2c11ff08a05ab	{"name": "cache/9d/76/9d765d9d9bfbb31ceacce88629a9b56a.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||c536fd094199ffafcd2feb6e53412288	["7a5e55ba33136b6627d2c11ff08a05ab"]
+sorl-thumbnail||image||290e782b115b4fe7cf1bde981094c58b	{"name": "readyobj/OurTNog_00.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||bce27132ac661b9b0ab344f25d1dcb78	{"name": "cache/7c/5e/7c5e246280660c1c6866625d6a6e136c.png", "size": [600, 450], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||290e782b115b4fe7cf1bde981094c58b	["bce27132ac661b9b0ab344f25d1dcb78"]
+sorl-thumbnail||image||41ffb86adb12bb1acf0adc23c46f14f4	{"name": "readyobj/OurTNog_01.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||d108db258f7ba4636f00fae5f627054e	{"name": "cache/86/62/8662aed5846ef6333566146bbcc16ed7.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||41ffb86adb12bb1acf0adc23c46f14f4	["d108db258f7ba4636f00fae5f627054e"]
+sorl-thumbnail||image||b23c30fa55f5a5e3b5211c158b8692cf	{"name": "readyobj/OurTNog_02.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||8205d81709cff93c09e94fb757c863aa	{"name": "cache/36/d5/36d517e5c8b4303f4ab97db8e065f08c.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||b23c30fa55f5a5e3b5211c158b8692cf	["8205d81709cff93c09e94fb757c863aa"]
+sorl-thumbnail||image||297ec472b17a8716e0b7198437a997e9	{"name": "readyobj/OurTNog_03.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||dbc138fcdda553b46ea2374261116188	{"name": "cache/bb/c4/bbc40cbb27d68bc1227373ffcc22f2f2.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||297ec472b17a8716e0b7198437a997e9	["dbc138fcdda553b46ea2374261116188"]
+sorl-thumbnail||image||6764f1b78919f836da4a8ab43e43d81e	{"name": "readyobj/OurTNog_04.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||bb88a5ed9955d949921d350d1a6be9f4	{"name": "cache/84/9b/849b8ab6b219b8f0b022711a3e6093f0.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||6764f1b78919f836da4a8ab43e43d81e	["bb88a5ed9955d949921d350d1a6be9f4"]
+sorl-thumbnail||image||9e0721c91ec03ca5a6bbd1f9ad5c2d4e	{"name": "readyobj/OurTNog_05.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||818160e659d26e5f47ac94e93d476e36	{"name": "cache/e6/0b/e60b75ffee228e7efa81a5981b367d8e.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||9e0721c91ec03ca5a6bbd1f9ad5c2d4e	["818160e659d26e5f47ac94e93d476e36"]
+sorl-thumbnail||image||bcb83b8463585f11ce6a403f948c11c7	{"name": "readyobj/OurTNog_06.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||9f3fb4330848ffab9909860456dd65cb	{"name": "cache/52/ee/52ee0f5e20f7c2e4d258b3f562a8bf3b.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||bcb83b8463585f11ce6a403f948c11c7	["9f3fb4330848ffab9909860456dd65cb"]
+sorl-thumbnail||image||a6e957ee492ebd9f6e99e818a36a7b75	{"name": "readyobj/OurTNog_07.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||cbb77b305ffc01ac221c82e6f9f6797c	{"name": "cache/79/5a/795a1c9b4b769219da7293da5f285e0b.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||a6e957ee492ebd9f6e99e818a36a7b75	["cbb77b305ffc01ac221c82e6f9f6797c"]
+sorl-thumbnail||image||b4b1fe4fad1c63b4099df79b243d1451	{"name": "readyobj/OurTNog_08.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||d07f500b4b1c8141e3b61fabbed59b98	{"name": "cache/49/38/4938947823e5b52ab728d6d104f76978.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||b4b1fe4fad1c63b4099df79b243d1451	["d07f500b4b1c8141e3b61fabbed59b98"]
+sorl-thumbnail||image||8af6ddbf49ac86666a52119ebf7b4c57	{"name": "readyobj/OurTNog_09.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||7b3ed0f4f3ff5fc97f6c6d96e9cda601	{"name": "cache/32/70/3270fac4e33b3b76179f619bb3339f96.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||8af6ddbf49ac86666a52119ebf7b4c57	["7b3ed0f4f3ff5fc97f6c6d96e9cda601"]
+sorl-thumbnail||image||f4ab26b12e019418556a56f3a366f936	{"name": "readyobj/OurTNog_10.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||a3ca0314ecc774a8f393730e4fc91b21	{"name": "cache/7f/4d/7f4db947e388dbbb20f68d9d23952944.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||f4ab26b12e019418556a56f3a366f936	["a3ca0314ecc774a8f393730e4fc91b21"]
+sorl-thumbnail||image||8e3115d11b0bd104cbc6a0456d636e60	{"name": "readyobj/OurTNog_11.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||283ade25efedb70c6ad3137028b8baf3	{"name": "cache/3a/00/3a00503011a38eddeb980aab67dbeedd.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||8e3115d11b0bd104cbc6a0456d636e60	["283ade25efedb70c6ad3137028b8baf3"]
+sorl-thumbnail||image||d420a5a5906be85a6a082fb901e20a0d	{"name": "readyobj/OurTNog_12.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||fc0d0bdb9a81e9a1c13003997ba5cc62	{"name": "cache/09/e4/09e41557544823b6a6202cea6a065125.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||d420a5a5906be85a6a082fb901e20a0d	["fc0d0bdb9a81e9a1c13003997ba5cc62"]
+sorl-thumbnail||image||40c18d8c68b39de985ff8b793f597255	{"name": "cache/5a/4d/5a4d98821c15c6338a1aef444abc4029.png", "size": [600, 450], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||c4eff9ae01ef92039c63f62a57bc6d04	{"name": "readyobj/OurTGjel_01.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||e6665c108ac8eaef9f323048be4bb43e	{"name": "cache/28/77/287760c0c9fe668137cd24d582f79e03.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||c4eff9ae01ef92039c63f62a57bc6d04	["e6665c108ac8eaef9f323048be4bb43e"]
+sorl-thumbnail||image||f1989f81be9c18ada8b50af00d0f793c	{"name": "readyobj/OurTGjel_02.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||9740edf5ec95f2301eaaac1bd140cddb	{"name": "cache/06/ee/06ee8f3c1affa484b8bc773cf7e6ee14.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||f1989f81be9c18ada8b50af00d0f793c	["9740edf5ec95f2301eaaac1bd140cddb"]
+sorl-thumbnail||image||89d4b0c2b2df65bb644adacceaf28616	{"name": "readyobj/OurTGjel_03.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||3451626bdd4972bc8d4227e26b184946	{"name": "cache/bd/0f/bd0ff29579c0c399c74a6b6e2e397b5d.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||89d4b0c2b2df65bb644adacceaf28616	["3451626bdd4972bc8d4227e26b184946"]
+sorl-thumbnail||image||41046df18977ce35b81c85443696d915	{"name": "readyobj/OurTGjel_04.jpg", "size": [1600, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||4bb80b0d13288236bac5d2b8e1e48576	{"name": "cache/69/f3/69f313f9b2880e9c56fe28e6999d0c43.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||41046df18977ce35b81c85443696d915	["4bb80b0d13288236bac5d2b8e1e48576"]
+sorl-thumbnail||image||324251123b62ccf12a3a8cc094caa756	{"name": "readyobj/OurTGjel_05.jpg", "size": [1600, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||47523b83407b5e5257e960d0ab8ae87c	{"name": "cache/d4/2a/d42a2d711d3fa46c0d1024504df38eef.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||324251123b62ccf12a3a8cc094caa756	["47523b83407b5e5257e960d0ab8ae87c"]
+sorl-thumbnail||image||abad7934a1356f61dd29dc0435b3ce29	{"name": "readyobj/OurTGjel_06.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||2e291dec1beeaeb4a2d46cd9fda8a974	{"name": "cache/a1/79/a1798fcc5fb70a06851f5e6732442fbd.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||abad7934a1356f61dd29dc0435b3ce29	["2e291dec1beeaeb4a2d46cd9fda8a974"]
+sorl-thumbnail||image||1997bd3c1f0d95c2bad7bcd1e5478b43	{"name": "readyobj/OurTGjel_07.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||1835dc2ba9f2a187d5e98d3cec0f0908	{"name": "cache/36/3c/363c757795bd19521ef355b4a1afaad3.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||1997bd3c1f0d95c2bad7bcd1e5478b43	["1835dc2ba9f2a187d5e98d3cec0f0908"]
+sorl-thumbnail||image||81759137cf2d10fa3a0b84fb196d272e	{"name": "readyobj/OurTGjel_08.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||1dcd59cc3341637007396674b8f0cd7d	{"name": "cache/07/8d/078d8f0593e1b814cc3dc2ad1d3aa005.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||81759137cf2d10fa3a0b84fb196d272e	["1dcd59cc3341637007396674b8f0cd7d"]
+sorl-thumbnail||image||b101c81c139147c71c28b77134e914d2	{"name": "readyobj/OurTGjel_09.jpg", "size": [1600, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||c43680a737c16dbcee018a5ede1782b1	{"name": "cache/ee/17/ee17af7b442d9e4e3700246b6c6304a7.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||b101c81c139147c71c28b77134e914d2	["c43680a737c16dbcee018a5ede1782b1"]
+sorl-thumbnail||image||7f79169732af9ae66a30fde48e5da546	{"name": "readyobj/OurTGjel_10.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||2b542f460dc02da0bd23a180a6cde917	{"name": "cache/e9/6f/e96f9cfb482e0ab4cca758a351eccb87.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||7f79169732af9ae66a30fde48e5da546	["2b542f460dc02da0bd23a180a6cde917"]
+sorl-thumbnail||image||3082cdb80399d01937dbd485772bfefe	{"name": "readyobj/OurTGjel_11.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||ec9c0941879ddc0468e6657e56600676	{"name": "cache/13/2a/132ab9181d06ab6d2192ac3cd02055e2.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||3082cdb80399d01937dbd485772bfefe	["ec9c0941879ddc0468e6657e56600676"]
+sorl-thumbnail||image||f06994c9ca7a6afd4b3eee4413772225	{"name": "readyobj/OurTGjel_12.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||8030cbf73f2d7eeab0311ff624a0ab58	{"name": "cache/6b/e9/6be97a8b3a5770dfd9e3acdf50cdf78a.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||f06994c9ca7a6afd4b3eee4413772225	["8030cbf73f2d7eeab0311ff624a0ab58"]
+sorl-thumbnail||image||5c0df8885269aeb0698dbdd7519b73b0	{"name": "readyobj/OurTBota_00.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||ccf0bfe9ac682fb50a677be6d8a4d634	{"name": "cache/ec/0a/ec0a15c67d20f26d1fc683a40b69c9f6.png", "size": [600, 450], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||5c0df8885269aeb0698dbdd7519b73b0	["ccf0bfe9ac682fb50a677be6d8a4d634"]
+sorl-thumbnail||image||02dd2693defecd9ff3e59349be4a766d	{"name": "readyobj/OurTBota_01.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||5617654faf5d01429b0ae55daab62d38	{"name": "cache/40/43/404321acac7f7b1f9c5ca9d31c1fa8d7.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||02dd2693defecd9ff3e59349be4a766d	["5617654faf5d01429b0ae55daab62d38"]
+sorl-thumbnail||image||9c72323e0b62112b3aae5734511fc598	{"name": "readyobj/OurTBota_02.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||da8881b464d0e4967d03175c9ca518fb	{"name": "cache/e0/e5/e0e53a29c8214265929427d875037b0b.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||9c72323e0b62112b3aae5734511fc598	["da8881b464d0e4967d03175c9ca518fb"]
+sorl-thumbnail||image||1a0316430b4918d5c75197b166bd9bb7	{"name": "readyobj/OurTBota_03.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||32a9f7b5f73f951b1e10aac58eb6fd3b	{"name": "cache/13/6a/136a5c8959b272c77b8e05521c15c3cf.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||1a0316430b4918d5c75197b166bd9bb7	["32a9f7b5f73f951b1e10aac58eb6fd3b"]
+sorl-thumbnail||image||76f336b2360bee5308ea8ff74322b345	{"name": "readyobj/OurTBota_04.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||272b815c132b56c478421063866df4c0	{"name": "cache/c0/05/c005a4cab449d5be725971fdbcb159f4.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||76f336b2360bee5308ea8ff74322b345	["272b815c132b56c478421063866df4c0"]
+sorl-thumbnail||image||ee94aa707eab78d4b2a575fbb557a225	{"name": "readyobj/OurTBota_05.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||6f444e418151ee614d9b6bdcc7946fb0	{"name": "cache/df/ef/dfefd0430ceb53ec6f22e8f1f445245c.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||ee94aa707eab78d4b2a575fbb557a225	["6f444e418151ee614d9b6bdcc7946fb0"]
+sorl-thumbnail||image||d437ba6ea4b5d1399e62ec172de5e319	{"name": "readyobj/OurTBota_06.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||a19e333e525ec5f388384732dbef557f	{"name": "cache/b4/96/b49692b3010984cd59e64f7e4d0da097.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||d437ba6ea4b5d1399e62ec172de5e319	["a19e333e525ec5f388384732dbef557f"]
+sorl-thumbnail||image||d041063873803a541115c46266733f98	{"name": "readyobj/OurTBota_07.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||50578778387ed13f016629ad488e28d6	{"name": "cache/6c/bf/6cbf3fc3cbfc4ffb15e01fe6279d9ca9.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||d041063873803a541115c46266733f98	["50578778387ed13f016629ad488e28d6"]
+sorl-thumbnail||image||dcc9bacaeb801d713d64b45da19eeb13	{"name": "readyobj/OurTBota_08.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||67bdbfe031cb0c2c8fcff38c09c9f401	{"name": "cache/6f/65/6f65b1038c4d8d3b318f0b8ade296179.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||dcc9bacaeb801d713d64b45da19eeb13	["67bdbfe031cb0c2c8fcff38c09c9f401"]
+sorl-thumbnail||image||53e797dbf81e5e9df1b7c7bc092b5c00	{"name": "readyobj/OurTBota_09.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||4d34aa44df94feced68194f208b0d581	{"name": "cache/07/9c/079c0d6deee695c8e4f190da804d967d.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||53e797dbf81e5e9df1b7c7bc092b5c00	["4d34aa44df94feced68194f208b0d581"]
+sorl-thumbnail||image||2f9e4377738b261f49926c6458877104	{"name": "readyobj/OurTBota_10.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||e3bd2aafca2dacc339df8b24d8fff771	{"name": "cache/3e/90/3e90992ac59918c3d232075d851b5b38.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||2f9e4377738b261f49926c6458877104	["e3bd2aafca2dacc339df8b24d8fff771"]
+sorl-thumbnail||image||3d8d1ff650f8d6ff652a4f981a62b1d2	{"name": "readyobj/OurTBota_11.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||11a60e8ccbcb9a0adfd8bc20f3525a9c	{"name": "cache/60/46/604687de6caaee6e95543d3be8dd89fa.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||805463db70d3869235892184fe32f951	{"name": "readyobj/OurTBota_12.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||f773183074ffcc3687bb8bd4f8fbb8c5	{"name": "cache/d6/f9/d6f9e5e16438f756de5b626a4e061984.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||805463db70d3869235892184fe32f951	["f773183074ffcc3687bb8bd4f8fbb8c5"]
+sorl-thumbnail||image||c3bbc8db5c552fede438718e7d28c31a	{"name": "readyobj/OurTMoj_00.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||46b0dc8f48b7054490364ecb3b45c46a	{"name": "cache/e2/ff/e2ff66fb871e3065eb004cfdd33df9d7.png", "size": [600, 450], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||c3bbc8db5c552fede438718e7d28c31a	["46b0dc8f48b7054490364ecb3b45c46a"]
+sorl-thumbnail||image||84ad5dbe25117cb99a429de2ae3b2a6b	{"name": "readyobj/OurTMoj_01.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||853a5c7f52c4ce244796794f24478204	{"name": "cache/2c/16/2c16cf7a9b25063ee95d667e5e4cfebb.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||84ad5dbe25117cb99a429de2ae3b2a6b	["853a5c7f52c4ce244796794f24478204"]
+sorl-thumbnail||image||55f97abf5317118abfbee0b9cdf2a47e	{"name": "readyobj/OurTMoj_02.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||c983dfa6e4fccbfbc680e7fdb036ed85	{"name": "cache/ab/b5/abb5402092e697a18be57df5861093f8.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||55f97abf5317118abfbee0b9cdf2a47e	["c983dfa6e4fccbfbc680e7fdb036ed85"]
+sorl-thumbnail||image||32343bfd5af3b1643c9e99f9badf2889	{"name": "readyobj/OurTMoj_03.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||613b351a5c5965cba0465d6becd64774	{"name": "cache/bc/12/bc121f38e358452773962f0d7dbf0cb5.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||32343bfd5af3b1643c9e99f9badf2889	["613b351a5c5965cba0465d6becd64774"]
+sorl-thumbnail||image||2179319af01a2a7f8badd544dacd3d36	{"name": "readyobj/OurTMoj_04.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||1f6e829618af2cefafb5e5c5ab393d2e	{"name": "cache/d2/f7/d2f79a4c1da674e377cfe2e0a00aac38.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||2179319af01a2a7f8badd544dacd3d36	["1f6e829618af2cefafb5e5c5ab393d2e"]
+sorl-thumbnail||image||d5e7ff7e7aeb1af7262a1aee084fe2c7	{"name": "readyobj/OurTMoj_05.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||d4ebc9611602b67720a4d93e6b6767f2	{"name": "cache/06/4e/064e7b715b7338d63dabd883821a4b17.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||d5e7ff7e7aeb1af7262a1aee084fe2c7	["d4ebc9611602b67720a4d93e6b6767f2"]
+sorl-thumbnail||image||e18aa104ccb665f64596bf309e0ada55	{"name": "readyobj/OurTMoj_06.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||c895fffb56dca4cb41f2c040293e0199	{"name": "cache/c0/87/c08708010b256970371f5c63b6b014ba.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||e18aa104ccb665f64596bf309e0ada55	["c895fffb56dca4cb41f2c040293e0199"]
+sorl-thumbnail||image||1cab1779becb3cf7f383cd70abacce9a	{"name": "readyobj/OurTMoj_07.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||be6d3224d9d62ed62f3f1afc56b3aa70	{"name": "cache/66/54/6654788abbdbeecb9855e9c58e5bbd5c.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||1cab1779becb3cf7f383cd70abacce9a	["be6d3224d9d62ed62f3f1afc56b3aa70"]
+sorl-thumbnail||image||b34858fb81e87983e84ee9b1054f53e0	{"name": "readyobj/OurTMoj_08.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||3dcdc4ace9747c8686ddb81eb93b4aba	{"name": "cache/91/c3/91c3c5cf15078acc619351c1dfb18abb.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||b34858fb81e87983e84ee9b1054f53e0	["3dcdc4ace9747c8686ddb81eb93b4aba"]
+sorl-thumbnail||image||9ddac9d2c0e66a5f7c3c934104a19164	{"name": "readyobj/OurTMoj_09.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||bc2e146d5597c7c1043c85d97b25048d	{"name": "cache/21/e1/21e1d7d1e3b7da41796a5f942e4e9042.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||9ddac9d2c0e66a5f7c3c934104a19164	["bc2e146d5597c7c1043c85d97b25048d"]
+sorl-thumbnail||image||61b25e80f935bfcc8fa4c6f7d44b941c	{"name": "readyobj/OurTMoj_10.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||0fc360f35009bf4d35b696f918c5ab42	{"name": "cache/ea/9b/ea9b375a8bbac64ca8266edfde0bbebe.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||61b25e80f935bfcc8fa4c6f7d44b941c	["0fc360f35009bf4d35b696f918c5ab42"]
+sorl-thumbnail||image||967682fcdc126da64fd85cf434e20fa2	{"name": "readyobj/OurTMoj_11.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||81184405a038b53c02a8eb52cf628c7a	{"name": "cache/96/0d/960d3f7d57c019a1863bb329d5ba3ef4.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||967682fcdc126da64fd85cf434e20fa2	["81184405a038b53c02a8eb52cf628c7a"]
+sorl-thumbnail||image||3c17de699906c49c396e73684070d6b3	{"name": "readyobj/OurTMoj_12.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||9e5b571db0e08ec2eec056d2d692a4b9	{"name": "cache/a5/a0/a5a07cc8e1d782a962919e06c51fc452.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||3c17de699906c49c396e73684070d6b3	["9e5b571db0e08ec2eec056d2d692a4b9"]
+sorl-thumbnail||image||f58cac8ca3f849ad0a393f1365cbf5c0	{"name": "readyobj/OurTTihb_00.jpg", "size": [1200, 1200], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||46a6e064eaa494b906cd4bb5a830bf7f	{"name": "cache/f9/2d/f92db37b4e60532b079a4ea34d851196.png", "size": [600, 450], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||f58cac8ca3f849ad0a393f1365cbf5c0	["46a6e064eaa494b906cd4bb5a830bf7f"]
+sorl-thumbnail||image||c72640810e4a2871af2251476c299570	{"name": "readyobj/OurTTihb_01.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||e2da670e8b77e921c4e492df06e7d8de	{"name": "cache/aa/b9/aab94a6101b5e2f455242b152dc76e04.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||c72640810e4a2871af2251476c299570	["e2da670e8b77e921c4e492df06e7d8de"]
+sorl-thumbnail||image||d1807acbe30f92596a98112a75162c37	{"name": "readyobj/OurTTihb_02.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||180a28678eecbef6263be7eeaa2ec073	{"name": "cache/e7/b9/e7b939864b7bce7f4a669c9a759a840c.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||d1807acbe30f92596a98112a75162c37	["180a28678eecbef6263be7eeaa2ec073"]
+sorl-thumbnail||image||dfcab7ecf0e901f58909e365325250d3	{"name": "readyobj/OurTTihb_03.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||1fec6d5e62a8c5039af4cb07280df3be	{"name": "cache/bd/e7/bde7183fa52a5e4bffdf8b92a32a46a1.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||dfcab7ecf0e901f58909e365325250d3	["1fec6d5e62a8c5039af4cb07280df3be"]
+sorl-thumbnail||image||0cf82fa50851119d3dc130e24b2252a2	{"name": "readyobj/OurTTihb_04.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||0217abc8357df05525c74b7614fac9cb	{"name": "cache/7c/9f/7c9f3f9e6bf1a1346bdc0b4df9ee0a88.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||0cf82fa50851119d3dc130e24b2252a2	["0217abc8357df05525c74b7614fac9cb"]
+sorl-thumbnail||image||1cc395a33938668d79a64147e444364d	{"name": "readyobj/OurTTihb_05.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||df4463c114bc2c168cb215501e09ae9d	{"name": "cache/69/6a/696a0dadd7942f0d2a3d356dc7fcb922.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||1cc395a33938668d79a64147e444364d	["df4463c114bc2c168cb215501e09ae9d"]
+sorl-thumbnail||image||177608b432997ec8738d1410b17bcad6	{"name": "readyobj/OurTTihb_06.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||8c5ac64d82a93f19ca7cc1ae90fe7a95	{"name": "cache/06/3b/063b726c747ffffaf400b4be60adff66.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||177608b432997ec8738d1410b17bcad6	["8c5ac64d82a93f19ca7cc1ae90fe7a95"]
+sorl-thumbnail||image||e8510d752a1bc3b451d45a8ea0c38f8e	{"name": "readyobj/OurTTihb_07.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||316a60c00d35d32c37bd9998c4ddf661	{"name": "cache/1e/c4/1ec444b43b58c8a63b4a1ea454a2cab6.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||e8510d752a1bc3b451d45a8ea0c38f8e	["316a60c00d35d32c37bd9998c4ddf661"]
+sorl-thumbnail||image||3efbe8500944ea5760a0228a97c33f7c	{"name": "readyobj/OurTTihb_08.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||f86b36b4544930a49e27a9670f406bd5	{"name": "cache/e1/c7/e1c71863821f12e68fb2bd620773d837.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||3efbe8500944ea5760a0228a97c33f7c	["f86b36b4544930a49e27a9670f406bd5"]
+sorl-thumbnail||image||2463f03037d244c443a4b3f8bae498a3	{"name": "readyobj/OurTTihb_09.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||311ce420025d2db1f68324bf9cd4bbf7	{"name": "cache/8b/68/8b68259d1af6cdd09e4607620ed13942.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||2463f03037d244c443a4b3f8bae498a3	["311ce420025d2db1f68324bf9cd4bbf7"]
+sorl-thumbnail||image||cf47ad5afc48cc60ae4b1fddcec7100d	{"name": "readyobj/OurTTihb_10.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||c1aed676888779a8d7abc2e18de5d70b	{"name": "cache/17/e8/17e8ba458738f4fe9c58a364dc8fdbcb.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||cf47ad5afc48cc60ae4b1fddcec7100d	["c1aed676888779a8d7abc2e18de5d70b"]
+sorl-thumbnail||image||3c4991259214590fac51a654c8cebe12	{"name": "readyobj/OurTTihb_11.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||a29b99a5223f772fef845a22e3bb0c91	{"name": "cache/e6/fb/e6fbe7447fac5e14cf9e27a7ef2740b4.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||3c4991259214590fac51a654c8cebe12	["a29b99a5223f772fef845a22e3bb0c91"]
+sorl-thumbnail||image||74d78bdc6fcd8932f5ed908de31a15f3	{"name": "readyobj/OurTTihb_12.jpg", "size": [1200, 1200], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||d5d1c09ef173b3b21f3330df59f6dac5	{"name": "cache/7a/db/7adb219311e70e28de0df7366640b343.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||74d78bdc6fcd8932f5ed908de31a15f3	["d5d1c09ef173b3b21f3330df59f6dac5"]
+sorl-thumbnail||image||9be8776132bdce2f82f62d8e6c05e11e	{"name": "readyobj/OurTTam_01.jpg", "size": [474, 312], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||e61e9c283d8759a12e7c4edf076bec43	{"name": "cache/9c/7c/9c7c03bfd16ec5305964644c2ee91465.png", "size": [600, 450], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||9be8776132bdce2f82f62d8e6c05e11e	["e61e9c283d8759a12e7c4edf076bec43"]
+sorl-thumbnail||image||02bebe48406598d4558ec318a968a062	{"name": "readyobj/OurTTam_02.jpg", "size": [477, 312], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||c6bb6edbe42737d534555a52b95c9864	{"name": "cache/60/85/60854192d11540f9b52c6ee87104cbff.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||02bebe48406598d4558ec318a968a062	["c6bb6edbe42737d534555a52b95c9864"]
+sorl-thumbnail||image||1ff03efd8cb5b208890543ef0a581838	{"name": "readyobj/OurTTam_03.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||647f7b9ded50580a10ddfa1e7040fdf6	{"name": "cache/13/de/13de70e4868e58dcd77db0b53d71c0b2.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||1ff03efd8cb5b208890543ef0a581838	["647f7b9ded50580a10ddfa1e7040fdf6"]
+sorl-thumbnail||image||a7185e0e99a2d5546c850b2034739664	{"name": "readyobj/OurTTam_04.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||ad0506f0309a7a23898c7422a59badde	{"name": "cache/78/c2/78c268993235113c3d6309e43282ea2d.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||a7185e0e99a2d5546c850b2034739664	["ad0506f0309a7a23898c7422a59badde"]
+sorl-thumbnail||image||4e90fe3f7568aefc48cec74ea4396fda	{"name": "readyobj/OurTTam_05.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||790542b37f6fb9e8fbb0ce5e62285970	{"name": "cache/33/e0/33e0dc3832a2527717f8615d1942bbed.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||4e90fe3f7568aefc48cec74ea4396fda	["790542b37f6fb9e8fbb0ce5e62285970"]
+sorl-thumbnail||image||5f090e7aef1e5429ae747b3f7b165e2f	{"name": "readyobj/OurTTam_06.jpg", "size": [1200, 900], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||38ea8918444271738f2eb3875e0827bb	{"name": "cache/95/23/9523a546622e35ac64ed9a04845c94b0.png", "size": [300, 225], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||5f090e7aef1e5429ae747b3f7b165e2f	["38ea8918444271738f2eb3875e0827bb"]
+sorl-thumbnail||image||0137741234050202611fa5ed58470036	{"name": "cache/dd/b1/ddb17a3a5ac6f7dc393645ffe37b88c9.png", "size": [508, 286], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||625167d1a42e43a57c05a89f72d3bade	{"name": "projects/Svatovo_f1.jpg", "size": [1920, 1080], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||b721ad39bc4fed5174435d890c733a1f	{"name": "cache/fb/de/fbde2c20f630b6db132ab997b6fa5428.png", "size": [196, 110], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||625167d1a42e43a57c05a89f72d3bade	["b721ad39bc4fed5174435d890c733a1f"]
+sorl-thumbnail||image||14835aa72a7732205afebc318a992b15	{"name": "projects/Svatovo_f2.jpg", "size": [1920, 1080], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||70eea7558265d3e82c876914c84bae98	{"name": "cache/73/18/7318aacc7a34af39cded36a5d2e7784d.png", "size": [196, 110], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||14835aa72a7732205afebc318a992b15	["70eea7558265d3e82c876914c84bae98"]
+sorl-thumbnail||image||22527c034e3fef86c07f61409eb9270b	{"name": "projects/Svatovo_f3.jpg", "size": [1920, 1080], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||69e1da82f37ffb850d559e086bebb499	{"name": "cache/cb/a5/cba5ce307af0ceda45e6b943626169fb.png", "size": [196, 110], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||22527c034e3fef86c07f61409eb9270b	["69e1da82f37ffb850d559e086bebb499"]
+sorl-thumbnail||image||e3a85ad99f43ca9ea91843f94ff2fce6	{"name": "projects/Svatovo_f4.jpg", "size": [1920, 1080], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||d23afd9443e81aa176d301b0e9a51f70	{"name": "cache/30/76/3076950d25c926b3a0de10448bd36117.png", "size": [196, 110], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||e3a85ad99f43ca9ea91843f94ff2fce6	["d23afd9443e81aa176d301b0e9a51f70"]
+sorl-thumbnail||image||e648396c4097421244fcae0c236d58cc	{"name": "projects/Svatovo_p1.jpg", "size": [2400, 2042], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||image||623741ac58a72a80838542f809a7345e	{"name": "cache/be/1d/be1d78e1dcfccc76c67c3c5c6cc67d2e.png", "size": [393, 334], "storage": "django.core.files.storage.FileSystemStorage"}
+sorl-thumbnail||thumbnails||e648396c4097421244fcae0c236d58cc	["623741ac58a72a80838542f809a7345e"]
 \.
 
 

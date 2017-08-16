@@ -117,6 +117,9 @@
       <button type="submit">Поиск</button>
     </form>
 
+    <div class="content-page clearfix">
+      <p style="text-align: center">В стоимость каждого проекта уже включена цена <b>окон, дверей, фундамента</b> и <b>кровли.</b></p>
+    </div>
     <div class="katalog-list clearfix">
       {% for prj in project_list %}
         <div class="col-lg-4 col-md-6 col-xs-12">
@@ -188,10 +191,12 @@
       </div>
     {% else %}
       <div class="content-page clearfix">
-        <p style="text-align: center"><b>По Вашему желанию мы можем увеличить или уменьшить площадь типового проекта, изменить планировку.</b></p>
+        <p style="text-align: center"><b>По Вашему желанию мы можем увеличить или уменьшить площадь типового проекта,
+          изменить планировку.</b></p>
       </div>
       <div class="content-page clearfix">
-        <p style="text-align: center"><b>До 31 августа у нас действует акция : <a href="{% url 'promo' %}">Бетонные сваи ТИСЭ в подарок!</a></b></p>
+        <p style="text-align: center"><b>До 31 августа у нас действует акция : <a href="{% url 'promo' %}">Бетонные сваи
+          ТИСЭ в подарок!</a></b></p>
       </div>
     {% endif %}
 
