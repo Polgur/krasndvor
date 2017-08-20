@@ -72,6 +72,16 @@ class PrjPhoto(models.Model):
     def __str__(self):
         return self.prn.name.title()
 
+class PrjBuilt(models.Model):
+    prn = models.ForeignKey(Project, related_name='builts')
+    img = ImageField(upload_to='projects')
+
+    class Meta:
+        verbose_name = 'Построенный дом'
+        verbose_name_plural = 'Построенные дома'
+
+    def __str__(self):
+        return self.prn.name.title()
 
 class PrjKit(models.Model):
     prn = models.ForeignKey(Project, related_name='kits')
@@ -95,6 +105,7 @@ class Readyobj(models.Model):
     mnemo = models.CharField(max_length=20, unique=True)
     name = models.CharField(max_length=240, unique=True)
     slug = models.SlugField()
+    sort_re = models.PositiveSmallIntegerField()
     description = models.TextField()
     tech = models.ForeignKey(Techno)
     img = ImageField(upload_to='readyobj')

@@ -1,9 +1,12 @@
 from django.contrib import admin
 
-from .models import Techno, Project, PrjPhoto, PrjKit, Readyobj, ReadyPhoto, Reconst, ReconstPhoto, Article, Review, ReviewPhoto, Calculation, PhoneCall
+from .models import Techno, Project, PrjPhoto, PrjBuilt, PrjKit, Readyobj, ReadyPhoto, Reconst, ReconstPhoto, Article, Review, ReviewPhoto, Calculation, PhoneCall
 
 class PrjPhotoInline(admin.StackedInline):
     model = PrjPhoto
+
+class PrjBuiltInline(admin.StackedInline):
+    model = PrjBuilt
 
 class PrjKitInline(admin.StackedInline):
     model = PrjKit
@@ -20,6 +23,7 @@ class ReviewPhotoInline(admin.StackedInline):
 class ProjectAdmin(admin.ModelAdmin):
     inlines = [
         PrjPhotoInline,
+        PrjBuiltInline,
         PrjKitInline,
     ]
 

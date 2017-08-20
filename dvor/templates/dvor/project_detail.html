@@ -35,15 +35,15 @@
     </li>
     {% if techfilter.pk == 2 %}
       <li><a
-          href="{% url 'project_list' %}?tech={{ techfilter.pk }}&search=1&vid=0&pmin=0&pmax=5000000&smin=0&smax=500">Проекты
+              href="{% url 'project_list' %}?tech={{ techfilter.pk }}&search=1&vid=0&pmin=0&pmax=5000000&smin=0&smax=500">Проекты
         из СИП панелей</a></li>
     {% elif techfilter.pk == 3 %}
       <li><a
-          href="{% url 'project_list' %}?tech={{ techfilter.pk }}&search=1&vid=0&pmin=0&pmax=5000000&smin=0&smax=500">Проекты
+              href="{% url 'project_list' %}?tech={{ techfilter.pk }}&search=1&vid=0&pmin=0&pmax=5000000&smin=0&smax=500">Проекты
         по каркасной технологии</a></li>
     {% else %}
       <li><a
-          href="{% url 'project_list' %}?tech={{ techfilter.pk }}&search=1&vid=0&pmin=0&pmax=5000000&smin=0&smax=500">Проекты
+              href="{% url 'project_list' %}?tech={{ techfilter.pk }}&search=1&vid=0&pmin=0&pmax=5000000&smin=0&smax=500">Проекты
         из Термопанелей</a></li>
     {% endif %}
     <li class="active">{{ project.name|title }}</li>
@@ -154,6 +154,23 @@
         </div>
       </div>
     </div><!-- /.tovar-compl -->
+
+    {% if project.builts.all %}
+      <div class="content-page clearfix">
+        <h2>Построенные нами дома по проекту {{ project.name|title }}:</h2>
+        {% for built in project.builts.all %}
+          <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+            <div class="gallery-stage">
+              <a class="gallery" href="{{ built.img.url }}">
+                {% thumbnail built.img "300x225" crop="center" format="PNG" as im %}
+                  <img class="img-responsive content-img" src="{{ im.url }}" alt="">
+                {% endthumbnail %}
+              </a>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
 
     <div class="content-page clearfix">
       <p style="text-align: center"><b>Любую из представленных выше комплектаций мы можем изменить по Вашему

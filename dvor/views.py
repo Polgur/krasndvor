@@ -97,14 +97,6 @@ class OurStages(MenuMixin, TemplateView):
     template_name = 'dvor/our_stages.html'
 
 
-class OurSip(MenuMixin, TemplateView):
-    menu_slug = [
-        "our_obj",
-        "our_sip",
-    ]
-    template_name = 'dvor/our_sip.html'
-
-
 class OurKarkas(MenuMixin, TemplateView):
     menu_slug = [
         "our_obj",
@@ -129,7 +121,7 @@ class ContactsPage(MenuMixin, TemplateView):
 class ProjectList(MenuMixin, ListView):
     model = Project
     techfilter = None
-    paginate_by = 21
+    paginate_by = 24
     menu_slug = [
         "projects",
     ]
@@ -193,7 +185,7 @@ class ProjectDetail(DetailView):
         else:
             self.tech = Techno.objects.filter(mnemo='Термопанели').first()
         project = self.get_object()
-        ctx['size_na'] = project.size.replace('x','на')
+        ctx['size_na'] = project.size.replace('x', 'на')
         ctx['kit'] = self.object.kits.filter(tech=self.tech).first()
         ctx['compkit'] = self.object.kits.exclude(tech=self.tech).order_by('tech')
         ctx['techfilter'] = self.tech
@@ -201,13 +193,23 @@ class ProjectDetail(DetailView):
 
 
 class ReadyobjTermo(MenuMixin, ListView):
-    queryset = Readyobj.objects.filter(tech=1).order_by('photos__sort', 'photos__prn')
+    queryset = Readyobj.objects.filter(tech=1).order_by('photos__sort', '-sort_re', 'photos__prn')
     paginate_by = 3
     menu_slug = [
         "our_obj",
         "our_termo",
     ]
     template_name = 'dvor/our_termo.html'
+
+
+class ReadyobjSip(MenuMixin, ListView):
+    queryset = Readyobj.objects.filter(tech=2).order_by('photos__sort', '-sort_re', 'photos__prn')
+    paginate_by = 3
+    menu_slug = [
+        "our_obj",
+        "our_sip",
+    ]
+    template_name = 'dvor/our_sip.html'
 
 
 class ReconstList(MenuMixin, ListView):
@@ -248,6 +250,7 @@ class Promo(MenuMixin, TemplateView):
         ctx['projects_kars'] = Project.objects.filter(name__in=['Киреево', 'Дарьино', 'Мелихово']).order_by('square')
         return ctx
 
+
 class PromoDom(MenuMixin, DetailView):
     menu_slug = [
         "info",
@@ -266,7 +269,7 @@ class PromoDom(MenuMixin, DetailView):
         ctx = super().get_context_data(**kwargs)
         self.tech = Techno.objects.filter(mnemo='Термопанели').first()
         project = self.get_object()
-        ctx['size_na'] = project.size.replace('x','на')
+        ctx['size_na'] = project.size.replace('x', 'на')
         ctx['kit'] = self.object.kits.filter(tech=self.tech).first()
         ctx['compkit'] = self.object.kits.exclude(tech=self.tech).order_by('tech')
         ctx['projects_term'] = Project.objects.filter(name__in=['Петровское', 'Дубровицы', 'Никольское']).order_by(
@@ -274,6 +277,7 @@ class PromoDom(MenuMixin, DetailView):
         ctx['projects_sip'] = Project.objects.filter(name__in=['Подушкино', 'Марфино', 'Аполье']).order_by('square')
         ctx['projects_kars'] = Project.objects.filter(name__in=['Киреево', 'Дарьино', 'Мелихово']).order_by('square')
         return ctx
+
 
 class PromoDom2(MenuMixin, DetailView):
     menu_slug = [
@@ -293,7 +297,7 @@ class PromoDom2(MenuMixin, DetailView):
         ctx = super().get_context_data(**kwargs)
         self.tech = Techno.objects.filter(mnemo='Термопанели').first()
         project = self.get_object()
-        ctx['size_na'] = project.size.replace('x','на')
+        ctx['size_na'] = project.size.replace('x', 'на')
         ctx['kit'] = self.object.kits.filter(tech=self.tech).first()
         ctx['compkit'] = self.object.kits.exclude(tech=self.tech).order_by('tech')
         ctx['projects_term'] = Project.objects.filter(name__in=['Петровское', 'Дубровицы', 'Никольское']).order_by(
@@ -321,7 +325,7 @@ class ArticleDetail(MenuMixin, DetailView):
 
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
-        tech_rand = randint(1,3)
+        tech_rand = randint(1, 3)
         ctx['projects'] = Project.objects.filter(techs=tech_rand).order_by('?')[:3]
         ctx['tech_rand'] = tech_rand
         return ctx
@@ -431,7 +435,7 @@ class ReconCalcView(CreateView):
         message += "\n\n Пожелания: \n{}".format(form.cleaned_data.get('note'))
         send_mail(
             subject='Заявка на расчет реконструкции ({} {})'.format(form.cleaned_data.get('fio'),
-                                                                 form.cleaned_data.get('phone')),
+                                                                    form.cleaned_data.get('phone')),
             message=message,
             from_email='kras-dvor@mail.ru',
             recipient_list=['kras-dvor@mail.ru'],
@@ -479,6 +483,7 @@ class FundCalcView(CreateView):
         ctx['articles'] = Article.objects.filter(slug__in=['vodyanoe-otoplenie', 'teplyi-pol'])
         return ctx
 
+
 class RemontCalcView(CreateView):
     form_class = ReconCalc
     model = Calculation
@@ -496,7 +501,7 @@ class RemontCalcView(CreateView):
         message += "\n\n Пожелания: \n{}".format(form.cleaned_data.get('note'))
         send_mail(
             subject='Заявка на расчет ремонта ({} {})'.format(form.cleaned_data.get('fio'),
-                                                                 form.cleaned_data.get('phone')),
+                                                              form.cleaned_data.get('phone')),
             message=message,
             from_email='kras-dvor@mail.ru',
             recipient_list=['kras-dvor@mail.ru'],
@@ -510,6 +515,7 @@ class RemontCalcView(CreateView):
         ctx = super().get_context_data(**kwargs)
         ctx['articles'] = Article.objects.filter(slug__in=['vodyanoe-otoplenie', 'teplyi-pol'])
         return ctx
+
 
 class PhoneCallView(CreateView):
     form_class = PhoneForm
