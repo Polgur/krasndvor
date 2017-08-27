@@ -160,17 +160,24 @@
       Планировка
     </div>
     <div class="plan clearfix">
-      {% for ph in project.photos.all %}
-        {% if ph.type > 1 %}
-          <div class="col-md-6 col-xs-12">
-            <a class="gallery" href="{{ ph.img.url }}">
-              {% thumbnail ph.img "393" crop="center" format="PNG" as im %}
-                <img class="img-responsive" src="{{ im.url }}" alt="">
-              {% endthumbnail %}
-            </a>
-          </div>
-        {% endif %}
-      {% endfor %}
+      <div class="col-md-6 col-xs-12">
+        <a class="gallery" href="{% static "content/Olgovo_sp1.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/Olgovo_sp1.jpg" %}
+            {% thumbnail url_path "393" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+      <div class="col-md-6 col-xs-12">
+        <a class="gallery" href="{% static "content/Olgovo_sp2.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/Olgovo_sp2.jpg" %}
+            {% thumbnail url_path "393" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
     </div>
 
     <div class="tovar-compl">
@@ -206,7 +213,7 @@
             </p>
 
             <p><span class="icon"><img src="/static/img/icon_window.png"/></span> <span class="name">Окна</span> <span
-                class="info">ПВХ «Штерн» 58-коробка.  Однокамерный  стеклопакет, поворотно-откидные. Фурнитура- Roto.</span>
+                    class="info">ПВХ «Штерн» 58-коробка.  Однокамерный  стеклопакет, поворотно-откидные. Фурнитура- Roto.</span>
             </p>
 
             <p><span class="icon"><img src="/static/img/icon_door.png"/></span> <span class="name">Дверь входная</span>
@@ -217,7 +224,7 @@
               <span class="info">Входит в стоимость</span></p>
 
             <p><span class="name">Монтаж, проект, бытовка для строителей</span> <span
-                class="info">Входит в стоимость</span></p>
+                    class="info">Входит в стоимость</span></p>
           </div>
           <div class="price-and-button clearfix">
             <div class="text">
@@ -245,7 +252,7 @@
             </p>
 
             <p><span class="icon"><img src="/static/img/icon_sip.png"/></span> <span
-                class="name">Наружные стены 1 этажа</span>
+                    class="name">Наружные стены 1 этажа</span>
               <span class="info">СИП панели 168 мм, высотой 2.5 м. Состав панели: OSB  9 мм  + ПСБ 25Ф 150 мм +OSB 9 мм. В замке: брус 100 х 150 мм. (еств. влажности.)</span>
             </p>
 
@@ -253,7 +260,7 @@
             </p>
 
             <p><span class="icon"><img src="/static/img/icon_sip.png"/></span> <span
-                class="name">Наружные стены 2 этажа</span>
+                    class="name">Наружные стены 2 этажа</span>
               <span class="info">СИП панели 168 мм, высотой 2.5 м. Состав панели: OSB 9 мм +ПСБ 25Ф 150 мм + OSB 9 мм. В замке: брус 100 х 150 мм. (еств. влажности)</span>
             </p>
 
@@ -264,7 +271,7 @@
             </p>
 
             <p><span class="icon"><img src="/static/img/icon_window.png"/></span> <span class="name">Окна</span> <span
-                class="info">ПВХ «Штерн» 58-коробка.  Однокамерный  стеклопакет, поворотно-откидные. Фурнитура- Roto.</span>
+                    class="info">ПВХ «Штерн» 58-коробка.  Однокамерный  стеклопакет, поворотно-откидные. Фурнитура- Roto.</span>
             </p>
 
             <p><span class="icon"><img src="/static/img/icon_door.png"/></span> <span class="name">Дверь входная</span>
@@ -275,7 +282,7 @@
               <span class="info">Входит в стоимость</span></p>
 
             <p><span class="name">Монтаж, проект, бытовка для строителей</span> <span
-                class="info">Входит в стоимость</span></p>
+                    class="info">Входит в стоимость</span></p>
           </div>
           <div class="price-and-button clearfix">
             <div class="text">
@@ -320,7 +327,7 @@
             </p>
 
             <p><span class="icon"><img src="/static/img/icon_window.png"/></span> <span class="name">Окна</span> <span
-                class="info">ПВХ «Штерн» 58-коробка.  Однокамерный  стеклопакет, поворотно-откидные. Фурнитура- Roto.</span>
+                    class="info">ПВХ «Штерн» 58-коробка.  Однокамерный  стеклопакет, поворотно-откидные. Фурнитура- Roto.</span>
             </p>
 
             <p><span class="icon"><img src="/static/img/icon_door.png"/></span> <span class="name">Дверь входная</span>
@@ -331,7 +338,7 @@
               <span class="info">Входит в стоимость</span></p>
 
             <p><span class="name">Монтаж, проект, бытовка для строителей</span> <span
-                class="info">Входит в стоимость</span></p>
+                    class="info">Входит в стоимость</span></p>
           </div>
           <div class="price-and-button clearfix">
             <div class="text">

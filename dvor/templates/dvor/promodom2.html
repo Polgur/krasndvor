@@ -159,17 +159,24 @@
       Планировка
     </div>
     <div class="plan clearfix">
-      {% for ph in project.photos.all %}
-        {% if ph.type > 1 %}
-          <div class="col-md-6 col-xs-12">
-            <a class="gallery" href="{{ ph.img.url }}">
-              {% thumbnail ph.img "393" crop="center" format="PNG" as im %}
-                <img class="img-responsive" src="{{ im.url }}" alt="">
-              {% endthumbnail %}
-            </a>
-          </div>
-        {% endif %}
-      {% endfor %}
+      <div class="col-md-6 col-xs-12">
+        <a class="gallery" href="{% static "content/Podushkino_sp1.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/Podushkino_sp1.jpg" %}
+            {% thumbnail url_path "393" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+      <div class="col-md-6 col-xs-12">
+        <a class="gallery" href="{% static "content/Podushkino_sp2.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/Podushkino_sp2.jpg" %}
+            {% thumbnail url_path "393" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
     </div>
 
     <div class="tovar-compl">

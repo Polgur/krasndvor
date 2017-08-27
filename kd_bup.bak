@@ -1475,6 +1475,7 @@ COPY django_admin_log (id, action_time, object_id, object_repr, action_flag, cha
 122	2017-02-21 11:42:22.874326+00	14	Подушкино	1	[{"added": {}}, {"added": {"object": "\\u041f\\u043e\\u0434\\u0443\\u0448\\u043a\\u0438\\u043d\\u043e", "name": "\\u0424\\u043e\\u0442\\u043e \\u043f\\u0440\\u043e\\u0435\\u043a\\u0442\\u0430"}}, {"added": {"object": "\\u041f\\u043e\\u0434\\u0443\\u0448\\u043a\\u0438\\u043d\\u043e", "name": "\\u0424\\u043e\\u0442\\u043e \\u043f\\u0440\\u043e\\u0435\\u043a\\u0442\\u0430"}}, {"added": {"object": "\\u041f\\u043e\\u0434\\u0443\\u0448\\u043a\\u0438\\u043d\\u043e", "name": "\\u0424\\u043e\\u0442\\u043e \\u043f\\u0440\\u043e\\u0435\\u043a\\u0442\\u0430"}}, {"added": {"object": "\\u041f\\u043e\\u0434\\u0443\\u0448\\u043a\\u0438\\u043d\\u043e", "name": "\\u0424\\u043e\\u0442\\u043e \\u043f\\u0440\\u043e\\u0435\\u043a\\u0442\\u0430"}}, {"added": {"object": "\\u041f\\u043e\\u0434\\u0443\\u0448\\u043a\\u0438\\u043d\\u043e", "name": "\\u0424\\u043e\\u0442\\u043e \\u043f\\u0440\\u043e\\u0435\\u043a\\u0442\\u0430"}}, {"added": {"object": "\\u041f\\u043e\\u0434\\u0443\\u0448\\u043a\\u0438\\u043d\\u043e", "name": "\\u0424\\u043e\\u0442\\u043e \\u043f\\u0440\\u043e\\u0435\\u043a\\u0442\\u0430"}}, {"added": {"object": "\\u041f\\u043e\\u0434\\u0443\\u0448\\u043a\\u0438\\u043d\\u043e \\u0421\\u0438\\u043f-\\u041f\\u0430\\u043d\\u0435\\u043b\\u0438", "name": "\\u041a\\u043e\\u043c\\u043f\\u043b\\u0435\\u043a\\u0442\\u0430\\u0446\\u0438\\u044f"}}]	7	1
 158	2017-02-24 10:44:49.133312+00	9	Сватово	2	[{"changed": {"name": "\\u041a\\u043e\\u043c\\u043f\\u043b\\u0435\\u043a\\u0442\\u0430\\u0446\\u0438\\u044f", "fields": ["kit1", "kit2", "kit3"], "object": "\\u0421\\u0432\\u0430\\u0442\\u043e\\u0432\\u043e \\u0421\\u0438\\u043f-\\u041f\\u0430\\u043d\\u0435\\u043b\\u0438"}}, {"changed": {"name": "\\u041a\\u043e\\u043c\\u043f\\u043b\\u0435\\u043a\\u0442\\u0430\\u0446\\u0438\\u044f", "fields": ["kit1", "kit2", "kit3"], "object": "\\u0421\\u0432\\u0430\\u0442\\u043e\\u0432\\u043e \\u0422\\u0435\\u0440\\u043c\\u043e\\u043f\\u0430\\u043d\\u0435\\u043b\\u0438"}}]	7	1
 229	2017-03-08 07:43:53.759014+00	3	Теплый Пол	2	[{"changed": {"fields": ["description", "body"]}}]	11	1
+325	2017-08-27 08:03:13.209064+00	9	Акция	1	[{"added": {}}]	12	1
 123	2017-02-21 11:44:55.983704+00	15	Петровское	1	[{"added": {}}, {"added": {"object": "\\u041f\\u0435\\u0442\\u0440\\u043e\\u0432\\u0441\\u043a\\u043e\\u0435", "name": "\\u0424\\u043e\\u0442\\u043e \\u043f\\u0440\\u043e\\u0435\\u043a\\u0442\\u0430"}}, {"added": {"object": "\\u041f\\u0435\\u0442\\u0440\\u043e\\u0432\\u0441\\u043a\\u043e\\u0435", "name": "\\u0424\\u043e\\u0442\\u043e \\u043f\\u0440\\u043e\\u0435\\u043a\\u0442\\u0430"}}, {"added": {"object": "\\u041f\\u0435\\u0442\\u0440\\u043e\\u0432\\u0441\\u043a\\u043e\\u0435", "name": "\\u0424\\u043e\\u0442\\u043e \\u043f\\u0440\\u043e\\u0435\\u043a\\u0442\\u0430"}}, {"added": {"object": "\\u041f\\u0435\\u0442\\u0440\\u043e\\u0432\\u0441\\u043a\\u043e\\u0435", "name": "\\u0424\\u043e\\u0442\\u043e \\u043f\\u0440\\u043e\\u0435\\u043a\\u0442\\u0430"}}, {"added": {"object": "\\u041f\\u0435\\u0442\\u0440\\u043e\\u0432\\u0441\\u043a\\u043e\\u0435", "name": "\\u0424\\u043e\\u0442\\u043e \\u043f\\u0440\\u043e\\u0435\\u043a\\u0442\\u0430"}}, {"added": {"object": "\\u041f\\u0435\\u0442\\u0440\\u043e\\u0432\\u0441\\u043a\\u043e\\u0435", "name": "\\u0424\\u043e\\u0442\\u043e \\u043f\\u0440\\u043e\\u0435\\u043a\\u0442\\u0430"}}, {"added": {"object": "\\u041f\\u0435\\u0442\\u0440\\u043e\\u0432\\u0441\\u043a\\u043e\\u0435 \\u0421\\u0438\\u043f-\\u041f\\u0430\\u043d\\u0435\\u043b\\u0438", "name": "\\u041a\\u043e\\u043c\\u043f\\u043b\\u0435\\u043a\\u0442\\u0430\\u0446\\u0438\\u044f"}}]	7	1
 124	2017-02-21 11:47:47.035912+00	16	Молоди	1	[{"added": {}}, {"added": {"object": "\\u041c\\u043e\\u043b\\u043e\\u0434\\u0438", "name": "\\u0424\\u043e\\u0442\\u043e \\u043f\\u0440\\u043e\\u0435\\u043a\\u0442\\u0430"}}, {"added": {"object": "\\u041c\\u043e\\u043b\\u043e\\u0434\\u0438", "name": "\\u0424\\u043e\\u0442\\u043e \\u043f\\u0440\\u043e\\u0435\\u043a\\u0442\\u0430"}}, {"added": {"object": "\\u041c\\u043e\\u043b\\u043e\\u0434\\u0438", "name": "\\u0424\\u043e\\u0442\\u043e \\u043f\\u0440\\u043e\\u0435\\u043a\\u0442\\u0430"}}, {"added": {"object": "\\u041c\\u043e\\u043b\\u043e\\u0434\\u0438", "name": "\\u0424\\u043e\\u0442\\u043e \\u043f\\u0440\\u043e\\u0435\\u043a\\u0442\\u0430"}}, {"added": {"object": "\\u041c\\u043e\\u043b\\u043e\\u0434\\u0438", "name": "\\u0424\\u043e\\u0442\\u043e \\u043f\\u0440\\u043e\\u0435\\u043a\\u0442\\u0430"}}, {"added": {"object": "\\u041c\\u043e\\u043b\\u043e\\u0434\\u0438", "name": "\\u0424\\u043e\\u0442\\u043e \\u043f\\u0440\\u043e\\u0435\\u043a\\u0442\\u0430"}}]	7	1
 125	2017-02-21 11:48:15.763477+00	16	Молоди	2	[{"added": {"object": "\\u041c\\u043e\\u043b\\u043e\\u0434\\u0438 \\u0421\\u0438\\u043f-\\u041f\\u0430\\u043d\\u0435\\u043b\\u0438", "name": "\\u041a\\u043e\\u043c\\u043f\\u043b\\u0435\\u043a\\u0442\\u0430\\u0446\\u0438\\u044f"}}]	7	1
@@ -1673,6 +1674,11 @@ COPY django_admin_log (id, action_time, object_id, object_repr, action_flag, cha
 321	2017-08-22 15:45:20.637614+00	23	Ершово	2	[{"added": {"object": "\\u0415\\u0440\\u0448\\u043e\\u0432\\u043e", "name": "\\u041f\\u043e\\u0441\\u0442\\u0440\\u043e\\u0435\\u043d\\u043d\\u044b\\u0439 \\u0434\\u043e\\u043c"}}, {"added": {"object": "\\u0415\\u0440\\u0448\\u043e\\u0432\\u043e", "name": "\\u041f\\u043e\\u0441\\u0442\\u0440\\u043e\\u0435\\u043d\\u043d\\u044b\\u0439 \\u0434\\u043e\\u043c"}}, {"added": {"object": "\\u0415\\u0440\\u0448\\u043e\\u0432\\u043e", "name": "\\u041f\\u043e\\u0441\\u0442\\u0440\\u043e\\u0435\\u043d\\u043d\\u044b\\u0439 \\u0434\\u043e\\u043c"}}, {"added": {"object": "\\u0415\\u0440\\u0448\\u043e\\u0432\\u043e", "name": "\\u041f\\u043e\\u0441\\u0442\\u0440\\u043e\\u0435\\u043d\\u043d\\u044b\\u0439 \\u0434\\u043e\\u043c"}}]	7	1
 322	2017-08-22 15:45:36.243793+00	18	Марфино	2	[{"added": {"object": "\\u041c\\u0430\\u0440\\u0444\\u0438\\u043d\\u043e", "name": "\\u041f\\u043e\\u0441\\u0442\\u0440\\u043e\\u0435\\u043d\\u043d\\u044b\\u0439 \\u0434\\u043e\\u043c"}}, {"added": {"object": "\\u041c\\u0430\\u0440\\u0444\\u0438\\u043d\\u043e", "name": "\\u041f\\u043e\\u0441\\u0442\\u0440\\u043e\\u0435\\u043d\\u043d\\u044b\\u0439 \\u0434\\u043e\\u043c"}}]	7	1
 323	2017-08-22 15:45:49.990551+00	16	Молоди	2	[{"added": {"object": "\\u041c\\u043e\\u043b\\u043e\\u0434\\u0438", "name": "\\u041f\\u043e\\u0441\\u0442\\u0440\\u043e\\u0435\\u043d\\u043d\\u044b\\u0439 \\u0434\\u043e\\u043c"}}]	7	1
+326	2017-08-27 08:06:17.196772+00	31	Ольгово_Акция	1	[{"added": {}}, {"added": {"name": "\\u0424\\u043e\\u0442\\u043e \\u043f\\u0440\\u043e\\u0435\\u043a\\u0442\\u0430", "object": "\\u041e\\u043b\\u044c\\u0433\\u043e\\u0432\\u043e_\\u0410\\u043a\\u0446\\u0438\\u044f"}}, {"added": {"name": "\\u0424\\u043e\\u0442\\u043e \\u043f\\u0440\\u043e\\u0435\\u043a\\u0442\\u0430", "object": "\\u041e\\u043b\\u044c\\u0433\\u043e\\u0432\\u043e_\\u0410\\u043a\\u0446\\u0438\\u044f"}}, {"added": {"name": "\\u0424\\u043e\\u0442\\u043e \\u043f\\u0440\\u043e\\u0435\\u043a\\u0442\\u0430", "object": "\\u041e\\u043b\\u044c\\u0433\\u043e\\u0432\\u043e_\\u0410\\u043a\\u0446\\u0438\\u044f"}}, {"added": {"name": "\\u0424\\u043e\\u0442\\u043e \\u043f\\u0440\\u043e\\u0435\\u043a\\u0442\\u0430", "object": "\\u041e\\u043b\\u044c\\u0433\\u043e\\u0432\\u043e_\\u0410\\u043a\\u0446\\u0438\\u044f"}}, {"added": {"name": "\\u0424\\u043e\\u0442\\u043e \\u043f\\u0440\\u043e\\u0435\\u043a\\u0442\\u0430", "object": "\\u041e\\u043b\\u044c\\u0433\\u043e\\u0432\\u043e_\\u0410\\u043a\\u0446\\u0438\\u044f"}}, {"added": {"name": "\\u0424\\u043e\\u0442\\u043e \\u043f\\u0440\\u043e\\u0435\\u043a\\u0442\\u0430", "object": "\\u041e\\u043b\\u044c\\u0433\\u043e\\u0432\\u043e_\\u0410\\u043a\\u0446\\u0438\\u044f"}}, {"added": {"name": "\\u041a\\u043e\\u043c\\u043f\\u043b\\u0435\\u043a\\u0442\\u0430\\u0446\\u0438\\u044f", "object": "\\u041e\\u043b\\u044c\\u0433\\u043e\\u0432\\u043e_\\u0410\\u043a\\u0446\\u0438\\u044f \\u0421\\u0438\\u043f-\\u041f\\u0430\\u043d\\u0435\\u043b\\u0438"}}]	7	1
+327	2017-08-27 08:07:57.811635+00	31	Ольгово_Акция	3		7	1
+328	2017-08-27 08:08:08.311352+00	9	Акция	3		12	1
+329	2017-08-27 08:19:10.529733+00	14	Спасск	2	[{"added": {"name": "\\u0424\\u043e\\u0442\\u043e \\u043e\\u0431\\u044a\\u0435\\u043a\\u0442\\u0430", "object": "\\u0421\\u043f\\u0430\\u0441\\u0441\\u043a"}}, {"added": {"name": "\\u0424\\u043e\\u0442\\u043e \\u043e\\u0431\\u044a\\u0435\\u043a\\u0442\\u0430", "object": "\\u0421\\u043f\\u0430\\u0441\\u0441\\u043a"}}, {"added": {"name": "\\u0424\\u043e\\u0442\\u043e \\u043e\\u0431\\u044a\\u0435\\u043a\\u0442\\u0430", "object": "\\u0421\\u043f\\u0430\\u0441\\u0441\\u043a"}}]	17	1
+330	2017-08-27 08:20:34.085041+00	14	Спасск	2	[{"changed": {"fields": ["img"]}}, {"deleted": {"name": "\\u0424\\u043e\\u0442\\u043e \\u043e\\u0431\\u044a\\u0435\\u043a\\u0442\\u0430", "object": "\\u0421\\u043f\\u0430\\u0441\\u0441\\u043a"}}]	17	1
 \.
 
 
@@ -1680,7 +1686,7 @@ COPY django_admin_log (id, action_time, object_id, object_repr, action_flag, cha
 -- Name: django_admin_log_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('django_admin_log_id_seq', 324, true);
+SELECT pg_catalog.setval('django_admin_log_id_seq', 330, true);
 
 
 --
@@ -2066,7 +2072,7 @@ COPY dvor_prjkit (id, price1, price2, kit1, kit2, prn_id, tech_id, kit3, price3)
 -- Name: dvor_prjkit_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('dvor_prjkit_id_seq', 114, true);
+SELECT pg_catalog.setval('dvor_prjkit_id_seq', 115, true);
 
 
 --
@@ -2210,7 +2216,7 @@ COPY dvor_prjphoto (id, type, img, prn_id) FROM stdin;
 -- Name: dvor_prjphoto_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('dvor_prjphoto_id_seq', 141, true);
+SELECT pg_catalog.setval('dvor_prjphoto_id_seq', 147, true);
 
 
 --
@@ -2247,7 +2253,7 @@ COPY dvor_project (id, name, slug, img, size, description, price, square, vid, h
 -- Name: dvor_project_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('dvor_project_id_seq', 30, true);
+SELECT pg_catalog.setval('dvor_project_id_seq', 31, true);
 
 
 --
@@ -2328,7 +2334,7 @@ COPY dvor_project_techs (id, project_id, techno_id) FROM stdin;
 -- Name: dvor_project_techs_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('dvor_project_techs_id_seq', 80, true);
+SELECT pg_catalog.setval('dvor_project_techs_id_seq', 81, true);
 
 
 --
@@ -2349,7 +2355,7 @@ COPY dvor_readyobj (id, mnemo, name, slug, description, img, tech_id, sort_re) F
 4	Солнечный город	Московская область, Подольский район, Коттеджный поселок "Солнечный город"	solnech	Дом построен по индивидуальному проекту	readyobj/OurTSoln_00.jpg	1	9
 3	Мичурино	Пензенская область, поселок Мичуринский, ул.Ломовская 3	michurino	Дом построен по индивидуальному проекту	readyobj/OutTMich_00.jpg	1	10
 2	Овчинкино	Московская область, Раменский район, СНТ "Овчинкино"	ovchinkino	Дом построен по индивидуальному проекту	readyobj/OurTOvch_00.jpg	1	11
-14	Спасск	Пензенская область, Спасский район, город Спасск	spassk	Дом находится в стадии строительства. Индивидуальный проект коттеджа 240 кв.м.	readyobj/OurSSpa_05.jpg	2	1
+14	Спасск	Пензенская область, Спасский район, город Спасск	spassk	Дом находится в стадии строительства. Индивидуальный проект коттеджа 240 кв.м.	readyobj/OurSSpa_10.jpg	2	1
 \.
 
 
@@ -2523,6 +2529,8 @@ COPY dvor_readyphoto (id, sort, img, prn_id) FROM stdin;
 156	5	readyobj/OurSSpa_05.jpg	14
 157	6	readyobj/OurSSpa_06.jpg	14
 158	7	readyobj/OurSSpa_07.jpg	14
+159	8	readyobj/OurSSpa_08.jpg	14
+160	9	readyobj/OurSSpa_09.jpg	14
 \.
 
 
@@ -2530,7 +2538,7 @@ COPY dvor_readyphoto (id, sort, img, prn_id) FROM stdin;
 -- Name: dvor_readyphoto_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('dvor_readyphoto_id_seq', 158, true);
+SELECT pg_catalog.setval('dvor_readyphoto_id_seq', 161, true);
 
 
 --
@@ -2683,7 +2691,7 @@ COPY dvor_techno (id, mnemo, name, main, show_in_menu) FROM stdin;
 -- Name: dvor_techno_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('dvor_techno_id_seq', 8, true);
+SELECT pg_catalog.setval('dvor_techno_id_seq', 9, true);
 
 
 --
@@ -3324,6 +3332,18 @@ sorl-thumbnail||thumbnails||22f299c60d5db3b0ad871c1167d384d7	["1f97512ed16644f6b
 sorl-thumbnail||image||b2607dabe69de8b95d803570811dbfdb	{"storage": "django.core.files.storage.FileSystemStorage", "size": [1200, 900], "name": "projects/Marfino_b02.jpg"}
 sorl-thumbnail||image||29636b8bc26d3bc3ba75fc0176f49fd5	{"storage": "django.core.files.storage.FileSystemStorage", "size": [300, 225], "name": "cache/44/45/4445b3cffe191bddb0492a1c86341fcc.png"}
 sorl-thumbnail||thumbnails||b2607dabe69de8b95d803570811dbfdb	["29636b8bc26d3bc3ba75fc0176f49fd5"]
+sorl-thumbnail||image||efb6a56f6328e8d4e17d0dba295e0eab	{"storage": "django.core.files.storage.FileSystemStorage", "name": "content/ActOlgovo_00.jpg", "size": [1200, 900]}
+sorl-thumbnail||image||92036bcdf46e0238c2922670c3910b86	{"storage": "django.core.files.storage.FileSystemStorage", "name": "cache/bb/18/bb18965e45120fdec7064571ec727d0f.png", "size": [427, 320]}
+sorl-thumbnail||thumbnails||efb6a56f6328e8d4e17d0dba295e0eab	["92036bcdf46e0238c2922670c3910b86"]
+sorl-thumbnail||image||48150431129497405b1b6848d5981c9c	{"storage": "django.core.files.storage.FileSystemStorage", "name": "content/ActPodush_00.jpg", "size": [1200, 900]}
+sorl-thumbnail||image||5a363d69539973893240bce7aa409f02	{"storage": "django.core.files.storage.FileSystemStorage", "name": "cache/f9/55/f95556d1e157210efd1931fc846b47e2.png", "size": [427, 320]}
+sorl-thumbnail||thumbnails||48150431129497405b1b6848d5981c9c	["5a363d69539973893240bce7aa409f02"]
+sorl-thumbnail||image||152e418382cf72b12fb4586f6e20be64	{"storage": "django.core.files.storage.FileSystemStorage", "name": "content/Olgovo_sp1.jpg", "size": [818, 900]}
+sorl-thumbnail||image||36e1fc0947775ec26952f13fb6e3ceea	{"storage": "django.core.files.storage.FileSystemStorage", "name": "cache/ae/c4/aec4811ae568705c1d19d5ec8d0afef5.png", "size": [393, 432]}
+sorl-thumbnail||thumbnails||152e418382cf72b12fb4586f6e20be64	["36e1fc0947775ec26952f13fb6e3ceea"]
+sorl-thumbnail||image||546113c0f79fb8152982dcf94b6d0a4a	{"storage": "django.core.files.storage.FileSystemStorage", "name": "content/Olgovo_sp2.jpg", "size": [818, 900]}
+sorl-thumbnail||image||25e722fcac588c93f8be98ebcefac9fb	{"storage": "django.core.files.storage.FileSystemStorage", "name": "cache/67/ef/67efd02007d5d2321d419602f6208869.png", "size": [393, 432]}
+sorl-thumbnail||thumbnails||546113c0f79fb8152982dcf94b6d0a4a	["25e722fcac588c93f8be98ebcefac9fb"]
 sorl-thumbnail||image||3d0010c6ced4b183202bc6a7dbc0c903	{"storage": "django.core.files.storage.FileSystemStorage", "size": [508, 381], "name": "cache/2a/8b/2a8b493ad956a8bc48d86188c56f4bb5.png"}
 sorl-thumbnail||image||977211c340fdd9e746d309b4c294d76b	{"storage": "django.core.files.storage.FileSystemStorage", "size": [1920, 1440], "name": "projects/Dubrovicy_f1.jpg"}
 sorl-thumbnail||image||3f8fcc185c8f1626ff10a360d9d52f24	{"storage": "django.core.files.storage.FileSystemStorage", "size": [147, 110], "name": "cache/cb/11/cb11657c204d47342b19a725870efad1.png"}
@@ -3346,6 +3366,22 @@ sorl-thumbnail||thumbnails||9bc32c4a1ec21380a6a7ac53f4e7bcb0	["e7e23f62b7adaaa8a
 sorl-thumbnail||image||465b34ee3183b454f6888a11c7239ba7	{"storage": "django.core.files.storage.FileSystemStorage", "size": [1600, 900], "name": "projects/Dubrovicy_b01.jpg"}
 sorl-thumbnail||image||6d81188cc91161c50b59f68501ce65a5	{"storage": "django.core.files.storage.FileSystemStorage", "size": [300, 225], "name": "cache/ae/34/ae34e98c31a73beb04cab5c7f145831f.png"}
 sorl-thumbnail||thumbnails||465b34ee3183b454f6888a11c7239ba7	["6d81188cc91161c50b59f68501ce65a5"]
+sorl-thumbnail||image||d53ad84069f3cbe137cf8ab7e76b60bd	{"storage": "django.core.files.storage.FileSystemStorage", "name": "content/Podushkino_sp1.jpg", "size": [818, 900]}
+sorl-thumbnail||image||493114296c269bb15512d9851dac83c1	{"storage": "django.core.files.storage.FileSystemStorage", "name": "cache/b2/42/b242a159faefd32770b9ebe7b7c6722e.png", "size": [393, 432]}
+sorl-thumbnail||thumbnails||d53ad84069f3cbe137cf8ab7e76b60bd	["493114296c269bb15512d9851dac83c1"]
+sorl-thumbnail||image||320ffc284355bec8188e0eb9619321e2	{"storage": "django.core.files.storage.FileSystemStorage", "name": "content/Podushkino_sp2.jpg", "size": [818, 900]}
+sorl-thumbnail||image||b568885786c2a0d9ff98057004ff0f4b	{"storage": "django.core.files.storage.FileSystemStorage", "name": "cache/4e/70/4e70e62e31a251fb5b693b314d63630d.png", "size": [393, 432]}
+sorl-thumbnail||thumbnails||320ffc284355bec8188e0eb9619321e2	["b568885786c2a0d9ff98057004ff0f4b"]
+sorl-thumbnail||image||68d1a317a039ba7e108fd72b7823a383	{"storage": "django.core.files.storage.FileSystemStorage", "name": "readyobj/OurSSpa_08.jpg", "size": [1280, 710]}
+sorl-thumbnail||image||cb0947400b84ba51d359b3c01574adba	{"storage": "django.core.files.storage.FileSystemStorage", "name": "cache/21/94/21945e534aea2030083804ad8ba12cf0.png", "size": [300, 225]}
+sorl-thumbnail||thumbnails||68d1a317a039ba7e108fd72b7823a383	["cb0947400b84ba51d359b3c01574adba"]
+sorl-thumbnail||image||08f3055052bb5d310a56be08242e40e0	{"storage": "django.core.files.storage.FileSystemStorage", "name": "readyobj/OurSSpa_09.jpg", "size": [1200, 900]}
+sorl-thumbnail||image||1ef17ffdaafbbef2287f11108a91af22	{"storage": "django.core.files.storage.FileSystemStorage", "name": "cache/6c/af/6caffd37bc4a4471125331407eaa9052.png", "size": [300, 225]}
+sorl-thumbnail||thumbnails||08f3055052bb5d310a56be08242e40e0	["1ef17ffdaafbbef2287f11108a91af22"]
+sorl-thumbnail||image||5f333b0c970331f0f9f83ca2d3577614	{"storage": "django.core.files.storage.FileSystemStorage", "name": "readyobj/OurSSpa_10.jpg", "size": [1200, 900]}
+sorl-thumbnail||image||9ae7790ec544fc9fd2b15da4ee291ce7	{"storage": "django.core.files.storage.FileSystemStorage", "name": "cache/5e/e8/5ee883ad907bd9b7ffd6128db6363131.png", "size": [300, 225]}
+sorl-thumbnail||thumbnails||5f333b0c970331f0f9f83ca2d3577614	["9ae7790ec544fc9fd2b15da4ee291ce7"]
+sorl-thumbnail||image||f00f0f10c811a9f5097f10603f114582	{"storage": "django.core.files.storage.FileSystemStorage", "name": "cache/e4/d4/e4d401d38114b83a711adca3bbd61f45.png", "size": [600, 450]}
 sorl-thumbnail||image||d8b17e8b672e38132eb9054fd9d3015e	{"storage": "django.core.files.storage.FileSystemStorage", "name": "projects/Svatovo.jpg", "size": [1920, 1080]}
 sorl-thumbnail||image||a7fcb17055bd011e2818105387e48aff	{"storage": "django.core.files.storage.FileSystemStorage", "name": "cache/9a/2d/9a2dad13dac79e4e26618299dd7cb1ee.png", "size": [258, 187]}
 sorl-thumbnail||thumbnails||d8b17e8b672e38132eb9054fd9d3015e	["a7fcb17055bd011e2818105387e48aff"]
