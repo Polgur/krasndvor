@@ -75,6 +75,18 @@
 <div class="side-panel">
   <div class="side-title">Новости</div>
   <div class="news__item clearfix">
+    <div class="news__item__date">1 сентября 2017</div>
+    <div class="news__item__title"><a href="{% url 'our_sip' %}">Коттедж 240 м2, г. Спасск</a></div>
+    <div class="news__item__img"><a href="{% url 'our_sip' %}"><img src="{% static "img/Spassk_Ind2.png" %}"></a></div>
+    <span class="news__item__text">Мы закончили строительство дома в городе Спасск Пензенской обл.</span>
+  </div>
+  <div class="news__item clearfix">
+    <div class="news__item__date">31 августа 2017</div>
+    <div class="news__item__title"><a href="{% url 'promo' %}">Силовой каркас дома из пиломатериала камерной сушки в подарок!</a></div>
+    <div class="news__item__img"><img src="{% static "img/03Akciya_01.png" %}"></div>
+    <span class="news__item__text">В период с 1 сентября по 30 сентября 2017 г. компания Красный двор проводит АКЦИЮ!</span>
+  </div>
+  <div class="news__item clearfix">
     <div class="news__item__date">18 августа 2017</div>
     <div class="news__item__title"><a href="{% url 'our_sip' %}">Коттедж 240 м2, г. Спасск</a></div>
     <div class="news__item__img"><a href="{% url 'our_sip' %}"><img src="{% static "img/Spassk_Ind.png" %}"></a></div>
@@ -86,17 +98,11 @@
     <div class="news__item__img"><a href="{% url 'our_termo' %}?page=1"><img src="{% static "img/Tamala_Ind.png" %}"></a></div>
     <span class="news__item__text">Мы начали строительство дома из комбинированных термопанелей в поселке Тамала.</span>
   </div>
-  <div class="news__item clearfix">
-    <div class="news__item__date">2 июня 2017</div>
-    <div class="news__item__title"><a href="{% url 'promo' %}">Бетонные сваи ТИСЭ в подарок!</a></div>
-    <div class="news__item__img"><img src="{% static "img/03Akciya_01.png" %}"></div>
-    <span class="news__item__text">В период с 1 июня по 31 августа 2017 г. компания Красный двор проводит АКЦИЮ!</span>
-  </div>
-  <div class="news__item clearfix">
+  {% comment %}<div class="news__item clearfix">
     <div class="news__item__date">03 апреля 2017</div>
     <div class="news__item__title">Новый офис</div>
     <span class="news__item__text">Мы переехали в новый офис по адресу ул. Кирова 53</span>
-  </div>
+  </div>{% endcomment %}
   {% comment %}  <a class="all-news">все новости</a>{% endcomment %}
 </div>
 <div class="side-panel">
