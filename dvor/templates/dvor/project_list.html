@@ -194,9 +194,9 @@
         <p style="text-align: center"><b>По Вашему желанию мы можем увеличить или уменьшить площадь типового проекта,
           изменить планировку.</b></p>
       </div>
-      <div class="content-page clearfix">
+      {% comment %}<div class="content-page clearfix">
         <p style="text-align: center"><b>До 30 сентября у нас действует акция : <a href="{% url 'promo' %}">Силовой каркас дома из пиломатериала камерной сушки в подарок!</a></b></p>
-      </div>
+      </div>{% endcomment %}
     {% endif %}
 
     {% if is_paginated %}
