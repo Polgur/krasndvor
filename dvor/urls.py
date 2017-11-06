@@ -1,6 +1,6 @@
 from django.conf.urls import url
 from .views import IndexPage, SectionTermo, SectionSip, SectionKarkas, SectionRecon, SectionFund, SectionRemont, \
-    OurStages, OurKarkas, OurFund, ContactsPage, ProjectList, ProjectDetail, ReadyobjTermo, ReadyobjSip, ReconstList, \
+    OurStages,  OurFund, ContactsPage, ProjectList, ProjectDetail, ReadyobjTermo, ReadyobjSip, ReadyobjKarkas, ReconstList, \
     ExpoDom, Promo, PromoDom, PromoDom2, ArticleList, ArticleDetail, Certificates, ReviewList, MainCalcView, PrjCalcView, ReconCalcView, \
     FundCalcView, RemontCalcView, PhoneCallView
 from django.conf import settings
@@ -17,7 +17,7 @@ urlpatterns = [
     url(r'^build-stages/$', OurStages.as_view(), name='bstages'),
     url(r'^our-termopanel/$', ReadyobjTermo.as_view(), name='our_termo'),
     url(r'^our-sip-panel/$', ReadyobjSip.as_view(), name='our_sip'),
-    url(r'^our-kaskasnie-doma/$', OurKarkas.as_view(), name='our_karkas'),
+    url(r'^our-kaskasnie-doma/$', ReadyobjKarkas.as_view(), name='our_karkas'),
     url(r'^reconstruction/$', ReconstList.as_view(), name='reconst'),
     url(r'^fundament-gallery/$', OurFund.as_view(), name='our_fund'),
     url(r'^vystavochnyj/$', ExpoDom.as_view(), name='expo'),

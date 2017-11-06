@@ -97,12 +97,12 @@ class OurStages(MenuMixin, TemplateView):
     template_name = 'dvor/our_stages.html'
 
 
-class OurKarkas(MenuMixin, TemplateView):
-    menu_slug = [
-        "our_obj",
-        "our_karkas",
-    ]
-    template_name = 'dvor/our_karkas.html'
+# class OurKarkas(MenuMixin, TemplateView):
+#     menu_slug = [
+#         "our_obj",
+#         "our_karkas",
+#     ]
+#     template_name = 'dvor/our_karkas.html'
 
 
 class OurFund(MenuMixin, TemplateView):
@@ -211,6 +211,14 @@ class ReadyobjSip(MenuMixin, ListView):
     ]
     template_name = 'dvor/our_sip.html'
 
+class ReadyobjKarkas(MenuMixin, ListView):
+    queryset = Readyobj.objects.filter(tech=3).order_by('photos__sort', '-sort_re', 'photos__prn')
+    paginate_by = 3
+    menu_slug = [
+        "our_obj",
+        "our_karkas",
+    ]
+    template_name = 'dvor/our_karkas.html'
 
 class ReconstList(MenuMixin, ListView):
     queryset = Reconst.objects.all().order_by('photos__sort', 'sort_re', 'photos__prn')
