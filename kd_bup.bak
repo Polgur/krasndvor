@@ -1691,6 +1691,7 @@ COPY django_admin_log (id, action_time, object_id, object_repr, action_flag, cha
 340	2017-11-06 08:46:09.593049+00	15	Новоклёмово	1	[{"added": {}}, {"added": {"object": "\\u041d\\u043e\\u0432\\u043e\\u043a\\u043b\\u0451\\u043c\\u043e\\u0432\\u043e", "name": "\\u0424\\u043e\\u0442\\u043e \\u043e\\u0431\\u044a\\u0435\\u043a\\u0442\\u0430"}}, {"added": {"object": "\\u041d\\u043e\\u0432\\u043e\\u043a\\u043b\\u0451\\u043c\\u043e\\u0432\\u043e", "name": "\\u0424\\u043e\\u0442\\u043e \\u043e\\u0431\\u044a\\u0435\\u043a\\u0442\\u0430"}}]	17	1
 341	2017-11-06 08:56:11.842873+00	15	Новоклёмово	2	[{"changed": {"fields": ["description"]}}]	17	1
 342	2017-11-06 08:56:25.19554+00	15	Новоклёмово	2	[{"changed": {"fields": ["name"]}}]	17	1
+343	2017-11-12 06:26:56.354292+00	15	Новоклёмово	2	[{"added": {"object": "\\u041d\\u043e\\u0432\\u043e\\u043a\\u043b\\u0451\\u043c\\u043e\\u0432\\u043e", "name": "\\u0424\\u043e\\u0442\\u043e \\u043e\\u0431\\u044a\\u0435\\u043a\\u0442\\u0430"}}, {"added": {"object": "\\u041d\\u043e\\u0432\\u043e\\u043a\\u043b\\u0451\\u043c\\u043e\\u0432\\u043e", "name": "\\u0424\\u043e\\u0442\\u043e \\u043e\\u0431\\u044a\\u0435\\u043a\\u0442\\u0430"}}]	17	1
 \.
 
 
@@ -1698,7 +1699,7 @@ COPY django_admin_log (id, action_time, object_id, object_repr, action_flag, cha
 -- Name: django_admin_log_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('django_admin_log_id_seq', 342, true);
+SELECT pg_catalog.setval('django_admin_log_id_seq', 343, true);
 
 
 --
@@ -2597,6 +2598,8 @@ COPY dvor_readyphoto (id, sort, img, prn_id) FROM stdin;
 170	12	readyobj/OurTTam_13.jpg	13
 172	1	readyobj/Novoklemovo_vid4.jpg	15
 173	2	readyobj/Novoklemovo_fund.jpg	15
+174	3	readyobj/Novoklemovo_p1.jpg	15
+175	4	readyobj/Novoklemovo_p2.jpg	15
 \.
 
 
@@ -2604,7 +2607,7 @@ COPY dvor_readyphoto (id, sort, img, prn_id) FROM stdin;
 -- Name: dvor_readyphoto_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('dvor_readyphoto_id_seq', 173, true);
+SELECT pg_catalog.setval('dvor_readyphoto_id_seq', 175, true);
 
 
 --
