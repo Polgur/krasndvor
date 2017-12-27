@@ -75,6 +75,12 @@
 <div class="side-panel">
   <div class="side-title">Новости</div>
   <div class="news__item clearfix">
+    <div class="news__item__date">24 декабря 2017</div>
+    <div class="news__item__title"><a href="{% url 'our_karkas' %}">Коттедж 130 м2, п. Новоклёмово</a></div>
+    <div class="news__item__img"><a href="{% url 'our_karkas' %}"><img src="{% static "img/Novoklemovo_Got.png" %}"></a></div>
+    <span class="news__item__text">Мы закончили строительство дома в поселке Новоклёмово</span>
+  </div>
+  <div class="news__item clearfix">
     <div class="news__item__date">26 ноября 2017</div>
     <div class="news__item__title"><a href="{% url 'our_karkas' %}">Коттедж 130 м2, п. Новоклёмово</a></div>
     <div class="news__item__img"><a href="{% url 'our_karkas' %}"><img src="{% static "img/Novoklemovo_Ind.png" %}"></a></div>
@@ -85,12 +91,6 @@
     <div class="news__item__title"><a href="{% url 'our_termo' %}?page=1">Коттедж 128 м2, п. Тамала</a></div>
     <div class="news__item__img"><a href="{% url 'our_termo' %}?page=1"><img src="{% static "img/Tamala_Got.png" %}"></a></div>
     <span class="news__item__text">Мы закончили строительство дома в поселке Тамала.</span>
-  </div>
-  <div class="news__item clearfix">
-    <div class="news__item__date">1 сентября 2017</div>
-    <div class="news__item__title"><a href="{% url 'our_sip' %}">Коттедж 240 м2, г. Спасск</a></div>
-    <div class="news__item__img"><a href="{% url 'our_sip' %}"><img src="{% static "img/Spassk_Ind2.png" %}"></a></div>
-    <span class="news__item__text">Мы закончили строительство дома в городе Спасск Пензенской обл.</span>
   </div>
 {% comment %}
   <div class="news__item clearfix">
@@ -109,15 +109,23 @@
 </div>
 <div class="side-panel">
   <div class="side-title">отзывы</div>
-  {% comment %}<div class="reviews__item clearfix">
-    <span class="reviews__item__text"><img class="reviews__item__icon" src="{% static "img/RevFst_00.png" %}">Заказал проект дома и собственно сам дом в компании "Красный двор" и ни разу не пожалел об этом. В компании
-      работают настоящие профессионалы. Проект сделали очень быстро, не упустили ни одного моего пожелания; несколько раз проект присылали на
-      согласование, пока в компании не убедились, что меня все устраивает... <a href="{% url 'review' %}#kovilkino">весь отзыв</a>
+  <div class="reviews__item clearfix">
+    <span class="reviews__item__text"><img class="reviews__item__icon" src="{% static "img/Novoklemovo_Rev.png" %}">Слаженная, качественная, оперативная работа, как по согласованию, так и по доставке так и по строительству. Компания ориентирована абсолютно на удобство для клиента... <a
+            href="{% url 'review' %}#novoklyomovo">весь отзыв</a>
     </span>
 
-    <div class="reviews__item__name">Кузнецов Владимир</div>
-    <div class="reviews__item__date">16 февраля 2017</div>
-  </div>{% endcomment %}
+    <div class="reviews__item__name">Болотин Сергей</div>
+    <div class="reviews__item__date">25 декабря 2017</div>
+  </div>
+  <div class="reviews__item clearfix">
+    <span class="reviews__item__text"><img class="reviews__item__icon" src="{% static "img/Tihij_Rev.png" %}">Заказывали дом в компании "Красный двор" из термопанелей. В компании работают действительно профессионалы, выбрали один из готовых проектов по нашим требованиям, подсказали нюансы и подводные камни, несколько раз переделывали проект в итоге пришли к идеальному варианту... <a
+            href="{% url 'review' %}#tihij-bereg">весь отзыв</a>
+    </span>
+
+    <div class="reviews__item__name">Шуклина Ольга</div>
+    <div class="reviews__item__date">28 ноября 2017</div>
+  </div>
+{% comment %}
   <div class="reviews__item clearfix">
     <span class="reviews__item__text"><img class="reviews__item__icon" src="{% static "img/RevMich_00.png" %}">Приношу слова благодарности строителям моего дачного домика. Все понравилось, ребята работали дружно и слаженно. Все выявленные недостатки сразу же устранялись без лишних вопросов. Был составлен договор на один объем работы, но после возведения домика решила продолжить работу с этими же ребятами по благоустройству близлежащей территории... <a
             href="{% url 'review' %}#michurinec">весь отзыв</a>
@@ -126,6 +134,8 @@
     <div class="reviews__item__name">Глоталина Надежда</div>
     <div class="reviews__item__date">21 июля 2017</div>
   </div>
+{% endcomment %}
+{% comment %}
   <div class="reviews__item clearfix">
     <span class="reviews__item__text"><img class="reviews__item__icon" src="{% static "img/RevCvet_00.png" %}">Хочу выразить слова благодарности Андрею и его бригаде. Я долго искал проект дома, хотел, чтобы в самом доме был туалет, обязательно веранда, комната и кухня на 1-м этаже, две комнаты на 2-м этаже. Долго искал и нашел, но строить собирались каркасный из ОСВ панелей, но в начале сомнивался думали, что будет холодно в таком доме – всетаки бывает и ниже -30). Но потом по рекомендации друзей, дом которых мне очень понравился (качество возведения, внешний вид и т.д.)... <a
             href="{% url 'review' %}#paygarma">весь отзыв</a>
@@ -134,5 +144,6 @@
     <div class="reviews__item__name">Приказчиков Юрий</div>
     <div class="reviews__item__date">1 марта 2017</div>
   </div>
+{% endcomment %}
   <a href="{% url 'review' %}" class="all-reviews">все отзывы</a>
 </div>
