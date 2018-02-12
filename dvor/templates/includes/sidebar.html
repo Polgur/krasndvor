@@ -75,17 +75,25 @@
 <div class="side-panel">
   <div class="side-title">Новости</div>
   <div class="news__item clearfix">
+    <div class="news__item__date">11 февраля 2018</div>
+    <div class="news__item__title"><a href="{% url 'reconst' %}">Частный дом, г. Серпухов</a></div>
+    <div class="news__item__img"><a href="{% url 'reconst' %}"><img src="{% static "img/Serpuhov_rec.png" %}"></a></div>
+    <span class="news__item__text">Мы приступили к реконструкции частного дома в городе Серпухов Московской области.</span>
+  </div>
+  <div class="news__item clearfix">
     <div class="news__item__date">24 декабря 2017</div>
     <div class="news__item__title"><a href="{% url 'our_karkas' %}">Коттедж 130 м2, п. Новоклёмово</a></div>
     <div class="news__item__img"><a href="{% url 'our_karkas' %}"><img src="{% static "img/Novoklemovo_Got.png" %}"></a></div>
     <span class="news__item__text">Мы закончили строительство дома в поселке Новоклёмово</span>
   </div>
+{% comment %}
   <div class="news__item clearfix">
     <div class="news__item__date">26 ноября 2017</div>
     <div class="news__item__title"><a href="{% url 'our_karkas' %}">Коттедж 130 м2, п. Новоклёмово</a></div>
     <div class="news__item__img"><a href="{% url 'our_karkas' %}"><img src="{% static "img/Novoklemovo_Ind.png" %}"></a></div>
     <span class="news__item__text">Мы начали строительство коттеджа по Каркасной технологии в поселке Новоклёмово Московской области.</span>
   </div>
+{% endcomment %}
   <div class="news__item clearfix">
     <div class="news__item__date">17 октября 2017</div>
     <div class="news__item__title"><a href="{% url 'our_termo' %}?page=1">Коттедж 128 м2, п. Тамала</a></div>
@@ -109,6 +117,14 @@
 </div>
 <div class="side-panel">
   <div class="side-title">отзывы</div>
+  <div class="reviews__item clearfix">
+    <span class="reviews__item__text"><img class="reviews__item__icon" src="{% static "img/Pahra_Rev.png" %}">Прошел год, с момента окончания строительства нашего дома. За этот период, наш дом уже пережил штормовой ветер в течении недели. Теперь уже ежегодный, "ледяной дождь". Морозы в тридцать градусов... <a
+            href="{% url 'review' %}#pahra">весь отзыв</a>
+    </span>
+
+    <div class="reviews__item__name">Матюхин Алексей</div>
+    <div class="reviews__item__date">09 февраля 2018</div>
+  </div>
   <div class="reviews__item clearfix">
     <span class="reviews__item__text"><img class="reviews__item__icon" src="{% static "img/Novoklemovo_Rev.png" %}">Слаженная, качественная, оперативная работа, как по согласованию, так и по доставке так и по строительству. Компания ориентирована абсолютно на удобство для клиента... <a
             href="{% url 'review' %}#novoklyomovo">весь отзыв</a>
