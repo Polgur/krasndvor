@@ -18,7 +18,7 @@ class IndexPage(MenuMixin, TemplateView):
 
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
-        ctx['projects'] = Project.objects.filter(name__in=['Ольгово', 'Дубровицы', 'Никольское']).order_by('square')
+        ctx['projects'] = Project.objects.filter(name__in=['Ольгово', 'Киреево', 'Аполье']).order_by('square')
         return ctx
 
 
@@ -32,7 +32,7 @@ class SectionTermo(MenuMixin, TemplateView):
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
         ctx['projects_term'] = Project.objects.filter(
-            name__in=['Подушкино', 'Марфино', 'Аполье', 'Киреево', 'Дарьино', 'Мелихово']).order_by(
+            name__in=['Подушкино', 'Марфино', 'Аполье', 'Киреево', 'Дарьино', 'Кораллово']).order_by(
             'square')
         return ctx
 
@@ -61,7 +61,7 @@ class SectionKarkas(MenuMixin, TemplateView):
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
         ctx['projects_kars'] = Project.objects.filter(
-            name__in=['Ольгово', 'Дубровицы', 'Никольское', 'Подушкино', 'Марфино', 'Аполье']).order_by('square')
+            name__in=['Ольгово', 'Киреево', 'Захарово', 'Подушкино', 'Марфино', 'Аполье']).order_by('square')
         return ctx
 
 
