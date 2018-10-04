@@ -155,6 +155,7 @@ class ReconstPhoto(models.Model):
     class Meta:
         verbose_name = 'Фото реконструкции'
         verbose_name_plural = 'Фото реконструкции'
+        ordering = ["sort"]
 
     def __str__(self):
         return self.prn.mnemo.title()
