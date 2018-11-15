@@ -66,7 +66,7 @@
 {% endblock %}
 {% block content %}
   <ol class="breadcrumbs">
-    <li><a href="\">Главная</a></li>
+    <li><a href="{% url 'index_page' %}">Главная</a></li>
     <li><a href="{% url 'project_list' %}?tech={{ techfilter.pk }}&search=1&vid=0&pmin=0&pmax=5000000&smin=0&smax=500">Проекты</a>
     </li>
     {% if techfilter.pk == 2 %}

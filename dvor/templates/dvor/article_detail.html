@@ -11,7 +11,7 @@
 
 {% block content %}
   <ol class="breadcrumbs">
-    <li><a href="\">Главная</a></li>
+    <li><a href="{% url 'index_page' %}">Главная</a></li>
     <li><a href="{% url 'article_list' %}">Статьи</a></li>
     <li class="active">{{ article.name|title }}</li>
   </ol>
