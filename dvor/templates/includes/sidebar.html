@@ -40,8 +40,8 @@
   <div class="map katalog-img">
     <a href="https://yandex.ru/maps/?um=constructor%3A7aaab0be1e3d5e6c7fa2ed9128ec3c27cc09bbc1af9daf64455b0b113c34f564&amp;source=constructorStatic"
        target="_blank"><img
-            src="https://api-maps.yandex.ru/services/constructor/1.0/static/?um=constructor%3A7aaab0be1e3d5e6c7fa2ed9128ec3c27cc09bbc1af9daf64455b0b113c34f564&amp;width=260&amp;height=240&amp;lang=ru_RU"
-            alt="" style="border: 0;"/></a>
+        src="https://api-maps.yandex.ru/services/constructor/1.0/static/?um=constructor%3A7aaab0be1e3d5e6c7fa2ed9128ec3c27cc09bbc1af9daf64455b0b113c34f564&amp;width=260&amp;height=240&amp;lang=ru_RU"
+        alt="" style="border: 0;"/></a>
   </div>
   <br>
   <div class="address"><b>офис в г. Пенза </b><br>
@@ -50,8 +50,8 @@
   <div class="map katalog-img">
     <a href="https://yandex.ru/maps/?um=constructor%3Ae69dbd52d1d37df3953a4c27d55b582e2a11707d671886862f279f19dbce1b3d&amp;source=constructorStatic"
        target="_blank"><img
-            src="https://api-maps.yandex.ru/services/constructor/1.0/static/?um=constructor%3Ae69dbd52d1d37df3953a4c27d55b582e2a11707d671886862f279f19dbce1b3d&amp;width=260&amp;height=240&amp;lang=ru_RU"
-            alt="" style="border: 0;"/></a>
+        src="https://api-maps.yandex.ru/services/constructor/1.0/static/?um=constructor%3Ae69dbd52d1d37df3953a4c27d55b582e2a11707d671886862f279f19dbce1b3d&amp;width=260&amp;height=240&amp;lang=ru_RU"
+        alt="" style="border: 0;"/></a>
   </div>
   <br>
 </div>
@@ -70,13 +70,16 @@
       {% endwith %}
     </div>
   </a>
+  <div class="record-tour"><a href="{% url 'expo' %}">Записаться на экскурсию</a><br></div>
+  <div class="tour">Тел. <a target="_blank" href="tel:+79273752958">+7 (927) 375-29-58</a></div>
 </div>
 <div class="side-panel">
   <div class="side-title">Новости</div>
   <div class="news__item clearfix">
     <div class="news__item__date">27 сентября 2018</div>
     <div class="news__item__title"><a href="{% url 'our_termo' %}?page=5">Коттедж, п. Тихий берег</a></div>
-    <div class="news__item__img"><a href="{% url 'our_termo' %}?page=5"><img src="{% static "img/TihbVne_Rec.png" %}"></a></div>
+    <div class="news__item__img"><a href="{% url 'our_termo' %}?page=5"><img
+        src="{% static "img/TihbVne_Rec.png" %}"></a></div>
     <span class="news__item__text">Приступили к отделке фасада дома построенного по технологии Комбинированные термопанели. Московская обл., п. Тихий берег.</span>
   </div>
   <div class="news__item clearfix">
@@ -88,22 +91,24 @@
   <div class="news__item clearfix">
     <div class="news__item__date">28 июля 2018</div>
     <div class="news__item__title"><a href="{% url 'our_termo' %}?page=1">Коттедж 95 м2, г. Саратов</a></div>
-    <div class="news__item__img"><a href="{% url 'our_termo' %}?page=1"><img src="{% static "img/Sar_Ind.png" %}"></a></div>
+    <div class="news__item__img"><a href="{% url 'our_termo' %}?page=1"><img src="{% static "img/Sar_Ind.png" %}"></a>
+    </div>
     <span class="news__item__text">Мы начали строительство коттеджа по технологии Комбинированные термопанели в г. Саратове.</span>
   </div>
   <div class="news__item clearfix">
     <div class="news__item__date">29 июня 2018</div>
     <div class="news__item__title"><a href="{% url 'reconst' %}">Частный дом, п. Щапово</a></div>
-    <div class="news__item__img"><a href="{% url 'reconst' %}"><img src="{% static "img/Shchapovo_Rec.png" %}"></a></div>
+    <div class="news__item__img"><a href="{% url 'reconst' %}"><img src="{% static "img/Shchapovo_Rec.png" %}"></a>
+    </div>
     <span class="news__item__text">Приступили к внутренней и внешней отделке частного дома в поселке Щапово Московской области.</span>
   </div>
-{% comment %}  <div class="news__item clearfix">
+  {% comment %}  <div class="news__item clearfix">
     <div class="news__item__date">23 марта 2018</div>
     <div class="news__item__title"><a href="{% url 'our_termo' %}?page=1">Коттедж 128 м2, п. Тамала</a></div>
     <div class="news__item__img"><a href="{% url 'our_termo' %}?page=1"><img src="{% static "img/Tamala_Got.png" %}"></a></div>
     <span class="news__item__text">Приступили к внутренней отделке дома из термопанелей в поселке Тамала.</span>
   </div>{% endcomment %}
-{% comment %}  <div class="news__item clearfix">
+  {% comment %}  <div class="news__item clearfix">
     <div class="news__item__date">11 февраля 2018</div>
     <div class="news__item__title"><a href="{% url 'reconst' %}">Частный дом, г. Серпухов</a></div>
     <div class="news__item__img"><a href="{% url 'reconst' %}"><img src="{% static "img/Serpuhov_Rec.png" %}"></a></div>
@@ -115,7 +120,7 @@
     <div class="news__item__img"><a href="{% url 'our_karkas' %}"><img src="{% static "img/Novoklemovo_Got.png" %}"></a></div>
     <span class="news__item__text">Мы закончили строительство дома в поселке Новоклёмово</span>
   </div>{% endcomment %}
-{% comment %}
+  {% comment %}
   <div class="news__item clearfix">
     <div class="news__item__date">26 ноября 2017</div>
     <div class="news__item__title"><a href="{% url 'our_karkas' %}">Коттедж 130 м2, п. Новоклёмово</a></div>
@@ -123,7 +128,7 @@
     <span class="news__item__text">Мы начали строительство коттеджа по Каркасной технологии в поселке Новоклёмово Московской области.</span>
   </div>
 {% endcomment %}
-{% comment %}
+  {% comment %}
   <div class="news__item clearfix">
     <div class="news__item__date">31 августа 2017</div>
     <div class="news__item__title"><a href="{% url 'promo' %}">Силовой каркас дома из пиломатериала камерной сушки в подарок!</a></div>
@@ -142,7 +147,7 @@
   <div class="side-title">отзывы</div>
   <div class="reviews__item clearfix">
     <span class="reviews__item__text"><img class="reviews__item__icon" src="{% static "img/Pahra_Rev.png" %}">Прошел год, с момента окончания строительства нашего дома. За этот период, наш дом уже пережил штормовой ветер в течении недели. Теперь уже ежегодный, "ледяной дождь". Морозы в тридцать градусов... <a
-            href="{% url 'review' %}#pahra">весь отзыв</a>
+        href="{% url 'review' %}#pahra">весь отзыв</a>
     </span>
 
     <div class="reviews__item__name">Матюхин Алексей</div>
@@ -150,7 +155,7 @@
   </div>
   <div class="reviews__item clearfix">
     <span class="reviews__item__text"><img class="reviews__item__icon" src="{% static "img/Novoklemovo_Rev.png" %}">Слаженная, качественная, оперативная работа, как по согласованию, так и по доставке так и по строительству. Компания ориентирована абсолютно на удобство для клиента... <a
-            href="{% url 'review' %}#novoklyomovo">весь отзыв</a>
+        href="{% url 'review' %}#novoklyomovo">весь отзыв</a>
     </span>
 
     <div class="reviews__item__name">Болотин Сергей</div>
@@ -158,13 +163,13 @@
   </div>
   <div class="reviews__item clearfix">
     <span class="reviews__item__text"><img class="reviews__item__icon" src="{% static "img/Tihij_Rev.png" %}">Заказывали дом в компании "Красный двор" из термопанелей. В компании работают действительно профессионалы, выбрали один из готовых проектов по нашим требованиям, подсказали нюансы и подводные камни, несколько раз переделывали проект в итоге пришли к идеальному варианту... <a
-            href="{% url 'review' %}#tihij-bereg">весь отзыв</a>
+        href="{% url 'review' %}#tihij-bereg">весь отзыв</a>
     </span>
 
     <div class="reviews__item__name">Шуклина Ольга</div>
     <div class="reviews__item__date">28 ноября 2017</div>
   </div>
-{% comment %}
+  {% comment %}
   <div class="reviews__item clearfix">
     <span class="reviews__item__text"><img class="reviews__item__icon" src="{% static "img/RevMich_00.png" %}">Приношу слова благодарности строителям моего дачного домика. Все понравилось, ребята работали дружно и слаженно. Все выявленные недостатки сразу же устранялись без лишних вопросов. Был составлен договор на один объем работы, но после возведения домика решила продолжить работу с этими же ребятами по благоустройству близлежащей территории... <a
             href="{% url 'review' %}#michurinec">весь отзыв</a>
@@ -174,7 +179,7 @@
     <div class="reviews__item__date">21 июля 2017</div>
   </div>
 {% endcomment %}
-{% comment %}
+  {% comment %}
   <div class="reviews__item clearfix">
     <span class="reviews__item__text"><img class="reviews__item__icon" src="{% static "img/RevCvet_00.png" %}">Хочу выразить слова благодарности Андрею и его бригаде. Я долго искал проект дома, хотел, чтобы в самом доме был туалет, обязательно веранда, комната и кухня на 1-м этаже, две комнаты на 2-м этаже. Долго искал и нашел, но строить собирались каркасный из ОСВ панелей, но в начале сомнивался думали, что будет холодно в таком доме – всетаки бывает и ниже -30). Но потом по рекомендации друзей, дом которых мне очень понравился (качество возведения, внешний вид и т.д.)... <a
             href="{% url 'review' %}#paygarma">весь отзыв</a>

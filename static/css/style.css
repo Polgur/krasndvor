@@ -880,6 +880,31 @@ header {
     text-decoration: none;
     color: #b03f19;
 }
+.main-sidebar .record-tour {
+    font-family: ARussDecor;
+    color: #86050b;
+    font-size: 19px;
+    line-height: 20px;
+    text-align: center;
+}.main-sidebar .tour {
+    font-family: ARussDecor;
+    color: #651e04;
+    text-align: center;
+}
+.main-sidebar .record-tour a {
+    color: #86050b;
+    text-decoration: underline;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+}
+.main-sidebar .tour a {
+    color: #651e04;
+    text-decoration: none;
+}
+.main-sidebar .tour a:hover, .main-sidebar .record-tour a:hover {
+    text-decoration: none;
+    color: #b03f19;
+}
 .main-sidebar .contacts__item__img, .main-sidebar .news__item__img, .main-sidebar .reviews__item__img {
     float: left;
     margin-right: 12px;
