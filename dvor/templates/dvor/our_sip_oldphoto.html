@@ -1,0 +1,1324 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load thumbnail %}
+
+{% block content %}
+  <ol class="breadcrumbs">
+    <li><a href="{% url 'index_page' %}">Главная</a></li>
+    <li class="active">Построенные объекты - Дома из СИП панелей</li>
+  </ol>
+
+  <div class="content-page clearfix">
+    {% for obj in readyobj_list %}
+      <div class="clearfix">
+        <h2>{{ obj.name }}</h2>
+        <p style="text-align: center">{{ obj.description }}</p>
+        <div class="gallery-div col-lg-6 col-xs-12">
+          <div class="gallery-stage">
+            <a class="gallery" href="{{ obj.img.url }}">
+              {% thumbnail obj.img "600x450" crop="center" format="PNG" as im %}
+                <img class="img-responsive content-img" src="{{ im.url }}" alt="">
+              {% endthumbnail %}
+            </a>
+          </div>
+        </div>
+        {% for photo in obj.photos.all %}
+          <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+            <div class="gallery-stage">
+              <a class="gallery" href="{{ photo.img.url }}">
+                {% thumbnail photo.img "300x225" crop="center" format="PNG" as im %}
+                  <img class="img-responsive content-img" src="{{ im.url }}" alt="">
+                {% endthumbnail %}
+              </a>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% endfor %}
+  </div>
+
+  {% comment %}<div class="content-page clearfix">
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_01.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_01.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_02.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_02.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_03.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_03.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_04.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_04.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_05.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_05.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_06.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_06.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_07.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_07.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_08.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_08.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_09.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_09.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_10.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_10.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_11.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_11.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_12.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_12.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_13.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_13.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_14.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_14.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_15.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_15.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_16.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_16.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_17.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_17.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_18.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_18.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_19.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_19.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_20.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_20.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_21.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_21.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_22.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_22.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_23.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_23.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_24.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_24.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_25.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_25.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_26.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_26.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_27.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_27.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_28.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_28.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_29.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_29.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_30.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_30.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_31.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_31.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_32.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_32.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_33.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_33.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_34.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_34.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_35.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_35.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_36.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_36.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_37.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_37.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_38.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_38.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_39.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_39.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_40.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_40.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_41.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_41.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_42.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_42.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_43.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_43.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_44.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_44.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_45.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_45.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_46.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_46.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_47.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_47.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_48.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_48.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_49.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_49.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_50.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_50.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_51.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_51.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_52.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_52.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_53.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_53.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_54.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_54.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_55.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_55.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_56.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_56.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_57.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_57.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_58.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_58.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_59.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_59.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_60.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_60.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_61.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_61.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_62.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_62.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_63.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_63.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_64.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_64.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_65.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_65.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_66.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_66.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_67.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_67.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_68.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_68.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_69.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_69.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_70.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_70.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_71.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_71.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_72.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_72.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_73.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_73.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_74.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_74.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_76.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_76.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_77.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_77.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_78.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_78.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_79.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_79.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_80.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_80.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_81.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_81.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_82.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_82.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_83.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_83.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_90.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_90.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_91.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_91.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_92.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_92.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_93.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_93.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_94.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_94.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_95.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_95.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_96.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_96.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_97.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_97.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_98.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_98.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_99.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_99.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_100.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_100.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_101.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_101.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_102.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_102.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_103.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_103.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_104.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_104.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_105.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_105.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_106.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_106.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_107.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_107.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_108.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_108.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_109.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_109.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_110.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_110.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_111.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_111.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_112.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_112.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_113.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_113.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_114.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_114.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_115.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_115.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_116.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_116.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_117.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_117.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_118.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_118.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_119.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_119.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_120.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_120.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_121.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_121.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_122.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_122.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+    <div class="gallery-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+      <div class="gallery-stage">
+        <a class="gallery" href="{% static "content/OurSip_123.jpg" %}">
+          {% with url_path=MEDIA_URL|add:"content/OurSip_123.jpg" %}
+            {% thumbnail url_path "300x225" crop="center" format="PNG" as im %}
+              <img class="img-responsive content-img" src="{{ im.url }}" alt="{{ im.url }}">
+            {% endthumbnail %}
+          {% endwith %}
+        </a>
+      </div>
+    </div>
+  </div>{% endcomment %} <!-- /.content-article -->
+{% endblock %}
