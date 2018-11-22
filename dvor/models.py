@@ -126,6 +126,7 @@ class ReadyPhoto(models.Model):
     class Meta:
         verbose_name = 'Фото объекта'
         verbose_name_plural = 'Фото объекта'
+        ordering = ["sort"]
 
     def __str__(self):
         return self.prn.mnemo.title()
