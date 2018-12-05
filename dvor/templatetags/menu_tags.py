@@ -22,6 +22,8 @@ def get_tech():
             #{'name': "Дуплексы", 'clss': '', 'url': "{}?{}&tech={}".format(reverse("project_list"), "search=1&vid=2&pmin=0&pmax=5000000&smin=0&smax=500", tech.pk)},
         ]
         tech_list.append(item)
+    tech_list.append({'name': "divider", 'clss': '', 'url': '#', 'slug': ''},)
+    tech_list.append({'name': "Акционный дом", 'clss': '', 'url': reverse("promodom"), 'slug': 'promodom'},)
     return tech_list
 
 
@@ -56,7 +58,7 @@ menu = [
         [
             #{'name': "Вопросы и ответы", 'clss': '', 'url': '#', 'slug': 'questions'},
             #{'name': "Акции", 'clss': '', 'url': reverse("promo"), 'slug': 'promo'},
-            {'name': "Акционный дом", 'clss': '', 'url': reverse("promodom"), 'slug': 'promodom'},
+            #{'name': "Акционный дом", 'clss': '', 'url': reverse("promodom"), 'slug': 'promodom'},
             {'name': "Статьи", 'clss': '', 'url': reverse("article_list"), 'slug': 'articles'},
             {'name': "Сертификаты", 'clss': '', 'url': reverse("certif"), 'slug': 'certif'},
         ]},

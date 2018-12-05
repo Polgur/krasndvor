@@ -261,7 +261,7 @@ class Promo(MenuMixin, TemplateView):
 
 class PromoDom(MenuMixin, DetailView):
     menu_slug = [
-        "info",
+        "projects",
         "promodom",
     ]
     template_name = 'dvor/promodom.html'
@@ -289,7 +289,7 @@ class PromoDom(MenuMixin, DetailView):
 
 class PromoDom2(MenuMixin, DetailView):
     menu_slug = [
-        "info",
+        "projects",
         "promodom2",
     ]
     template_name = 'dvor/promodom2.html'
