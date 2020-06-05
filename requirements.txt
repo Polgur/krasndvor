@@ -1,4 +1,4 @@
-Django==1.10.5
+Django==1.11.29
 django-ckeditor==5.2.1
 olefile==0.44
 Pillow==4.0.0
