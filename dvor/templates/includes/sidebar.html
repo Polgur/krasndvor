@@ -79,6 +79,12 @@
 <div class="side-panel">
   <div class="side-title">Новости</div>
   <div class="news__item clearfix">
+    <div class="news__item__date">29 августа 2019</div>
+    <div class="news__item__title"><a href="{% url 'reconst' %}">Частный дом, д. Артёмовка</a></div>
+    <div class="news__item__img"><a href="{% url 'reconst' %}"><img src="{% static "img/Artem_Rec.png" %}"></a></div>
+    <span class="news__item__text">Реконструкция частного дома в Тульской обл., д. Артёмовка.</span>
+  </div>
+  <div class="news__item clearfix">
     <div class="news__item__date">27 сентября 2018</div>
     <div class="news__item__title"><a href="{% url 'our_termo' %}?page=5">Коттедж, п. Тихий берег</a></div>
     <div class="news__item__img"><a href="{% url 'our_termo' %}?page=5"><img
@@ -98,13 +104,13 @@
     </div>
     <span class="news__item__text">Мы начали строительство коттеджа по технологии Комбинированные термопанели в г. Саратове.</span>
   </div>
-  <div class="news__item clearfix">
+{% comment %}  <div class="news__item clearfix">
     <div class="news__item__date">29 июня 2018</div>
     <div class="news__item__title"><a href="{% url 'reconst' %}">Частный дом, п. Щапово</a></div>
     <div class="news__item__img"><a href="{% url 'reconst' %}"><img src="{% static "img/Shchapovo_Rec.png" %}"></a>
     </div>
     <span class="news__item__text">Приступили к внутренней и внешней отделке частного дома в поселке Щапово Московской области.</span>
-  </div>
+  </div>{% endcomment %}
   {% comment %}  <div class="news__item clearfix">
     <div class="news__item__date">23 марта 2018</div>
     <div class="news__item__title"><a href="{% url 'our_termo' %}?page=1">Коттедж 128 м2, п. Тамала</a></div>
